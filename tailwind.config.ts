@@ -41,7 +41,7 @@ const config: Config = {
                borderRadius: '.5rem',
                borderWidth: '1px',
                padding: '.25rem .5rem',
-               fontSize: '.875rem',
+               fontSize: '1em',
                lineHeight: '1.25rem',
                '--tw-shadow': '0 1px 2px 0 rgba(0, 0, 0, .05)',
                '--tw-shadow-colored': '0 1px 2px 0 var(--tw-shadow-color)',
