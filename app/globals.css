@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+   font-size: 100%;
+}
+
 svg {
    flex-shrink: 0;
 }

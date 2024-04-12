@@ -9,7 +9,7 @@ type JadeProps = {
 const Jade: React.FC<JadeProps> = ({ className }) => {
    return (
       <div id="Jade" className={className}>
-         <h1 className={`${lora.className} text-xl font-normal-mid italic`}>Jade van Dorsten</h1>
+         <h1 className={`${lora.className} text-[1.5em] font-normal-mid italic`}>Jade van Dorsten</h1>
          <p className="my-3.5">
             <span className="italic">long story short</span>, I'm a human and a netizen.
          </p>
