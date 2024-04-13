@@ -1,5 +1,5 @@
-import { PostMatter, PostReturn } from '@/app/lib/blog/definitions';
-import { getPost } from '@/app/lib/blog/getPost';
+import { PostMatter, PostReturn } from "@/app/lib/blog/definitions";
+import { getPost } from "@/app/lib/blog/getPost";
 
 export const getPostBySlug = (posts: PostMatter[], slug: string, postReturn: PostReturn) => {
    const postFileName = posts.find((post) => post.slug === slug)?.filename;

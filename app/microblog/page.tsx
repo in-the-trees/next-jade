@@ -1,6 +1,6 @@
-import { Suspense } from 'react';
-import Microblog from '@/app/ui/microblog/main';
-import { lora } from '@/app/ui/fonts';
+import { Suspense } from "react";
+import Microblog from "@/app/ui/microblog/main";
+import { lora } from "@/app/ui/fonts";
 
 export default function Blog() {
    return (

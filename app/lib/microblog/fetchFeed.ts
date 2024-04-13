@@ -3,6 +3,4 @@ const fetchFeed = async (url: string) => {
    return await response.json();
 };
 
-export {
-   fetchFeed
-};
+export { fetchFeed };

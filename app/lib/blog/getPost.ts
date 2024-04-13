@@ -1,18 +1,14 @@
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
 
-import {
-   Post,
-   PostMatter,
-   PostReturn
-} from '@/app/lib/blog/definitions';
-import { postsDirectory } from '@/app/lib/blog/getPostsFiles';
+import { Post, PostMatter, PostReturn } from "@/app/lib/blog/definitions";
+import { postsDirectory } from "@/app/lib/blog/getPostsFiles";
 
 export const getPost = async (postFile: string, postReturn: PostReturn) => {
    try {
       const fullPostPath = path.join(postsDirectory, postFile);
-      const fileContents = fs.readFileSync(fullPostPath, 'utf8');
+      const fileContents = fs.readFileSync(fullPostPath, "utf8");
 
       const postRaw = matter(fileContents);
       const postMatter = postRaw.data as PostMatter;
@@ -24,11 +20,11 @@ export const getPost = async (postFile: string, postReturn: PostReturn) => {
          const content = postRaw.content;
          const post: Post = {
             postMatter,
-            content
+            content,
          };
          return post;
       } else {
-         throw new Error('Invalid post return amount');
+         throw new Error("Invalid post return amount");
       }
    } catch (error) {
       console.error(`Failed to get post data for file: ${postFile}`);

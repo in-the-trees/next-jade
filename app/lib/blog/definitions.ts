@@ -1,6 +1,6 @@
 export enum PostReturn {
    FULL,
-   MATTER_ONLY
+   MATTER_ONLY,
 }
 
 export interface PostMatter {

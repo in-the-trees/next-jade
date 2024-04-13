@@ -1,6 +1,6 @@
-import { inter, lora } from '@/app/ui/fonts';
-import Link from 'next/link'
-import { DocumentTextIcon } from '@heroicons/react/24/outline';
+import { inter, lora } from "@/app/ui/fonts";
+import Link from "next/link";
+import { DocumentTextIcon } from "@heroicons/react/24/outline";
 
 type JadeProps = {
    className?: string;
@@ -45,10 +45,7 @@ const Jade: React.FC<JadeProps> = ({ className }) => {
                </a>
             </li>
             <li>
-               <a
-                  className="text-blue-500 hover:underline"
-                  href="mailto:jade@van-dorsten.net"
-               >
+               <a className="text-blue-500 hover:underline" href="mailto:jade@van-dorsten.net">
                   jade@van-dorsten.net
                </a>
             </li>
@@ -65,40 +62,28 @@ const Jade: React.FC<JadeProps> = ({ className }) => {
          <p className="mt-3.5 mb-1.75">Web presence:</p>
          <ul className="mt-1.75 mb-3.5 list-disc list-inside ml-4">
             <li>
-               <a
-                  className="text-blue-500 hover:underline"
-                  href="https://github.com/typejade"
-               >
+               <a className="text-blue-500 hover:underline" href="https://github.com/typejade">
                   github.com/typejade
                </a>
             </li>
             <li>
-               <a
-                  className="text-blue-500 hover:underline"
-                  href="https://micro.blog/typejade"
-               >
+               <a className="text-blue-500 hover:underline" href="https://micro.blog/typejade">
                   micro.blog/typejade
                </a>
             </li>
             <li>
-               <a
-                  className="text-blue-500 hover:underline"
-                  href="https://www.threads.net/@typejade_"
-               >
+               <a className="text-blue-500 hover:underline" href="https://www.threads.net/@typejade_">
                   threads.net/@typejade_
                </a>
             </li>
             <li>
-               <a
-                  className="text-blue-500 hover:underline"
-                  href="https://x.com/@typejade_"
-               >
+               <a className="text-blue-500 hover:underline" href="https://x.com/@typejade_">
                   x.com/@typejade_
                </a>
             </li>
          </ul>
       </div>
    );
-}
+};
 
 export default Jade;

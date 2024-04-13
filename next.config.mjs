@@ -1,8 +1,8 @@
-import withMDX from '@next/mdx'
+import withMDX from "@next/mdx";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
+   pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
    output: "export",
    images: {
       loader: "custom",

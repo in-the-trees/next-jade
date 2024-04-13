@@ -1,4 +1,4 @@
-import Jade from '@/app/ui/Jade';
+import Jade from "@/app/ui/Jade";
 
 export default function Home() {
    return (

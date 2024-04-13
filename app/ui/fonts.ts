@@ -1,10 +1,10 @@
-import { Inter } from 'next/font/google';
-import { Lora } from 'next/font/google';
- 
+import { Inter } from "next/font/google";
+import { Lora } from "next/font/google";
+
 export const inter = Inter({
-   subsets: ['latin'],
+   subsets: ["latin"],
 });
 export const lora = Lora({
-   subsets: ['latin'],
-   style: ['normal', 'italic'],
+   subsets: ["latin"],
+   style: ["normal", "italic"],
 });

@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect } from 'react';
-import { fetchFeed } from '@/app/lib/microblog/fetchFeed';
+import { useState, useEffect } from "react";
+import { fetchFeed } from "@/app/lib/microblog/fetchFeed";
 
 type MicroblogProps = {
    className?: string;
@@ -13,10 +13,10 @@ const Microblog: React.FC<MicroblogProps> = ({ className }) => {
    useEffect(() => {
       const fetchData = async () => {
          try {
-            const data = await fetchFeed('https://jade.van-dorsten.net/microblog/feed.json');
+            const data = await fetchFeed("https://jade.van-dorsten.net/microblog/feed.json");
             setFeed(data);
          } catch (error) {
-            console.error('Error fetching feed:', error);
+            console.error("Error fetching feed:", error);
          }
       };
 
@@ -25,11 +25,9 @@ const Microblog: React.FC<MicroblogProps> = ({ className }) => {
 
    return (
       <div className={className}>
-         {feed ? (
+         {feed ?
             <pre>{JSON.stringify(feed, null, 3)}</pre>
-         ) : (
-            <p>Loading...</p>
-         )}
+         :  <p>Loading...</p>}
       </div>
    );
 };
