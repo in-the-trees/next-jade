@@ -4,7 +4,7 @@ import {
    PostMatter,
    Post,
    getPost
-} from '@/app/blog/lib/main';
+} from '@/app/lib/blog/main';
 
 const posts = await getPosts(PostReturn.MATTER_ONLY) as PostMatter[];
 
