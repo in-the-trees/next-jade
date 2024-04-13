@@ -2,7 +2,7 @@ import Jade from '@/app/ui/Jade';
 
 export default function Home() {
    return (
-      <main>
+      <main id="home">
          <div className="flex justify-center items-center">
             <Jade
                className="
