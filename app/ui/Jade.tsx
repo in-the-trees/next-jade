@@ -14,8 +14,8 @@ const Jade: React.FC<JadeProps> = ({ className }) => {
             <span className="italic">long story short</span>, I'm a human and a netizen.
          </p>
 
-         <p className="mt-3.5 mb-1.75">A few things about me:</p>
-         <ul className="mt-1.75 mb-3.5 list-disc list-inside ml-4">
+         <p className="mb-1.75 mt-3.5">A few things about me:</p>
+         <ul className="mb-3.5 ml-4 mt-1.75 list-inside list-disc">
             <li className="text-gray-900">20, he/him</li>
             <li className="text-gray-900">Web developer, mainly front-end</li>
             <li className="text-gray-900">Digital privacy & security enthusiast</li>
@@ -23,19 +23,19 @@ const Jade: React.FC<JadeProps> = ({ className }) => {
          </ul>
 
          <p className="my-3.5">Where I publish:</p>
-         <div className="mt-3.5 mb-5 flex flex-wrap items-center gap-2">
+         <div className="mb-5 mt-3.5 flex flex-wrap items-center gap-2">
             <Link href="/microblog" className="btn-sm">
-               <DocumentTextIcon className="w-4 h-4" />
+               <DocumentTextIcon className="h-4 w-4" />
                My microblog
             </Link>
             <Link href="/blog" className="btn-sm">
-               <DocumentTextIcon className="w-4 h-4" />
+               <DocumentTextIcon className="h-4 w-4" />
                My blog
             </Link>
          </div>
 
-         <p className="mt-3.5 mb-1.75">Contact me:</p>
-         <ul className="mt-1.75 mb-3.5 list-disc list-inside ml-4">
+         <p className="mb-1.75 mt-3.5">Contact me:</p>
+         <ul className="mb-3.5 ml-4 mt-1.75 list-inside list-disc">
             <li>
                <a
                   className="text-blue-500 hover:underline"
@@ -59,8 +59,8 @@ const Jade: React.FC<JadeProps> = ({ className }) => {
             </li>
          </ul>
 
-         <p className="mt-3.5 mb-1.75">Web presence:</p>
-         <ul className="mt-1.75 mb-3.5 list-disc list-inside ml-4">
+         <p className="mb-1.75 mt-3.5">Web presence:</p>
+         <ul className="mb-3.5 ml-4 mt-1.75 list-inside list-disc">
             <li>
                <a className="text-blue-500 hover:underline" href="https://github.com/typejade">
                   github.com/typejade
