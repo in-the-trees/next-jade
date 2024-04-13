@@ -10,6 +10,8 @@
       "export": "next build && next-image-export-optimizer"
    },
    "dependencies": {
+      "@cloudflare/next-on-pages": "^1.11.0",
+      "@cloudflare/workers-types": "^4.20240405.0",
       "@heroicons/react": "^2.1.3",
       "@mdx-js/loader": "^3.0.1",
       "@mdx-js/react": "^3.0.1",
@@ -21,7 +23,8 @@
       "next-image-export-optimizer": "^1.12.3",
       "next-mdx-remote": "^4.4.1",
       "react": "^18",
-      "react-dom": "^18"
+      "react-dom": "^18",
+      "wrangler": "^3.50.0"
    },
    "devDependencies": {
       "@types/node": "^20",
