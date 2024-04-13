@@ -1,8 +1,7 @@
+import { PostMatter, PostReturn } from '@/app/lib/blog/definitions';
 import {
-   PostReturn,
-   PostMatter,
    getPosts
-} from '@/app/lib/blog/main';
+} from '@/app/lib/blog/getPosts';
 import Link from 'next/link'
 
 export default async function Blog() {

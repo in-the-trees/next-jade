@@ -1,20 +1,9 @@
-import {
-   getPosts,
-   PostReturn,
-   PostMatter,
-   Post,
-   getPost
-} from '@/app/lib/blog/main';
+import { Post, PostMatter, PostReturn } from '@/app/lib/blog/definitions';
+import { getPostBySlug } from '@/app/lib/blog/getPostBySlug';
+import { getPosts } from '@/app/lib/blog/getPosts';
+import { MDXRemote } from 'next-mdx-remote/rsc'
 
 const posts = await getPosts(PostReturn.MATTER_ONLY) as PostMatter[];
-
-const getPostBySlug = (posts: PostMatter[], slug: string, postReturn: PostReturn) => {
-   const postFile = posts.find((post) => post.slug === slug)?.filename;
-   if (!postFile) {
-      throw new Error(`Failed to find post with id: ${slug}`);
-   }
-   return getPost(postFile, postReturn);
-};
 
 export async function generateStaticParams() {
    return posts.map((post) => ({
@@ -27,7 +16,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
    return (
       <main>
          <h1 className="text-2xl font-bold">{post.postMatter.title}</h1>
-         <div dangerouslySetInnerHTML={{ __html: post.content }} />
+         <MDXRemote source={post.content} />
       </main>
    );
 }
