@@ -8,7 +8,7 @@ import { commit_mono } from "@/app/ui/fonts";
 export const runtime = "edge";
 
 async function getFeed() {
-   const res = await fetch("https://jade.van-dorsten.net/api/recent.json");
+   const res = await fetch("https://jade.van-dorsten.net/api/all.json");
 
    if (!res.ok) {
       throw new Error("Failed to fetch microblog feed");
@@ -25,7 +25,7 @@ const MicroblogFeed: NextPage<MicroblogProps> = async ({ className }) => {
    const feed: MicroblogFeed = await getFeed();
 
    return (
-      <div id="microblog-feed" className={`h-feed ${className}`}>
+      <div id="microblog-feed" className={`${className} h-feed mt-9 flex flex-col gap-4`}>
          {feed.items.map((microblog) => (
             <Microblog key={microblog.id} {...microblog} />
          ))}
@@ -37,11 +37,11 @@ export default MicroblogFeed;
 
 const Microblog = (Microblog: Microblog) => {
    return (
-      <article className="h-entry">
+      <article className="h-entry prose-sm prose-a:text-blue-500 hover:prose-a:underline prose-img:rounded-xl hover:prose-img:scale-103 prose-img:transition-transform prose-img:ease-out prose-img:max-w-full prose-img:max-h-64 prose-img:border border-b last:border-0">
          <header className="flex items-center gap-2">
             <Link
                href={`/microblog/${Microblog.id}`}
-               className="u-url mr-1 rounded-full bg-blue-50 px-1.5 hover:underline"
+               className="u-url mr-1 rounded-full bg-blue-50 px-1.5 transition-all ease-out hover:scale-105 hover:bg-blue-100"
             >
                <ArrowLongRightIcon className="h-3.5 w-3.5 text-blue-500" />
             </Link>

@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import MicroblogFeed from "@/app/ui/microblog/MicroblogFeed";
 import { lora } from "@/app/ui/fonts";
+import { GlobeAltIcon, RssIcon } from "@heroicons/react/24/outline";
 
 export default function Blog() {
    return (
@@ -11,7 +12,19 @@ export default function Blog() {
             too seriously, nor should you. By default, only posts within the last day are visible.
          </h2>
 
-         <MicroblogFeed className="mt-9 flex flex-col gap-7" />
+         <div className="my-4 flex flex-wrap items-center gap-2">
+            <a href="" className="btn-sm">
+               <RssIcon className="h-4 w-4" />
+               JSON
+            </a>
+
+            <a href="" className="btn-sm">
+               <GlobeAltIcon className="h-4 w-4" />
+               ActivityPub
+            </a>
+         </div>
+
+         <MicroblogFeed />
       </main>
    );
 }

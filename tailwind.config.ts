@@ -26,6 +26,9 @@ const config: Config = {
          margin: {
             "1.75": "0.4375rem",
          },
+         scale: {
+            "103": "1.03",
+         },
       },
    },
    plugins: [
