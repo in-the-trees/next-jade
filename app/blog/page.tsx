@@ -2,6 +2,7 @@ import { PostMatter, PostReturn } from "@/app/lib/blog/definitions";
 import { getPosts } from "@/app/lib/blog/getPosts";
 import Link from "next/link";
 import { lora } from "@/app/ui/fonts";
+import { commit_mono } from "@/app/ui/fonts";
 import { ChevronRightIcon, RssIcon } from "@heroicons/react/24/outline";
 
 export default async function Blog() {
@@ -28,17 +29,17 @@ export default async function Blog() {
                      <div className="flex items-center gap-[0.25em] leading-none">
                         <time
                            dateTime={post.date}
-                           className="text-[1em - 1px] block self-center text-nowrap font-mono text-[calc(1em-1px)] text-gray-500"
+                           className={`${commit_mono.className} text-[1em - 1px] block self-start text-nowrap text-[calc(1em-1px)] text-gray-500`}
                         >
                            {new Date(post.date).toLocaleDateString("en-US", {
                               month: "short",
                               day: "2-digit",
                            })}
                         </time>
-                        <ChevronRightIcon className="block h-3 w-3 self-center text-nowrap text-gray-400" />
+                        <ChevronRightIcon className="block h-3 w-3 self-start text-nowrap text-gray-400" />
                         <Link
                            href={`/blog/${post.slug}`}
-                           className="block self-center text-blue-500 hover:underline"
+                           className="block self-start text-blue-500 hover:underline"
                         >
                            {post.title}
                         </Link>
