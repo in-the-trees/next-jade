@@ -16,10 +16,10 @@ export default async function Blog() {
             microblog.
          </h2>
 
-         <Link href="/blog" className="btn-sm my-3.5">
+         <a href="/blog" className="btn-sm my-3.5">
             <RssIcon className="h-4 w-4" />
             JSON
-         </Link>
+         </a>
 
          <ul className="mt-9">
             {posts
