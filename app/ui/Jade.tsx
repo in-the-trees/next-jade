@@ -24,11 +24,17 @@ const Jade: React.FC<JadeProps> = ({ className }) => {
 
          <p className="my-3.5">Where I publish:</p>
          <div className="mb-5 mt-3.5 flex flex-wrap items-center gap-2">
-            <Link href="/microblog" className="btn-sm">
+            <Link
+               href="/microblog"
+               className="hover:scale-103 flex w-max items-center justify-between gap-2 rounded-lg border px-2 py-1 text-sm shadow-sm transition-transform ease-out"
+            >
                <DocumentTextIcon className="h-4 w-4" />
                My microblog
             </Link>
-            <Link href="/blog" className="btn-sm">
+            <Link
+               href="/blog"
+               className="hover:scale-103 flex w-max items-center justify-between gap-2 rounded-lg border px-2 py-1 text-sm shadow-sm transition-transform ease-out"
+            >
                <DocumentTextIcon className="h-4 w-4" />
                My blog
             </Link>
