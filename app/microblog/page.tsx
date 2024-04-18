@@ -1,4 +1,3 @@
-import { Suspense } from "react";
 import MicroblogFeed from "@/app/ui/microblog/MicroblogFeed";
 import { lora } from "@/app/ui/fonts";
 import { GlobeAltIcon, RssIcon } from "@heroicons/react/24/outline";
@@ -43,7 +42,10 @@ export default function Blog() {
             </a>
          </div>
 
-         <MicroblogFeed feedUrl="https://jade.van-dorsten.net/api/recent.json" />
+         <MicroblogFeed
+            feedUrl="https://jade.van-dorsten.net/api/recent.json"
+            className="mt-9"
+         />
       </main>
    );
 }

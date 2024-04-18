@@ -34,7 +34,7 @@ const MicroblogFeed: NextPage<MicroblogProps> = async ({
    return (
       <div
          id="microblog-feed"
-         className={`${className} h-feed mt-9 flex flex-col gap-4`}
+         className={`${className} h-feed flex flex-col gap-4`}
       >
          {feed.items.map((microblog) => (
             <Microblog key={microblog.id} {...microblog} />
