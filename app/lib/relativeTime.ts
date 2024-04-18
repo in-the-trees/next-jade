@@ -29,7 +29,10 @@ export const formatTimeRelatively = (date: Date): string => {
 
    for (let i = 0; i < units.length; i++) {
       if (Math.abs(diff) >= divisors[i]) {
-         const relativeDate: string = rtf.format(Math.round(diff / divisors[i]), units[i]);
+         const relativeDate: string = rtf.format(
+            Math.round(diff / divisors[i]),
+            units[i],
+         );
          return relativeDate;
       }
    }

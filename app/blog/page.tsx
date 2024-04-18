@@ -10,16 +10,20 @@ export default async function Blog() {
 
    return (
       <main id="blog">
-         <h1 className={`${lora.className} mb-1.75 text-[1.5em] font-normal-mid`}>Blog</h1>
+         <h1
+            className={`${lora.className} mb-1.75 text-[1.5em] font-normal-mid`}
+         >
+            Blog
+         </h1>
          <h2>
-            Welcome to my blog where I post extended or more evergreen content compared to my
-            microblog.
+            Welcome to my blog where I post extended or more evergreen content
+            compared to my microblog.
          </h2>
 
          <div className="my-4 flex flex-wrap items-center gap-2">
             <a
                href="/blog"
-               className="hover:scale-103 flex w-max items-center justify-between gap-2 rounded-lg border px-2 py-1 text-sm shadow-sm transition-transform ease-out"
+               className="flex w-max items-center justify-between gap-2 rounded-lg border px-2 py-1 text-sm shadow-sm transition-transform ease-out hover:scale-103"
             >
                <RssIcon className="h-4 w-4" />
                JSON

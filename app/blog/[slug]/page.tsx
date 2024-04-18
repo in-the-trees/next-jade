@@ -12,7 +12,11 @@ export async function generateStaticParams() {
 }
 
 export default async function Page({ params }: { params: { slug: string } }) {
-   const post = (await getPostBySlug(posts, params.slug, PostReturn.FULL)) as Post;
+   const post = (await getPostBySlug(
+      posts,
+      params.slug,
+      PostReturn.FULL,
+   )) as Post;
    return (
       <main>
          <h1 className="text-2xl font-bold">{post.postMatter.title}</h1>

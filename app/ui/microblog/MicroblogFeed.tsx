@@ -1,7 +1,10 @@
 import type { NextPage } from "next";
 import type { Microblog, MicroblogFeed } from "./definitions";
 import Link from "next/link";
-import { ArrowLongRightIcon, ChevronDoubleRightIcon } from "@heroicons/react/24/outline";
+import {
+   ArrowLongRightIcon,
+   ChevronDoubleRightIcon,
+} from "@heroicons/react/24/outline";
 import { formatTimeRelatively } from "@/app/lib/relativeTime";
 import { commit_mono } from "@/app/ui/fonts";
 
@@ -22,11 +25,17 @@ type MicroblogProps = {
    feedUrl: string;
 };
 
-const MicroblogFeed: NextPage<MicroblogProps> = async ({ className, feedUrl }) => {
+const MicroblogFeed: NextPage<MicroblogProps> = async ({
+   className,
+   feedUrl,
+}) => {
    const feed: MicroblogFeed = await getFeed(feedUrl);
 
    return (
-      <div id="microblog-feed" className={`${className} h-feed mt-9 flex flex-col gap-4`}>
+      <div
+         id="microblog-feed"
+         className={`${className} h-feed mt-9 flex flex-col gap-4`}
+      >
          {feed.items.map((microblog) => (
             <Microblog key={microblog.id} {...microblog} />
          ))}
@@ -46,19 +55,29 @@ const Microblog = (Microblog: Microblog) => {
             >
                <ArrowLongRightIcon className="h-3.5 w-3.5 text-blue-500" />
             </Link>
-            <time className={`${commit_mono.className} text-[calc(1em-2px)] text-gray-500`}>
+            <time
+               className={`${commit_mono.className} text-[calc(1em-2px)] text-gray-500`}
+            >
                {formatTimeRelatively(new Date(Microblog.date_published))}
             </time>
-            {Microblog.date_modified && Microblog.categories.includes("show_updated") ?
+            {(
+               Microblog.date_modified &&
+               Microblog.categories.includes("show_updated")
+            ) ?
                <>
                   <ChevronDoubleRightIcon className="h-3 w-3 text-gray-400" />
-                  <time className={`${commit_mono.className} text-[calc(1em-2px)] text-gray-500`}>
+                  <time
+                     className={`${commit_mono.className} text-[calc(1em-2px)] text-gray-500`}
+                  >
                      {formatTimeRelatively(new Date(Microblog.date_modified))}
                   </time>
                </>
             :  ""}
          </header>
-         <div className="e-content" dangerouslySetInnerHTML={{ __html: Microblog.content_html }} />
+         <div
+            className="e-content"
+            dangerouslySetInnerHTML={{ __html: Microblog.content_html }}
+         />
       </article>
    );
 };

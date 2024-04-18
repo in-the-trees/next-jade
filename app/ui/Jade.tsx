@@ -9,16 +9,21 @@ type JadeProps = {
 const Jade: React.FC<JadeProps> = ({ className }) => {
    return (
       <div id="Jade" className={className}>
-         <h1 className={`${lora.className} text-[1.5em] font-normal-mid italic`}>Jade van Dorsten</h1>
+         <h1 className={`${lora.className} text-[1.5em] font-normal-mid italic`}>
+            Jade van Dorsten
+         </h1>
          <p className="my-3.5">
-            <span className="italic">long story short</span>, I'm a human and a netizen.
+            <span className="italic">long story short</span>, I'm a human and a
+            netizen.
          </p>
 
          <p className="mb-1.75 mt-3.5">A few things about me:</p>
          <ul className="mb-3.5 ml-4 mt-1.75 list-inside list-disc">
             <li className="text-gray-900">20, he/him</li>
             <li className="text-gray-900">Web developer, mainly front-end</li>
-            <li className="text-gray-900">Digital privacy & security enthusiast</li>
+            <li className="text-gray-900">
+               Digital privacy & security enthusiast
+            </li>
             <li className="text-gray-900">Based in Madison, WI</li>
          </ul>
 
@@ -26,14 +31,14 @@ const Jade: React.FC<JadeProps> = ({ className }) => {
          <div className="mb-5 mt-3.5 flex flex-wrap items-center gap-2">
             <Link
                href="/microblog"
-               className="hover:scale-103 flex w-max items-center justify-between gap-2 rounded-lg border px-2 py-1 text-sm shadow-sm transition-transform ease-out"
+               className="flex w-max items-center justify-between gap-2 rounded-lg border px-2 py-1 text-sm shadow-sm transition-transform ease-out hover:scale-103"
             >
                <DocumentTextIcon className="h-4 w-4" />
                My microblog
             </Link>
             <Link
                href="/blog"
-               className="hover:scale-103 flex w-max items-center justify-between gap-2 rounded-lg border px-2 py-1 text-sm shadow-sm transition-transform ease-out"
+               className="flex w-max items-center justify-between gap-2 rounded-lg border px-2 py-1 text-sm shadow-sm transition-transform ease-out hover:scale-103"
             >
                <DocumentTextIcon className="h-4 w-4" />
                My blog
@@ -51,7 +56,10 @@ const Jade: React.FC<JadeProps> = ({ className }) => {
                </a>
             </li>
             <li>
-               <a className="text-blue-500 hover:underline" href="mailto:jade@van-dorsten.net">
+               <a
+                  className="text-blue-500 hover:underline"
+                  href="mailto:jade@van-dorsten.net"
+               >
                   jade@van-dorsten.net
                </a>
             </li>
@@ -68,22 +76,34 @@ const Jade: React.FC<JadeProps> = ({ className }) => {
          <p className="mb-1.75 mt-3.5">Web presence:</p>
          <ul className="mb-3.5 ml-4 mt-1.75 list-inside list-disc">
             <li>
-               <a className="text-blue-500 hover:underline" href="https://github.com/typejade">
+               <a
+                  className="text-blue-500 hover:underline"
+                  href="https://github.com/typejade"
+               >
                   github.com/typejade
                </a>
             </li>
             <li>
-               <a className="text-blue-500 hover:underline" href="https://micro.blog/typejade">
+               <a
+                  className="text-blue-500 hover:underline"
+                  href="https://micro.blog/typejade"
+               >
                   micro.blog/typejade
                </a>
             </li>
             <li>
-               <a className="text-blue-500 hover:underline" href="https://www.threads.net/@typejade_">
+               <a
+                  className="text-blue-500 hover:underline"
+                  href="https://www.threads.net/@typejade_"
+               >
                   threads.net/@typejade_
                </a>
             </li>
             <li>
-               <a className="text-blue-500 hover:underline" href="https://x.com/@typejade_">
+               <a
+                  className="text-blue-500 hover:underline"
+                  href="https://x.com/@typejade_"
+               >
                   x.com/@typejade_
                </a>
             </li>
