@@ -38,7 +38,7 @@ export default function Blog() {
             </a>
          </div>
 
-         <MicroblogFeed />
+         <MicroblogFeed feedUrl="https://jade.van-dorsten.net/api/recent.json" />
       </main>
    );
 }

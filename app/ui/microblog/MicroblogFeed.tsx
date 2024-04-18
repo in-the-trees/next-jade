@@ -7,8 +7,8 @@ import { commit_mono } from "@/app/ui/fonts";
 
 export const runtime = "edge";
 
-async function getFeed() {
-   const res = await fetch("https://jade.van-dorsten.net/api/all.json");
+async function getFeed(feedUrl: string) {
+   const res = await fetch(feedUrl, { cache: "no-store" });
 
    if (!res.ok) {
       throw new Error("Failed to fetch microblog feed");
@@ -19,10 +19,11 @@ async function getFeed() {
 
 type MicroblogProps = {
    className?: string;
+   feedUrl: string;
 };
 
-const MicroblogFeed: NextPage<MicroblogProps> = async ({ className }) => {
-   const feed: MicroblogFeed = await getFeed();
+const MicroblogFeed: NextPage<MicroblogProps> = async ({ className, feedUrl }) => {
+   const feed: MicroblogFeed = await getFeed(feedUrl);
 
    return (
       <div id="microblog-feed" className={`${className} h-feed mt-9 flex flex-col gap-4`}>
@@ -37,7 +38,7 @@ export default MicroblogFeed;
 
 const Microblog = (Microblog: Microblog) => {
    return (
-      <article className="h-entry prose-sm prose-a:text-blue-500 hover:prose-a:underline prose-img:rounded-xl hover:prose-img:scale-103 prose-img:transition-transform prose-img:ease-out prose-img:max-w-full prose-img:max-h-64 prose-img:border border-b last:border-0">
+      <article className="h-entry prose-sm border-b last:border-0 prose-a:text-blue-500 hover:prose-a:underline prose-img:max-h-64 prose-img:max-w-full prose-img:rounded-xl prose-img:border prose-img:transition-transform prose-img:ease-out hover:prose-img:scale-103">
          <header className="flex items-center gap-2">
             <Link
                href={`/microblog/${Microblog.id}`}
