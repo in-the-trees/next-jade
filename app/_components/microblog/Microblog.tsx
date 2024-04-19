@@ -9,6 +9,7 @@ import { formatTimeRelatively } from "@/app/_lib/relativeTime";
 import { commit_mono } from "@/app/_fonts/fonts";
 import clsx from "clsx";
 import Breadcrumb from "@/app/_components/breadcrumb";
+import getMicrodotblog from "@/app/_lib/microblog/getMicrodotblog";
 
 interface MicroblogProps {
    className?: string;
@@ -16,7 +17,9 @@ interface MicroblogProps {
    inFeed?: boolean;
 }
 
-const Microblog = ({ className, Microblog, inFeed }: MicroblogProps) => {
+const Microblog = async ({ className, Microblog, inFeed }: MicroblogProps) => {
+   const microdotblog = await getMicrodotblog(Microblog.url);
+
    const date = inFeed ? new Date(Microblog.date_published) : null;
    const year = date ? date.getFullYear() : null;
    const month = date ? date.getMonth() + 1 : null;
@@ -80,16 +83,34 @@ const Microblog = ({ className, Microblog, inFeed }: MicroblogProps) => {
       <>
          {!inFeed && (
             <div>
-               <Breadcrumb
-                  items={[
-                     { type: "link", text: "Jade", href: "/" },
-                     { type: "separator" },
-                     { type: "link", text: "Microblog", href: "/microblog" },
-                     { type: "separator" },
-                     { type: "text", text: "This post" },
-                  ]}
-                  className="mb-5"
-               />
+               {microdotblog && microdotblog.home_page_url ?
+                  <Breadcrumb
+                     items={[
+                        { type: "link", text: "Jade", href: "/" },
+                        { type: "separator" },
+                        { type: "link", text: "Microblog", href: "/microblog" },
+                        { type: "separator" },
+                        { type: "text", text: "This post" },
+                        {
+                           type: "external-link",
+                           text: "Micro.blog",
+                           href: microdotblog.home_page_url,
+                        },
+                     ]}
+                     className="mb-5"
+                  />
+               :  <Breadcrumb
+                     items={[
+                        { type: "link", text: "Jade", href: "/" },
+                        { type: "separator" },
+                        { type: "link", text: "Microblog", href: "/microblog" },
+                        { type: "separator" },
+                        { type: "text", text: "This post" },
+                     ]}
+                     className="mb-5"
+                  />
+               }
+
                {MicroblogArticle}
             </div>
          )}
