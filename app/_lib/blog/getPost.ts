@@ -2,8 +2,8 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
-import { Post, PostMatter, PostReturn } from "@/app/lib/blog/definitions";
-import { postsDirectory } from "@/app/lib/blog/getPostsFiles";
+import { Post, PostMatter, PostReturn } from "@/app/_lib/blog/definitions";
+import { postsDirectory } from "@/app/_lib/blog/getPostsFiles";
 
 export const getPost = async (postFile: string, postReturn: PostReturn) => {
    try {

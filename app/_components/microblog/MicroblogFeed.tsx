@@ -8,7 +8,7 @@ import {
    ArrowLongRightIcon,
    ChevronDoubleRightIcon,
 } from "@heroicons/react/24/outline";
-import { formatTimeRelatively } from "@/app/lib/relativeTime";
+import { formatTimeRelatively } from "@/app/_lib/relativeTime";
 import { commit_mono } from "@/app/_fonts/fonts";
 
 export const runtime = "edge";

@@ -1,6 +1,6 @@
-import { Post, PostMatter, PostReturn } from "@/app/lib/blog/definitions";
-import { getPostBySlug } from "@/app/lib/blog/getPostBySlug";
-import { getPosts } from "@/app/lib/blog/getPosts";
+import { Post, PostMatter, PostReturn } from "@/app/_lib/blog/definitions";
+import { getPostBySlug } from "@/app/_lib/blog/getPostBySlug";
+import { getPosts } from "@/app/_lib/blog/getPosts";
 import { MDXRemote } from "next-mdx-remote/rsc";
 
 const posts = (await getPosts(PostReturn.MATTER_ONLY)) as PostMatter[];

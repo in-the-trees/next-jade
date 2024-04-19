@@ -1,6 +1,6 @@
-import { Post, PostMatter, PostReturn } from "@/app/lib/blog/definitions";
-import { getPostsFiles } from "@/app/lib/blog/getPostsFiles";
-import { getPost } from "@/app/lib/blog/getPost";
+import { Post, PostMatter, PostReturn } from "@/app/_lib/blog/definitions";
+import { getPostsFiles } from "@/app/_lib/blog/getPostsFiles";
+import { getPost } from "@/app/_lib/blog/getPost";
 
 export const getPosts = async (postReturn: PostReturn) => {
    const postsFiles = getPostsFiles();

@@ -1,5 +1,5 @@
-import { PostMatter, PostReturn } from "@/app/lib/blog/definitions";
-import { getPosts } from "@/app/lib/blog/getPosts";
+import { PostMatter, PostReturn } from "@/app/_lib/blog/definitions";
+import { getPosts } from "@/app/_lib/blog/getPosts";
 import Link from "next/link";
 import { lora } from "@/app/_fonts/fonts";
 import { commit_mono } from "@/app/_fonts/fonts";
