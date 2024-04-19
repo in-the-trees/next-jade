@@ -1,8 +1,5 @@
 import type { NextPage } from "next";
-import type {
-   Microblog,
-   MicroblogFeed,
-} from "@/app/_components/microblog/definitions";
+import type { Microblog, MicroblogFeed } from "@/app/_lib/microblog/definitions";
 import Link from "next/link";
 import {
    ArrowLongRightIcon,
