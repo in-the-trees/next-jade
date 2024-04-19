@@ -86,9 +86,9 @@ const Jade: React.FC<JadeProps> = ({ className }) => {
             <li>
                <a
                   className="text-blue-500 hover:underline"
-                  href="https://micro.blog/typejade"
+                  href="https://micro.blog/jade"
                >
-                  micro.blog/typejade
+                  micro.blog/jade
                </a>
             </li>
             <li>
