@@ -82,7 +82,7 @@ const Microblog = (Microblog: Microblog) => {
             </time>
             {(
                Microblog.date_modified &&
-               Microblog.categories.includes("show_updated")
+               Microblog.categories?.includes("show_updated")
             ) ?
                <>
                   <ChevronDoubleRightIcon className="h-3 w-3 text-gray-400" />
