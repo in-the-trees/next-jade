@@ -25,10 +25,18 @@ const config: Config = {
             "extrabold-mid": "850",
          },
          margin: {
+            "0.75": "0.1875rem",
+            "1.75": "0.4375rem",
+         },
+         padding: {
+            "0.75": "0.1875rem",
             "1.75": "0.4375rem",
          },
          scale: {
             "103": "1.03",
+         },
+         borderRadius: {
+            "lg-half": "0.625rem",
          },
       },
    },

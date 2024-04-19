@@ -24,7 +24,7 @@ const Breadcrumb = ({ className, items }: BreadcrumbProps) => {
                      <Link
                         key={index}
                         href={item.href}
-                        className="flex items-center gap-1 rounded-xl bg-gray-100 px-2 py-1 transition-transform ease-out hover:scale-103"
+                        className="py-0.75 rounded-lg-half flex items-center gap-1 bg-gray-100 px-2 text-gray-700 transition-transform ease-out hover:scale-103"
                      >
                         <ArrowLeftIcon className="h-3.5 w-3.5" />
                         <span>{item.text}</span>
@@ -34,7 +34,7 @@ const Breadcrumb = ({ className, items }: BreadcrumbProps) => {
                   return (
                      <span
                         key={index}
-                        className="rounded-xl border border-gray-200 px-2 py-1 text-gray-500"
+                        className="rounded-lg-half py-0.75 border border-gray-200 px-2 text-gray-500"
                      >
                         {item.text}
                      </span>
@@ -44,14 +44,19 @@ const Breadcrumb = ({ className, items }: BreadcrumbProps) => {
                      <Link
                         key={index}
                         href={item.href}
-                        className="ml-auto flex items-center gap-1 rounded-xl bg-blue-50 px-2 py-1 text-blue-500 transition-transform ease-out hover:scale-103"
+                        className="rounded-lg-half py-0.75 ml-auto flex items-center gap-1 bg-blue-50 px-2 text-blue-500 transition-transform ease-out hover:scale-103"
                      >
                         <span>{item.text}</span>
                         <ArrowUpRightIcon className="h-3 w-3" />
                      </Link>
                   );
                case "separator":
-                  return <ChevronRightIcon key={index} className="h-3 w-3" />;
+                  return (
+                     <ChevronRightIcon
+                        key={index}
+                        className="h-3 w-3 text-gray-400"
+                     />
+                  );
                default:
                   return null;
             }
