@@ -7,5 +7,12 @@ html {
 }
 
 svg {
-   flex-shrink: 0;
+   @apply shrink-0;
+}
+
+.prose-sm {
+   p,
+   img {
+      @apply my-3.5;
+   }
 }
