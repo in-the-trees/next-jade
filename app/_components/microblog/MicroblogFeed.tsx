@@ -10,18 +10,9 @@ import {
 } from "@heroicons/react/24/outline";
 import { formatTimeRelatively } from "@/app/_lib/relativeTime";
 import { commit_mono } from "@/app/_fonts/fonts";
+import fetchFeed from "@/app/_lib/microblog/fetchFeed";
 
 export const runtime = "edge";
-
-async function getFeed(feedUrl: string) {
-   const res = await fetch(feedUrl, { cache: "no-store" });
-
-   if (!res.ok) {
-      throw new Error("Failed to fetch microblog feed");
-   }
-
-   return res.json();
-}
 
 type MicroblogProps = {
    className?: string;
@@ -34,7 +25,7 @@ const MicroblogFeed: NextPage<MicroblogProps> = async ({
    feedUrl,
    cutoffInHours,
 }) => {
-   const feed: MicroblogFeed = await getFeed(feedUrl);
+   const feed: MicroblogFeed = await fetchFeed(feedUrl);
 
    const now = new Date();
 
