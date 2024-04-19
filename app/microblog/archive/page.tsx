@@ -4,7 +4,7 @@ import { GlobeAltIcon, RssIcon } from "@heroicons/react/24/outline";
 
 export default function Blog() {
    return (
-      <main id="microblog">
+      <main id="microblog" className="h-dvh overflow-auto pb-16">
          <h1 className={`${lora.className} mb-3.5 text-[1.5em] font-normal-mid`}>
             Microblog archive
          </h1>
