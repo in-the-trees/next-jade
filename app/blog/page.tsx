@@ -10,9 +10,7 @@ export default async function Blog() {
 
    return (
       <main id="blog">
-         <h1
-            className={`${lora.className} mb-1.75 text-[1.5em] font-normal-mid`}
-         >
+         <h1 className={`${lora.className} mb-3.5 text-[1.5em] font-normal-mid`}>
             Blog
          </h1>
          <h2>
