@@ -17,6 +17,18 @@ svg {
    }
 }
 
+.prose-convo {
+   p,
+   img {
+      @apply mt-[.5em];
+   }
+
+   p:not(:last-child),
+   img:not(:last-child) {
+      @apply mb-[.5em];
+   }
+}
+
 .btn-sm {
    @apply flex;
    @apply w-max;
