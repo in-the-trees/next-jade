@@ -44,6 +44,7 @@ export default function Blog() {
 
          <MicroblogFeed
             feedUrl="https://jade.van-dorsten.net/api/recent.json"
+            cutoffInHours={24}
             className="mt-9"
          />
       </main>

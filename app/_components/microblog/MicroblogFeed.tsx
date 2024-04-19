@@ -26,22 +26,39 @@ async function getFeed(feedUrl: string) {
 type MicroblogProps = {
    className?: string;
    feedUrl: string;
+   cutoffInHours?: number;
 };
 
 const MicroblogFeed: NextPage<MicroblogProps> = async ({
    className,
    feedUrl,
+   cutoffInHours,
 }) => {
    const feed: MicroblogFeed = await getFeed(feedUrl);
+
+   const now = new Date();
 
    return (
       <div
          id="microblog-feed"
          className={`${className} h-feed flex flex-col gap-4`}
       >
-         {feed.items.map((microblog) => (
-            <Microblog key={microblog.id} {...microblog} />
-         ))}
+         {feed.items.map((microblog) => {
+            if (cutoffInHours) {
+               const dateToCompare =
+                  microblog.date_modified ?
+                     new Date(microblog.date_modified)
+                  :  new Date(microblog.date_published);
+               const timeDifference = now.getTime() - dateToCompare.getTime();
+               const hoursDifference = timeDifference / (1000 * 3600);
+
+               if (hoursDifference <= cutoffInHours) {
+                  return <Microblog key={microblog.id} {...microblog} />;
+               }
+            } else {
+               return <Microblog key={microblog.id} {...microblog} />;
+            }
+         })}
       </div>
    );
 };
