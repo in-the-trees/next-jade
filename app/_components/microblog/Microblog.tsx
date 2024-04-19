@@ -15,12 +15,17 @@ interface MicroblogProps {
 }
 
 const Microblog = ({ Microblog, inFeed }: MicroblogProps) => {
+   const date = inFeed ? new Date(Microblog.date_published) : null;
+   const year = date ? date.getFullYear() : null;
+   const month = date ? date.getMonth() + 1 : null;
+   const day = date ? date.getDate() : null;
+
    return (
       <article className="h-entry prose-sm border-b last:border-0 prose-a:text-blue-500 hover:prose-a:underline prose-img:max-h-64 prose-img:max-w-full prose-img:rounded-xl prose-img:border prose-img:transition-transform prose-img:ease-out hover:prose-img:scale-103">
          <header className="flex items-center gap-2">
-            {inFeed ?
+            {inFeed && year && month && day ?
                <Link
-                  href={`/microblog/${Microblog.id}`}
+                  href={`/microblog/${year}/${month}/${day}/${Microblog.id}`}
                   className="u-url mr-1 rounded-full bg-blue-50 px-1.5 transition-all ease-out hover:scale-105 hover:bg-blue-100"
                >
                   <ArrowLongRightIcon className="h-3.5 w-3.5 text-blue-500" />
