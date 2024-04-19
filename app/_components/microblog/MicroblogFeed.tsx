@@ -1,12 +1,15 @@
 import type { NextPage } from "next";
-import type { Microblog, MicroblogFeed } from "./definitions";
+import type {
+   Microblog,
+   MicroblogFeed,
+} from "@/app/_components/microblog/definitions";
 import Link from "next/link";
 import {
    ArrowLongRightIcon,
    ChevronDoubleRightIcon,
 } from "@heroicons/react/24/outline";
 import { formatTimeRelatively } from "@/app/lib/relativeTime";
-import { commit_mono } from "@/app/ui/fonts";
+import { commit_mono } from "@/app/_fonts/fonts";
 
 export const runtime = "edge";
 

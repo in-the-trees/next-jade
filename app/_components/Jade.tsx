@@ -1,4 +1,4 @@
-import { inter, lora } from "@/app/ui/fonts";
+import { inter, lora } from "@/app/_fonts/fonts";
 import Link from "next/link";
 import { DocumentTextIcon } from "@heroicons/react/24/outline";
 

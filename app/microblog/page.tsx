@@ -1,5 +1,5 @@
-import MicroblogFeed from "@/app/ui/microblog/MicroblogFeed";
-import { lora } from "@/app/ui/fonts";
+import MicroblogFeed from "@/app/_components/microblog/MicroblogFeed";
+import { lora } from "@/app/_fonts/fonts";
 import { GlobeAltIcon, RssIcon } from "@heroicons/react/24/outline";
 
 export default function Blog() {

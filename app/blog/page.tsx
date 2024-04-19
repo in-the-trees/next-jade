@@ -1,8 +1,8 @@
 import { PostMatter, PostReturn } from "@/app/lib/blog/definitions";
 import { getPosts } from "@/app/lib/blog/getPosts";
 import Link from "next/link";
-import { lora } from "@/app/ui/fonts";
-import { commit_mono } from "@/app/ui/fonts";
+import { lora } from "@/app/_fonts/fonts";
+import { commit_mono } from "@/app/_fonts/fonts";
 import { ChevronRightIcon, RssIcon } from "@heroicons/react/24/outline";
 
 export default async function Blog() {
