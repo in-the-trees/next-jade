@@ -18,7 +18,7 @@ interface MicroblogProps {
 }
 
 const Microblog = async ({ className, Microblog, inFeed }: MicroblogProps) => {
-   const microdotblog = await getMicrodotblog(Microblog.url);
+   const microdotblog = !inFeed ? await getMicrodotblog(Microblog.url) : null;
 
    const date = inFeed ? new Date(Microblog.date_published) : null;
    const year = date ? date.getFullYear() : null;
