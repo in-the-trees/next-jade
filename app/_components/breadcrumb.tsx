@@ -43,14 +43,14 @@ const Breadcrumb = ({ className, items }: BreadcrumbProps) => {
                   );
                case "external-link":
                   return (
-                     <Link
+                     <a
                         key={index}
                         href={item.href}
                         className="rounded-lg-half py-0.75 ml-auto flex items-center gap-1 bg-blue-50 px-2 text-blue-500 transition-transform ease-out hover:scale-103"
                      >
                         <span>{item.text}</span>
                         <ArrowUpRightIcon className="h-3 w-3" />
-                     </Link>
+                     </a>
                   );
                case "separator":
                   return (
