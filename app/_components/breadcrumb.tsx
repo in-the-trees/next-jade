@@ -26,7 +26,9 @@ const Breadcrumb = ({ className, items }: BreadcrumbProps) => {
                         href={item.href}
                         className="py-0.75 rounded-lg-half flex items-center gap-1 bg-gray-100 px-2 text-gray-700 transition-transform ease-out hover:scale-103"
                      >
-                        <ArrowLeftIcon className="h-3.5 w-3.5" />
+                        {index === 0 && (
+                           <ArrowLeftIcon className="h-3.5 w-3.5" />
+                        )}
                         <span>{item.text}</span>
                      </Link>
                   );

@@ -8,20 +8,24 @@ import {
 import { formatTimeRelatively } from "@/app/_lib/relativeTime";
 import { commit_mono } from "@/app/_fonts/fonts";
 import clsx from "clsx";
+import Breadcrumb from "@/app/_components/breadcrumb";
 
 interface MicroblogProps {
+   className?: string;
    Microblog: Microblog;
    inFeed?: boolean;
 }
 
-const Microblog = ({ Microblog, inFeed }: MicroblogProps) => {
+const Microblog = ({ className, Microblog, inFeed }: MicroblogProps) => {
    const date = inFeed ? new Date(Microblog.date_published) : null;
    const year = date ? date.getFullYear() : null;
    const month = date ? date.getMonth() + 1 : null;
    const day = date ? date.getDate() : null;
 
-   return (
-      <article className="h-entry prose-sm border-b last:border-0 prose-a:text-blue-500 hover:prose-a:underline prose-img:max-h-64 prose-img:max-w-full prose-img:rounded-xl prose-img:border prose-img:transition-transform prose-img:ease-out hover:prose-img:scale-103">
+   const MicroblogArticle = (
+      <article
+         className={`${className} h-entry prose-sm border-b last:border-0 prose-a:text-blue-500 hover:prose-a:underline prose-img:max-h-64 prose-img:max-w-full prose-img:rounded-xl prose-img:border prose-img:transition-transform prose-img:ease-out hover:prose-img:scale-103`}
+      >
          <header className="flex items-center gap-2">
             {inFeed && year && month && day ?
                <Link
@@ -70,6 +74,28 @@ const Microblog = ({ Microblog, inFeed }: MicroblogProps) => {
             dangerouslySetInnerHTML={{ __html: Microblog.content_html }}
          />
       </article>
+   );
+
+   return (
+      <>
+         {!inFeed && (
+            <div>
+               <Breadcrumb
+                  items={[
+                     { type: "link", text: "Jade", href: "/" },
+                     { type: "separator" },
+                     { type: "link", text: "Microblog", href: "/microblog" },
+                     { type: "separator" },
+                     { type: "text", text: "This post" },
+                  ]}
+                  className="mb-5"
+               />
+               {MicroblogArticle}
+            </div>
+         )}
+
+         {inFeed && MicroblogArticle}
+      </>
    );
 };
 
