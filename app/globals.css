@@ -16,3 +16,20 @@ svg {
       @apply my-3.5;
    }
 }
+
+.btn-sm {
+   @apply flex;
+   @apply w-max;
+   @apply items-center;
+   @apply justify-between;
+   @apply gap-2;
+   @apply rounded-lg;
+   @apply border;
+   @apply px-2;
+   @apply py-1;
+   @apply text-sm;
+   @apply shadow-sm;
+   @apply transition-transform;
+   @apply ease-out;
+   @apply hover:scale-103;
+}
