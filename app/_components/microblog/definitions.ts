@@ -1,10 +1,15 @@
 export type Microblog = {
    id: string;
-   content_html: string;
    date_published: string;
    date_modified?: string;
-   categories: string[];
+   categories?: string[];
+   photos?: {
+      url: string;
+      width: number;
+      height: number;
+   }[];
    url: string;
+   content_html: string;
 };
 
 export type MicroblogFeed = {
