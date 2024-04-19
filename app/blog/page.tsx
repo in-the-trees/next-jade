@@ -3,7 +3,7 @@ import { getPosts } from "@/app/_lib/blog/getPosts";
 import Link from "next/link";
 import { lora } from "@/app/_fonts/fonts";
 import { commit_mono } from "@/app/_fonts/fonts";
-import { ChevronRightIcon, RssIcon } from "@heroicons/react/24/outline";
+import { ChevronRightIcon } from "@heroicons/react/24/outline";
 import Breadcrumb from "@/app/_components/breadcrumb";
 
 export default async function Blog() {
@@ -28,13 +28,6 @@ export default async function Blog() {
                Welcome to my blog where I post extended or more evergreen content
                compared to my microblog.
             </h2>
-
-            <div className="my-4 flex flex-wrap items-center gap-2">
-               <a href="/blog" className="btn-sm">
-                  <RssIcon className="h-4 w-4" />
-                  JSON
-               </a>
-            </div>
 
             <ul className="mt-9">
                {posts
