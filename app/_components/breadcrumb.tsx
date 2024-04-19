@@ -46,6 +46,8 @@ const Breadcrumb = ({ className, items }: BreadcrumbProps) => {
                      <a
                         key={index}
                         href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="rounded-lg-half py-0.75 ml-auto flex items-center gap-1 bg-blue-50 px-2 text-blue-500 transition-transform ease-out hover:scale-103"
                      >
                         <span>{item.text}</span>
