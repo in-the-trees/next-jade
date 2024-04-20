@@ -1,9 +1,11 @@
+export const runtime = "edge";
+
 import MicroblogFeed from "@/app/_components/microblog/MicroblogFeed";
 import { lora } from "@/app/_fonts/fonts";
 import { GlobeAltIcon, RssIcon } from "@heroicons/react/24/outline";
 import Breadcrumb from "@/app/_components/breadcrumb";
 
-export default function Blog() {
+export default async function Blog() {
    return (
       <div>
          <Breadcrumb

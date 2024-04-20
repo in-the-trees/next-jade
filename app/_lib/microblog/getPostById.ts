@@ -1,3 +1,5 @@
+export const runtime = "edge";
+
 import { Microblog, MicroblogFeed } from "@/app/_lib/microblog/definitions";
 import fetchFeed from "@/app/_lib/microblog/fetchFeed";
 

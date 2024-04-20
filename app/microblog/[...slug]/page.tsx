@@ -1,3 +1,4 @@
+export const runtime = "edge";
 import getPostById from "@/app/_lib/microblog/getPostById";
 import { notFound } from "next/navigation";
 import Microblog from "@/app/_components/microblog/Microblog";

@@ -1,3 +1,5 @@
+export const runtime = "edge";
+
 import type { MicroblogFeed } from "@/app/_lib/microblog/definitions";
 
 export default async function fetchFeed(feedUrl: string) {
