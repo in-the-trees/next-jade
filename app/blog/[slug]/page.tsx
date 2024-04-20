@@ -1,3 +1,5 @@
+export const dynamicParams = false;
+
 import { Post, PostMatter, PostReturn } from "@/app/_lib/blog/definitions";
 import { getPostBySlug } from "@/app/_lib/blog/getPostBySlug";
 import { getPosts } from "@/app/_lib/blog/getPosts";
