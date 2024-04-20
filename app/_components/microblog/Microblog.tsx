@@ -17,14 +17,17 @@ import createRichLinks from "@/app/_lib/microblog/createRichLinks";
 interface MicroblogProps {
    className?: string;
    Microblog: Microblog;
-   inFeed?: boolean;
+   location: "feed" | "feed-archive" | "source";
 }
 
-const Microblog = async ({ className, Microblog, inFeed }: MicroblogProps) => {
-   const content_html = await createRichLinks(Microblog.content_html);
+const Microblog = async ({ className, Microblog, location }: MicroblogProps) => {
+   const inFeed =
+      location === "feed" || location === "feed-archive" ? true : false;
+
+   const content_html = createRichLinks(Microblog.content_html);
 
    const microdotblog: Microdotblog | null =
-      !inFeed ? await getMicrodotblog(Microblog.url) : null;
+      location === "source" ? await getMicrodotblog(Microblog.url) : null;
    const myMicroblogUsername = "jade";
 
    const date = inFeed ? new Date(Microblog.date_published) : null;
@@ -32,20 +35,38 @@ const Microblog = async ({ className, Microblog, inFeed }: MicroblogProps) => {
    const month = date ? date.getMonth() + 1 : null;
    const day = date ? date.getDate() : null;
 
+   const MicroblogLink = () => {
+      if (!inFeed) {
+         return (
+            <ChatBubbleOvalLeftEllipsisIcon className="h-3.5 w-3.5 text-gray-500" />
+         );
+      } else if (location === "feed") {
+         return (
+            <Link
+               href={`/microblog/${year}/${month}/${day}/${Microblog.id}`}
+               className="u-url mr-1 rounded-full bg-blue-50 px-1.5 transition-all ease-out hover:scale-105 hover:bg-blue-100"
+            >
+               <ArrowLongRightIcon className="h-3.5 w-3.5 text-blue-500" />
+            </Link>
+         );
+      } else if (location === "feed-archive") {
+         return (
+            <a
+               href={`/microblog/${year}/${month}/${day}/${Microblog.id}`}
+               className="u-url mr-1 rounded-full bg-blue-50 px-1.5 transition-all ease-out hover:scale-105 hover:bg-blue-100"
+            >
+               <ArrowLongRightIcon className="h-3.5 w-3.5 text-blue-500" />
+            </a>
+         );
+      }
+   };
+
    const MicroblogArticle = (
       <article
          className={`${className} h-entry prose-sm border-b last:border-0 prose-a:text-blue-500 hover:prose-a:underline prose-img:max-h-64 prose-img:max-w-full prose-img:rounded-xl prose-img:border prose-img:transition-transform prose-img:ease-out hover:prose-img:scale-103`}
       >
          <header className="flex items-center gap-2">
-            {inFeed && year && month && day ?
-               <Link
-                  href={`/microblog/${year}/${month}/${day}/${Microblog.id}`}
-                  className="u-url mr-1 rounded-full bg-blue-50 px-1.5 transition-all ease-out hover:scale-105 hover:bg-blue-100"
-               >
-                  <ArrowLongRightIcon className="h-3.5 w-3.5 text-blue-500" />
-               </Link>
-            :  <ChatBubbleOvalLeftEllipsisIcon className="h-3.5 w-3.5 text-gray-500" />
-            }
+            {MicroblogLink()}
             <time
                dateTime={Microblog.date_published}
                className={clsx(

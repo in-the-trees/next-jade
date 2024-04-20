@@ -39,7 +39,7 @@ const MicroblogFeed: NextPage<MicroblogProps> = async ({
                      <Microblog
                         key={microblog.id}
                         Microblog={microblog}
-                        inFeed={true}
+                        location="feed"
                      />
                   );
                }
@@ -48,7 +48,7 @@ const MicroblogFeed: NextPage<MicroblogProps> = async ({
                   <Microblog
                      key={microblog.id}
                      Microblog={microblog}
-                     inFeed={true}
+                     location="feed-archive"
                   />
                );
             }

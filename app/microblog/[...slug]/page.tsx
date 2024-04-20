@@ -23,7 +23,7 @@ export default async function MicroblogPost({
 
       return (
          <div className="px-4">
-            <Microblog Microblog={post} />
+            <Microblog Microblog={post} location="source" />
          </div>
       );
    } else if (
@@ -48,7 +48,7 @@ export default async function MicroblogPost({
 
       return (
          <div className="px-4">
-            <Microblog Microblog={post} />
+            <Microblog Microblog={post} location="source" />
          </div>
       );
    } else {
