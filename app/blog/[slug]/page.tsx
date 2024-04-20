@@ -8,20 +8,19 @@ import { lora, commit_mono } from "@/app/_fonts/fonts";
 import Breadcrumb from "@/app/_components/breadcrumb";
 import { DocumentTextIcon } from "@heroicons/react/24/outline";
 
-const posts = (await getPosts(PostReturn.MATTER_ONLY)) as PostMatter[];
-
 export async function generateStaticParams() {
+   const posts = (await getPosts(PostReturn.MATTER_ONLY)) as PostMatter[];
    return posts.map((post) => ({
       slug: post.slug,
    }));
 }
 
-export default async function Page({ params }: { params: { slug: string } }) {
-   const post = (await getPostBySlug(
-      posts,
-      params.slug,
-      PostReturn.FULL,
-   )) as Post;
+export default async function BlogPost({
+   params,
+}: {
+   params: { slug: string };
+}) {
+   const post = (await getPostBySlug(params.slug, PostReturn.FULL)) as Post;
 
    return (
       <div>
