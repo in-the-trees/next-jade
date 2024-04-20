@@ -12,7 +12,8 @@ svg {
 
 .prose-sm {
    p,
-   img {
+   img,
+   blockquote {
       @apply my-3.5;
    }
 }
@@ -44,4 +45,73 @@ svg {
    @apply transition-transform;
    @apply ease-out;
    @apply hover:scale-103;
+}
+
+.og-container a {
+   @apply hover:no-underline;
+}
+
+.og {
+   @apply flex;
+   @apply flex-col;
+   @apply gap-3;
+   @apply p-4;
+   @apply bg-gray-50;
+   @apply border;
+   @apply border-gray-100;
+   @apply rounded-xl;
+   @apply transition-transform;
+   @apply ease-out;
+   @apply hover:scale-103;
+   @apply text-gray-800;
+   @apply leading-5;
+}
+
+.og-snippet {
+   @apply mt-0 !important;
+   @apply mb-0 !important;
+   @apply text-gray-500;
+}
+
+.og-metadata {
+   @apply flex;
+   @apply items-center;
+}
+
+.og-metadata > footer {
+   @apply flex;
+   @apply flex-col;
+   @apply gap-1;
+}
+
+.og-title {
+   @apply font-normal-mid;
+}
+
+.og-metadata > svg {
+   @apply ml-auto;
+   @apply mr-2;
+   @apply w-[calc(1.25rem-2px)];
+   @apply h-[calc(1.25rem-2px)];
+}
+
+.og:hover .og-metadata > svg {
+   @apply text-blue-500;
+}
+
+.og-url-container {
+   @apply flex;
+   @apply flex-row;
+   @apply items-center;
+   @apply gap-2;
+}
+
+.og-url-container > svg {
+   @apply w-3.5;
+   @apply h-3.5;
+}
+
+.og-url {
+   @apply not-italic;
+   @apply text-gray-700;
 }

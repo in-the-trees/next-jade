@@ -12,6 +12,8 @@ import Breadcrumb from "@/app/_components/breadcrumb";
 import getMicrodotblog from "@/app/_lib/microblog/getMicrodotblog";
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/solid";
 import { CheckBadgeIcon } from "@heroicons/react/20/solid";
+import parse from "html-react-parser";
+import createRichLinks from "@/app/_lib/microblog/createRichLinks";
 
 interface MicroblogProps {
    className?: string;
@@ -20,6 +22,8 @@ interface MicroblogProps {
 }
 
 const Microblog = async ({ className, Microblog, inFeed }: MicroblogProps) => {
+   const content_html = parse(createRichLinks(Microblog.content_html));
+
    const microdotblog: Microdotblog | null =
       !inFeed ? await getMicrodotblog(Microblog.url) : null;
    const myMicroblogUsername = "jade";
@@ -80,10 +84,7 @@ const Microblog = async ({ className, Microblog, inFeed }: MicroblogProps) => {
                </>
             :  ""}
          </header>
-         <div
-            className="e-content"
-            dangerouslySetInnerHTML={{ __html: Microblog.content_html }}
-         />
+         <div className="e-content">{content_html}</div>
       </article>
    );
 
