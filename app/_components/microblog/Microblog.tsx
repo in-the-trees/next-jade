@@ -179,7 +179,7 @@ const Microblog = async ({ className, Microblog, inFeed }: MicroblogProps) => {
                            href: microdotblog.home_page_url,
                         },
                      ]}
-                     className="mb-5"
+                     className="pb-5"
                   />
                :  <Breadcrumb
                      items={[
@@ -189,7 +189,7 @@ const Microblog = async ({ className, Microblog, inFeed }: MicroblogProps) => {
                         { type: "separator" },
                         { type: "text", text: "This post" },
                      ]}
-                     className="mb-5"
+                     className="pb-5"
                   />
                }
 

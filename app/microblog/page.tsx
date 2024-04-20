@@ -16,10 +16,11 @@ export default function Blog() {
                { type: "separator" },
                { type: "text", text: "Microblog" },
             ]}
+            className="px-4 pb-5"
          />
-         <main id="microblog" className="pb-16">
+         <main id="microblog" className="h-dvh overflow-auto px-4 pb-36">
             <h1
-               className={`${lora.className} mb-3.5 mt-5 text-[1.5em] font-normal-mid`}
+               className={`${lora.className} mb-3.5 text-[1.5em] font-normal-mid`}
             >
                Microblog
             </h1>

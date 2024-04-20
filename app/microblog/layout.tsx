@@ -7,7 +7,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <aside className="w-1/3">
                <Jade />
             </aside>
-            <div className="w-2/3 overflow-y-auto px-4">{children}</div>
+            <div className="w-2/3">{children}</div>
          </div>
       </div>
    );

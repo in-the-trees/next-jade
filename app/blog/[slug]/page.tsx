@@ -31,9 +31,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
                { type: "separator" },
                { type: "text", text: "This post" },
             ]}
-            className="mb-5"
+            className="px-4 pb-5"
          />
-         <main>
+         <main className="h-dvh overflow-auto px-4 pb-36">
             <article>
                <header className="my-5">
                   <div className="mb-3 flex items-center gap-2 text-gray-500">

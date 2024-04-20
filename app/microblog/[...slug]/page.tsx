@@ -18,7 +18,11 @@ export default async function MicroblogPost({
    if (slugArray.length === 1) {
       const post = await getPostById(idFromSlug);
 
-      return <Microblog Microblog={post} />;
+      return (
+         <div className="px-4">
+            <Microblog Microblog={post} />
+         </div>
+      );
    } else if (
       slugArray.length === 4 &&
       /^\d{4}$/.test(slugArray[0]) &&
@@ -39,7 +43,11 @@ export default async function MicroblogPost({
          notFound();
       }
 
-      return <Microblog Microblog={post} />;
+      return (
+         <div className="px-4">
+            <Microblog Microblog={post} />
+         </div>
+      );
    } else {
       notFound();
    }

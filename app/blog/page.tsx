@@ -17,10 +17,11 @@ export default async function Blog() {
                { type: "separator" },
                { type: "text", text: "Blog" },
             ]}
+            className="px-4 pb-5"
          />
-         <main id="blog" className="pb-16">
+         <main id="blog" className="h-dvh overflow-auto px-4 pb-36">
             <h1
-               className={`${lora.className} mb-3.5 mt-5 text-[1.5em] font-normal-mid`}
+               className={`${lora.className} mb-3.5 text-[1.5em] font-normal-mid`}
             >
                Blog
             </h1>
