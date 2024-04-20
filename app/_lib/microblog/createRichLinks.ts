@@ -2,7 +2,7 @@
 
 import * as cheerio from "cheerio";
 
-const createRichLinks = (content_html: string) => {
+const createRichLinks = (content_html: string): string => {
    const $ = cheerio.load(`<div class="content-wrapper">${content_html}</div>`);
    const richLinkContainers = $(".og-container");
 
@@ -61,7 +61,7 @@ const createRichLinks = (content_html: string) => {
       $(this).append(a);
    });
 
-   return $(".content-wrapper").html();
+   return $(".content-wrapper").html() || "";
 };
 
-module.exports = createRichLinks;
+export default createRichLinks;
