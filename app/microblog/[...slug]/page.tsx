@@ -1,4 +1,6 @@
 export const runtime = "edge";
+export const revalidate = 0;
+
 import getPostById from "@/app/_lib/microblog/getPostById";
 import { notFound } from "next/navigation";
 import Microblog from "@/app/_components/microblog/Microblog";
