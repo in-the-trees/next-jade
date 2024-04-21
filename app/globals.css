@@ -13,19 +13,22 @@ svg {
 .prose-sm {
    p,
    img,
-   blockquote {
+   blockquote,
+   ul {
       @apply my-3.5;
    }
 }
 
 .prose-convo {
    p,
-   img {
+   img,
+   ul {
       @apply mt-[.5em];
    }
 
    p:not(:last-child),
-   img:not(:last-child) {
+   img:not(:last-child),
+   ul:not(:last-child) {
       @apply mb-[.5em];
    }
 }
