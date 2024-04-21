@@ -13,6 +13,7 @@ const transformImage = (
    images.each(function () {
       const img = $(this);
       const src = img.attr("src") || "";
+      const initialSrc = src.toString();
 
       // Check if image is hosted via Micro.blog
       const isMicroblogPhoto = src.startsWith(
@@ -21,8 +22,8 @@ const transformImage = (
 
       // Optimize image if hosted via Micro.blog
       if (isMicroblogPhoto) {
-         const srcOptimized = `https://micro.blog/photos/800x/${encodeURIComponent(src)}`;
-         img.attr("src", srcOptimized);
+         const optimizedSrc = `https://micro.blog/photos/800x/${encodeURIComponent(src)}`;
+         img.attr("src", optimizedSrc);
       }
 
       // Apply width & height attributes
@@ -53,7 +54,7 @@ const transformImage = (
       // Wrap image in a link
       const a = $("<a>")
          .attr("class", "image-link")
-         .attr("href", src)
+         .attr("href", initialSrc)
          .attr("target", "_blank")
          .attr("rel", "noopener noreferrer");
       img.wrap(a);
