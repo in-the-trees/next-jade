@@ -1,7 +1,9 @@
+import { revalidatePath } from "next/cache";
+
 const getMicrodotblog = async (permalink: string) => {
-   const response: Response = await fetch(
-      `https://micro.blog/conversation.js?url=${permalink}&format=jsonfeed`,
-   );
+   const conversationUrl = `https://micro.blog/conversation.js?url=${permalink}&format=jsonfeed`;
+   revalidatePath(conversationUrl);
+   const response: Response = await fetch(conversationUrl);
 
    if (!response.ok) {
    } else {

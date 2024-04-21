@@ -1,8 +1,10 @@
 export const runtime = "edge";
 
 import type { MicroblogFeed } from "@/app/_lib/microblog/definitions";
+import { revalidatePath } from "next/cache";
 
 export default async function fetchFeed(feedUrl: string) {
+   revalidatePath(feedUrl);
    const response: Response = await fetch(feedUrl);
 
    if (!response.ok) {
