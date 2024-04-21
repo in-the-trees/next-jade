@@ -39,7 +39,7 @@ export default async function BlogPost({
 
    return (
       <div>
-         <header className="sticky top-0 z-50 md:static md:pt-0">
+         <header className="sticky top-0 z-50 px-4 md:static md:pt-0">
             <div className="bg-white pt-9 md:bg-none md:pt-0">
                <Breadcrumb
                   items={[
@@ -49,10 +49,9 @@ export default async function BlogPost({
                      { type: "separator" },
                      { type: "text", text: "This post" },
                   ]}
-                  className="px-4"
                />
             </div>
-            <div className="bg-gradient-to-b from-white px-4 pb-5"></div>
+            <div className="bg-gradient-to-b from-white pb-5"></div>
          </header>
          <main className="px-4 md:h-dvh md:overflow-auto md:pb-36">
             <article>

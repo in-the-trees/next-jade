@@ -12,16 +12,18 @@ import Breadcrumb from "@/app/_components/breadcrumb";
 export default async function Blog() {
    return (
       <div>
-         <div className="sticky top-0 z-50 bg-white pt-9 md:static md:bg-none md:pt-0">
-            <Breadcrumb
-               items={[
-                  { type: "link", text: "Jade", href: "/" },
-                  { type: "separator" },
-                  { type: "text", text: "Microblog" },
-               ]}
-               className="px-4 pb-5"
-            />
-         </div>
+         <header className="sticky top-0 z-50 px-4 md:static md:pt-0">
+            <div className="bg-white pt-9 md:bg-none md:pt-0">
+               <Breadcrumb
+                  items={[
+                     { type: "link", text: "Jade", href: "/" },
+                     { type: "separator" },
+                     { type: "text", text: "Microblog" },
+                  ]}
+               />
+            </div>
+            <div className="bg-gradient-to-b from-white pb-5"></div>
+         </header>
          <main
             id="microblog"
             className="px-4 md:h-dvh md:overflow-auto md:pb-36"

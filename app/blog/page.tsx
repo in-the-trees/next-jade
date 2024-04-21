@@ -11,16 +11,18 @@ export default async function Blog() {
 
    return (
       <div>
-         <div className="sticky top-0 z-50 bg-white pt-9 md:static md:bg-none md:pt-0">
-            <Breadcrumb
-               items={[
-                  { type: "link", text: "Jade", href: "/" },
-                  { type: "separator" },
-                  { type: "text", text: "Blog" },
-               ]}
-               className="px-4 pb-5"
-            />
-         </div>
+         <header className="sticky top-0 z-50 px-4 md:static md:pt-0">
+            <div className="bg-white pt-9 md:bg-none md:pt-0">
+               <Breadcrumb
+                  items={[
+                     { type: "link", text: "Jade", href: "/" },
+                     { type: "separator" },
+                     { type: "text", text: "Blog" },
+                  ]}
+               />
+            </div>
+            <div className="bg-gradient-to-b from-white pb-5"></div>
+         </header>
          <main id="blog" className="px-4 md:h-dvh md:overflow-auto md:pb-36">
             <h1
                className={`${lora.className} mb-3.5 text-[1.5em] font-normal-mid`}
