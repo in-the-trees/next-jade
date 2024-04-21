@@ -9,7 +9,6 @@ const { convert } = require("html-to-text");
 import fetchFeed from "@/app/_lib/microblog/fetchFeed";
 
 const feedUrl = "https://van-dorsten.micro.blog/api/all.json";
-const feed = await fetchFeed(feedUrl);
 
 type Props = {
    params: {
@@ -28,6 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       };
    }
 
+   const feed = await fetchFeed(feedUrl);
    const post = await getPostById(idFromSlug, undefined, feed);
 
    if (slugArray.length === 1) {
@@ -77,6 +77,7 @@ export default async function MicroblogPost({
    const idFromSlug = params.slug[params.slug.length - 1];
    const isValidId = /^\d{7}$/.test(idFromSlug);
 
+   const feed = await fetchFeed(feedUrl);
    if (!isValidId) {
       notFound();
    }
