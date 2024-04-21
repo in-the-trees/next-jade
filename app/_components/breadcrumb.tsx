@@ -2,6 +2,7 @@ import { ChevronRightIcon } from "@heroicons/react/24/solid";
 import { ArrowUpRightIcon } from "@heroicons/react/24/solid";
 import { ArrowLeftIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
+import clsx from "clsx";
 
 type BreadcrumbItem =
    | { type: "link"; text: string; href: string }
@@ -24,7 +25,7 @@ const Breadcrumb = ({ className, items }: BreadcrumbProps) => {
                      <Link
                         key={index}
                         href={item.href}
-                        className="py-0.75 rounded-lg-half flex items-center gap-1 bg-gray-100 px-2 text-gray-700 transition-transform ease-out hover:scale-103"
+                        className="flex items-center gap-1 rounded-lg-half bg-gray-100 px-2 py-0.75 text-gray-700 transition-transform ease-out hover:scale-103"
                      >
                         {index === 0 && (
                            <ArrowLeftIcon className="h-3.5 w-3.5" />
@@ -36,23 +37,30 @@ const Breadcrumb = ({ className, items }: BreadcrumbProps) => {
                   return (
                      <span
                         key={index}
-                        className="rounded-lg-half py-0.75 border border-gray-200 px-2 text-gray-500"
+                        className="rounded-lg-half border border-gray-200 px-2 py-0.75 text-gray-500"
                      >
                         {item.text}
                      </span>
                   );
                case "external-link":
                   return (
-                     <a
+                     <div
                         key={index}
-                        href={item.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="rounded-lg-half py-0.75 ml-auto flex items-center gap-1 bg-blue-50 px-2 text-blue-500 transition-transform ease-out hover:scale-103"
+                        className={clsx("ml-0 basis-0", {
+                           "max-[500px]:basis-full": item.text === "Micro.blog",
+                           "min-[500px]:ml-auto": item.text === "Micro.blog",
+                        })}
                      >
-                        <span>{item.text}</span>
-                        <ArrowUpRightIcon className="h-3 w-3" />
-                     </a>
+                        <a
+                           href={item.href}
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           className="ml-0 flex w-fit items-center gap-1 rounded-lg-half bg-blue-50 px-2 py-0.75 text-blue-500 transition-transform ease-out hover:scale-103 md:ml-auto"
+                        >
+                           <span>{item.text}</span>
+                           <ArrowUpRightIcon className="h-3 w-3" />
+                        </a>
+                     </div>
                   );
                case "separator":
                   return (
