@@ -6,7 +6,9 @@
       "dev": "next dev",
       "build": "next build",
       "start": "next start",
-      "lint": "next lint"
+      "lint": "next lint",
+      "pages-build": "exec next-on-pages",
+      "pages-deploy": "exec wrangler pages deploy .vercel/output/static"
    },
    "dependencies": {
       "@cloudflare/next-on-pages": "^1.11.0",
