@@ -83,6 +83,7 @@ svg {
    @apply hover:scale-103;
    @apply text-gray-800;
    @apply leading-5;
+   @apply w-full;
 }
 
 .og-snippet {
@@ -94,12 +95,15 @@ svg {
 .og-metadata {
    @apply flex;
    @apply items-center;
+   @apply shrink;
 }
 
 .og-metadata > footer {
    @apply flex;
    @apply flex-col;
    @apply gap-1;
+   @apply w-fit;
+   @apply max-w-[90%];
 }
 
 .og-title {
@@ -111,6 +115,7 @@ svg {
    @apply mr-2;
    @apply w-[calc(1.25rem-2px)];
    @apply h-[calc(1.25rem-2px)];
+   @apply max-[320px]:hidden;
 }
 
 .og:hover .og-metadata > svg {
@@ -122,6 +127,7 @@ svg {
    @apply flex-row;
    @apply items-center;
    @apply gap-2;
+   @apply overflow-hidden;
 }
 
 .og-url-container > svg {
@@ -132,4 +138,5 @@ svg {
 .og-url {
    @apply not-italic;
    @apply text-gray-700;
+   @apply truncate;
 }
