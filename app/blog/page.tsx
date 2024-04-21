@@ -34,7 +34,7 @@ export default async function Blog() {
                {posts
                   .sort((a, b) => (a.date > b.date ? -1 : 1))
                   .map((post) => (
-                     <li key={post.id} className="mb-3.5">
+                     <li key={post.slug} className="mb-3.5">
                         <div className="flex items-center gap-[0.25em] leading-none">
                            <time
                               dateTime={post.date}
