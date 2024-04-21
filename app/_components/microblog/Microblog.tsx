@@ -13,6 +13,7 @@ import getMicrodotblog from "@/app/_lib/microblog/getMicrodotblog";
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/solid";
 import { CheckBadgeIcon } from "@heroicons/react/20/solid";
 import createRichLinks from "@/app/_lib/microblog/createRichLinks";
+import addImageDimensions from "@/app/_lib/microblog/addImageDimensions";
 
 interface MicroblogProps {
    className?: string;
@@ -24,7 +25,11 @@ const Microblog = async ({ className, Microblog, location }: MicroblogProps) => 
    const inFeed =
       location === "feed" || location === "feed-archive" ? true : false;
 
-   const content_html = createRichLinks(Microblog.content_html);
+   let content_html = Microblog.content_html;
+   content_html = createRichLinks(content_html);
+   if (Microblog.photos) {
+      content_html = addImageDimensions(content_html, Microblog.photos);
+   }
 
    const microdotblog: Microdotblog | null =
       location === "source" ? await getMicrodotblog(Microblog.url) : null;
@@ -61,10 +66,11 @@ const Microblog = async ({ className, Microblog, location }: MicroblogProps) => 
       }
    };
 
+   const proseStyling =
+      "prose-sm prose-a:text-blue-500 hover:prose-a:underline prose-img:max-h-64 prose-img:max-w-full prose-img:max-h-64 prose-img:object-contain prose-img:h-[auto] prose-img:w-[auto] prose-img:bg-gray-50 prose-img:rounded-xl prose-img:border prose-img:transition-transform prose-img:ease-out hover:prose-img:scale-103";
+
    const MicroblogArticle = (
-      <article
-         className={`${className} h-entry prose-sm border-b last:border-0 prose-a:text-blue-500 hover:prose-a:underline prose-img:max-h-64 prose-img:max-w-full prose-img:rounded-xl prose-img:border prose-img:transition-transform prose-img:ease-out hover:prose-img:scale-103`}
-      >
+      <article className={`${className} h-entry ${proseStyling}`}>
          <header className="flex items-center gap-2">
             {MicroblogLink()}
             <time
