@@ -1,4 +1,11 @@
 import Jade from "@/app/_components/Jade";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+   title: "Jade's blog",
+   description:
+      "Where I post extended or more evergreen content compared to my microblog.",
+};
 
 export default function Layout({ children }: { children: React.ReactNode }) {
    return (

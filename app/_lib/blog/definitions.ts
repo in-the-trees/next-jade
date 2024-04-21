@@ -5,10 +5,10 @@ export enum PostReturn {
 
 export interface PostMatter {
    filename?: string;
-   id: string;
    slug: string;
-   title: string;
    date: string;
+   title: string;
+   description?: string;
 }
 
 export interface Post {

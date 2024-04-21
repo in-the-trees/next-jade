@@ -1,9 +1,16 @@
 export const runtime = "edge";
 
+import type { Metadata } from "next";
 import MicroblogFeed from "@/app/_components/microblog/MicroblogFeed";
 import { lora } from "@/app/_fonts/fonts";
 import { GlobeAltIcon, RssIcon } from "@heroicons/react/24/outline";
 import Breadcrumb from "@/app/_components/breadcrumb";
+
+export const metadata: Metadata = {
+   metadataBase: new URL("https://jade.van-dorsten.net"),
+   title: "Jade's microblog (archive)",
+   description: "Archive of my microblog posts.",
+};
 
 export default async function Blog() {
    return (

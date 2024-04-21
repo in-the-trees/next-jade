@@ -7,6 +7,21 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import { lora, commit_mono } from "@/app/_fonts/fonts";
 import Breadcrumb from "@/app/_components/breadcrumb";
 import { DocumentTextIcon } from "@heroicons/react/24/outline";
+import { Metadata } from "next";
+
+type Props = {
+   params: {
+      slug: string;
+   };
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+   const post = (await getPostBySlug(params.slug, PostReturn.FULL)) as Post;
+   return {
+      title: post.postMatter.title,
+      description: post.postMatter.description,
+   };
+}
 
 export async function generateStaticParams() {
    const posts = (await getPosts(PostReturn.MATTER_ONLY)) as PostMatter[];
