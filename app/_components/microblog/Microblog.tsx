@@ -13,7 +13,7 @@ import getMicrodotblog from "@/app/_lib/microblog/getMicrodotblog";
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/solid";
 import { CheckBadgeIcon } from "@heroicons/react/20/solid";
 import createRichLinks from "@/app/_lib/microblog/createRichLinks";
-import addImageDimensions from "@/app/_lib/microblog/addImageDimensions";
+import transformImage from "@/app/_lib/microblog/transformImage";
 
 interface MicroblogProps {
    className?: string;
@@ -28,7 +28,7 @@ const Microblog = async ({ className, Microblog, location }: MicroblogProps) => 
    let content_html = Microblog.content_html;
    content_html = createRichLinks(content_html);
    if (Microblog.photos) {
-      content_html = addImageDimensions(content_html, Microblog.photos);
+      content_html = transformImage(content_html, Microblog.photos);
    }
 
    const microdotblog: Microdotblog | null =

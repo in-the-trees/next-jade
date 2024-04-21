@@ -10,9 +10,20 @@ svg {
    @apply shrink-0;
 }
 
+.image-wrapper {
+   @apply my-3.5;
+}
+
+.image-link {
+   @apply inline-block;
+}
+
+.image-link img {
+   @apply m-0;
+}
+
 .prose-sm {
    p,
-   img,
    blockquote,
    ul {
       @apply my-3.5;
@@ -21,7 +32,6 @@ svg {
 
 .prose-convo {
    p,
-   img,
    ul {
       @apply mt-[.5em];
    }
