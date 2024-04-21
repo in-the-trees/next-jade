@@ -42,7 +42,10 @@ export default async function Blog() {
                   JSON
                </a>
 
-               <a href="" className="btn-sm">
+               <a
+                  href="https://micro.blog/jade?remote_follow=1"
+                  className="btn-sm"
+               >
                   <GlobeAltIcon className="h-4 w-4" />
                   ActivityPub
                </a>
