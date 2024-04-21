@@ -6,6 +6,10 @@ import getPostById from "@/app/_lib/microblog/getPostById";
 import { notFound } from "next/navigation";
 import Microblog from "@/app/_components/microblog/Microblog";
 const { convert } = require("html-to-text");
+import fetchFeed from "@/app/_lib/microblog/fetchFeed";
+
+const feedUrl = "https://van-dorsten.micro.blog/api/all.json";
+const feed = await fetchFeed(feedUrl);
 
 type Props = {
    params: {
@@ -24,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       };
    }
 
-   const post = await getPostById(idFromSlug);
+   const post = await getPostById(idFromSlug, undefined, feed);
 
    if (slugArray.length === 1) {
       const date = new Date(post.date_published).toLocaleDateString("en-US", {
@@ -78,7 +82,7 @@ export default async function MicroblogPost({
    }
 
    if (slugArray.length === 1) {
-      const post = await getPostById(idFromSlug);
+      const post = await getPostById(idFromSlug, undefined, feed);
 
       return (
          <div className="px-4">
@@ -95,11 +99,15 @@ export default async function MicroblogPost({
       const month = slugArray[1];
       const day = slugArray[2];
 
-      const post = await getPostById(idFromSlug, {
-         year,
-         month,
-         day,
-      });
+      const post = await getPostById(
+         idFromSlug,
+         {
+            year,
+            month,
+            day,
+         },
+         feed,
+      );
 
       if (!post) {
          notFound();

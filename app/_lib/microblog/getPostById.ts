@@ -3,8 +3,7 @@ export const runtime = "edge";
 import { Microblog, MicroblogFeed } from "@/app/_lib/microblog/definitions";
 import fetchFeed from "@/app/_lib/microblog/fetchFeed";
 
-const feedUrl = "https://microblog.jade.van-dorsten.net/api/all.json";
-const feed: MicroblogFeed = await fetchFeed(feedUrl);
+const feedUrl = "https://van-dorsten.micro.blog/api/all.json";
 
 type DateParams = {
    year: string;
@@ -15,8 +14,10 @@ type DateParams = {
 const getPostById = async (
    id: string,
    dateParams?: DateParams,
+   customFeed?: MicroblogFeed,
 ): Promise<Microblog> => {
    if (dateParams && dateParams.year && dateParams.month && dateParams.day) {
+      const feed = customFeed || (await fetchFeed(feedUrl));
       const post = feed.items?.find((post) => {
          const postDate = new Date(post.date_published);
          return (
@@ -35,6 +36,7 @@ const getPostById = async (
          return post;
       }
    } else {
+      const feed = customFeed || (await fetchFeed(feedUrl));
       const post = feed.items?.find((post) => post.id === id);
 
       if (!post) {

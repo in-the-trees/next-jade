@@ -1,3 +1,5 @@
+export const revalidate = 0;
+
 import Jade from "@/app/_components/Jade";
 import type { Metadata } from "next";
 

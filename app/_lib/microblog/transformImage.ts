@@ -17,7 +17,7 @@ const transformImage = (
 
       // Check if image is hosted via Micro.blog
       const isMicroblogPhoto = src.startsWith(
-         "https://microblog.jade.van-dorsten.net/uploads",
+         "https://microblog.van-dorsten.net/uploads",
       );
 
       // Optimize image if hosted via Micro.blog

@@ -4,11 +4,10 @@ const getMicrodotblog = async (permalink: string) => {
    );
 
    if (!response.ok) {
-      throw new Error("Failed to fetch microblog feed");
+   } else {
+      const res = await response.json();
+      return res;
    }
-
-   const res = await response.json();
-   return res;
 };
 
 export default getMicrodotblog;
