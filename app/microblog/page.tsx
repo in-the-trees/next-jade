@@ -52,7 +52,7 @@ export default async function Blog() {
             </div>
 
             <MicroblogFeed
-               feedUrl="https://jade.van-dorsten.net/api/recent.json"
+               feedUrl="https://microblog.jade.van-dorsten.net/api/recent.json"
                cutoffInHours={24}
                className="mt-9"
             />
