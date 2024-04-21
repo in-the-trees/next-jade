@@ -204,35 +204,49 @@ const Microblog = async ({ className, Microblog, location }: MicroblogProps) => 
          {!inFeed && (
             <div>
                {microdotblog && microdotblog.home_page_url ?
-                  <Breadcrumb
-                     items={[
-                        { type: "link", text: "Jade", href: "/" },
-                        { type: "separator" },
-                        { type: "link", text: "Microblog", href: "/microblog" },
-                        { type: "separator" },
-                        { type: "text", text: "This post" },
-                        {
-                           type: "external-link",
-                           text: "Micro.blog",
-                           href: microdotblog.home_page_url,
-                        },
-                     ]}
-                     className="pb-5"
-                  />
-               :  <Breadcrumb
-                     items={[
-                        { type: "link", text: "Jade", href: "/" },
-                        { type: "separator" },
-                        { type: "link", text: "Microblog", href: "/microblog" },
-                        { type: "separator" },
-                        { type: "text", text: "This post" },
-                     ]}
-                     className="pb-5"
-                  />
+                  <div className="sticky top-0 z-50 bg-white pt-9 md:static md:bg-none md:pt-0">
+                     <Breadcrumb
+                        items={[
+                           { type: "link", text: "Jade", href: "/" },
+                           { type: "separator" },
+                           {
+                              type: "link",
+                              text: "Microblog",
+                              href: "/microblog",
+                           },
+                           { type: "separator" },
+                           { type: "text", text: "This post" },
+                           {
+                              type: "external-link",
+                              text: "Micro.blog",
+                              href: microdotblog.home_page_url,
+                           },
+                        ]}
+                        className="pb-5"
+                     />
+                  </div>
+               :  <div className="sticky top-0 z-50 bg-white pt-9 md:static md:bg-none md:pt-0">
+                     <Breadcrumb
+                        items={[
+                           { type: "link", text: "Jade", href: "/" },
+                           { type: "separator" },
+                           {
+                              type: "link",
+                              text: "Microblog",
+                              href: "/microblog",
+                           },
+                           { type: "separator" },
+                           { type: "text", text: "This post" },
+                        ]}
+                        className="pb-5"
+                     />
+                  </div>
                }
 
-               {MicroblogArticle}
-               {Conversation()}
+               <main className="md:h-dvh md:overflow-auto md:pb-36">
+                  {MicroblogArticle}
+                  {Conversation()}
+               </main>
             </div>
          )}
 

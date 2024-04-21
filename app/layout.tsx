@@ -19,7 +19,7 @@ export default function RootLayout({
    return (
       <html lang="en">
          <body
-            className={`${inter.className} mx-[calc(1.75rem-1rem)] my-7 overflow-hidden text-sm md:mx-7`}
+            className={`${inter.className} mx-[calc(1.75rem-1rem)] mb-7 overflow-x-hidden overflow-y-visible text-sm md:mx-7 md:my-7 md:overflow-y-hidden`}
          >
             {children}
          </body>

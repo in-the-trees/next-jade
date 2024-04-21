@@ -39,19 +39,24 @@ export default async function BlogPost({
 
    return (
       <div>
-         <Breadcrumb
-            items={[
-               { type: "link", text: "Jade", href: "/" },
-               { type: "separator" },
-               { type: "link", text: "Blog", href: "/blog" },
-               { type: "separator" },
-               { type: "text", text: "This post" },
-            ]}
-            className="px-4 pb-5"
-         />
-         <main className="h-dvh overflow-auto px-4 pb-36">
+         <header className="sticky top-0 z-50 md:static md:pt-0">
+            <div className="bg-white pt-9 md:bg-none md:pt-0">
+               <Breadcrumb
+                  items={[
+                     { type: "link", text: "Jade", href: "/" },
+                     { type: "separator" },
+                     { type: "link", text: "Blog", href: "/blog" },
+                     { type: "separator" },
+                     { type: "text", text: "This post" },
+                  ]}
+                  className="px-4"
+               />
+            </div>
+            <div className="bg-gradient-to-b from-white px-4 pb-5"></div>
+         </header>
+         <main className="px-4 md:h-dvh md:overflow-auto md:pb-36">
             <article>
-               <header className="my-5">
+               <header>
                   <div className="mb-3 flex items-center gap-2 text-gray-500">
                      <DocumentTextIcon className="h-4 w-4" />
                      <time

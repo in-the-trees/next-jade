@@ -11,15 +11,17 @@ export default async function Blog() {
 
    return (
       <div>
-         <Breadcrumb
-            items={[
-               { type: "link", text: "Jade", href: "/" },
-               { type: "separator" },
-               { type: "text", text: "Blog" },
-            ]}
-            className="px-4 pb-5"
-         />
-         <main id="blog" className="h-dvh overflow-auto px-4 pb-36">
+         <div className="sticky top-0 z-50 bg-white pt-9 md:static md:bg-none md:pt-0">
+            <Breadcrumb
+               items={[
+                  { type: "link", text: "Jade", href: "/" },
+                  { type: "separator" },
+                  { type: "text", text: "Blog" },
+               ]}
+               className="px-4 pb-5"
+            />
+         </div>
+         <main id="blog" className="px-4 md:h-dvh md:overflow-auto md:pb-36">
             <h1
                className={`${lora.className} mb-3.5 text-[1.5em] font-normal-mid`}
             >
