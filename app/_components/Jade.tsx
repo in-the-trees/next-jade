@@ -12,22 +12,24 @@ const Jade: React.FC<JadeProps> = ({ className }) => {
          <h1 className={`${lora.className} text-[1.5em] font-normal-mid italic`}>
             Jade van Dorsten
          </h1>
-         <p className="my-3.5">
+         <p className="my-3.5 text-pretty">
             <span className="italic">long story short</span>, I'm a human and a
             netizen.
          </p>
 
-         <p className="mb-1.75 mt-3.5">A few things about me:</p>
+         <p className="mb-1.75 mt-3.5 text-pretty">A few things about me:</p>
          <ul className="mb-3.5 ml-4 mt-1.75 list-inside list-disc">
-            <li className="text-gray-900">20, he/him</li>
-            <li className="text-gray-900">Web developer, mainly front-end</li>
-            <li className="text-gray-900">
+            <li className="text-pretty text-gray-900">20, he/him</li>
+            <li className="text-pretty text-gray-900">
+               Web developer, mainly front-end
+            </li>
+            <li className="text-pretty text-gray-900">
                Digital privacy & security enthusiast
             </li>
-            <li className="text-gray-900">Based in Madison, WI</li>
+            <li className="text-pretty text-gray-900">Based in Madison, WI</li>
          </ul>
 
-         <p className="my-3.5">Where I publish:</p>
+         <p className="my-3.5 text-pretty">Where I publish:</p>
          <div className="mb-5 mt-3.5 flex flex-wrap items-center gap-2">
             <Link href="/microblog" className="btn-sm">
                <DocumentTextIcon className="h-4 w-4" />
@@ -39,9 +41,9 @@ const Jade: React.FC<JadeProps> = ({ className }) => {
             </Link>
          </div>
 
-         <p className="mb-1.75 mt-3.5">Contact me:</p>
+         <p className="mb-1.75 mt-3.5 text-pretty">Contact me:</p>
          <ul className="mb-3.5 ml-4 mt-1.75 list-inside list-disc">
-            <li>
+            <li className="text-pretty">
                <a
                   className="text-blue-500 hover:underline"
                   href="https://signal.me/#eu/Ny71Ts3RZ685pJjTlOfJbxO9IZKNSqaGYAkdRLjTEsvKlSA3fv9MOr8LHLQOurlR"
@@ -49,7 +51,7 @@ const Jade: React.FC<JadeProps> = ({ className }) => {
                   jade.07
                </a>
             </li>
-            <li>
+            <li className="text-pretty">
                <a
                   className="text-blue-500 hover:underline"
                   href="mailto:jade@van-dorsten.net"
@@ -57,7 +59,7 @@ const Jade: React.FC<JadeProps> = ({ className }) => {
                   jade@van-dorsten.net
                </a>
             </li>
-            <li>
+            <li className="text-pretty">
                <a
                   className="text-blue-500 hover:underline"
                   href="https://matrix.to/#/@typejade:matrix.org"
@@ -67,9 +69,9 @@ const Jade: React.FC<JadeProps> = ({ className }) => {
             </li>
          </ul>
 
-         <p className="mb-1.75 mt-3.5">Web presence:</p>
+         <p className="mb-1.75 mt-3.5 text-pretty">Web presence:</p>
          <ul className="mb-3.5 ml-4 mt-1.75 list-inside list-disc">
-            <li>
+            <li className="text-pretty">
                <a
                   className="text-blue-500 hover:underline"
                   href="https://github.com/typejade"
@@ -77,7 +79,7 @@ const Jade: React.FC<JadeProps> = ({ className }) => {
                   github.com/typejade
                </a>
             </li>
-            <li>
+            <li className="text-pretty">
                <a
                   className="text-blue-500 hover:underline"
                   href="https://micro.blog/jade"
@@ -85,7 +87,7 @@ const Jade: React.FC<JadeProps> = ({ className }) => {
                   micro.blog/jade
                </a>
             </li>
-            <li>
+            <li className="text-pretty">
                <a
                   className="text-blue-500 hover:underline"
                   href="https://www.threads.net/@typejade_"
@@ -93,7 +95,7 @@ const Jade: React.FC<JadeProps> = ({ className }) => {
                   threads.net/@typejade_
                </a>
             </li>
-            <li>
+            <li className="text-pretty">
                <a
                   className="text-blue-500 hover:underline"
                   href="https://x.com/@typejade_"

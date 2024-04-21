@@ -33,6 +33,11 @@ svg {
    }
 }
 
+.prose-sm *,
+.prose-convo * {
+   text-wrap: pretty;
+}
+
 .btn-sm {
    @apply flex;
    @apply w-max;

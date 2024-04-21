@@ -26,7 +26,7 @@ export default async function Blog() {
             >
                Microblog
             </h1>
-            <h2>
+            <h2 className="text-pretty">
                Welcome to my microblog where I publish short, tweet-like posts. I
                don't take my microblog too seriously, nor should you. By default,
                only posts within the last day are visible.
