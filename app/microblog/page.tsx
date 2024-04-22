@@ -42,7 +42,7 @@ export default async function Blog() {
                   Archive
                </a>
                <a
-                  href={`http://${process.env.MICROBLOG_BASE_URL}/feed.json`}
+                  href={`https://${process.env.MICROBLOG_BASE_URL}/feed.json`}
                   className="btn-sm"
                   target="_blank"
                   rel="noopener noreferrer"
