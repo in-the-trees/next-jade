@@ -80,7 +80,7 @@ export default async function BlogPost({
                      {post.postMatter.title}
                   </h1>
                </header>
-               <div className="h-entry prose-sm border-b last:border-0 prose-a:text-blue-500 hover:prose-a:underline prose-img:max-h-64 prose-img:max-w-full prose-img:rounded-xl prose-img:border prose-img:transition-transform prose-img:ease-out hover:prose-img:scale-103">
+               <div className="prose-sm prose-a:text-blue-500 hover:prose-a:underline prose-img:max-h-64 prose-img:max-w-full prose-img:rounded-xl prose-img:border prose-img:transition-transform prose-img:ease-out hover:prose-img:scale-103">
                   <MDXRemote source={post.content} />
                </div>
             </article>

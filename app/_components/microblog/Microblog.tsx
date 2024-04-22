@@ -74,9 +74,7 @@ const Microblog = async ({ className, Microblog, location }: MicroblogProps) => 
    `;
 
    const MicroblogArticle = (
-      <article
-         className={`${className} h-entry border-b last:border-0 ${proseStyling}`}
-      >
+      <article className={`${className} h-entry ${proseStyling}`}>
          <header className="flex items-center gap-2">
             {MicroblogLink()}
             <time
