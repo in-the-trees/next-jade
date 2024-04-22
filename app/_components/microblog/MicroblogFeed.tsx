@@ -16,9 +16,33 @@ const MicroblogFeed: NextPage<MicroblogProps> = async ({
    feedUrl,
    cutoffInHours,
 }) => {
-   const feed: MicroblogFeed = await fetchFeed(feedUrl);
+   let feed: MicroblogFeed | null = null;
+   try {
+      feed = await fetchFeed(feedUrl);
+   } catch (error) {
+      console.error(error);
+      return (
+         <div
+            id="microblog-feed"
+            className={`${className} h-feed flex flex-col gap-4`}
+         >
+            <p className="text-gray-400">Micro.blog currently unreachable :-(</p>
+         </div>
+      );
+   }
 
    const now = new Date();
+
+   if (!feed) {
+      return (
+         <div
+            id="microblog-feed"
+            className={`${className} h-feed flex flex-col gap-4`}
+         >
+            <p className="text-gray-400">Something went wrong :-(</p>
+         </div>
+      );
+   }
 
    return (
       <div

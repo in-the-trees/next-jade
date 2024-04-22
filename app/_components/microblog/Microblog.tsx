@@ -17,13 +17,43 @@ import transformImage from "@/app/_lib/microblog/transformImage";
 
 interface MicroblogProps {
    className?: string;
-   Microblog: Microblog;
+   Microblog?: Microblog;
    location: "feed" | "feed-archive" | "source";
 }
 
 const Microblog = async ({ className, Microblog, location }: MicroblogProps) => {
    const inFeed =
       location === "feed" || location === "feed-archive" ? true : false;
+
+   if (!Microblog) {
+      return (
+         <div>
+            <header className="sticky top-0 z-50">
+               <div className="bg-white pt-7 md:pt-[44px] lg:pt-[60px]">
+                  <Breadcrumb
+                     items={[
+                        { type: "link", text: "Jade", href: "/" },
+                        { type: "separator" },
+                        {
+                           type: "link",
+                           text: "Microblog",
+                           href: "/microblog",
+                        },
+                        { type: "separator" },
+                        { type: "text", text: "This post" },
+                     ]}
+                  />
+               </div>
+               <div className="bg-gradient-to-b from-white pb-5"></div>
+            </header>
+            <main>
+               <p className="text-gray-400">
+                  Micro.blog currently unreachable :-(
+               </p>
+            </main>
+         </div>
+      );
+   }
 
    let content_html = Microblog.content_html;
    content_html = createRichLinks(content_html);

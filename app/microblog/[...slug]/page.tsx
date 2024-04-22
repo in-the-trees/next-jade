@@ -7,6 +7,7 @@ import { notFound } from "next/navigation";
 import Microblog from "@/app/_components/microblog/Microblog";
 const { convert } = require("html-to-text");
 import fetchFeed from "@/app/_lib/microblog/fetchFeed";
+import { MicroblogFeed } from "@/app/_lib/microblog/definitions";
 
 const feedUrl = "https://van-dorsten.micro.blog/api/all.json";
 
@@ -27,45 +28,63 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       };
    }
 
-   const feed = await fetchFeed(feedUrl);
-   const post = await getPostById(idFromSlug, undefined, feed);
+   let feed: MicroblogFeed | null;
+   try {
+      feed = await fetchFeed(feedUrl);
+   } catch (error) {
+      console.error(error);
+      return {
+         title: "Micro.blog currently unreachable",
+      };
+   }
 
-   if (slugArray.length === 1) {
-      const date = new Date(post.date_published).toLocaleDateString("en-US", {
-         year: "numeric",
-         month: "long",
-         day: "numeric",
-      });
-      if (post) {
+   let post: Microblog | null;
+   if (feed) {
+      post = await getPostById(idFromSlug, undefined, feed);
+      if (slugArray.length === 1) {
+         const date = new Date(post.date_published).toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+         });
+         if (post) {
+            return {
+               title: `Jade's microblog on ${date}`,
+               description: convert(post.content_html),
+            };
+         }
+      } else if (
+         slugArray.length === 4 &&
+         /^\d{4}$/.test(slugArray[0]) &&
+         /^[1-9]\d?$/.test(slugArray[1]) &&
+         /^[1-9]\d?$/.test(slugArray[2])
+      ) {
+         const year = Number(slugArray[0]);
+         const month = Number(slugArray[1]);
+         const day = Number(slugArray[2]);
+         const date = new Date(year, month - 1, day).toLocaleDateString(
+            "en-US",
+            {
+               year: "numeric",
+               month: "long",
+               day: "numeric",
+            },
+         );
+
          return {
             title: `Jade's microblog on ${date}`,
             description: convert(post.content_html),
          };
       }
-   } else if (
-      slugArray.length === 4 &&
-      /^\d{4}$/.test(slugArray[0]) &&
-      /^[1-9]\d?$/.test(slugArray[1]) &&
-      /^[1-9]\d?$/.test(slugArray[2])
-   ) {
-      const year = Number(slugArray[0]);
-      const month = Number(slugArray[1]);
-      const day = Number(slugArray[2]);
-      const date = new Date(year, month - 1, day).toLocaleDateString("en-US", {
-         year: "numeric",
-         month: "long",
-         day: "numeric",
-      });
 
       return {
-         title: `Jade's microblog on ${date}`,
-         description: convert(post.content_html),
+         title: "Microblog not found",
+      };
+   } else {
+      return {
+         title: "Micro.blog currently unreachable",
       };
    }
-
-   return {
-      title: "Microblog not found",
-   };
 }
 
 export default async function MicroblogPost({
@@ -77,19 +96,35 @@ export default async function MicroblogPost({
    const idFromSlug = params.slug[params.slug.length - 1];
    const isValidId = /^\d{7}$/.test(idFromSlug);
 
-   const feed = await fetchFeed(feedUrl);
+   let feed: MicroblogFeed | null;
+   try {
+      feed = await fetchFeed(feedUrl);
+   } catch (error) {
+      console.error(error);
+      feed = null;
+   }
+
    if (!isValidId) {
       notFound();
    }
 
    if (slugArray.length === 1) {
-      const post = await getPostById(idFromSlug, undefined, feed);
+      let post: Microblog | null;
 
-      return (
-         <div className="px-4">
-            <Microblog Microblog={post} location="source" />
-         </div>
-      );
+      if (feed) {
+         post = await getPostById(idFromSlug, undefined, feed);
+         return (
+            <div className="px-4">
+               <Microblog Microblog={post} location="source" />
+            </div>
+         );
+      } else {
+         return (
+            <div className="px-4">
+               <Microblog location="source" />
+            </div>
+         );
+      }
    } else if (
       slugArray.length === 4 &&
       /^\d{4}$/.test(slugArray[0]) &&
@@ -100,25 +135,33 @@ export default async function MicroblogPost({
       const month = slugArray[1];
       const day = slugArray[2];
 
-      const post = await getPostById(
-         idFromSlug,
-         {
-            year,
-            month,
-            day,
-         },
-         feed,
-      );
+      if (feed) {
+         const post = await getPostById(
+            idFromSlug,
+            {
+               year,
+               month,
+               day,
+            },
+            feed,
+         );
 
-      if (!post) {
-         notFound();
+         if (!post) {
+            notFound();
+         }
+
+         return (
+            <div className="px-4">
+               <Microblog Microblog={post} location="source" />
+            </div>
+         );
+      } else {
+         return (
+            <div className="px-4">
+               <Microblog location="source" />
+            </div>
+         );
       }
-
-      return (
-         <div className="px-4">
-            <Microblog Microblog={post} location="source" />
-         </div>
-      );
    } else {
       notFound();
    }

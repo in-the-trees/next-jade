@@ -17,16 +17,30 @@ const getPostById = async (
    customFeed?: MicroblogFeed,
 ): Promise<Microblog> => {
    if (dateParams && dateParams.year && dateParams.month && dateParams.day) {
-      const feed = customFeed || (await fetchFeed(feedUrl));
-      const post = feed.items?.find((post) => {
-         const postDate = new Date(post.date_published);
-         return (
-            post.id === id &&
-            postDate.getFullYear() === parseInt(dateParams.year) &&
-            postDate.getMonth() + 1 === parseInt(dateParams.month) &&
-            postDate.getDate() === parseInt(dateParams.day)
-         );
-      });
+      let feed: MicroblogFeed | null = null;
+      if (customFeed) {
+         feed = customFeed;
+      } else {
+         try {
+            feed = await fetchFeed(feedUrl);
+         } catch (error) {
+            throw new Error(`Failed to fetch feed from ${feedUrl}`);
+         }
+      }
+
+      let post: Microblog | undefined;
+
+      if (feed) {
+         post = feed.items?.find((post) => {
+            const postDate = new Date(post.date_published);
+            return (
+               post.id === id &&
+               postDate.getFullYear() === parseInt(dateParams.year) &&
+               postDate.getMonth() + 1 === parseInt(dateParams.month) &&
+               postDate.getDate() === parseInt(dateParams.day)
+            );
+         });
+      }
 
       if (!post) {
          throw new Error(
@@ -36,8 +50,21 @@ const getPostById = async (
          return post;
       }
    } else {
-      const feed = customFeed || (await fetchFeed(feedUrl));
-      const post = feed.items?.find((post) => post.id === id);
+      let feed: MicroblogFeed | null = null;
+      if (customFeed) {
+         feed = customFeed;
+      } else {
+         try {
+            feed = await fetchFeed(feedUrl);
+         } catch (error) {
+            throw new Error(`Failed to fetch feed from ${feedUrl}`);
+         }
+      }
+
+      let post: Microblog | undefined;
+      if (feed) {
+         post = feed.items?.find((post) => post.id === id);
+      }
 
       if (!post) {
          throw new Error(`Failed to find post with id: ${id}`);
