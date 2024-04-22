@@ -9,7 +9,7 @@ const { convert } = require("html-to-text");
 import fetchFeed from "@/app/_lib/microblog/fetchFeed";
 import { MicroblogFeed } from "@/app/_lib/microblog/definitions";
 
-const feedUrl = "https://van-dorsten.micro.blog/api/all.json";
+const feedUrl = "https://jade.micro.blog/api/all.json";
 
 type Props = {
    params: {

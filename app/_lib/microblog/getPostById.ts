@@ -3,7 +3,7 @@ export const runtime = "edge";
 import { Microblog, MicroblogFeed } from "@/app/_lib/microblog/definitions";
 import fetchFeed from "@/app/_lib/microblog/fetchFeed";
 
-const feedUrl = "https://van-dorsten.micro.blog/api/all.json";
+const feedUrl = "https://jade.micro.blog/api/all.json";
 
 type DateParams = {
    year: string;

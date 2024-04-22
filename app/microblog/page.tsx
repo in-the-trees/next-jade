@@ -42,7 +42,7 @@ export default async function Blog() {
                   Archive
                </a>
                <a
-                  href="http://van-dorsten.micro.blog/feed.json"
+                  href="http://jade.micro.blog/feed.json"
                   className="btn-sm"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -63,7 +63,7 @@ export default async function Blog() {
             </div>
 
             <MicroblogFeed
-               feedUrl="https://van-dorsten.micro.blog/api/recent.json"
+               feedUrl="https://jade.micro.blog/api/recent.json"
                cutoffInHours={24}
                className="mt-9"
             />

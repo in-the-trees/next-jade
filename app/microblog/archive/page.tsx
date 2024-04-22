@@ -44,7 +44,7 @@ export default async function Blog() {
 
             <div className="my-4 flex flex-wrap items-center gap-2">
                <a
-                  href="http://van-dorsten.micro.blog/feed.json"
+                  href="http://jade.micro.blog/feed.json"
                   className="btn-sm"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -65,7 +65,7 @@ export default async function Blog() {
             </div>
 
             <MicroblogFeed
-               feedUrl="https://van-dorsten.micro.blog/api/all.json"
+               feedUrl="https://jade.micro.blog/api/all.json"
                className="mt-9"
             />
          </main>
