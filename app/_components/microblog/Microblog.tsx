@@ -204,8 +204,8 @@ const Microblog = async ({ className, Microblog, location }: MicroblogProps) => 
          {!inFeed && (
             <div>
                {microdotblog && microdotblog.home_page_url ?
-                  <header className="sticky top-0 z-50 md:static md:pt-0">
-                     <div className="bg-white pt-9 md:bg-none md:pt-0">
+                  <header className="sticky top-0 z-50">
+                     <div className="bg-white pt-9 md:pt-[44px] lg:pt-[60px]">
                         <Breadcrumb
                            items={[
                               { type: "link", text: "Jade", href: "/" },
@@ -227,8 +227,8 @@ const Microblog = async ({ className, Microblog, location }: MicroblogProps) => 
                      </div>
                      <div className="bg-gradient-to-b from-white pb-5"></div>
                   </header>
-               :  <header className="sticky top-0 z-50 md:static md:pt-0">
-                     <div className="bg-white pt-9 md:bg-none md:pt-0">
+               :  <header className="sticky top-0 z-50">
+                     <div className="bg-white pt-9 md:pt-[44px] lg:pt-[60px]">
                         <Breadcrumb
                            items={[
                               { type: "link", text: "Jade", href: "/" },
@@ -247,7 +247,7 @@ const Microblog = async ({ className, Microblog, location }: MicroblogProps) => 
                   </header>
                }
 
-               <main className="md:h-dvh md:overflow-auto md:pb-36">
+               <main className="">
                   {MicroblogArticle}
                   {Conversation()}
                </main>

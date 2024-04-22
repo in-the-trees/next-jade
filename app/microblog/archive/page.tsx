@@ -15,8 +15,8 @@ export const metadata: Metadata = {
 export default async function Blog() {
    return (
       <div>
-         <header className="sticky top-0 z-50 px-4 md:static md:pt-0">
-            <div className="bg-white pt-9 md:bg-none md:pt-0">
+         <header className="sticky top-0 z-50 px-4">
+            <div className="bg-white pt-9 md:pt-[44px] lg:pt-[60px]">
                <Breadcrumb
                   items={[
                      { type: "link", text: "Jade", href: "/" },
@@ -26,13 +26,10 @@ export default async function Blog() {
                      { type: "text", text: "Archive" },
                   ]}
                />
-               <div className="bg-gradient-to-b from-white pb-5"></div>
             </div>
+            <div className="bg-gradient-to-b from-white pb-5"></div>
          </header>
-         <main
-            id="microblog"
-            className="px-4 md:h-dvh md:overflow-auto md:pb-36"
-         >
+         <main id="microblog" className="px-4">
             <h1
                className={`${lora.className} mb-3.5 text-[1.5em] font-normal-mid`}
             >

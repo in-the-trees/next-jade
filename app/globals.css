@@ -10,6 +10,30 @@ svg {
    @apply shrink-0;
 }
 
+@media (min-width: 768px) {
+   @media (max-height: 637px) {
+      .jade-aside {
+         @apply hidden !important;
+      }
+
+      .jade-main {
+         @apply w-full !important;
+      }
+   }
+}
+
+@media (min-width: 1024px) {
+   @media (max-height: 575px) {
+      .jade-aside {
+         @apply hidden !important;
+      }
+
+      .jade-main {
+         @apply w-full !important;
+      }
+   }
+}
+
 .image-wrapper {
    @apply my-3.5;
 }

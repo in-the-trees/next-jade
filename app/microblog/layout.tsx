@@ -10,12 +10,12 @@ export const metadata: Metadata = {
 
 export default function Layout({ children }: { children: React.ReactNode }) {
    return (
-      <div className="flex w-full justify-center md:pt-4 lg:pt-8">
-         <div className="flex w-full max-w-[70rem] gap-2 md:h-dvh">
-            <aside className="hidden w-1/3 md:block">
-               <Jade className="h-dvh overflow-auto px-4 pb-20" />
+      <div className="flex w-full justify-center">
+         <div className="flex w-full max-w-[70rem] gap-2 md:h-full">
+            <aside className="jade-aside sticky top-0 -z-50 hidden w-1/3 self-start md:block md:pt-[44px] lg:pt-[60px]">
+               <Jade className="max-h-screen overflow-auto px-4 pb-20" />
             </aside>
-            <div className="w-full md:w-2/3">{children}</div>
+            <div className="jade-main w-full md:w-2/3">{children}</div>
          </div>
       </div>
    );
