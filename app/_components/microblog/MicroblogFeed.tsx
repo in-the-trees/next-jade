@@ -49,6 +49,12 @@ const MicroblogFeed: NextPage<MicroblogProps> = async ({
          id="microblog-feed"
          className={`${className} h-feed flex flex-col gap-4`}
       >
+         {feed.items && feed.items.length === 0 ?
+            <p className="text-gray-400">
+               No posts within the last day — check back later :)
+            </p>
+         :  null}
+
          {feed.items.map((microblog) => {
             if (cutoffInHours) {
                const dateToCompare =
