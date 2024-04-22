@@ -54,6 +54,10 @@ svg {
    }
 }
 
+.prose-sm * {
+   @apply leading-5;
+}
+
 .prose-convo {
    p,
    ul {

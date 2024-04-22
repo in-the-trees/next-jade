@@ -43,7 +43,12 @@ export default async function Blog() {
             </h2>
 
             <div className="my-4 flex flex-wrap items-center gap-2">
-               <a href="" className="btn-sm">
+               <a
+                  href="http://van-dorsten.micro.blog/feed.json"
+                  className="btn-sm"
+                  target="_blank"
+                  rel="noopener noreferrer"
+               >
                   <RssIcon className="h-4 w-4" />
                   JSON
                </a>
@@ -51,6 +56,8 @@ export default async function Blog() {
                <a
                   href="https://micro.blog/jade?remote_follow=1"
                   className="btn-sm"
+                  target="_blank"
+                  rel="noopener noreferrer"
                >
                   <GlobeAltIcon className="h-4 w-4" />
                   ActivityPub
