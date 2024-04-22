@@ -203,7 +203,7 @@ const Microblog = async ({ className, Microblog, location }: MicroblogProps) => 
             <div>
                {microdotblog && microdotblog.home_page_url ?
                   <header className="sticky top-0 z-50">
-                     <div className="bg-white pt-9 md:pt-[44px] lg:pt-[60px]">
+                     <div className="bg-white pt-7 md:pt-[44px] lg:pt-[60px]">
                         <Breadcrumb
                            items={[
                               { type: "link", text: "Jade", href: "/" },
@@ -226,7 +226,7 @@ const Microblog = async ({ className, Microblog, location }: MicroblogProps) => 
                      <div className="bg-gradient-to-b from-white pb-5"></div>
                   </header>
                :  <header className="sticky top-0 z-50">
-                     <div className="bg-white pt-9 md:pt-[44px] lg:pt-[60px]">
+                     <div className="bg-white pt-7 md:pt-[44px] lg:pt-[60px]">
                         <Breadcrumb
                            items={[
                               { type: "link", text: "Jade", href: "/" },
