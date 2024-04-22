@@ -4,14 +4,14 @@ import * as cheerio from "cheerio";
 
 const createRichLinks = (content_html: string): string => {
    const $ = cheerio.load(`<div class="content-wrapper">${content_html}</div>`);
-   const richLinkContainers = $(".og-container");
+   const richLinkContainers = $(".rl-container");
 
    richLinkContainers.each(function () {
-      const richLink = $(this).find(".og");
+      const richLink = $(this).find("blockquote");
 
       const url = richLink.attr("cite") || "";
-      const title = richLink.find(".og-title").text() || "";
-      const snippet = richLink.find(".og-snippet").text() || "";
+      const title = richLink.find(".rl-title").text() || "";
+      const snippet = richLink.find(".rl-snippet").text() || "";
 
       const niceUrl = url.replace(/^(?:https?:\/\/)?(?:www\.)?/i, "");
       const isLocalUrl = "jade.van-dorsten.net" === new URL(url).hostname;
@@ -19,18 +19,18 @@ const createRichLinks = (content_html: string): string => {
       let innerHTML = "";
       if (snippet.length > 0) {
          innerHTML += `
-                <p class="og-snippet">${snippet}</p>
+                <p class="rl-snippet">${snippet}</p>
             `;
       }
       innerHTML += `
-            <div class="og-metadata">
+            <div class="rl-metadata">
                 <footer>
-                    ${title ? `<span class="og-title">${title}</span>` : ""}
-                    <div class="og-url-container">
+                    ${title ? `<span class="rl-title">${title}</span>` : ""}
+                    <div class="rl-url-container">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                           <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" />
                         </svg>
-                        <cite class="og-url">${niceUrl}</cite>
+                        <cite class="rl-url">${niceUrl}</cite>
                     </div>
                 </footer>
                 ${
@@ -56,7 +56,6 @@ const createRichLinks = (content_html: string): string => {
       }
 
       richLink.html(innerHTML);
-      richLink.removeClass("og-hide");
       a.append(richLink);
       $(this).append(a);
    });

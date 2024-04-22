@@ -69,11 +69,11 @@ svg {
    @apply hover:scale-103;
 }
 
-.og-container a {
+.rl-container a {
    @apply hover:no-underline;
 }
 
-.og {
+.rl {
    @apply flex;
    @apply flex-col;
    @apply gap-3;
@@ -90,19 +90,19 @@ svg {
    @apply w-full;
 }
 
-.og-snippet {
+.rl-snippet {
    @apply mt-0 !important;
    @apply mb-0 !important;
    @apply text-gray-500;
 }
 
-.og-metadata {
+.rl-metadata {
    @apply flex;
    @apply items-center;
    @apply shrink;
 }
 
-.og-metadata > footer {
+.rl-metadata > footer {
    @apply flex;
    @apply flex-col;
    @apply gap-1;
@@ -110,11 +110,11 @@ svg {
    @apply max-w-[90%];
 }
 
-.og-title {
+.rl-title {
    @apply font-normal-mid;
 }
 
-.og-metadata > svg {
+.rl-metadata > svg {
    @apply ml-auto;
    @apply mr-2;
    @apply w-[calc(1.25rem-2px)];
@@ -122,11 +122,11 @@ svg {
    @apply max-[320px]:hidden;
 }
 
-.og:hover .og-metadata > svg {
+.rl:hover .rl-metadata > svg {
    @apply text-blue-500;
 }
 
-.og-url-container {
+.rl-url-container {
    @apply flex;
    @apply flex-row;
    @apply items-center;
@@ -134,12 +134,12 @@ svg {
    @apply overflow-hidden;
 }
 
-.og-url-container > svg {
+.rl-url-container > svg {
    @apply w-3.5;
    @apply h-3.5;
 }
 
-.og-url {
+.rl-url {
    @apply not-italic;
    @apply text-gray-700;
    @apply truncate;
