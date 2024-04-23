@@ -31,9 +31,11 @@ export default async function Blog() {
                Microblog
             </h1>
             <h2 className="text-pretty">
-               Welcome to my microblog where I publish short, tweet-like posts. I
-               don't take my microblog too seriously, nor should you. By default,
-               only posts within the last day are visible.
+               <span className="sm:block">
+                  Welcome to my microblog where I publish short, tweet-like
+                  posts.{" "}
+               </span>
+               By default, only posts within the last day are visible.
             </h2>
 
             <div className="my-4 flex flex-wrap items-center gap-2">
