@@ -12,6 +12,7 @@ export const metadata: Metadata = {
 
    // PWA
    applicationName: "Jade van Dorsten",
+   manifest: "/manifest.json",
    appleWebApp: {
       capable: true,
       statusBarStyle: "default",
