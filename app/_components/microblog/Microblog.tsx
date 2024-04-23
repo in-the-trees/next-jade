@@ -29,7 +29,7 @@ const Microblog = async ({ className, Microblog, location }: MicroblogProps) => 
       return (
          <div>
             <header className="sticky top-0 z-50">
-               <div className="bg-white pt-7 md:pt-[44px] lg:pt-[60px]">
+               <div className="bg-white pb-1 pt-7 md:pt-[44px] lg:pt-[60px]">
                   <Breadcrumb
                      items={[
                         { type: "link", text: "Jade", href: "/" },
@@ -44,7 +44,7 @@ const Microblog = async ({ className, Microblog, location }: MicroblogProps) => 
                      ]}
                   />
                </div>
-               <div className="bg-gradient-to-b from-white pb-5"></div>
+               <div className="bg-gradient-to-b from-white pb-4"></div>
             </header>
             <main>
                <p className="text-gray-400">
@@ -233,7 +233,7 @@ const Microblog = async ({ className, Microblog, location }: MicroblogProps) => 
             <div>
                {microdotblog && microdotblog.home_page_url ?
                   <header className="sticky top-0 z-50">
-                     <div className="bg-white pt-7 md:pt-[44px] lg:pt-[60px]">
+                     <div className="bg-white pb-1 pt-7 md:pt-[44px] lg:pt-[60px]">
                         <Breadcrumb
                            items={[
                               { type: "link", text: "Jade", href: "/" },
@@ -253,10 +253,10 @@ const Microblog = async ({ className, Microblog, location }: MicroblogProps) => 
                            ]}
                         />
                      </div>
-                     <div className="bg-gradient-to-b from-white pb-5"></div>
+                     <div className="bg-gradient-to-b from-white pb-4"></div>
                   </header>
                :  <header className="sticky top-0 z-50">
-                     <div className="bg-white pt-7 md:pt-[44px] lg:pt-[60px]">
+                     <div className="bg-white pb-1 pt-7 md:pt-[44px] lg:pt-[60px]">
                         <Breadcrumb
                            items={[
                               { type: "link", text: "Jade", href: "/" },
@@ -271,7 +271,7 @@ const Microblog = async ({ className, Microblog, location }: MicroblogProps) => 
                            ]}
                         />
                      </div>
-                     <div className="bg-gradient-to-b from-white pb-5"></div>
+                     <div className="bg-gradient-to-b from-white pb-4"></div>
                   </header>
                }
 

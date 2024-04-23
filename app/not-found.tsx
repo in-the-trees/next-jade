@@ -13,7 +13,7 @@ export default function NotFound() {
             <div className="w-full md:w-2/3">
                <div>
                   <header className="sticky top-0 z-50 px-4">
-                     <div className="bg-white pt-7 md:pt-[44px] lg:pt-[60px]">
+                     <div className="bg-white pb-1 pt-7 md:pt-[44px] lg:pt-[60px]">
                         <Breadcrumb
                            items={[
                               { type: "link", text: "Jade", href: "/" },
@@ -22,7 +22,7 @@ export default function NotFound() {
                            ]}
                         />
                      </div>
-                     <div className="bg-gradient-to-b from-white pb-5"></div>
+                     <div className="bg-gradient-to-b from-white pb-4"></div>
                   </header>
                   <main className="px-4">
                      <h1
