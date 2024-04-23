@@ -1,5 +1,3 @@
-"use client";
-
 import Jade from "@/app/_components/Jade";
 
 export default function Home() {
