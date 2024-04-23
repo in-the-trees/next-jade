@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { inter } from "@/app/_fonts/fonts";
 
@@ -9,6 +9,18 @@ export const metadata: Metadata = {
       "My personal website. long story short, I'm a human and a netizen.",
    authors: [{ name: "Jade van Dorsten", url: "https://jade.van-dorsten.net" }],
    creator: "Jade van Dorsten",
+
+   // PWA
+   applicationName: "Jade van Dorsten",
+   appleWebApp: {
+      capable: true,
+      statusBarStyle: "default",
+      title: "Jade van Dorsten",
+   },
+};
+
+export const viewport: Viewport = {
+   themeColor: "#ffffff",
 };
 
 export default function RootLayout({
