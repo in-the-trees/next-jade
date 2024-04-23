@@ -5,7 +5,7 @@ import type { MicroblogPhoto } from "@/app/_lib/microblog/definitions";
 
 const transformImage = (
    content_html: string,
-   photos: MicroblogPhoto[],
+   photos?: MicroblogPhoto[],
 ): string => {
    const $ = cheerio.load(`<div class="html-wrapper">${content_html}</div>`);
    const images = $("img");
@@ -27,8 +27,11 @@ const transformImage = (
       }
 
       // Apply width & height attributes
-      const imgData = photos.find((photo) => photo.url === src);
-      if (imgData) {
+      let imgData;
+      if (photos) {
+         imgData = photos.find((photo) => photo.url === src);
+      }
+      if (imgData && imgData.width > 0 && imgData.height > 0) {
          const aspectRatio = imgData.width / imgData.height;
 
          // Set width & height attributes

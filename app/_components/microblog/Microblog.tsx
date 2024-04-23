@@ -57,9 +57,7 @@ const Microblog = async ({ className, Microblog, location }: MicroblogProps) => 
 
    let content_html = Microblog.content_html;
    content_html = createRichLinks(content_html);
-   if (Microblog.photos) {
-      content_html = transformImage(content_html, Microblog.photos);
-   }
+   content_html = transformImage(content_html, Microblog.photos);
 
    const microdotblog: Microdotblog | null =
       location === "source" ? await getMicrodotblog(Microblog.url) : null;
