@@ -73,7 +73,7 @@ svg {
    @apply hover:no-underline;
 }
 
-.rl {
+.rl-container blockquote {
    @apply flex;
    @apply flex-col;
    @apply gap-3;
@@ -122,7 +122,7 @@ svg {
    @apply max-[320px]:hidden;
 }
 
-.rl:hover .rl-metadata > svg {
+.rl-container blockquote:hover .rl-metadata > svg {
    @apply text-blue-500;
 }
 
