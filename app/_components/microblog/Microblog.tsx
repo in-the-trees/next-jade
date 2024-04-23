@@ -73,23 +73,15 @@ const Microblog = async ({ className, Microblog, location }: MicroblogProps) => 
          return (
             <ChatBubbleOvalLeftEllipsisIcon className="h-3.5 w-3.5 text-gray-500" />
          );
-      } else if (location === "feed") {
+      } else if (location === "feed" || location === "feed-archive") {
          return (
             <Link
                href={`/microblog/${year}/${month}/${day}/${Microblog.id}`}
                className="u-url mr-1 rounded-full bg-blue-50 px-1.5 transition-all ease-out hover:scale-105 hover:bg-blue-100"
+               aria-label="Open post"
             >
                <ArrowLongRightIcon className="h-3.5 w-3.5 text-blue-500" />
             </Link>
-         );
-      } else if (location === "feed-archive") {
-         return (
-            <a
-               href={`/microblog/${year}/${month}/${day}/${Microblog.id}`}
-               className="u-url mr-1 rounded-full bg-blue-50 px-1.5 transition-all ease-out hover:scale-105 hover:bg-blue-100"
-            >
-               <ArrowLongRightIcon className="h-3.5 w-3.5 text-blue-500" />
-            </a>
          );
       }
    };
