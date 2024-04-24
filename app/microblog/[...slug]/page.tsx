@@ -136,15 +136,22 @@ export default async function MicroblogPost({
       const day = slugArray[2];
 
       if (feed) {
-         const post = await getPostById(
-            idFromSlug,
-            {
-               year,
-               month,
-               day,
-            },
-            feed,
-         );
+         let post: Microblog | null;
+
+         try {
+            post = await getPostById(
+               idFromSlug,
+               {
+                  year,
+                  month,
+                  day,
+               },
+               feed,
+            );
+         } catch (error) {
+            console.error(error);
+            post = null;
+         }
 
          if (!post) {
             notFound();
