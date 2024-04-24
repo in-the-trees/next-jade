@@ -32,12 +32,12 @@ const getPostById = async (
 
       if (feed) {
          post = feed.items?.find((post) => {
-            const postDate = new Date(post.date_published);
+            const postDate = new Date(post.date_published.split("T")[0]);
             return (
                post.id === id &&
-               postDate.getFullYear() === parseInt(dateParams.year) &&
-               postDate.getMonth() + 1 === parseInt(dateParams.month) &&
-               postDate.getDate() === parseInt(dateParams.day)
+               postDate.getUTCFullYear() === parseInt(dateParams.year) &&
+               postDate.getUTCMonth() + 1 === parseInt(dateParams.month) &&
+               postDate.getUTCDate() === parseInt(dateParams.day)
             );
          });
       }

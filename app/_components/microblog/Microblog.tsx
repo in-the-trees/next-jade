@@ -63,10 +63,10 @@ const Microblog = async ({ className, Microblog, location }: MicroblogProps) => 
       location === "source" ? await getMicrodotblog(Microblog.url) : null;
    const myMicroblogUsername = "jade";
 
-   const date = inFeed ? new Date(Microblog.date_published) : null;
-   const year = date ? date.getFullYear() : null;
-   const month = date ? date.getMonth() + 1 : null;
-   const day = date ? date.getDate() : null;
+   const date = inFeed ? new Date(Microblog.date_published.split("T")[0]) : null;
+   const year = date ? date.getUTCFullYear() : null;
+   const month = date ? date.getUTCMonth() + 1 : null;
+   const day = date ? date.getUTCDate() : null;
 
    const MicroblogLink = () => {
       if (!inFeed) {
