@@ -54,7 +54,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
                title: `Jade's microblog on ${date}`,
                description: convert(post.content_html),
                alternates: {
-                  canonical: `/${postDate.getUTCFullYear()}/${postDate.getUTCMonth() + 1}/${postDate.getUTCDate()}/${post.id}`,
+                  canonical: `/microblog/${postDate.getUTCFullYear()}/${postDate.getUTCMonth() + 1}/${postDate.getUTCDate()}/${post.id}`,
                },
             };
          }
@@ -81,7 +81,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             title: `Jade's microblog on ${date}`,
             description: convert(post.content_html),
             alternates: {
-               canonical: `/${postDate.getUTCFullYear()}/${postDate.getUTCMonth() + 1}/${postDate.getUTCDate()}/${post.id}`,
+               canonical: `/microblog/${postDate.getUTCFullYear()}/${postDate.getUTCMonth() + 1}/${postDate.getUTCDate()}/${post.id}`,
             },
          };
       }
