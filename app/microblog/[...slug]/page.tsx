@@ -39,6 +39,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
    }
 
    let post: Microblog | null;
+   let postDate: Date | null;
    if (feed) {
       post = await getPostById(idFromSlug, undefined, feed);
       if (slugArray.length === 1) {
@@ -48,9 +49,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             day: "numeric",
          });
          if (post) {
+            postDate = new Date(post.date_published.split("T")[0]);
             return {
                title: `Jade's microblog on ${date}`,
                description: convert(post.content_html),
+               alternates: {
+                  canonical: `/${postDate.getUTCFullYear()}/${postDate.getUTCMonth() + 1}/${postDate.getUTCDate()}/${post.id}`,
+               },
             };
          }
       } else if (
@@ -59,6 +64,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
          /^[1-9]\d?$/.test(slugArray[1]) &&
          /^[1-9]\d?$/.test(slugArray[2])
       ) {
+         postDate = new Date(post.date_published.split("T")[0]);
          const year = Number(slugArray[0]);
          const month = Number(slugArray[1]);
          const day = Number(slugArray[2]);
@@ -74,6 +80,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
          return {
             title: `Jade's microblog on ${date}`,
             description: convert(post.content_html),
+            alternates: {
+               canonical: `/${postDate.getUTCFullYear()}/${postDate.getUTCMonth() + 1}/${postDate.getUTCDate()}/${post.id}`,
+            },
          };
       }
 
