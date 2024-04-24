@@ -2,6 +2,12 @@ import Link from "next/link";
 import Jade from "@/app/_components/Jade";
 import Breadcrumb from "@/app/_components/breadcrumb";
 import { lora } from "@/app/_fonts/fonts";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+   title: "Page not found (404)",
+   description: "",
+};
 
 export default function NotFound() {
    return (
