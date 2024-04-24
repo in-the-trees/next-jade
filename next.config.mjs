@@ -10,9 +10,6 @@ if (process.env.NODE_ENV === "development") {
 
 const withPWA = withPWAInit({
    dest: "public",
-   fallbacks: {
-      document: "/~offline",
-   },
    reloadOnOnline: true,
 });
 
