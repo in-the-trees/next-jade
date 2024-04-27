@@ -1,6 +1,10 @@
 {
    "name": "Jade van Dorsten",
    "short_name": "Jade",
+   "start_url": "/",
+   "background_color": "#fff",
+   "theme_color": "#fff",
+   "description": "My personal website. long story short, I'm a human and a netizen.",
    "icons": [
       {
          "src": "/pwa-icns/192x192.png",
@@ -19,9 +23,6 @@
          "type": "image/png"
       }
    ],
-   "theme_color": "#FFFFFF",
-   "background_color": "#FFFFFF",
-   "start_url": "/",
    "display": "standalone",
    "orientation": "portrait"
 }
