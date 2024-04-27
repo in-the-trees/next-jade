@@ -115,6 +115,9 @@ svg {
    @apply flex;
    @apply items-center;
    @apply shrink;
+   @apply gap-3;
+   @apply justify-between;
+   @apply w-full;
 }
 
 .rl-metadata > footer {
@@ -130,8 +133,6 @@ svg {
 }
 
 .rl-metadata > svg {
-   @apply ml-auto;
-   @apply mr-2;
    @apply w-[calc(1.25rem-2px)];
    @apply h-[calc(1.25rem-2px)];
    @apply max-[320px]:hidden;
@@ -158,4 +159,8 @@ svg {
    @apply not-italic;
    @apply text-gray-700;
    @apply truncate;
+   @apply max-w-full;
+   @apply md:max-w-[345px];
+   @apply lg:max-w-[499px];
+   @apply xl:max-w-[585px];
 }
