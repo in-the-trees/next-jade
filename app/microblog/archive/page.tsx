@@ -7,7 +7,7 @@ import { GlobeAltIcon, RssIcon } from "@heroicons/react/24/outline";
 import Breadcrumb from "@/app/_components/breadcrumb";
 
 export const metadata: Metadata = {
-   metadataBase: new URL("https://jade.van-dorsten.net"),
+   metadataBase: new URL("https://inthetrees.me.net"),
    title: "Jade's microblog (archive)",
    description: "Archive of my microblog posts.",
 };

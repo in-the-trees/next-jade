@@ -3,11 +3,11 @@ import "./globals.css";
 import { inter } from "@/app/_fonts/fonts";
 
 export const metadata: Metadata = {
-   metadataBase: new URL("https://jade.van-dorsten.net"),
+   metadataBase: new URL("https://inthetrees.me.net"),
    title: "Jade van Dorsten",
    description:
       "My personal website. long story short, I'm a human and a netizen.",
-   authors: [{ name: "Jade van Dorsten", url: "https://jade.van-dorsten.net" }],
+   authors: [{ name: "Jade van Dorsten", url: "https://inthetrees.me.net" }],
    creator: "Jade van Dorsten",
 
    // PWA
