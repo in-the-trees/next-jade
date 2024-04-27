@@ -10,6 +10,11 @@ svg {
    @apply shrink-0;
 }
 
+b,
+strong {
+   @apply font-medium;
+}
+
 .image-wrapper {
    @apply my-3.5;
 }
