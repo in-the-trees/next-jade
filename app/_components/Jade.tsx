@@ -95,17 +95,17 @@ const Jade: React.FC<JadeProps> = ({ className, home, offline }) => {
                <li className="text-pretty">
                   <a
                      className="text-blue-500 hover:underline"
-                     href="mailto:jade@van-dorsten.net"
+                     href="mailto:jade@inthetrees.me"
                   >
-                     jade@van-dorsten.net
+                     jade@inthetrees.me
                   </a>
                </li>
                <li className="text-pretty">
                   <a
                      className="text-blue-500 hover:underline"
-                     href="https://matrix.to/#/@typejade:matrix.org"
+                     href="https://matrix.to/#/@inthetrees:matrix.org"
                   >
-                     @typejade:matrix.org
+                     @inthetrees:matrix.org
                   </a>
                </li>
             </ul>
@@ -117,9 +117,9 @@ const Jade: React.FC<JadeProps> = ({ className, home, offline }) => {
                <li className="text-pretty">
                   <a
                      className="text-blue-500 hover:underline"
-                     href="https://github.com/typejade"
+                     href="https://github.com/in-the-trees"
                   >
-                     github.com/typejade
+                     github.com/in-the-trees
                   </a>
                </li>
                <li className="text-pretty">
@@ -133,17 +133,17 @@ const Jade: React.FC<JadeProps> = ({ className, home, offline }) => {
                <li className="text-pretty">
                   <a
                      className="text-blue-500 hover:underline"
-                     href="https://www.threads.net/@typejade_"
+                     href="https://www.threads.net/@inthetrees.7"
                   >
-                     threads.net/@typejade_
+                     threads.net/@inthetrees.7
                   </a>
                </li>
                <li className="text-pretty">
                   <a
                      className="text-blue-500 hover:underline"
-                     href="https://x.com/@typejade_"
+                     href="https://x.com/@inthetrees_7"
                   >
-                     x.com/@typejade_
+                     x.com/inthetrees_7
                   </a>
                </li>
             </ul>
