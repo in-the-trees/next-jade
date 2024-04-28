@@ -14,6 +14,7 @@ import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/solid";
 import { CheckBadgeIcon } from "@heroicons/react/20/solid";
 import createRichLinks from "@/app/_lib/microblog/createRichLinks";
 import transformImage from "@/app/_lib/microblog/transformImage";
+import sanitizeHtml from "sanitize-html";
 
 interface MicroblogProps {
    className?: string;
@@ -203,7 +204,7 @@ const Microblog = async ({ className, Microblog, location }: MicroblogProps) => 
                            >
                               <div
                                  dangerouslySetInnerHTML={{
-                                    __html: reply.content_html,
+                                    __html: sanitizeHtml(reply.content_html),
                                  }}
                               />
                            </div>
