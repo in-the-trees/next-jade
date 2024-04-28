@@ -91,6 +91,7 @@ const Microblog = async ({ className, Microblog, location }: MicroblogProps) => 
       prose-img:max-h-64 prose-img:max-w-full prose-img:max-h-64 prose-img:object-contain prose-img:h-[auto] prose-img:w-[auto]
       prose-img:bg-gray-50 prose-img:rounded-xl prose-img:border prose-img:transition-transform prose-img:ease-out hover:prose-img:scale-103
       prose-ul:list-disc prose-ul:ml-4 prose-ul:p-0 prose-ul:list-inside prose-li:p-0 prose-li:m-0
+      prose-blockquote:border-l-2
    `;
 
    const MicroblogArticle = (
