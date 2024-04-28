@@ -84,7 +84,7 @@ const Jade: React.FC<JadeProps> = ({ className, home, offline }) => {
          <section>
             <p className="mb-1.75 mt-3.5 text-pretty">Contact me:</p>
             <ul className="mb-3.5 ml-4 mt-1.75 list-inside list-disc">
-               <li className="text-pretty">
+               <li>
                   <a
                      className="text-blue-500 hover:underline"
                      href="https://signal.me/#eu/Ny71Ts3RZ685pJjTlOfJbxO9IZKNSqaGYAkdRLjTEsvKlSA3fv9MOr8LHLQOurlR"
@@ -92,7 +92,7 @@ const Jade: React.FC<JadeProps> = ({ className, home, offline }) => {
                      jade.07
                   </a>
                </li>
-               <li className="text-pretty">
+               <li>
                   <a
                      className="text-blue-500 hover:underline"
                      href="mailto:jade@inthetrees.me"
@@ -100,7 +100,7 @@ const Jade: React.FC<JadeProps> = ({ className, home, offline }) => {
                      jade@inthetrees.me
                   </a>
                </li>
-               <li className="text-pretty">
+               <li>
                   <a
                      className="text-blue-500 hover:underline"
                      href="https://matrix.to/#/@inthetrees:matrix.org"
@@ -114,7 +114,7 @@ const Jade: React.FC<JadeProps> = ({ className, home, offline }) => {
          <section>
             <p className="mb-1.75 mt-3.5 text-pretty">Web presence:</p>
             <ul className="mb-3.5 ml-4 mt-1.75 list-inside list-disc">
-               <li className="text-pretty">
+               <li>
                   <a
                      className="text-blue-500 hover:underline"
                      href="https://github.com/in-the-trees"
@@ -122,7 +122,7 @@ const Jade: React.FC<JadeProps> = ({ className, home, offline }) => {
                      github.com/in-the-trees
                   </a>
                </li>
-               <li className="text-pretty">
+               <li>
                   <a
                      className="text-blue-500 hover:underline"
                      href="https://micro.blog/jade"
@@ -130,21 +130,33 @@ const Jade: React.FC<JadeProps> = ({ className, home, offline }) => {
                      micro.blog/jade
                   </a>
                </li>
-               <li className="text-pretty">
-                  <a
-                     className="text-blue-500 hover:underline"
-                     href="https://www.threads.net/@inthetrees.7"
-                  >
-                     threads.net/@inthetrees.7
-                  </a>
-               </li>
-               <li className="text-pretty">
-                  <a
-                     className="text-blue-500 hover:underline"
-                     href="https://x.com/@inthetrees_7"
-                  >
-                     x.com/inthetrees_7
-                  </a>
+               <li className="list-none">
+                  <details className="inline-block text-gray-400">
+                     <summary
+                        className="details-dropdown"
+                        aria-label="Less important web presence links"
+                     >
+                        ...
+                     </summary>
+                     <ul className="mb-3.5 ml-4 list-inside list-[circle]">
+                        <li>
+                           <a
+                              className="text-blue-400 hover:underline"
+                              href="https://www.threads.net/@inthetrees.7"
+                           >
+                              threads.net/@inthetrees.7
+                           </a>
+                        </li>
+                        <li>
+                           <a
+                              className="text-blue-400 hover:underline"
+                              href="https://x.com/@inthetrees_7"
+                           >
+                              x.com/inthetrees_7
+                           </a>
+                        </li>
+                     </ul>
+                  </details>
                </li>
             </ul>
          </section>
