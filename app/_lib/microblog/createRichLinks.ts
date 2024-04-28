@@ -14,7 +14,7 @@ const createRichLinks = (content_html: string): string => {
       const snippet = richLink.find(".rl-snippet").text() || "";
 
       const niceUrl = url.replace(/^(?:https?:\/\/)?(?:www\.)?/i, "");
-      const isLocalUrl = "inthetrees.me.net" === new URL(url).hostname;
+      const isLocalUrl = "inthetrees.me" === new URL(url).hostname;
 
       let innerHTML = "";
       if (snippet.length > 0) {
