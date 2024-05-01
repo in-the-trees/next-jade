@@ -30,7 +30,7 @@ const Microblog = async ({ className, Microblog, location }: MicroblogProps) => 
       return (
          <div>
             <header className="sticky top-0 z-50">
-               <div className="-mx-4 bg-white px-4 pb-1 pt-7 md:pt-[44px] lg:pt-[60px]">
+               <div className="-mx-4 bg-white px-4 pb-1 pt-7 md:pt-[44px] lg:pt-[60px] dark:bg-stone-900">
                   <Breadcrumb
                      items={[
                         { type: "link", text: "Jade", href: "/" },
@@ -45,10 +45,10 @@ const Microblog = async ({ className, Microblog, location }: MicroblogProps) => 
                      ]}
                   />
                </div>
-               <div className="-mx-4 bg-gradient-to-b from-white px-4 pb-4"></div>
+               <div className="-mx-4 bg-gradient-to-b from-white px-4 pb-4 dark:from-stone-900"></div>
             </header>
             <main>
-               <p className="text-gray-400">
+               <p className="text-gray-400 dark:text-stone-500">
                   Micro.blog currently unreachable :-(
                </p>
             </main>
@@ -72,27 +72,28 @@ const Microblog = async ({ className, Microblog, location }: MicroblogProps) => 
    const MicroblogLink = () => {
       if (!inFeed) {
          return (
-            <ChatBubbleOvalLeftEllipsisIcon className="h-3.5 w-3.5 text-gray-500" />
+            <ChatBubbleOvalLeftEllipsisIcon className="h-3.5 w-3.5 text-gray-500 dark:text-stone-400" />
          );
       } else if (location === "feed" || location === "feed-archive") {
          return (
             <Link
                href={`/microblog/${year}/${month}/${day}/${Microblog.id}`}
-               className="u-url mr-1 rounded-full bg-blue-50 px-1.5 transition-all ease-out hover:scale-105 hover:bg-blue-100"
+               className="u-url mr-1 rounded-full bg-blue-50 px-1.5 transition-all ease-out hover:scale-105 hover:bg-blue-100
+                          dark:bg-violet-500 dark:bg-opacity-20 dark:hover:bg-violet-500 dark:hover:bg-opacity-30"
                aria-label="Open post"
             >
-               <ArrowLongRightIcon className="h-3.5 w-3.5 text-blue-500" />
+               <ArrowLongRightIcon className="h-3.5 w-3.5 text-blue-500 dark:text-violet-400" />
             </Link>
          );
       }
    };
 
    const proseStyling = `
-      prose-sm prose-a:text-blue-500 hover:prose-a:underline
+      prose-sm prose-a:text-blue-500 hover:prose-a:underline dark:prose-a:text-violet-400
       prose-img:max-h-64 prose-img:max-w-full prose-img:max-h-64 prose-img:object-contain prose-img:h-[auto] prose-img:w-[auto]
-      prose-img:bg-gray-50 prose-img:rounded-xl prose-img:border prose-img:transition-transform prose-img:ease-out hover:prose-img:scale-103
+      prose-img:bg-gray-50 dark:prose-img:bg-stone-800 prose-img:rounded-xl prose-img:border dark:prose-img:border-stone-700 prose-img:transition-transform prose-img:ease-out hover:prose-img:scale-103
       prose-ul:list-disc prose-ul:ml-4 prose-ul:p-0 prose-ul:list-inside prose-li:p-0 prose-li:m-0
-      prose-blockquote:border-l-2
+      prose-blockquote:border-l-2 dark:prose-blockquote:border-stone-800
    `;
 
    const MicroblogArticle = (
@@ -102,7 +103,7 @@ const Microblog = async ({ className, Microblog, location }: MicroblogProps) => 
             <time
                dateTime={Microblog.date_published}
                className={clsx(
-                  `${commit_mono.className} text-[calc(1em-1px)] text-gray-500`,
+                  `${commit_mono.className} text-[calc(1em-1px)] text-gray-500 dark:text-stone-400`,
                   {
                      "text-[calc(1em-2px)]": inFeed,
                   },
@@ -117,14 +118,17 @@ const Microblog = async ({ className, Microblog, location }: MicroblogProps) => 
             ) ?
                <>
                   <ChevronDoubleRightIcon
-                     className={clsx("h-3.5 w-3.5 text-gray-400", {
-                        "h-3 w-3": inFeed,
-                     })}
+                     className={clsx(
+                        "h-3.5 w-3.5 text-gray-300 dark:text-stone-600",
+                        {
+                           "h-3 w-3": inFeed,
+                        },
+                     )}
                   />
                   <time
                      dateTime={Microblog.date_modified}
                      className={clsx(
-                        `${commit_mono.className} text-[calc(1em-1px)] text-gray-500`,
+                        `${commit_mono.className} text-[calc(1em-1px)] text-gray-500 dark:text-stone-400`,
                         {
                            "text-[calc(1em-2px)]": inFeed,
                         },
@@ -188,7 +192,7 @@ const Microblog = async ({ className, Microblog, location }: MicroblogProps) => 
                                  </a>
                                  <time
                                     dateTime={reply.date_published}
-                                    className={`${commit_mono.className} text-gray-500`}
+                                    className={`${commit_mono.className} text-gray-500 dark:text-stone-400`}
                                     title={new Date(
                                        reply.date_published,
                                     ).toLocaleString()}
@@ -225,7 +229,7 @@ const Microblog = async ({ className, Microblog, location }: MicroblogProps) => 
             <div>
                {microdotblog && microdotblog.home_page_url ?
                   <header className="sticky top-0 z-50">
-                     <div className="-mx-4 bg-white px-4 pb-1 pt-7 md:pt-[44px] lg:pt-[60px]">
+                     <div className="-mx-4 bg-white px-4 pb-1 pt-7 md:pt-[44px] lg:pt-[60px] dark:bg-stone-900">
                         <Breadcrumb
                            items={[
                               { type: "link", text: "Jade", href: "/" },
@@ -245,10 +249,10 @@ const Microblog = async ({ className, Microblog, location }: MicroblogProps) => 
                            ]}
                         />
                      </div>
-                     <div className="-mx-4 bg-gradient-to-b from-white px-4 pb-4"></div>
+                     <div className="-mx-4 bg-gradient-to-b from-white px-4 pb-4 dark:from-stone-900"></div>
                   </header>
                :  <header className="sticky top-0 z-50">
-                     <div className="-mx-4 bg-white px-4 pb-1 pt-7 md:pt-[44px] lg:pt-[60px]">
+                     <div className="-mx-4 bg-white px-4 pb-1 pt-7 md:pt-[44px] lg:pt-[60px] dark:bg-stone-900">
                         <Breadcrumb
                            items={[
                               { type: "link", text: "Jade", href: "/" },
@@ -263,7 +267,7 @@ const Microblog = async ({ className, Microblog, location }: MicroblogProps) => 
                            ]}
                         />
                      </div>
-                     <div className="-mx-4 bg-gradient-to-b from-white px-4 pb-4"></div>
+                     <div className="-mx-4 bg-gradient-to-b from-white px-4 pb-4 dark:from-stone-900"></div>
                   </header>
                }
 

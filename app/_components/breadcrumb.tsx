@@ -25,7 +25,7 @@ const Breadcrumb = ({ className, items }: BreadcrumbProps) => {
                      <Link
                         key={index}
                         href={item.href}
-                        className="flex items-center gap-1 rounded-lg-half bg-gray-100 px-2 py-0.75 text-gray-700 transition-transform ease-out hover:scale-103"
+                        className="flex items-center gap-1 rounded-lg-half bg-gray-100 px-2 py-0.75 text-gray-700 transition-transform ease-out hover:scale-103 dark:bg-stone-800 dark:text-stone-400"
                      >
                         {index === 0 && (
                            <ArrowLeftIcon className="h-3.5 w-3.5" />
@@ -37,7 +37,7 @@ const Breadcrumb = ({ className, items }: BreadcrumbProps) => {
                   return (
                      <span
                         key={index}
-                        className="rounded-lg-half border border-gray-200 px-2 py-0.75 text-gray-500"
+                        className="rounded-lg-half border border-gray-200 px-2 py-0.75 text-gray-500 dark:border-stone-800 dark:text-stone-500"
                      >
                         {item.text}
                      </span>
@@ -55,7 +55,8 @@ const Breadcrumb = ({ className, items }: BreadcrumbProps) => {
                            href={item.href}
                            target="_blank"
                            rel="noopener noreferrer"
-                           className="ml-0 flex w-fit items-center gap-1 rounded-lg-half bg-blue-50 px-2 py-0.75 text-blue-500 transition-transform ease-out hover:scale-103 md:ml-auto"
+                           className="ml-0 flex w-fit items-center gap-1 rounded-lg-half bg-blue-50 px-2 py-0.75 text-blue-500 transition-transform ease-out hover:scale-103 md:ml-auto
+                                      dark:bg-violet-500 dark:bg-opacity-20 dark:text-violet-400"
                         >
                            <span>{item.text}</span>
                            <ArrowUpRightIcon className="h-3 w-3" />
@@ -66,7 +67,7 @@ const Breadcrumb = ({ className, items }: BreadcrumbProps) => {
                   return (
                      <ChevronRightIcon
                         key={index}
-                        className="h-3 w-3 text-gray-400"
+                        className="h-3 w-3 text-gray-400 dark:text-stone-600"
                      />
                   );
                default:

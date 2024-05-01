@@ -12,7 +12,7 @@ export default async function Blog() {
    return (
       <div>
          <header className="sticky top-0 z-50 px-4">
-            <div className="-mx-4 bg-white px-4 pb-1 pt-7 md:pt-[44px] lg:pt-[60px]">
+            <div className="-mx-4 bg-white px-4 pb-1 pt-7 md:pt-[44px] lg:pt-[60px] dark:bg-stone-900">
                <Breadcrumb
                   items={[
                      { type: "link", text: "Jade", href: "/" },
@@ -21,7 +21,7 @@ export default async function Blog() {
                   ]}
                />
             </div>
-            <div className="-mx-4 bg-gradient-to-b from-white px-4 pb-4"></div>
+            <div className="-mx-4 bg-gradient-to-b from-white px-4 pb-4 dark:from-stone-900 dark:from-stone-900"></div>
          </header>
          <main id="blog" className="px-4">
             <h1
@@ -42,17 +42,17 @@ export default async function Blog() {
                         <div className="flex items-center gap-[0.25em] leading-none">
                            <time
                               dateTime={post.date}
-                              className={`${commit_mono.className} text-[1em - 1px] block self-start text-nowrap text-[calc(1em-1px)] text-gray-500`}
+                              className={`${commit_mono.className} text-[1em - 1px] block self-start text-nowrap text-[calc(1em-1px)] text-gray-500 dark:text-stone-400`}
                            >
                               {new Date(post.date).toLocaleDateString("en-US", {
                                  month: "short",
                                  day: "2-digit",
                               })}
                            </time>
-                           <ChevronRightIcon className="block h-3 w-3 self-start text-nowrap text-gray-400" />
+                           <ChevronRightIcon className="block h-3 w-3 self-start text-nowrap text-gray-400 dark:text-stone-500" />
                            <Link
                               href={`/blog/${post.slug}`}
-                              className="block self-start text-blue-500 hover:underline"
+                              className="block self-start text-blue-500 hover:underline dark:text-violet-400"
                            >
                               {post.title}
                            </Link>

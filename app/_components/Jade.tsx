@@ -18,7 +18,7 @@ const Jade: React.FC<JadeProps> = ({ className, home, offline }) => {
                >
                   Jade van Dorsten
                </h1>
-               <h2 className="my-3.5 text-pretty">
+               <h2 className="my-3.5">
                   <span className="italic">long story short</span>, I'm a human
                   and a netizen.
                </h2>
@@ -29,7 +29,7 @@ const Jade: React.FC<JadeProps> = ({ className, home, offline }) => {
                >
                   Jade van Dorsten
                </p>
-               <p className="my-3.5 text-pretty">
+               <p className="my-3.5">
                   <span className="italic">long story short</span>, I'm a human
                   and a netizen.
                </p>
@@ -37,24 +37,18 @@ const Jade: React.FC<JadeProps> = ({ className, home, offline }) => {
          }
 
          <section>
-            <p className="mb-1.75 mt-3.5 text-pretty">A few things about me:</p>
+            <p className="mb-1.75 mt-3.5">A few things about me:</p>
             <ul className="mb-3.5 ml-4 mt-1.75 list-inside list-disc">
-               <li className="text-pretty text-gray-900">20, he/him</li>
-               <li className="text-pretty text-gray-900">
-                  Web developer, mainly front-end
-               </li>
-               <li className="text-pretty text-gray-900">
-                  Digital privacy & security enthusiast
-               </li>
-               <li className="text-pretty text-gray-900">
-                  Based in Madison, WI
-               </li>
+               <li>20, he/him</li>
+               <li>Web developer, mainly front-end</li>
+               <li>Digital privacy & security enthusiast</li>
+               <li>Based in Madison, WI</li>
             </ul>
          </section>
 
          {!offline ?
             <section>
-               <p className="my-3.5 text-pretty">Where I publish:</p>
+               <p className="my-3.5">Where I publish:</p>
                <div className="mb-5 mt-3.5 flex flex-wrap items-center gap-2">
                   <Link href="/microblog" className="btn-sm">
                      <DocumentTextIcon className="h-4 w-4" />
@@ -67,7 +61,7 @@ const Jade: React.FC<JadeProps> = ({ className, home, offline }) => {
                </div>
             </section>
          :  <section>
-               <p className="my-3.5 text-pretty">Where I publish:</p>
+               <p className="my-3.5">Where I publish:</p>
                <div className="mb-5 mt-3.5 flex flex-wrap items-center gap-2">
                   <div className="btn-sm-off">
                      <DocumentTextIcon className="h-4 w-4" />
@@ -82,11 +76,11 @@ const Jade: React.FC<JadeProps> = ({ className, home, offline }) => {
          }
 
          <section>
-            <p className="mb-1.75 mt-3.5 text-pretty">Contact me:</p>
+            <p className="mb-1.75 mt-3.5">Contact me:</p>
             <ul className="mb-3.5 ml-4 mt-1.75 list-inside list-disc">
                <li>
                   <a
-                     className="text-blue-500 hover:underline"
+                     className="text-blue-500 hover:underline dark:text-violet-400"
                      href="https://signal.me/#eu/Ny71Ts3RZ685pJjTlOfJbxO9IZKNSqaGYAkdRLjTEsvKlSA3fv9MOr8LHLQOurlR"
                   >
                      jade.07
@@ -94,7 +88,7 @@ const Jade: React.FC<JadeProps> = ({ className, home, offline }) => {
                </li>
                <li>
                   <a
-                     className="text-blue-500 hover:underline"
+                     className="text-blue-500 hover:underline dark:text-violet-400"
                      href="mailto:jade@inthetrees.me"
                   >
                      jade@inthetrees.me
@@ -102,7 +96,7 @@ const Jade: React.FC<JadeProps> = ({ className, home, offline }) => {
                </li>
                <li>
                   <a
-                     className="text-blue-500 hover:underline"
+                     className="text-blue-500 hover:underline dark:text-violet-400"
                      href="https://matrix.to/#/@inthetrees:matrix.org"
                   >
                      @inthetrees:matrix.org
@@ -112,11 +106,11 @@ const Jade: React.FC<JadeProps> = ({ className, home, offline }) => {
          </section>
 
          <section>
-            <p className="mb-1.75 mt-3.5 text-pretty">Web presence:</p>
+            <p className="mb-1.75 mt-3.5">Web presence:</p>
             <ul className="mb-3.5 ml-4 mt-1.75 list-inside list-disc">
                <li>
                   <a
-                     className="text-blue-500 hover:underline"
+                     className="text-blue-500 hover:underline dark:text-violet-400"
                      href="https://github.com/in-the-trees"
                   >
                      github.com/in-the-trees
@@ -124,14 +118,14 @@ const Jade: React.FC<JadeProps> = ({ className, home, offline }) => {
                </li>
                <li>
                   <a
-                     className="text-blue-500 hover:underline"
+                     className="text-blue-500 hover:underline dark:text-violet-400"
                      href="https://micro.blog/jade"
                   >
                      micro.blog/jade
                   </a>
                </li>
                <li className="list-none">
-                  <details className="inline-block text-gray-400">
+                  <details className="inline-block text-gray-400 dark:text-stone-500">
                      <summary
                         className="details-dropdown"
                         aria-label="Less important web presence links"
@@ -141,7 +135,7 @@ const Jade: React.FC<JadeProps> = ({ className, home, offline }) => {
                      <ul className="list-inside list-[circle]">
                         <li className="mt-1">
                            <a
-                              className="text-blue-400 hover:underline"
+                              className="text-blue-400 hover:underline dark:text-violet-300"
                               href="https://www.threads.net/@inthetrees.7"
                            >
                               threads.net/@inthetrees.7
@@ -149,7 +143,7 @@ const Jade: React.FC<JadeProps> = ({ className, home, offline }) => {
                         </li>
                         <li>
                            <a
-                              className="text-blue-400 hover:underline"
+                              className="text-blue-400 hover:underline dark:text-violet-300"
                               href="https://x.com/@inthetrees_7"
                            >
                               x.com/inthetrees_7

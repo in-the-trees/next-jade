@@ -39,7 +39,9 @@ const MicroblogFeed: NextPage<MicroblogProps> = async ({
             id="microblog-feed"
             className={`${className} h-feed flex flex-col gap-4`}
          >
-            <p className="text-gray-400">Something went wrong :-(</p>
+            <p className="text-gray-400 dark:text-stone-500">
+               Something went wrong :-(
+            </p>
          </div>
       );
    }

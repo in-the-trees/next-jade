@@ -40,10 +40,18 @@ export default async function BlogPost({
 }) {
    const post = (await getPostBySlug(params.slug, PostReturn.FULL)) as Post;
 
+   const proseStyling = `
+      prose-sm prose-a:text-blue-500 hover:prose-a:underline dark:prose-a:text-violet-400
+      prose-img:max-h-64 prose-img:max-w-full prose-img:max-h-64 prose-img:object-contain prose-img:h-[auto] prose-img:w-[auto]
+      prose-img:bg-gray-50 dark:prose-img:bg-stone-800 prose-img:rounded-xl prose-img:border dark:prose-img:border-stone-700 prose-img:transition-transform prose-img:ease-out hover:prose-img:scale-103
+      prose-ul:list-disc prose-ul:ml-4 prose-ul:p-0 prose-ul:list-inside prose-li:p-0 prose-li:m-0
+      prose-blockquote:border-l-2 dark:prose-blockquote:border-stone-800
+   `;
+
    return (
       <div>
          <header className="sticky top-0 z-50 px-4">
-            <div className="-mx-4 bg-white px-4 pb-1 pt-7 md:pt-[44px] lg:pt-[60px]">
+            <div className="-mx-4 bg-white px-4 pb-1 pt-7 md:pt-[44px] lg:pt-[60px] dark:bg-stone-900">
                <Breadcrumb
                   items={[
                      { type: "link", text: "Jade", href: "/" },
@@ -54,12 +62,12 @@ export default async function BlogPost({
                   ]}
                />
             </div>
-            <div className="-mx-4 bg-gradient-to-b from-white px-4 pb-4"></div>
+            <div className="-mx-4 bg-gradient-to-b from-white px-4 pb-4 dark:from-stone-900"></div>
          </header>
          <main className="px-4">
             <article>
                <header>
-                  <div className="mb-3 flex items-center gap-2 text-gray-500">
+                  <div className="mb-3 flex items-center gap-2 text-gray-500 dark:text-stone-400">
                      <DocumentTextIcon className="h-4 w-4" />
                      <time
                         dateTime={
@@ -67,7 +75,7 @@ export default async function BlogPost({
                               .toISOString()
                               .split("T")[0]
                         }
-                        className={`${commit_mono.className} text-[1em - 1px] block self-start text-nowrap text-[calc(1em-1px)] text-gray-500`}
+                        className={`${commit_mono.className} text-[1em - 1px] block self-start text-nowrap text-[calc(1em-1px)] text-gray-500 dark:text-stone-400`}
                      >
                         {new Date(
                            post.postMatter.date + "T00:00:00",
@@ -83,7 +91,7 @@ export default async function BlogPost({
                      {post.postMatter.title}
                   </h1>
                </header>
-               <div className="prose-sm prose-a:text-blue-500 hover:prose-a:underline prose-img:max-h-64 prose-img:max-w-full prose-img:rounded-xl prose-img:border prose-img:transition-transform prose-img:ease-out hover:prose-img:scale-103">
+               <div className={`${proseStyling}`}>
                   <MDXRemote source={post.content} />
                </div>
             </article>

@@ -21,7 +21,10 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-   themeColor: "#ffffff",
+   themeColor: [
+      { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+      { media: "(prefers-color-scheme: dark)", color: "#1c1917" },
+   ],
 };
 
 export default function RootLayout({
@@ -32,7 +35,8 @@ export default function RootLayout({
    return (
       <html lang="en">
          <body
-            className={`${inter.className} mx-[calc(1.75rem-1rem)] mb-7 overflow-x-hidden overflow-y-visible text-sm md:mx-7 md:mb-7`}
+            className={`${inter.className} mx-[calc(1.75rem-1rem)] mb-7 overflow-x-hidden overflow-y-visible bg-white text-sm text-black md:mx-7 md:mb-7
+               dark:bg-stone-900 dark:text-stone-200 dark:antialiased`}
          >
             {children}
          </body>
