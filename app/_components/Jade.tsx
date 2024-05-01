@@ -138,8 +138,8 @@ const Jade: React.FC<JadeProps> = ({ className, home, offline }) => {
                      >
                         ...
                      </summary>
-                     <ul className="mb-3.5 ml-4 list-inside list-[circle]">
-                        <li>
+                     <ul className="list-inside list-[circle]">
+                        <li className="mt-1">
                            <a
                               className="text-blue-400 hover:underline"
                               href="https://www.threads.net/@inthetrees.7"
