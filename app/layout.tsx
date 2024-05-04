@@ -9,15 +9,6 @@ export const metadata: Metadata = {
       "My personal website. long story short, I'm a human and a netizen.",
    authors: [{ name: "Jade van Dorsten", url: "https://inthetrees.me" }],
    creator: "Jade van Dorsten",
-
-   // PWA
-   applicationName: "Jade van Dorsten",
-   manifest: "/manifest.json",
-   appleWebApp: {
-      capable: true,
-      statusBarStyle: "default",
-      title: "Jade van Dorsten",
-   },
 };
 
 export const viewport: Viewport = {

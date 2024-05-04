@@ -76,21 +76,6 @@ strong {
    @apply hover:scale-103;
 }
 
-.btn-sm-off {
-   @apply flex;
-   @apply w-max;
-   @apply items-center;
-   @apply justify-between;
-   @apply gap-2;
-   @apply rounded-lg;
-   @apply border;
-   @apply border-gray-200;
-   @apply px-2;
-   @apply py-1;
-   @apply text-sm;
-   @apply text-gray-500;
-}
-
 .details-dropdown {
    @apply cursor-pointer;
    @apply select-none;

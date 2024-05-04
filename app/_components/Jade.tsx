@@ -5,10 +5,9 @@ import { DocumentTextIcon } from "@heroicons/react/24/outline";
 type JadeProps = {
    className?: string;
    home?: boolean;
-   offline?: boolean;
 };
 
-const Jade: React.FC<JadeProps> = ({ className, home, offline }) => {
+const Jade: React.FC<JadeProps> = ({ className, home }) => {
    return (
       <div id="Jade" className={className}>
          {home ?
@@ -46,34 +45,19 @@ const Jade: React.FC<JadeProps> = ({ className, home, offline }) => {
             </ul>
          </section>
 
-         {!offline ?
-            <section>
-               <p className="my-3.5">Where I publish:</p>
-               <div className="mb-5 mt-3.5 flex flex-wrap items-center gap-2">
-                  <Link href="/microblog" className="btn-sm">
-                     <DocumentTextIcon className="h-4 w-4" />
-                     My microblog
-                  </Link>
-                  <Link href="/blog" className="btn-sm">
-                     <DocumentTextIcon className="h-4 w-4" />
-                     My blog
-                  </Link>
-               </div>
-            </section>
-         :  <section>
-               <p className="my-3.5">Where I publish:</p>
-               <div className="mb-5 mt-3.5 flex flex-wrap items-center gap-2">
-                  <div className="btn-sm-off">
-                     <DocumentTextIcon className="h-4 w-4" />
-                     My microblog
-                  </div>
-                  <div className="btn-sm-off">
-                     <DocumentTextIcon className="h-4 w-4" />
-                     My blog
-                  </div>
-               </div>
-            </section>
-         }
+         <section>
+            <p className="my-3.5">Where I publish:</p>
+            <div className="mb-5 mt-3.5 flex flex-wrap items-center gap-2">
+               <Link href="/microblog" className="btn-sm">
+                  <DocumentTextIcon className="h-4 w-4" />
+                  My microblog
+               </Link>
+               <Link href="/blog" className="btn-sm">
+                  <DocumentTextIcon className="h-4 w-4" />
+                  My blog
+               </Link>
+            </div>
+         </section>
 
          <section>
             <p className="mb-1.75 mt-3.5">Contact me:</p>
