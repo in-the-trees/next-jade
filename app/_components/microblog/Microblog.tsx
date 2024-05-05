@@ -141,7 +141,7 @@ const Microblog = async ({ className, Microblog, location }: MicroblogProps) => 
             :  ""}
          </header>
          <div
-            className="e-content"
+            className="e-content break-words"
             dangerouslySetInnerHTML={{ __html: content_html }}
          />
       </article>

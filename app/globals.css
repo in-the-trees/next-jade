@@ -33,6 +33,22 @@ strong {
    ul {
       @apply my-3.5;
    }
+
+   .footnotes {
+      @apply my-3.5;
+   }
+
+   .footnotes hr {
+      @apply hidden;
+   }
+
+   .footnotes ol {
+      @apply ps-0;
+   }
+
+   .footnotes p {
+      @apply m-0;
+   }
 }
 
 .prose-sm * {
