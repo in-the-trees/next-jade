@@ -120,9 +120,9 @@ const Jade: React.FC<JadeProps> = ({ className, home }) => {
                         <li className="mt-1">
                            <a
                               className="text-blue-400 hover:underline dark:text-violet-300"
-                              href="https://www.threads.net/@inthetrees.7"
+                              href="https://www.threads.net/@inthetrees.me"
                            >
-                              threads.net/@inthetrees.7
+                              threads.net/@inthetrees.me
                            </a>
                         </li>
                         <li>
