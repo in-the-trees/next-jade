@@ -65,9 +65,9 @@ const Jade: React.FC<JadeProps> = ({ className, home }) => {
                <li>
                   <a
                      className="text-blue-500 hover:underline dark:text-violet-400"
-                     href="https://signal.me/#eu/Ny71Ts3RZ685pJjTlOfJbxO9IZKNSqaGYAkdRLjTEsvKlSA3fv9MOr8LHLQOurlR"
+                     href="https://signal.me/#eu/U23Og9rvFD3KcSEVVoiiJCS6MmxRamzQWyVaaleTYCPzH272GeJMo5eQ-gstLIK2"
                   >
-                     jade.07
+                     inthetrees.07
                   </a>
                </li>
                <li>
