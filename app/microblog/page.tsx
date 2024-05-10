@@ -44,7 +44,7 @@ export default async function Blog() {
                   Archive
                </a>
                <a
-                  href={`https://${process.env.MICROBLOG_BASE_URL}/feed.json`}
+                  href={`https://${process.env.NEXT_PUBLIC_MICROBLOG_BASE_URL}/feed.json`}
                   className="btn-sm"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -65,7 +65,7 @@ export default async function Blog() {
             </div>
 
             <MicroblogFeed
-               feedUrl={`https://${process.env.MICROBLOG_BASE_URL}/api/recent.json`}
+               feedUrl={`https://${process.env.NEXT_PUBLIC_MICROBLOG_BASE_URL}/api/recent.json`}
                cutoffInHours={24}
                className="mt-9"
             />

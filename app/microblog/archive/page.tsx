@@ -46,7 +46,7 @@ export default async function Blog() {
 
             <div className="my-4 flex flex-wrap items-center gap-2">
                <a
-                  href={`https://${process.env.MICROBLOG_BASE_URL}/feed.json`}
+                  href={`https://${process.env.NEXT_PUBLIC_MICROBLOG_BASE_URL}/feed.json`}
                   className="btn-sm"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -67,7 +67,7 @@ export default async function Blog() {
             </div>
 
             <MicroblogFeed
-               feedUrl={`https://${process.env.MICROBLOG_BASE_URL}/api/all.json`}
+               feedUrl={`https://${process.env.NEXT_PUBLIC_MICROBLOG_BASE_URL}/api/all.json`}
                className="mt-9"
             />
          </main>

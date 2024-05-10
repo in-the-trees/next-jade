@@ -10,14 +10,14 @@ const transformImage = (
    const $ = cheerio.load(`<div class="html-wrapper">${content_html}</div>`);
    const images = $("img");
 
-   images.each(function () {
+   images.each(function() {
       const img = $(this);
       const src = img.attr("src") || "";
       const initialSrc = src.toString();
 
       // Check if image is hosted via Micro.blog
       const isMicroblogPhoto = src.startsWith(
-         `https://${process.env.MICROBLOG_BASE_URL}/uploads`,
+         `https://${process.env.NEXT_PUBLIC_MICROBLOG_BASE_URL}/uploads`,
       );
 
       // Optimize image if hosted via Micro.blog
