@@ -5,6 +5,7 @@ import {
    RssIcon,
 } from "@heroicons/react/24/outline";
 import Breadcrumb from "@/app/_components/breadcrumb";
+import MicroblogFeed from "@/app/_components/microblog/feed";
 
 export default function MicroblogPage() {
    return (
