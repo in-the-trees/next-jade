@@ -18,20 +18,18 @@ const FeedWrapper = ({
 
 type MicroblogFeedProps = {
    className?: string;
+   url: string;
    cutoff?: number;
 };
 
 export default async function MicroblogFeed({
    className,
+   url,
    cutoff,
 }: MicroblogFeedProps) {
    let posts: MicroblogType[] = [];
    try {
-      posts = await getPosts(
-         new URL(
-            `https://${process.env.NEXT_PUBLIC_MICROBLOG_BASE_URL}/api/recent.json`,
-         ),
-      );
+      posts = await getPosts(new URL(url));
    } catch (error) {
       console.error(error);
       return (
@@ -42,6 +40,30 @@ export default async function MicroblogFeed({
          </FeedWrapper>
       );
    } finally {
-      return <FeedWrapper className={className}>to do</FeedWrapper>;
+      if (!posts.length) {
+         return (
+            <FeedWrapper className={className}>
+               <p className="text-gray-400 dark:text-stone-500">
+                  No posts within the last day — check back later :)
+               </p>
+            </FeedWrapper>
+         );
+      } else {
+         const now = new Date();
+
+         if (cutoff) {
+            posts = posts.filter((post) => {
+               const dateToCompare =
+                  post.date_modified ?
+                     new Date(post.date_modified)
+                  :  new Date(post.date_published);
+               const timeDiff = now.getTime() - dateToCompare.getTime();
+               const hoursDiff = timeDiff / (1000 * 3600);
+               return hoursDiff <= cutoff;
+            });
+         }
+
+         return <FeedWrapper className={className}>to do</FeedWrapper>;
+      }
    }
 }

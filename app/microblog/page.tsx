@@ -62,7 +62,11 @@ export default function MicroblogPage() {
                </a>
             </div>
 
-            <MicroblogFeed />
+            <MicroblogFeed
+               url={`https://${process.env.NEXT_PUBLIC_MICROBLOG_BASE_URL}/api/recent.json`}
+               cutoff={24}
+               className="mt-9"
+            />
          </main>
       </div>
    );
