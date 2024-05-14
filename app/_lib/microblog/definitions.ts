@@ -1,3 +1,18 @@
+export interface MicrodotblogReply {
+   id: string;
+   content_html: string;
+   url: string;
+   date_published: string;
+   author: {
+      name: string;
+      url: string;
+      avatar: string;
+      _microblog: {
+         username: string;
+      };
+   };
+}
+
 export type MicroblogPhoto = {
    url: string;
    width: number;
