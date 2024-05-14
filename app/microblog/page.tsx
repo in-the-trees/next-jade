@@ -66,6 +66,8 @@ export default function MicroblogPage() {
                url={`https://${process.env.NEXT_PUBLIC_MICROBLOG_BASE_URL}/api/recent.json`}
                cutoff={24}
                className="mt-9"
+               preloadPosts={true}
+               dynamic_time
             />
          </main>
       </div>
