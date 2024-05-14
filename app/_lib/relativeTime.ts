@@ -1,11 +1,19 @@
-export const formatTimeRelatively = (date: Date): string => {
-   const rtf = new Intl.RelativeTimeFormat("en", { numeric: "always" });
+export const formatTimeRelatively = (
+   date: Date | string,
+   dynamic?: boolean,
+): string => {
    const now = new Date();
+
+   if (typeof date === "string") {
+      date = new Date(date);
+   }
+
+   const rtf = new Intl.RelativeTimeFormat("en", { numeric: "always" });
    const diff = (date.getTime() - now.getTime()) / 1000;
 
-   const twoWeeksInSeconds = 2 * 7 * 24 * 60 * 60;
-   if (Math.abs(diff) >= twoWeeksInSeconds) {
-      return new Date(date).toLocaleString("en-US", {
+   const oneWeeksInSeconds = 1 * 7 * 24 * 60 * 60;
+   if (!dynamic || Math.abs(diff) > oneWeeksInSeconds) {
+      return date.toLocaleString("en-US", {
          month: "short",
          day: "2-digit",
          hour: "2-digit",
