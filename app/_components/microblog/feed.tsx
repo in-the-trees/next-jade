@@ -1,5 +1,6 @@
 import getPosts from "@/app/_lib/microblog/getPosts";
 import { Microblog as MicroblogType } from "@/app/_lib/microblog/definitions";
+import MicroblogPost from "@/app/_components/microblog/post";
 
 const FeedWrapper = ({
    children,
@@ -20,16 +21,20 @@ type MicroblogFeedProps = {
    className?: string;
    url: string;
    cutoff?: number;
+   preloadPosts?: boolean;
+   dynamic_time?: boolean;
 };
 
 export default async function MicroblogFeed({
    className,
    url,
    cutoff,
+   preloadPosts,
+   dynamic_time,
 }: MicroblogFeedProps) {
    let posts: MicroblogType[] = [];
    try {
-      posts = await getPosts(new URL(url));
+      posts = await getPosts(url);
    } catch (error) {
       console.error(error);
       return (
@@ -63,7 +68,19 @@ export default async function MicroblogFeed({
             });
          }
 
-         return <FeedWrapper className={className}>to do</FeedWrapper>;
+         return (
+            <FeedWrapper className={className}>
+               {posts.map((post) => (
+                  <MicroblogPost
+                     key={post.id}
+                     post={post}
+                     inFeed={true}
+                     preload={preloadPosts}
+                     dynamic_time={dynamic_time}
+                  />
+               ))}
+            </FeedWrapper>
+         );
       }
    }
 }
