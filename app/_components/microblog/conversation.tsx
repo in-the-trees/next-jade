@@ -1,3 +1,5 @@
+export const revalidate = 0;
+
 import { Microdotblog } from "@/app/_lib/microblog/definitions";
 import clsx from "clsx";
 import { lora } from "@/app/_fonts/fonts";
