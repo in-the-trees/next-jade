@@ -44,10 +44,13 @@ export default async function Blog() {
                               dateTime={post.date}
                               className={`${commit_mono.className} text-[1em - 1px] block self-start text-nowrap text-[calc(1em-1px)] text-gray-500 dark:text-stone-400`}
                            >
-                              {new Date(post.date).toLocaleDateString("en-US", {
-                                 month: "short",
-                                 day: "2-digit",
-                              })}
+                              {new Date(post.date + "T00:00:00").toLocaleString(
+                                 "default",
+                                 {
+                                    month: "short",
+                                    day: "numeric",
+                                 },
+                              )}
                            </time>
                            <ChevronRightIcon className="block h-3 w-3 self-start text-nowrap text-gray-400 dark:text-stone-500" />
                            <Link
