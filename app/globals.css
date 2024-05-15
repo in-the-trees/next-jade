@@ -34,7 +34,7 @@ strong {
    @apply prose-ul:ml-4 prose-ul:list-inside prose-ul:list-disc prose-ul:p-0 prose-li:m-0 prose-li:p-0;
    @apply prose-ol:ml-0 prose-ol:list-inside prose-ol:list-decimal prose-ol:p-0 prose-li:m-0 prose-li:p-0;
    @apply prose-blockquote:border-l-2 dark:prose-blockquote:border-stone-800;
-   @apply prose-headings:font-lora prose-h2:text-[1.25em] prose-h3:text-[1.125em] prose-h4:text-[1.0625em] prose-h5:text-[1.03125em] prose-h6:text-[1em];
+   @apply prose-headings:font-lora prose-headings:mb-0 prose-headings:mt-5 prose-h2:text-[1.25em] prose-h3:text-[1.125em] prose-h4:text-[1.0625em] prose-h5:text-[1.03125em] prose-h6:text-[1em];
    @apply prose-code:font-commit_mono prose-code:rounded-lg prose-code:bg-slate-100 prose-code:px-1 prose-code:py-0.5 prose-code:text-[calc(1em-1px)] dark:prose-code:bg-stone-800;
 }
 
