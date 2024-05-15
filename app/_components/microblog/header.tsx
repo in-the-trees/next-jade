@@ -95,7 +95,7 @@ export default function Header({
                   "text-[calc(1em-2px)]": inFeed,
                },
             )}
-            title={new Date(date_published).toLocaleString()}
+            title={date_published}
          >
             {relativeTimePublished}
          </time>
@@ -117,7 +117,7 @@ export default function Header({
                         "text-[calc(1em-2px)]": inFeed,
                      },
                   )}
-                  title={new Date(date_modified).toLocaleString()}
+                  title={date_modified}
                >
                   {relativeTimeModified}
                </time>
