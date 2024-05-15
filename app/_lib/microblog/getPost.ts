@@ -58,6 +58,7 @@ const getPost = async (id: string, dateParams?: DateParams) => {
          urlParts.pathname = "/api" + urlParts.pathname;
          const api_url = urlParts.toString();
 
+         revalidatePath(api_url);
          const res = await fetch(api_url);
          if (!res.ok) {
             throw new Error(`Failed to fetch post from ${api_url}`);
