@@ -27,4 +27,6 @@ export type Microblog = {
    photos?: MicroblogPhoto[];
    url: string;
    content_html: string;
+   title?: string;
+   description?: string;
 };
