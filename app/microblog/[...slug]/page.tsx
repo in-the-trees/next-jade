@@ -11,13 +11,7 @@ type Props = {
    };
 };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-   return {
-      title: "post",
-   };
-}
-
-export default async function Post({ params }: { params: { slug: string[] } }) {
+async function getMicroblog({ params }: Props) {
    const slugArray = params.slug;
    const idFromSlug = params.slug[params.slug.length - 1];
 
@@ -53,6 +47,24 @@ export default async function Post({ params }: { params: { slug: string[] } }) {
       notFound();
    }
 
+   return post;
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+   const post = await getMicroblog({ params });
+   const urlDate = new Date(post.date_published.split("T")[0]);
+
+   return {
+      title: post!.title,
+      description: post!.description,
+      alternates: {
+         canonical: `/microblog/${urlDate.getUTCFullYear()}/${urlDate.getUTCMonth() + 1}/${urlDate.getUTCDate()}/${post.id}`,
+      },
+   };
+}
+
+export default async function Post({ params }: { params: { slug: string[] } }) {
+   const post = await getMicroblog({ params });
    return (
       <div>
          <header className="sticky top-0 z-50">
