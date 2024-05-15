@@ -1,12 +1,10 @@
 import createRichLinks from "@/app/_lib/microblog/createRichLinks";
-import { Microblog, MicrodotblogReply } from "@/app/_lib/microblog/definitions";
-import getConversation from "@/app/_lib/microblog/getConversation";
+import { Microblog } from "@/app/_lib/microblog/definitions";
 import transformImage from "@/app/_lib/microblog/transformImage";
 import Header from "@/app/_components/microblog/header";
 import { formatTimeRelatively } from "@/app/_lib/relativeTime";
 
-const myMicroblogUsername = "jade";
-const proseStyling = `
+export const proseStyling = `
    prose-sm prose-a:text-blue-500 hover:prose-a:underline dark:prose-a:text-violet-400
    prose-img:max-h-64 prose-img:max-w-full prose-img:max-h-64 prose-img:object-contain prose-img:h-[auto] prose-img:w-[auto]
    prose-img:bg-gray-50 dark:prose-img:bg-stone-800 prose-img:rounded-xl prose-img:border dark:prose-img:border-stone-700 prose-img:transition-transform prose-img:ease-out hover:prose-img:scale-103
@@ -19,7 +17,6 @@ type MicroblogPostProps = {
    inFeed?: boolean;
    preload?: boolean;
    dynamic_time?: boolean;
-   getCoversation?: boolean;
    className?: string;
 };
 
@@ -28,7 +25,6 @@ export default async function MicroblogPost({
    inFeed,
    preload,
    dynamic_time,
-   getCoversation,
    className,
 }: MicroblogPostProps) {
    let content_html = post.content_html;
@@ -37,11 +33,6 @@ export default async function MicroblogPost({
       content_html = transformImage(content_html, post.photos);
    } else {
       content_html = transformImage(content_html, post.photos, "lazy");
-   }
-
-   let conversation: MicrodotblogReply[] = [];
-   if (getCoversation) {
-      conversation = await getConversation(post.url);
    }
 
    let show_updated = false;
