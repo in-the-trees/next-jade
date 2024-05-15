@@ -120,7 +120,7 @@ export default async function Post({ params }: { params: { slug: string[] } }) {
             {microdotblog && microdotblog.items.length > 0 && (
                <Conversation
                   microdotblog={microdotblog}
-                  className="mt-7 border-t-[.5px] pt-4"
+                  className="mt-7 border-t-[.5px] pt-4 dark:border-stone-700"
                />
             )}
          </main>

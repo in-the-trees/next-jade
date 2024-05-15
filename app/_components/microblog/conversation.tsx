@@ -51,7 +51,7 @@ export default function Conversation({
                            </span>
                            {reply.author._microblog.username ===
                               myMicroblogUsername && (
-                              <CheckBadgeIcon className="h-[1em] w-[1em] text-blue-400" />
+                              <CheckBadgeIcon className="h-[1em] w-[1em] text-blue-400 dark:text-violet-300" />
                            )}
                         </div>
                         <div className="flex items-center gap-2 text-[calc(1em-1px)]">
@@ -60,7 +60,7 @@ export default function Conversation({
                               target="_blank"
                               rel="noopener noreferrer"
                            >
-                              <ArrowTopRightOnSquareIcon className="h-3 w-3 text-blue-500 hover:text-blue-400" />
+                              <ArrowTopRightOnSquareIcon className="h-3 w-3 text-blue-500 hover:text-blue-400 dark:text-violet-400 dark:hover:text-violet-300" />
                            </a>
                            <ConversationTime
                               date_published={reply.date_published}
