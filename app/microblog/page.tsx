@@ -1,6 +1,3 @@
-export const runtime = "edge";
-
-import MicroblogFeed from "@/app/_components/microblog/MicroblogFeed";
 import { lora } from "@/app/_fonts/fonts";
 import {
    ArchiveBoxIcon,
@@ -8,8 +5,9 @@ import {
    RssIcon,
 } from "@heroicons/react/24/outline";
 import Breadcrumb from "@/app/_components/breadcrumb";
+import MicroblogFeed from "@/app/_components/microblog/feed";
 
-export default async function Blog() {
+export default function MicroblogPage() {
    return (
       <div>
          <header className="sticky top-0 z-50 px-4">
@@ -65,9 +63,11 @@ export default async function Blog() {
             </div>
 
             <MicroblogFeed
-               feedUrl={`https://${process.env.NEXT_PUBLIC_MICROBLOG_BASE_URL}/api/recent.json`}
-               cutoffInHours={24}
+               url={`https://${process.env.NEXT_PUBLIC_MICROBLOG_BASE_URL}/api/recent.json`}
+               cutoff={24}
                className="mt-9"
+               preloadPosts={true}
+               dynamic_time
             />
          </main>
       </div>

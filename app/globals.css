@@ -66,6 +66,8 @@ strong {
    ul:not(:last-child) {
       @apply mb-[.5em];
    }
+
+   @apply text-[1em];
 }
 
 .prose-sm *,

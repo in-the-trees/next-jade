@@ -1,7 +1,7 @@
 export const runtime = "edge";
 
 import type { Metadata } from "next";
-import MicroblogFeed from "@/app/_components/microblog/MicroblogFeed";
+import MicroblogFeed from "@/app/_components/microblog/feed";
 import { lora } from "@/app/_fonts/fonts";
 import { GlobeAltIcon, RssIcon } from "@heroicons/react/24/outline";
 import Breadcrumb from "@/app/_components/breadcrumb";
@@ -67,7 +67,7 @@ export default async function Blog() {
             </div>
 
             <MicroblogFeed
-               feedUrl={`https://${process.env.NEXT_PUBLIC_MICROBLOG_BASE_URL}/api/all.json`}
+               url={`https://${process.env.NEXT_PUBLIC_MICROBLOG_BASE_URL}/api/all.json`}
                className="mt-9"
             />
          </main>

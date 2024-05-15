@@ -6,11 +6,12 @@ import type { MicroblogPhoto } from "@/app/_lib/microblog/definitions";
 const transformImage = (
    content_html: string,
    photos?: MicroblogPhoto[],
+   lazy?: "lazy",
 ): string => {
    const $ = cheerio.load(`<div class="html-wrapper">${content_html}</div>`);
    const images = $("img");
 
-   images.each(function() {
+   images.each(function () {
       const img = $(this);
       const src = img.attr("src") || "";
       const initialSrc = src.toString();
@@ -44,6 +45,10 @@ const transformImage = (
          } else {
             img.attr("width", imgData.width.toString());
             img.attr("height", imgData.height.toString());
+         }
+
+         if (lazy) {
+            img.attr("loading", "lazy");
          }
       }
 

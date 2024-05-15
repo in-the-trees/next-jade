@@ -1,15 +1,11 @@
-export const runtime = "edge";
-export const revalidate = 0;
-
+import { Microblog, Microdotblog } from "@/app/_lib/microblog/definitions";
 import { Metadata } from "next";
-import getPostById from "@/app/_lib/microblog/getPostById";
+import Breadcrumb from "@/app/_components/breadcrumb";
+import getPost from "@/app/_lib/microblog/getPost";
 import { notFound } from "next/navigation";
-import Microblog from "@/app/_components/microblog/Microblog";
-const { convert } = require("html-to-text");
-import fetchFeed from "@/app/_lib/microblog/fetchFeed";
-import { MicroblogFeed } from "@/app/_lib/microblog/definitions";
-
-const feedUrl = `https://${process.env.NEXT_PUBLIC_MICROBLOG_BASE_URL}/api/all.json`;
+import MicroblogPost from "@/app/_components/microblog/post";
+import getMicrodotblog from "@/app/_lib/microblog/getMicrodotblog";
+import Conversation from "@/app/_components/microblog/conversation";
 
 type Props = {
    params: {
@@ -17,122 +13,22 @@ type Props = {
    };
 };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-   const slugArray = params.slug;
-   const idFromSlug = slugArray[slugArray.length - 1];
-   const isValidId = /^\d{7}$/.test(idFromSlug);
-
-   if (!isValidId) {
-      return {
-         title: "Invalid post id",
-      };
-   }
-
-   let feed: MicroblogFeed | null;
-   try {
-      feed = await fetchFeed(feedUrl);
-   } catch (error) {
-      console.error(error);
-      return {
-         title: "Micro.blog currently unreachable",
-      };
-   }
-
-   let post: Microblog | null;
-   let postDate: Date | null;
-   if (feed) {
-      post = await getPostById(idFromSlug, undefined, feed);
-      if (slugArray.length === 1) {
-         const date = new Date(post.date_published).toLocaleDateString("en-US", {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-         });
-         if (post) {
-            postDate = new Date(post.date_published.split("T")[0]);
-            return {
-               title: `Jade's microblog on ${date}`,
-               description: convert(post.content_html),
-               alternates: {
-                  canonical: `/microblog/${postDate.getUTCFullYear()}/${postDate.getUTCMonth() + 1}/${postDate.getUTCDate()}/${post.id}`,
-               },
-            };
-         }
-      } else if (
-         slugArray.length === 4 &&
-         /^\d{4}$/.test(slugArray[0]) &&
-         /^[1-9]\d?$/.test(slugArray[1]) &&
-         /^[1-9]\d?$/.test(slugArray[2])
-      ) {
-         postDate = new Date(post.date_published.split("T")[0]);
-         const year = Number(slugArray[0]);
-         const month = Number(slugArray[1]);
-         const day = Number(slugArray[2]);
-         const date = new Date(year, month - 1, day).toLocaleDateString(
-            "en-US",
-            {
-               year: "numeric",
-               month: "long",
-               day: "numeric",
-            },
-         );
-
-         return {
-            title: `Jade's microblog on ${date}`,
-            description: convert(post.content_html),
-            alternates: {
-               canonical: `/microblog/${postDate.getUTCFullYear()}/${postDate.getUTCMonth() + 1}/${postDate.getUTCDate()}/${post.id}`,
-            },
-         };
-      }
-
-      return {
-         title: "Microblog not found",
-      };
-   } else {
-      return {
-         title: "Micro.blog currently unreachable",
-      };
-   }
-}
-
-export default async function MicroblogPost({
-   params,
-}: {
-   params: { slug: string[] };
-}) {
+async function getMicroblog({ params }: Props) {
    const slugArray = params.slug;
    const idFromSlug = params.slug[params.slug.length - 1];
+
    const isValidId = /^\d{7}$/.test(idFromSlug);
-
-   let feed: MicroblogFeed | null;
-   try {
-      feed = await fetchFeed(feedUrl);
-   } catch (error) {
-      console.error(error);
-      feed = null;
-   }
-
    if (!isValidId) {
       notFound();
    }
 
-   if (slugArray.length === 1) {
-      let post: Microblog | null;
+   let post: Microblog;
 
-      if (feed) {
-         post = await getPostById(idFromSlug, undefined, feed);
-         return (
-            <div className="px-4">
-               <Microblog Microblog={post} location="source" />
-            </div>
-         );
-      } else {
-         return (
-            <div className="px-4">
-               <Microblog location="source" />
-            </div>
-         );
+   if (slugArray.length === 1) {
+      try {
+         post = await getPost(idFromSlug);
+      } catch {
+         notFound();
       }
    } else if (
       slugArray.length === 4 &&
@@ -144,41 +40,90 @@ export default async function MicroblogPost({
       const month = slugArray[1];
       const day = slugArray[2];
 
-      if (feed) {
-         let post: Microblog | null;
-
-         try {
-            post = await getPostById(
-               idFromSlug,
-               {
-                  year,
-                  month,
-                  day,
-               },
-               feed,
-            );
-         } catch (error) {
-            console.error(error);
-            post = null;
-         }
-
-         if (!post) {
-            notFound();
-         }
-
-         return (
-            <div className="px-4">
-               <Microblog Microblog={post} location="source" />
-            </div>
-         );
-      } else {
-         return (
-            <div className="px-4">
-               <Microblog location="source" />
-            </div>
-         );
+      try {
+         post = await getPost(idFromSlug, { year, month, day });
+      } catch {
+         notFound();
       }
    } else {
       notFound();
    }
+
+   return post;
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+   const post = await getMicroblog({ params });
+   const urlDate = new Date(post.date_published.split("T")[0]);
+
+   return {
+      title: post!.title,
+      description: post!.description,
+      alternates: {
+         canonical: `/microblog/${urlDate.getUTCFullYear()}/${urlDate.getUTCMonth() + 1}/${urlDate.getUTCDate()}/${post.id}`,
+      },
+   };
+}
+
+export default async function Post({ params }: { params: { slug: string[] } }) {
+   const post = await getMicroblog({ params });
+
+   let microdotblog: Microdotblog | null = null;
+   try {
+      microdotblog = await getMicrodotblog(post.url);
+   } catch {
+      console.error("Failed to fetch conversation from Micro.blog");
+   }
+
+   return (
+      <div>
+         <header className="sticky top-0 z-50">
+            <div className="bg-white px-4 pb-1 pt-7 md:pt-[44px] lg:pt-[60px] dark:bg-stone-900">
+               {microdotblog && microdotblog.home_page_url ?
+                  <Breadcrumb
+                     items={[
+                        { type: "link", text: "Jade", href: "/" },
+                        { type: "separator" },
+                        {
+                           type: "link",
+                           text: "Microblog",
+                           href: "/microblog",
+                        },
+                        { type: "separator" },
+                        { type: "text", text: "This post" },
+                        {
+                           type: "external-link",
+                           text: "Micro.blog",
+                           href: microdotblog.home_page_url,
+                        },
+                     ]}
+                  />
+               :  <Breadcrumb
+                     items={[
+                        { type: "link", text: "Jade", href: "/" },
+                        { type: "separator" },
+                        {
+                           type: "link",
+                           text: "Microblog",
+                           href: "/microblog",
+                        },
+                        { type: "separator" },
+                        { type: "text", text: "This post" },
+                     ]}
+                  />
+               }
+            </div>
+            <div className="bg-gradient-to-b from-white px-4 pb-4 dark:from-stone-900"></div>
+         </header>
+         <main className="px-4">
+            <MicroblogPost post={post} dynamic_time={true} />
+            {microdotblog && microdotblog.items.length > 0 && (
+               <Conversation
+                  microdotblog={microdotblog}
+                  className="mt-7 border-t-[.5px] pt-4 dark:border-stone-700"
+               />
+            )}
+         </main>
+      </div>
+   );
 }
