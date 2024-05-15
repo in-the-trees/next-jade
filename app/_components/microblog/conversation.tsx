@@ -6,7 +6,6 @@ import { lora } from "@/app/_fonts/fonts";
 import { CheckBadgeIcon } from "@heroicons/react/20/solid";
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/solid";
 import { formatTimeRelatively } from "@/app/_lib/relativeTime";
-import { proseStyling } from "@/app/_components/microblog/post";
 import sanitizeHtml from "sanitize-html";
 import ConversationTime from "./misc/conversationTime";
 
@@ -70,7 +69,7 @@ export default function Conversation({
                            />
                         </div>
                      </div>
-                     <div className={`prose-convo ${proseStyling}`}>
+                     <div className={`prose-convo proseStyling prose-sm`}>
                         <div
                            dangerouslySetInnerHTML={{
                               __html: sanitizeHtml(reply.content_html),

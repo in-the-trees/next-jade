@@ -4,14 +4,6 @@ import transformImage from "@/app/_lib/microblog/transformImage";
 import Header from "@/app/_components/microblog/header";
 import { formatTimeRelatively } from "@/app/_lib/relativeTime";
 
-export const proseStyling = `
-   prose-sm prose-a:text-blue-500 hover:prose-a:underline dark:prose-a:text-violet-400
-   prose-img:max-h-64 prose-img:max-w-full prose-img:max-h-64 prose-img:object-contain prose-img:h-[auto] prose-img:w-[auto]
-   prose-img:bg-gray-50 dark:prose-img:bg-stone-800 prose-img:rounded-xl prose-img:border dark:prose-img:border-stone-700 prose-img:transition-transform prose-img:ease-out hover:prose-img:scale-103
-   prose-ul:list-disc prose-ul:ml-4 prose-ul:p-0 prose-ul:list-inside prose-li:p-0 prose-li:m-0
-   prose-blockquote:border-l-2 dark:prose-blockquote:border-stone-800
-`;
-
 type MicroblogPostProps = {
    post: Microblog;
    inFeed?: boolean;
@@ -50,7 +42,7 @@ export default async function MicroblogPost({
       :  null;
 
    return (
-      <article className={`${className} h-entry ${proseStyling}`}>
+      <article className={`${className} h-entry proseStyling prose-sm`}>
          <Header
             inFeed={inFeed}
             preload={preload}

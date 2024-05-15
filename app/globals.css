@@ -27,6 +27,21 @@ strong {
    @apply m-0;
 }
 
+.proseStyling {
+   @apply prose-a:text-blue-500 hover:prose-a:underline dark:prose-a:text-violet-400;
+   @apply prose-img:h-[auto] prose-img:max-h-64 prose-img:w-[auto] prose-img:max-w-full prose-img:object-contain;
+   @apply prose-img:rounded-xl prose-img:border prose-img:bg-gray-50 prose-img:transition-transform prose-img:ease-out hover:prose-img:scale-103 dark:prose-img:border-stone-700 dark:prose-img:bg-stone-800;
+   @apply prose-ul:ml-4 prose-ul:list-inside prose-ul:list-disc prose-ul:p-0 prose-li:m-0 prose-li:p-0;
+   @apply prose-ol:ml-0 prose-ol:list-inside prose-ol:list-decimal prose-ol:p-0 prose-li:m-0 prose-li:p-0;
+   @apply prose-blockquote:border-l-2 dark:prose-blockquote:border-stone-800;
+   @apply prose-headings:font-lora prose-h2:text-[1.25em] prose-h3:text-[1.125em] prose-h4:text-[1.0625em] prose-h5:text-[1.03125em] prose-h6:text-[1em];
+   @apply prose-code:font-commit_mono prose-code:rounded-lg prose-code:bg-slate-100 prose-code:px-1 prose-code:py-0.5 prose-code:text-[calc(1em-1px)];
+}
+
+.prose-sm * {
+   @apply leading-5;
+}
+
 .prose-sm {
    p,
    blockquote,
@@ -49,10 +64,18 @@ strong {
    .footnotes p {
       @apply m-0;
    }
-}
 
-.prose-sm * {
-   @apply leading-5;
+   ol > li {
+      @apply leading-6;
+   }
+
+   ul > li {
+      @apply leading-6;
+   }
+
+   li > ul {
+      @apply my-0;
+   }
 }
 
 .prose-convo {

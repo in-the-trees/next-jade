@@ -40,14 +40,6 @@ export default async function BlogPost({
 }) {
    const post = (await getPostBySlug(params.slug, PostReturn.FULL)) as Post;
 
-   const proseStyling = `
-      prose-sm prose-a:text-blue-500 hover:prose-a:underline dark:prose-a:text-violet-400
-      prose-img:max-h-64 prose-img:max-w-full prose-img:max-h-64 prose-img:object-contain prose-img:h-[auto] prose-img:w-[auto]
-      prose-img:bg-gray-50 dark:prose-img:bg-stone-800 prose-img:rounded-xl prose-img:border dark:prose-img:border-stone-700 prose-img:transition-transform prose-img:ease-out hover:prose-img:scale-103
-      prose-ul:list-disc prose-ul:ml-4 prose-ul:p-0 prose-ul:list-inside prose-li:p-0 prose-li:m-0
-      prose-blockquote:border-l-2 dark:prose-blockquote:border-stone-800
-   `;
-
    return (
       <div>
          <header className="sticky top-0 z-50 px-4">
@@ -91,7 +83,9 @@ export default async function BlogPost({
                      {post.postMatter.title}
                   </h1>
                </header>
-               <div className={`${proseStyling}`}>
+               <div
+                  className={`proseStyling prose-sm ${lora.variable} ${commit_mono.variable}`}
+               >
                   <MDXRemote source={post.content} />
                </div>
             </article>
