@@ -9,8 +9,8 @@ export interface Microdotblog {
          author: {
             name: string;
             url: string;
-            _microblog?: {
-               username?: string;
+            _microblog: {
+               username: string;
             };
          };
       },
