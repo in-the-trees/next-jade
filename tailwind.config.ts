@@ -38,6 +38,11 @@ const config: Config = {
          borderRadius: {
             "lg-half": "0.625rem",
          },
+         fontFamily: {
+            inter: ["var(--font-inter)"],
+            lora: ["var(--font-lora)"],
+            commit_mono: ["var(--font-commit-mono)"],
+         },
       },
    },
    plugins: [require("@tailwindcss/typography")],
