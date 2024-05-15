@@ -21,7 +21,7 @@ export default async function Blog() {
                   ]}
                />
             </div>
-            <div className="-mx-4 bg-gradient-to-b from-white px-4 pb-4 dark:from-stone-900 dark:from-stone-900"></div>
+            <div className="-mx-4 bg-gradient-to-b from-white px-4 pb-4 dark:from-stone-900"></div>
          </header>
          <main id="blog" className="px-4">
             <h1
