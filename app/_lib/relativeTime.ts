@@ -13,13 +13,14 @@ export const formatTimeRelatively = (
 
    const oneWeeksInSeconds = 1 * 7 * 24 * 60 * 60;
    if (!dynamic || Math.abs(diff) > oneWeeksInSeconds) {
-      return date.toLocaleString("en-US", {
+      const options: Intl.DateTimeFormatOptions = {
          month: "short",
          day: "2-digit",
          hour: "2-digit",
          minute: "2-digit",
          hour12: false,
-      });
+      };
+      return date.toLocaleString("en-US", options).replace(" at ", ", ");
    }
 
    const units: Intl.RelativeTimeFormatUnit[] = [
