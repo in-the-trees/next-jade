@@ -59,7 +59,7 @@ export default async function BlogPost({
          <main className="px-4">
             <article>
                <header className="mb-4">
-                  <div className="mb-3 flex items-center gap-2 text-gray-500 dark:text-stone-400">
+                  <div className="mb-3.5 flex items-center gap-2 text-gray-500 dark:text-stone-400">
                      <DocumentTextIcon className="h-4 w-4" />
                      <time
                         dateTime={
