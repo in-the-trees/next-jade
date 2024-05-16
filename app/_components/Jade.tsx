@@ -119,7 +119,7 @@ const Jade: React.FC<JadeProps> = ({ className, home }) => {
                      <ul className="list-inside list-[circle]">
                         <li className="mt-1">
                            <a
-                              className="text-blue-400 hover:underline dark:text-violet-300"
+                              className="text-blue-500/70 hover:underline dark:text-violet-400/70"
                               href="https://www.threads.net/@inthetrees.me"
                            >
                               threads.net/@inthetrees.me
@@ -127,7 +127,7 @@ const Jade: React.FC<JadeProps> = ({ className, home }) => {
                         </li>
                         <li>
                            <a
-                              className="text-blue-400 hover:underline dark:text-violet-300"
+                              className="text-blue-500/70 hover:underline dark:text-violet-400/70"
                               href="https://x.com/@inthetrees_7"
                            >
                               x.com/inthetrees_7
