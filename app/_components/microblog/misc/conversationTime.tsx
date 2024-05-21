@@ -31,7 +31,9 @@ export default function ConversationTime({
       <time
          dateTime={date_published}
          className={`${commit_mono.className} text-gray-500 dark:text-stone-400`}
-         title={new Date(date_published).toLocaleString()}
+         title={new Date(date_published).toLocaleString(undefined, {
+            hour12: false,
+         })}
       >
          {relativeTimePublished}
       </time>
