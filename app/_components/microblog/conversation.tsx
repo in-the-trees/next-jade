@@ -1,11 +1,10 @@
 import { Microdotblog } from "@/app/_lib/microblog/definitions";
 import clsx from "clsx";
-import { lora } from "@/app/_fonts/fonts";
 import { CheckBadgeIcon } from "@heroicons/react/20/solid";
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/solid";
 import { formatTimeRelatively } from "@/app/_lib/relativeTime";
 import sanitizeHtml from "sanitize-html";
-import ConversationTime from "./misc/conversationTime";
+import ConversationTime from "@/app/_components/microblog/misc/conversationTime";
 
 type ConversationProps = {
    microdotblog: Microdotblog;
@@ -43,10 +42,11 @@ export default function Conversation({
                   >
                      <div>
                         <div className="flex items-center gap-1">
-                           <span
-                              className={`${lora.className} text-[calc(1em+1px)] font-normal-mid italic`}
-                           >
-                              {reply.author.name}
+                           <span className={`text-[calc(1em)] font-normal-mid`}>
+                              <span className="mr-[1px] text-[calc(1em-2px)]">
+                                 @
+                              </span>
+                              {reply.author._microblog.username}
                            </span>
                            {reply.author._microblog.username ===
                               myMicroblogUsername && (
