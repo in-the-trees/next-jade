@@ -21,7 +21,7 @@ export default function Conversation({
 
    return (
       <section className={`${className} text-[calc(1em-1px)]`}>
-         <ul className="flex flex-col gap-4">
+         <ul className="flex flex-col gap-3">
             {microdotblog.items.map((reply) => {
                const currentReplyAuthor = reply.author._microblog.username || "";
                const replyingToMatch = reply.content_html.match(/@(\w+)</);
@@ -38,7 +38,7 @@ export default function Conversation({
                   <li
                      key={reply.id}
                      className={clsx(``, {
-                        "ml-5 border-l pl-5": isNested,
+                        "ml-5 border-l pl-5 dark:border-stone-700": isNested,
                      })}
                   >
                      <div>
