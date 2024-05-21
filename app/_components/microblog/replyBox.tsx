@@ -3,6 +3,7 @@
 import { Microdotblog } from "@/app/_lib/microblog/definitions";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+import { useState, useEffect } from "react";
 
 type ReplyBoxProps = {
    postUrl: string;
@@ -15,14 +16,50 @@ export default function ReplyBox({
    microdotblog,
    className,
 }: ReplyBoxProps) {
+   const [token, setToken] = useState<string | null>(null);
+   const [username, setUsername] = useState<string | null>(null);
+
    const [id] = microdotblog.home_page_url.match(/(\d+)$/) || [];
 
    const searchParams = useSearchParams();
-   const token = searchParams.get("token");
-   const username = searchParams.get("username");
+   useEffect(() => {
+      setToken(searchParams.get("token"));
+      setUsername(searchParams.get("username"));
+
+      return () => {
+         setToken(null);
+         setUsername(null);
+      };
+   }, [searchParams]);
+
+   function postReply(formData: FormData) {
+      if (!token || !username) return;
+
+      const text = formData.get("text") as string;
+      if (!text) return;
+
+      const body = new URLSearchParams();
+      body.append("token", token);
+      body.append("username", username);
+      body.append("url", postUrl);
+      body.append("text", text);
+
+      setToken(null);
+      setUsername(null);
+
+      fetch(`https://micro.blog/account/comments/${id}/post`, {
+         method: "POST",
+         mode: "no-cors",
+         headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+         },
+         body: body.toString(),
+      });
+   }
 
    return (
       <div className={`${className}`}>
+         {token} {username}
          <p className="mb-3 mt-3.5 italic">Reply with:</p>
          <div className="flex flex-wrap items-center gap-2">
             <Link
@@ -68,6 +105,10 @@ export default function ReplyBox({
                Mastodon
             </Link>
          </div>
+         <form action={postReply}>
+            <textarea name="text" placeholder="Reply..." />
+            <button type="submit">Reply</button>
+         </form>
       </div>
    );
 }
