@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 import MicroblogPost from "@/app/_components/microblog/post";
 import getMicrodotblog from "@/app/_lib/microblog/getMicrodotblog";
 import Conversation from "@/app/_components/microblog/conversation";
+import ReplyBox from "@/app/_components/microblog/replyBox";
 
 type Props = {
    params: {
@@ -117,11 +118,15 @@ export default async function Post({ params }: { params: { slug: string[] } }) {
          </header>
          <main className="px-4">
             <MicroblogPost post={post} dynamic_time={true} />
-            {microdotblog && microdotblog.items.length > 0 && (
-               <Conversation
+            {post && post.url && microdotblog && (
+               <ReplyBox
+                  postUrl={post.url}
                   microdotblog={microdotblog}
-                  className="mt-7 border-t-[.5px] pt-4 dark:border-stone-700"
+                  className="mt-7 border-t-[.5px] dark:border-stone-700"
                />
+            )}
+            {microdotblog && microdotblog.items.length > 0 && (
+               <Conversation microdotblog={microdotblog} className="mt-7 pt-4" />
             )}
          </main>
       </div>
