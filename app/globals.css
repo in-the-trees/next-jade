@@ -133,7 +133,7 @@ strong {
    @apply shadow-sm;
    @apply transition-transform;
    @apply ease-out;
-   @apply hover:scale-103;
+   @apply hover:scale-[1.015];
 }
 
 .details-dropdown {
