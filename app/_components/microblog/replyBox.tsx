@@ -127,7 +127,7 @@ export default function ReplyBox({
                      placeholder="Reply..."
                      cols={37}
                      rows={3}
-                     className="mt-3.5 max-w-full resize rounded-lg-half border border-gray-200 p-1 dark:border-stone-800"
+                     className="mt-3.5 max-w-full resize rounded-lg-half border border-gray-200 bg-transparent p-1 placeholder:text-black/30 dark:border-stone-700 dark:placeholder:text-stone-200/30"
                   />
                   <button type="submit" className="btn-xs mt-1.5 block">
                      Reply as @{username}
