@@ -55,7 +55,7 @@ async function getMicroblog({ params }: Props) {
 }
 
 async function getMicrodotblog(permalink: string) {
-   const conversationUrl = `https://micro.blog/conversation.js?url=${permalink}&format=jsonfeed`;
+   const conversationUrl = `https://micro.blog/conversation.js?url=${permalink}&format=jsonfeed&nocache=${Date.now()}`;
    revalidatePath(conversationUrl);
 
    const response: Response = await fetch(conversationUrl);
