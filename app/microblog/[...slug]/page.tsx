@@ -2,11 +2,11 @@ export const revalidate = 0;
 
 import { Microblog, Microdotblog } from "@/app/_lib/microblog/definitions";
 import { Metadata } from "next";
+import { revalidatePath } from "next/cache";
 import Breadcrumb from "@/app/_components/breadcrumb";
 import getPost from "@/app/_lib/microblog/getPost";
 import { notFound } from "next/navigation";
 import MicroblogPost from "@/app/_components/microblog/post";
-import getMicrodotblog from "@/app/_lib/microblog/getMicrodotblog";
 import ReplyArea from "@/app/_components/microblog/replyArea";
 
 type Props = {
@@ -54,6 +54,18 @@ async function getMicroblog({ params }: Props) {
    return post;
 }
 
+async function getMicrodotblog(permalink: string) {
+   const conversationUrl = `https://micro.blog/conversation.js?url=${permalink}&format=jsonfeed`;
+   revalidatePath(conversationUrl);
+
+   const response: Response = await fetch(conversationUrl);
+   if (!response.ok) {
+   } else {
+      const res = await response.json();
+      return res;
+   }
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
    const post = await getMicroblog({ params });
    const urlDate = new Date(post.date_published.split("T")[0]);
@@ -70,12 +82,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Post({ params }: { params: { slug: string[] } }) {
    const post = await getMicroblog({ params });
 
-   let microdotblog: Microdotblog | null = null;
-   try {
-      microdotblog = await getMicrodotblog(post.url);
-   } catch {
-      console.error("Failed to fetch conversation from Micro.blog");
-   }
+   let microdotblog: Microdotblog | null = await getMicrodotblog(post.url);
 
    return (
       <div>
