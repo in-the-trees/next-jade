@@ -13,6 +13,7 @@ export function middleware(request: NextRequest) {
       base-uri 'self';
       form-action 'self';
       frame-ancestors 'none';
+      connect-src 'self' https://micro.blog https://jade.micro.blog;
       ${process.env.NODE_ENV === "production" ? "upgrade-insecure-requests;" : ""};
    `;
    // Replace newline characters and spaces

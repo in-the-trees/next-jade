@@ -1,3 +1,5 @@
+export const revalidate = 0;
+
 import { Microblog, Microdotblog } from "@/app/_lib/microblog/definitions";
 import { Metadata } from "next";
 import Breadcrumb from "@/app/_components/breadcrumb";
@@ -5,7 +7,7 @@ import getPost from "@/app/_lib/microblog/getPost";
 import { notFound } from "next/navigation";
 import MicroblogPost from "@/app/_components/microblog/post";
 import getMicrodotblog from "@/app/_lib/microblog/getMicrodotblog";
-import Conversation from "@/app/_components/microblog/conversation";
+import ReplyArea from "@/app/_components/microblog/replyArea";
 
 type Props = {
    params: {
@@ -117,12 +119,7 @@ export default async function Post({ params }: { params: { slug: string[] } }) {
          </header>
          <main className="px-4">
             <MicroblogPost post={post} dynamic_time={true} />
-            {microdotblog && microdotblog.items.length > 0 && (
-               <Conversation
-                  microdotblog={microdotblog}
-                  className="mt-7 border-t-[.5px] pt-4 dark:border-stone-700"
-               />
-            )}
+            <ReplyArea post={post} microdotblog={microdotblog} />
          </main>
       </div>
    );
