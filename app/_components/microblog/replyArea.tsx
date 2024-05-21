@@ -22,7 +22,7 @@ export default function ReplyArea({ post, microdotblog }: ReplyAreaProps) {
          {microdotblog && microdotblog.items.length > 0 && (
             <Conversation
                microdotblog={microdotblog}
-               className="mt-7 rounded-lg bg-gray-100/50 p-4 dark:bg-stone-800/50"
+               className="mt-7 rounded-lg border border-gray-100 bg-gray-100/50 p-4 dark:border-stone-800 dark:bg-stone-800/50"
             />
          )}
       </>
