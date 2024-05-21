@@ -3,6 +3,7 @@
 import { Microdotblog } from "@/app/_lib/microblog/definitions";
 import Link from "next/link";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
+import { revalidatePath } from "next/cache";
 import { useState, useEffect } from "react";
 
 type ReplyBoxProps = {
@@ -64,6 +65,9 @@ export default function ReplyBox({
          },
          body: body.toString(),
       });
+
+      revalidatePath(pathname);
+      location.reload();
    }
 
    return (
