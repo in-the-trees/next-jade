@@ -121,9 +121,17 @@ export default function ReplyBox({
                </div>
             </>
          :  <>
-               <form action={postReply}>
-                  <textarea name="text" placeholder="Reply..." />
-                  <button type="submit">Reply</button>
+               <form action={postReply} className="max-w-full">
+                  <textarea
+                     name="text"
+                     placeholder="Reply..."
+                     cols={37}
+                     rows={3}
+                     className="mt-3.5 max-w-full resize rounded-lg-half border border-gray-200 p-1 dark:border-stone-800"
+                  />
+                  <button type="submit" className="btn-xs mt-1.5 block">
+                     Reply as @{username}
+                  </button>
                </form>
             </>
          }
