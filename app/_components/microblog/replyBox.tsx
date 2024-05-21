@@ -2,7 +2,7 @@
 
 import { Microdotblog } from "@/app/_lib/microblog/definitions";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 
 type ReplyBoxProps = {
@@ -36,6 +36,10 @@ export default function ReplyBox({
    if (token && username) {
       tokenized = true;
    }
+
+   const pathname = usePathname();
+   const router = useRouter();
+   router.push(pathname, undefined);
 
    function postReply(formData: FormData) {
       if (!token || !username) return;
