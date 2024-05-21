@@ -1,5 +1,8 @@
+"use client";
+
 import { Microdotblog } from "@/app/_lib/microblog/definitions";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 
 type ReplyBoxProps = {
    postUrl: string;
@@ -13,6 +16,10 @@ export default function ReplyBox({
    className,
 }: ReplyBoxProps) {
    const [id] = microdotblog.home_page_url.match(/(\d+)$/) || [];
+
+   const searchParams = useSearchParams();
+   const token = searchParams.get("token");
+   const username = searchParams.get("username");
 
    return (
       <div className={`${className}`}>
