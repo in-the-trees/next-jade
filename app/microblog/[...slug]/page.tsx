@@ -2,9 +2,9 @@ export const revalidate = 0;
 
 import { Microblog, Microdotblog } from "@/app/_lib/microblog/definitions";
 import { Metadata } from "next";
-import { revalidatePath } from "next/cache";
 import Breadcrumb from "@/app/_components/breadcrumb";
 import getPost from "@/app/_lib/microblog/getPost";
+import getMicrodotblog from "@/app/_lib/microblog/getMicrodotblog";
 import { notFound } from "next/navigation";
 import MicroblogPost from "@/app/_components/microblog/post";
 import ReplyArea from "@/app/_components/microblog/replyArea";
@@ -52,18 +52,6 @@ async function getMicroblog({ params }: Props) {
    }
 
    return post;
-}
-
-async function getMicrodotblog(permalink: string) {
-   const conversationUrl = `https://micro.blog/conversation.js?url=${permalink}&format=jsonfeed&nocache=${Date.now()}`;
-   revalidatePath(conversationUrl);
-
-   const response: Response = await fetch(conversationUrl);
-   if (!response.ok) {
-   } else {
-      const res = await response.json();
-      return res;
-   }
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

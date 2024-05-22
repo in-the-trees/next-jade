@@ -3,19 +3,20 @@
 import { Microdotblog } from "@/app/_lib/microblog/definitions";
 import Link from "next/link";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
-import { revalidatePath } from "next/cache";
 import { useState, useEffect } from "react";
 
 type ReplyBoxProps = {
    postUrl: string;
    microdotblog: Microdotblog;
    className?: string;
+   refresh: () => void;
 };
 
 export default function ReplyBox({
    postUrl,
    microdotblog,
    className,
+   refresh,
 }: ReplyBoxProps) {
    let tokenized = false;
    const [token, setToken] = useState<string | null>(null);
@@ -40,7 +41,9 @@ export default function ReplyBox({
 
    const pathname = usePathname();
    const router = useRouter();
-   router.push(pathname, undefined);
+   useEffect(() => {
+      router.push(pathname, undefined);
+   }, [pathname, router]);
 
    function postReply(formData: FormData) {
       if (!token || !username) return;
@@ -64,10 +67,9 @@ export default function ReplyBox({
             "Content-Type": "application/x-www-form-urlencoded",
          },
          body: body.toString(),
+      }).then(() => {
+         refresh();
       });
-
-      revalidatePath(pathname);
-      location.reload();
    }
 
    return (
