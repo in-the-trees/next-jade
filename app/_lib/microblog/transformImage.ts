@@ -35,12 +35,27 @@ const transformImage = (
       if (photos) {
          imgData = photos.find((photo) => photo.url === src);
       }
-      if (imgData && imgData.width > 0 && imgData.height > 0) {
-         const aspectRatio = imgData.width / imgData.height;
+      if (
+         (imgData && imgData.width > 0 && imgData.height > 0) ||
+         (Number(img.attr("width")) > 0 && Number(img.attr("height")) > 0)
+      ) {
+         let aspectRatio;
+         if (imgData) {
+            aspectRatio = imgData.width / imgData.height;
+         } else {
+            aspectRatio = Number(img.attr("width")) / Number(img.attr("height"));
+         }
          const isTallImg = aspectRatio < 1;
          const isWideImg = aspectRatio > 1;
-         let width = imgData.width;
-         let height = imgData.height;
+
+         let width, height;
+         if (imgData) {
+            width = imgData.width;
+            height = imgData.height;
+         } else {
+            width = Number(img.attr("width"));
+            height = Number(img.attr("height"));
+         }
 
          if (isTallImg && height > MAX_HEIGHT) {
             height = MAX_HEIGHT;
