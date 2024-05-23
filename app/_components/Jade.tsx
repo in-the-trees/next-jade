@@ -107,6 +107,7 @@ const Jade: React.FC<JadeProps> = ({ className, home }) => {
                   <a
                      className="text-blue-500 hover:underline dark:text-violet-400"
                      href="https://micro.blog/jade"
+                     rel="me"
                   >
                      micro.blog/jade
                   </a>
