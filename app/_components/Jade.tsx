@@ -1,6 +1,9 @@
 import { lora } from "@/app/_fonts/fonts";
 import Link from "next/link";
-import { DocumentTextIcon } from "@heroicons/react/24/outline";
+import {
+   DocumentTextIcon,
+   ChatBubbleOvalLeftEllipsisIcon,
+} from "@heroicons/react/24/outline";
 
 type JadeProps = {
    className?: string;
@@ -49,7 +52,7 @@ const Jade: React.FC<JadeProps> = ({ className, home }) => {
             <p className="my-3.5">Where I publish:</p>
             <div className="mb-5 mt-3.5 flex flex-wrap items-center gap-2">
                <Link href="/microblog" className="btn-sm">
-                  <DocumentTextIcon className="h-4 w-4" />
+                  <ChatBubbleOvalLeftEllipsisIcon className="h-4 w-4" />
                   My microblog
                </Link>
                <Link href="/blog" className="btn-sm">
