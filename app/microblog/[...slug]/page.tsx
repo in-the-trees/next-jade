@@ -1,5 +1,3 @@
-export const revalidate = 0;
-
 import { Microblog, Microdotblog } from "@/app/_lib/microblog/definitions";
 import { Metadata } from "next";
 import Breadcrumb from "@/app/_components/breadcrumb";

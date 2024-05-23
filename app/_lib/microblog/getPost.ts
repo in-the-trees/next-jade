@@ -1,5 +1,3 @@
-import { revalidatePath } from "next/cache";
-
 type DateParams = {
    year: string;
    month: string;
@@ -18,9 +16,9 @@ type IdData = {
 };
 
 const getPost = async (id: string, dateParams?: DateParams) => {
-   const id_data_url = `https://${process.env.NEXT_PUBLIC_MICROBLOG_BASE_URL}/api/ids.json`;
-   revalidatePath(id_data_url);
-   const id_data_res = await fetch(id_data_url);
+   const id_data_res = await fetch(
+      `https://${process.env.NEXT_PUBLIC_MICROBLOG_BASE_URL}/api/ids.json`,
+   );
 
    if (!id_data_res.ok) {
       throw new Error("Failed to fetch id data");
@@ -58,7 +56,6 @@ const getPost = async (id: string, dateParams?: DateParams) => {
          urlParts.pathname = "/api" + urlParts.pathname;
          const api_url = urlParts.toString();
 
-         revalidatePath(api_url);
          const res = await fetch(api_url);
          if (!res.ok) {
             throw new Error(`Failed to fetch post from ${api_url}`);
