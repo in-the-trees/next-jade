@@ -3,6 +3,9 @@
 import * as cheerio from "cheerio";
 import type { MicroblogPhoto } from "@/app/_lib/microblog/definitions";
 
+const MAX_WIDTH = 384;
+const MAX_HEIGHT = 320;
+
 const transformImage = (
    content_html: string,
    photos?: MicroblogPhoto[],
@@ -23,7 +26,7 @@ const transformImage = (
 
       // Optimize image if hosted via Micro.blog
       if (isMicroblogPhoto) {
-         const optimizedSrc = `https://micro.blog/photos/800x/${encodeURIComponent(src)}`;
+         const optimizedSrc = `https://micro.blog/photos/768x/${encodeURIComponent(src)}`;
          img.attr("src", optimizedSrc);
       }
 
@@ -34,18 +37,25 @@ const transformImage = (
       }
       if (imgData && imgData.width > 0 && imgData.height > 0) {
          const aspectRatio = imgData.width / imgData.height;
+         const isTallImg = aspectRatio < 1;
+         const isWideImg = aspectRatio > 1;
+         let width = imgData.width;
+         let height = imgData.height;
 
-         // Set width & height attributes
-         if (isMicroblogPhoto) {
-            const newWidth = Math.min(imgData.width, 800);
-            const newHeight = Math.round(newWidth / aspectRatio);
-
-            img.attr("width", newWidth.toString());
-            img.attr("height", newHeight.toString());
-         } else {
-            img.attr("width", imgData.width.toString());
-            img.attr("height", imgData.height.toString());
+         if (isTallImg && height > MAX_HEIGHT) {
+            height = MAX_HEIGHT;
+            width = Math.round(height * aspectRatio);
+         } else if (isWideImg && width > MAX_WIDTH) {
+            width = MAX_WIDTH;
+            height = Math.round(width / aspectRatio);
+         } else if (height > MAX_HEIGHT && width > MAX_WIDTH) {
+            height = MAX_HEIGHT;
+            width = MAX_WIDTH;
+            console.log("1x1 but too big");
          }
+
+         img.attr("width", width.toString());
+         img.attr("height", height.toString());
 
          if (lazy) {
             img.attr("loading", "lazy");
