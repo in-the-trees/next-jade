@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 export function middleware(request: NextRequest) {
    const cspHeader = `
       default-src 'self';
-      script-src 'self' 'unsafe-inline' ${
+      script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com ${
          process.env.NODE_ENV === "production" ? "" : `'unsafe-eval'`
       };
       style-src 'self';
