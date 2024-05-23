@@ -21,7 +21,7 @@ export default async function MicroblogPost({
 }: MicroblogPostProps) {
    let content_html = post.content_html;
    content_html = createRichLinks(content_html);
-   if (preload) {
+   if (preload || !inFeed) {
       content_html = transformImage(content_html, post.photos);
    } else {
       content_html = transformImage(content_html, post.photos, "lazy");
