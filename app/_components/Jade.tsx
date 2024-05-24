@@ -124,6 +124,14 @@ const Jade: React.FC<JadeProps> = ({ className, home }) => {
                         <li className="mt-1">
                            <a
                               className="text-blue-500/70 hover:underline dark:text-violet-400/70"
+                              href="https://bsky.app/profile/inthetrees.me"
+                           >
+                              bsky.app/profile/inthetrees.me
+                           </a>
+                        </li>
+                        <li className="mt-1">
+                           <a
+                              className="text-blue-500/70 hover:underline dark:text-violet-400/70"
                               href="https://www.threads.net/@inthetrees.me"
                            >
                               threads.net/@inthetrees.me
