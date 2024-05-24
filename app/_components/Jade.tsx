@@ -64,32 +64,41 @@ const Jade: React.FC<JadeProps> = ({ className, home }) => {
 
          <section>
             <p className="mb-1.75 mt-3.5">Contact me:</p>
-            <ul className="mb-3.5 ml-4 mt-1.75 list-inside list-disc">
-               <li>
+            <dl className="mb-3.5 ml-4 mt-1.75">
+               <dt className="mt-1.5">
+                  <li className="list-inside list-disc">Signal</li>
+               </dt>
+               <dd className="ml-4">
                   <a
                      className="text-blue-500 hover:underline dark:text-violet-400"
                      href="https://signal.me/#eu/U23Og9rvFD3KcSEVVoiiJCS6MmxRamzQWyVaaleTYCPzH272GeJMo5eQ-gstLIK2"
                   >
                      inthetrees.07
                   </a>
-               </li>
-               <li>
+               </dd>
+               <dt className="mt-1.5">
+                  <li className="list-inside list-disc">Email</li>
+               </dt>
+               <dd className="ml-4">
                   <a
                      className="text-blue-500 hover:underline dark:text-violet-400"
                      href="mailto:jade@inthetrees.me"
                   >
                      jade@inthetrees.me
                   </a>
-               </li>
-               <li>
+               </dd>
+               <dt className="mt-1.5">
+                  <li className="list-inside list-disc">Matrix</li>
+               </dt>
+               <dd className="ml-4">
                   <a
                      className="text-blue-500 hover:underline dark:text-violet-400"
                      href="https://matrix.to/#/@inthetrees:matrix.org"
                   >
                      @inthetrees:matrix.org
                   </a>
-               </li>
-            </ul>
+               </dd>
+            </dl>
          </section>
 
          <section>
