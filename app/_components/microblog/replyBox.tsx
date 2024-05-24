@@ -76,7 +76,7 @@ export default function ReplyBox({
       <div className={`${className}`}>
          {!tokenized ?
             <>
-               <p className="mb-3 mt-3.5 italic">Reply with:</p>
+               <p className="mb-1.75 mt-3.5 italic">Reply with:</p>
                <div className="flex flex-wrap items-center gap-2">
                   <Link
                      href={`https://micro.blog/account/comments/${id}/mb?url=${postUrl}`}
