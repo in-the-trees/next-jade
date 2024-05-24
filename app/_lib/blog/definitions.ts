@@ -9,6 +9,7 @@ export interface PostMatter {
    date: string;
    title: string;
    description?: string;
+   draft?: boolean;
 }
 
 export interface Post {

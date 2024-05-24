@@ -9,12 +9,12 @@ export const getPosts = async (postReturn: PostReturn) => {
       const posts: PostMatter[] = (await Promise.all(
          postsFiles.map((postFile) => getPost(postFile, PostReturn.MATTER_ONLY)),
       )) as PostMatter[];
-      return posts;
+      return posts.filter((post) => !post.draft);
    } else if (postReturn === PostReturn.FULL) {
       const posts: Post[] = (await Promise.all(
          postsFiles.map((postFile) => getPost(postFile, PostReturn.FULL)),
       )) as Post[];
-      return posts;
+      return posts.filter((post) => !post.postMatter.draft);
    } else {
       throw new Error("Invalid post return amount");
    }
