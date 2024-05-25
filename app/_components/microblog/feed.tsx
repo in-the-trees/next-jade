@@ -49,7 +49,7 @@ export default async function MicroblogFeed({
          return (
             <FeedWrapper className={className}>
                <p className="text-gray-400 dark:text-stone-500">
-                  No posts within the last day — check back later :)
+                  No posts within the last day — check back later.
                </p>
             </FeedWrapper>
          );
@@ -70,6 +70,12 @@ export default async function MicroblogFeed({
 
          return (
             <FeedWrapper className={className}>
+               {!posts.length && (
+                  <p className="text-gray-400 dark:text-stone-500">
+                     No posts within the last day — check back later.
+                  </p>
+               )}
+
                {posts.map((post) => (
                   <MicroblogPost
                      key={post.id}
