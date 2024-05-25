@@ -11,6 +11,9 @@ if (process.env.NODE_ENV === "development") {
 const nextConfig = {
    experimental: {
       reactCompiler: true,
+      staleTimes: {
+         dynamic: 30,
+      },
    },
 };
 
