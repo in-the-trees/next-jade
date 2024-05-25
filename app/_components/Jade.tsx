@@ -51,11 +51,11 @@ const Jade: React.FC<JadeProps> = ({ className, home }) => {
          <section>
             <p className="my-3.5">Where I publish:</p>
             <div className="mb-5 mt-3.5 flex flex-wrap items-center gap-2">
-               <Link href="/microblog" className="btn-sm">
+               <Link href={`/microblog`} className="btn-sm" prefetch={true}>
                   <ChatBubbleOvalLeftEllipsisIcon className="h-4 w-4" />
                   My microblog
                </Link>
-               <Link href="/blog" className="btn-sm">
+               <Link href={`/blog`} className="btn-sm" prefetch={true}>
                   <DocumentTextIcon className="h-4 w-4" />
                   My blog
                </Link>
