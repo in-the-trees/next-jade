@@ -40,11 +40,21 @@ const Jade: React.FC<JadeProps> = ({ className, home }) => {
 
          <section>
             <p className="mb-1.75 mt-3.5">A few things about me:</p>
-            <ul className="mb-3.5 ml-4 mt-1.75 list-inside list-disc">
-               <li>20, he/him</li>
-               <li>Web developer, mainly front-end</li>
-               <li>Digital privacy & security enthusiast</li>
-               <li>Based in Madison, WI</li>
+            <ul className="mb-3.5 ml-3.5 mt-1.75 list-outside list-disc">
+               <li className="ml-4">
+                  <span className="ml-1">20, he/him</span>
+               </li>
+               <li className="ml-4">
+                  <span className="ml-1">Web developer, mainly front-end</span>
+               </li>
+               <li className="ml-4">
+                  <span className="ml-1">
+                     Digital privacy & security enthusiast
+                  </span>
+               </li>
+               <li className="ml-4">
+                  <span className="ml-1">Based in Madison, WI</span>
+               </li>
             </ul>
          </section>
 
@@ -65,63 +75,69 @@ const Jade: React.FC<JadeProps> = ({ className, home }) => {
          <section>
             <p className="mb-1.75 mt-3.5">Contact me:</p>
             <dl className="mb-3.5 ml-4 mt-1.75">
-               <div className="ml-4 list-item">
-                  <dt className="mt-1.5">Signal</dt>
-                  <dd>
-                     <a
-                        className="text-blue-500 hover:underline dark:text-violet-400"
-                        href="https://signal.me/#eu/U23Og9rvFD3KcSEVVoiiJCS6MmxRamzQWyVaaleTYCPzH272GeJMo5eQ-gstLIK2"
-                     >
-                        inthetrees.07
-                     </a>
-                  </dd>
+               <div className="ml-3.5 list-item">
+                  <div className="ml-1">
+                     <dt className="mt-1.5">Signal</dt>
+                     <dd>
+                        <a
+                           className="text-blue-500 hover:underline dark:text-violet-400"
+                           href="https://signal.me/#eu/U23Og9rvFD3KcSEVVoiiJCS6MmxRamzQWyVaaleTYCPzH272GeJMo5eQ-gstLIK2"
+                        >
+                           inthetrees.07
+                        </a>
+                     </dd>
+                  </div>
                </div>
-               <div className="ml-4 list-item">
-                  <dt className="mt-1.5">Email</dt>
-                  <dd>
-                     <a
-                        className="text-blue-500 hover:underline dark:text-violet-400"
-                        href="mailto:jade@inthetrees.me"
-                     >
-                        jade@inthetrees.me
-                     </a>
-                  </dd>
+               <div className="ml-3.5 list-item">
+                  <div className="ml-1">
+                     <dt className="mt-1.5">Email</dt>
+                     <dd>
+                        <a
+                           className="text-blue-500 hover:underline dark:text-violet-400"
+                           href="mailto:jade@inthetrees.me"
+                        >
+                           jade@inthetrees.me
+                        </a>
+                     </dd>
+                  </div>
                </div>
-               <div className="ml-4 list-item">
-                  <dt className="mt-1.5">Matrix</dt>
-                  <dd>
-                     <a
-                        className="text-blue-500 hover:underline dark:text-violet-400"
-                        href="https://matrix.to/#/@inthetrees:matrix.org"
-                     >
-                        @inthetrees:matrix.org
-                     </a>
-                  </dd>
+               <div className="ml-3.5 list-item">
+                  <div className="ml-1">
+                     <dt className="mt-1.5">Matrix</dt>
+                     <dd>
+                        <a
+                           className="text-blue-500 hover:underline dark:text-violet-400"
+                           href="https://matrix.to/#/@inthetrees:matrix.org"
+                        >
+                           @inthetrees:matrix.org
+                        </a>
+                     </dd>
+                  </div>
                </div>
             </dl>
          </section>
 
          <section>
             <p className="mb-1.75 mt-3.5">Web presence:</p>
-            <ul className="mb-3.5 ml-4 mt-1.75 list-inside list-disc">
-               <li>
+            <ul className="mb-3.5 ml-4 mt-1.75 list-outside list-disc">
+               <li className="ml-4">
                   <a
-                     className="text-blue-500 hover:underline dark:text-violet-400"
+                     className="ml-1 text-blue-500 hover:underline dark:text-violet-400"
                      href="https://github.com/in-the-trees"
                   >
                      github.com/in-the-trees
                   </a>
                </li>
-               <li>
+               <li className="ml-4">
                   <a
-                     className="text-blue-500 hover:underline dark:text-violet-400"
+                     className="ml-1 text-blue-500 hover:underline dark:text-violet-400"
                      href="https://micro.blog/jade"
                      rel="me"
                   >
                      micro.blog/jade
                   </a>
                </li>
-               <li className="list-none">
+               <li className="details-parent-li ml-1 list-none">
                   <details className="inline-block text-gray-400 dark:text-stone-500">
                      <summary
                         className="details-dropdown"
@@ -129,10 +145,10 @@ const Jade: React.FC<JadeProps> = ({ className, home }) => {
                      >
                         ...
                      </summary>
-                     <ul className="list-inside list-[circle]">
+                     <ul className="ml-6 list-[circle]">
                         <li className="mt-1">
                            <a
-                              className="text-blue-500/70 hover:underline dark:text-violet-400/70"
+                              className="ml-1 text-blue-500/70 hover:underline dark:text-violet-400/70"
                               href="https://bsky.app/profile/inthetrees.me"
                            >
                               bsky.app/profile/inthetrees.me
@@ -140,15 +156,15 @@ const Jade: React.FC<JadeProps> = ({ className, home }) => {
                         </li>
                         <li className="mt-1">
                            <a
-                              className="text-blue-500/70 hover:underline dark:text-violet-400/70"
+                              className="ml-1 text-blue-500/70 hover:underline dark:text-violet-400/70"
                               href="https://www.threads.net/@inthetrees.me"
                            >
                               threads.net/@inthetrees.me
                            </a>
                         </li>
-                        <li>
+                        <li className="mt-1">
                            <a
-                              className="text-blue-500/70 hover:underline dark:text-violet-400/70"
+                              className="ml-1 text-blue-500/70 hover:underline dark:text-violet-400/70"
                               href="https://x.com/@inthetrees_7"
                            >
                               x.com/inthetrees_7

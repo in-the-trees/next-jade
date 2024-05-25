@@ -148,15 +148,27 @@ strong {
    background-position: left center;
    background-size: 0.9em;
 
-   @apply pl-4;
+   @apply pl-[12px];
    @apply -ml-[4px];
 }
 
 /* Safari-only padding adjustment */
 _::-webkit-full-page-media,
 _:future,
+:root .details-parent-li {
+   @apply ml-0;
+}
+
+_::-webkit-full-page-media,
+_:future,
 :root .details-dropdown {
-   @apply pl-[calc(1em+4px)];
+   @apply pl-[calc(1em+10px)];
+}
+
+_::-webkit-full-page-media,
+_:future,
+:root .details-parent-li details ul {
+   @apply ml-8;
 }
 
 details[open] > .details-dropdown {
