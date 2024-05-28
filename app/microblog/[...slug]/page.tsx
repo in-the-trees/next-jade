@@ -1,11 +1,10 @@
 export const runtime = "edge";
 
-import { Microblog, Microdotblog } from "@/app/_lib/microblog/definitions";
+import { Microdotblog } from "@/app/_lib/microblog/definitions";
 import { Metadata } from "next";
 import Breadcrumb from "@/app/_components/breadcrumb";
-import getPost from "@/app/_lib/microblog/getPost";
+import getMicroblog from "@/app/_lib/microblog/getMicroblog";
 import getMicrodotblog from "@/app/_lib/microblog/getMicrodotblog";
-import { notFound } from "next/navigation";
 import MicroblogPost from "@/app/_components/microblog/post";
 import ReplyArea from "@/app/_components/microblog/replyArea";
 
@@ -14,45 +13,6 @@ type Props = {
       slug: string[];
    };
 };
-
-async function getMicroblog({ params }: Props) {
-   const slugArray = params.slug;
-   const idFromSlug = params.slug[params.slug.length - 1];
-
-   const isValidId = /^\d{7}$/.test(idFromSlug);
-   if (!isValidId) {
-      notFound();
-   }
-
-   let post: Microblog;
-
-   if (slugArray.length === 1) {
-      try {
-         post = await getPost(idFromSlug);
-      } catch {
-         notFound();
-      }
-   } else if (
-      slugArray.length === 4 &&
-      /^\d{4}$/.test(slugArray[0]) &&
-      /^[1-9]\d?$/.test(slugArray[1]) &&
-      /^[1-9]\d?$/.test(slugArray[2])
-   ) {
-      const year = slugArray[0];
-      const month = slugArray[1];
-      const day = slugArray[2];
-
-      try {
-         post = await getPost(idFromSlug, { year, month, day });
-      } catch {
-         notFound();
-      }
-   } else {
-      notFound();
-   }
-
-   return post;
-}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
    const post = await getMicroblog({ params });
