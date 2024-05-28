@@ -1,5 +1,3 @@
-export const runtime = "edge";
-
 import type { Metadata } from "next";
 import MicroblogFeed from "@/app/_components/microblog/feed";
 import { lora } from "@/app/_fonts/fonts";

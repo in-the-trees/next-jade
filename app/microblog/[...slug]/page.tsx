@@ -1,3 +1,5 @@
+export const runtime = "edge";
+
 import { Microblog, Microdotblog } from "@/app/_lib/microblog/definitions";
 import { Metadata } from "next";
 import Breadcrumb from "@/app/_components/breadcrumb";
