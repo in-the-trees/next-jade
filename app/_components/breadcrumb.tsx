@@ -26,6 +26,7 @@ const Breadcrumb = ({ className, items }: BreadcrumbProps) => {
                         key={index}
                         href={item.href}
                         className="flex items-center gap-1 rounded-lg-half bg-gray-100 px-2 py-0.75 text-gray-700 transition-transform ease-out hover:scale-103 dark:bg-stone-800 dark:text-stone-400"
+                        prefetch={index === 0 ? true : undefined}
                      >
                         {index === 0 && (
                            <ArrowLeftIcon className="h-3.5 w-3.5" />
