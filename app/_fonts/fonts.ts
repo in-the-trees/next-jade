@@ -1,11 +1,20 @@
-import { Inter } from "next/font/google";
 import { Lora } from "next/font/google";
 import localFont from "next/font/local";
 
-export const inter = Inter({
-   subsets: ["latin"],
+export const inter = localFont({
+   src: [
+      {
+         path: "./InterVariable.woff2",
+         style: "normal",
+      },
+      {
+         path: "./InterVariable-Italic.woff2",
+         style: "italic",
+      },
+   ],
    variable: "--font-inter",
 });
+
 export const lora = Lora({
    subsets: ["latin"],
    style: ["normal", "italic"],
