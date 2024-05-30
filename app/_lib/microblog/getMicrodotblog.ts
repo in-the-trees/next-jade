@@ -1,5 +1,5 @@
 const getMicrodotblog = async (permalink: string) => {
-   const conversationUrl = `https://micro.blog/conversation.js?url=${permalink}&format=jsonfeed`;
+   const conversationUrl = `https://micro.blog/conversation.js?url=${permalink}&format=jsonfeed&nocache=${new Date().getTime()}`;
 
    const response: Response = await fetch(conversationUrl);
    if (!response.ok) {
