@@ -16,17 +16,17 @@ export default function Conversation({
    className,
 }: ConversationProps) {
    const myMicroblogUsername = "jade";
-   let previousReplyAuthor = "";
+   // let previousReplyAuthor = "";
 
    return (
       <section className={`${className} text-[calc(1em-1px)]`}>
          <ul className="flex flex-col gap-3">
             {microdotblog.items.map((reply) => {
-               const currentReplyAuthor = reply.author._microblog.username || "";
-               const replyingToMatch = reply.content_html.match(/@(\w+)</);
-               const replyingTo = replyingToMatch ? replyingToMatch[1] : "";
-               const isNested = replyingTo === previousReplyAuthor;
-               previousReplyAuthor = currentReplyAuthor; // Update for next iteration
+               // const currentReplyAuthor = reply.author._microblog.username || "";
+               // const replyingToMatch = reply.content_html.match(/@(\w+)</);
+               // const replyingTo = replyingToMatch ? replyingToMatch[1] : "";
+               // const isNested = replyingTo === previousReplyAuthor;
+               // previousReplyAuthor = currentReplyAuthor; // Update for next iteration
 
                const init_rel_date_published = formatTimeRelatively(
                   reply.date_published,
@@ -36,9 +36,9 @@ export default function Conversation({
                return (
                   <li
                      key={reply.id}
-                     className={clsx(``, {
-                        "ml-5 border-l pl-5 dark:border-stone-700": isNested,
-                     })}
+                     // className={clsx(``, {
+                     //    "ml-5 border-l pl-5 dark:border-stone-700": isNested,
+                     // })}
                   >
                      <div>
                         <div className="flex items-center gap-1">
