@@ -56,8 +56,7 @@ const Breadcrumb = ({ className, items }: BreadcrumbProps) => {
                            href={item.href}
                            target="_blank"
                            rel="noopener noreferrer"
-                           className="ml-0 flex w-fit items-center gap-1 rounded-lg-half bg-blue-50 px-2 py-0.75 text-blue-500 transition-transform ease-out hover:scale-103 md:ml-auto
-                                      dark:bg-violet-500 dark:bg-opacity-20 dark:text-violet-400"
+                           className="ml-0 flex w-fit items-center gap-1 rounded-lg-half bg-blue-50 px-2 py-0.75 text-blue-500 transition-transform ease-out hover:scale-103 md:ml-auto dark:bg-violet-500 dark:bg-opacity-20 dark:text-violet-400"
                         >
                            <span>{item.text}</span>
                            <ArrowUpRightIcon className="h-3 w-3" />
