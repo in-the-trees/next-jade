@@ -33,7 +33,7 @@ export default function ReplyBox({
          setToken(null);
          setUsername(null);
       };
-   }, []);
+   }, [searchParams]);
 
    if (token && username) {
       tokenized = true;
