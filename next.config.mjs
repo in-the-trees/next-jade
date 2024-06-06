@@ -16,6 +16,7 @@ const nextConfig = {
          static: 5 * 60,
       },
    },
+   transpilePackages: ["next-mdx-remote"],
 };
 
 export default withMDX()(nextConfig);
