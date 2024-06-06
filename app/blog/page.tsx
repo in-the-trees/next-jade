@@ -7,8 +7,7 @@ import { ChevronRightIcon } from "@heroicons/react/24/outline";
 import Breadcrumb from "@/app/_components/breadcrumb";
 
 export default async function Blog() {
-   const posts = [] as PostMatter[];
-   //const posts = (await getPosts(PostReturn.MATTER_ONLY)) as PostMatter[];
+   const posts = (await getPosts(PostReturn.MATTER_ONLY)) as PostMatter[];
 
    return (
       <div>
@@ -57,6 +56,7 @@ export default async function Blog() {
                               <Link
                                  href={`/blog/${post.slug}`}
                                  className="block self-start text-blue-500 hover:underline dark:text-violet-400"
+                                 prefetch={true}
                               >
                                  {post.title}
                               </Link>
