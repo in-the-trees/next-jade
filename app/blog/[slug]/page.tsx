@@ -15,6 +15,13 @@ type Props = {
    };
 };
 
+export async function generateStaticParams() {
+   const posts = (await getPosts(PostReturn.MATTER_ONLY)) as PostMatter[];
+   return posts.map((post) => ({
+      slug: post.slug,
+   }));
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
    const post = (await getPostBySlug(params.slug, PostReturn.FULL)) as Post;
    return {
@@ -24,13 +31,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
          canonical: `/blog/${params.slug}`,
       },
    };
-}
-
-export async function generateStaticParams() {
-   const posts = (await getPosts(PostReturn.MATTER_ONLY)) as PostMatter[];
-   return posts.map((post) => ({
-      slug: post.slug,
-   }));
 }
 
 export default async function BlogPost({
