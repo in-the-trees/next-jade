@@ -23,9 +23,6 @@ const Jade: React.FC<JadeProps> = ({ className, home }) => {
          sessionStorage.setItem("previous-path", currentPath);
       }
       sessionStorage.setItem("current-path", pathname);
-
-      console.log("current path", sessionStorage.getItem("current-path"));
-      console.log("previous path", sessionStorage.getItem("previous-path"));
    }, [pathname]);
 
    return (

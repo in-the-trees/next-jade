@@ -5,7 +5,7 @@ import { ArrowUpRightIcon } from "@heroicons/react/24/solid";
 import { ArrowLeftIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import clsx from "clsx";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 type BreadcrumbItem =
@@ -22,9 +22,9 @@ type BreadcrumbProps = {
 const Breadcrumb = ({ className, items }: BreadcrumbProps) => {
    const router = useRouter();
 
-   let previousPath: string | null = null;
+   const [previousPath, setPreviousPath] = useState<string | null>(null);
    useEffect(() => {
-      previousPath = sessionStorage.getItem("previous-path");
+      setPreviousPath(sessionStorage.getItem("previous-path"));
    }, []);
 
    return (
@@ -32,24 +32,30 @@ const Breadcrumb = ({ className, items }: BreadcrumbProps) => {
          {items.map((item, index) => {
             switch (item.type) {
                case "link":
-                  return (
-                     <Link
-                        key={index}
-                        href={item.href}
-                        className="flex items-center gap-1 rounded-lg-half bg-gray-100 px-2 py-0.75 text-gray-700 transition-transform ease-out hover:scale-103 dark:bg-stone-800 dark:text-stone-400"
-                        prefetch={index === 0 ? true : undefined}
-                        onClick={() => {
-                           if (previousPath === item.href) {
+                  return previousPath !== item.href ?
+                        <Link
+                           key={index}
+                           href={item.href}
+                           className="flex items-center gap-1 rounded-lg-half bg-gray-100 px-2 py-0.75 text-gray-700 transition-transform ease-out hover:scale-103 dark:bg-stone-800 dark:text-stone-400"
+                           prefetch={index === 0 ? true : undefined}
+                        >
+                           {index === 0 && (
+                              <ArrowLeftIcon className="h-3.5 w-3.5" />
+                           )}
+                           <span>{item.text}</span>
+                        </Link>
+                     :  <button
+                           key={index}
+                           onClick={() => {
                               router.back();
-                           }
-                        }}
-                     >
-                        {index === 0 && (
-                           <ArrowLeftIcon className="h-3.5 w-3.5" />
-                        )}
-                        <span>{item.text}</span>
-                     </Link>
-                  );
+                           }}
+                           className="flex items-center gap-1 rounded-lg-half bg-gray-100 px-2 py-0.75 text-gray-700 transition-transform ease-out hover:scale-103 dark:bg-stone-800 dark:text-stone-400"
+                        >
+                           {index === 0 && (
+                              <ArrowLeftIcon className="h-3.5 w-3.5" />
+                           )}
+                           <span>{item.text}</span>
+                        </button>;
                case "text":
                   return (
                      <span
