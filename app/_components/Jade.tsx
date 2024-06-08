@@ -1,9 +1,13 @@
+"use client";
+
 import { lora } from "@/app/_fonts/fonts";
 import Link from "next/link";
 import {
    DocumentTextIcon,
    ChatBubbleOvalLeftEllipsisIcon,
 } from "@heroicons/react/24/outline";
+import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 type JadeProps = {
    className?: string;
@@ -11,6 +15,19 @@ type JadeProps = {
 };
 
 const Jade: React.FC<JadeProps> = ({ className, home }) => {
+   const pathname = usePathname();
+   useEffect(() => {
+      const currentPath = sessionStorage.getItem("current-path");
+
+      if (currentPath && currentPath !== pathname) {
+         sessionStorage.setItem("previous-path", currentPath);
+      }
+      sessionStorage.setItem("current-path", pathname);
+
+      console.log("current path", sessionStorage.getItem("current-path"));
+      console.log("previous path", sessionStorage.getItem("previous-path"));
+   }, [pathname]);
+
    return (
       <div id="Jade" className={className}>
          {home ?
