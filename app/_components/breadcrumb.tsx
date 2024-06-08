@@ -25,7 +25,7 @@ const Breadcrumb = ({ className, items }: BreadcrumbProps) => {
    const [previousPath, setPreviousPath] = useState<string | null>(null);
    useEffect(() => {
       setPreviousPath(sessionStorage.getItem("previous-path"));
-   }, []);
+   }, [previousPath]);
 
    return (
       <div className={`${className} flex flex-wrap items-center gap-2`}>
