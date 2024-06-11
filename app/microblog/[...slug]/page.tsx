@@ -32,7 +32,7 @@ export default async function Post({ params }: { params: { slug: string[] } }) {
 
    return (
       <div>
-         <header className="sticky top-0 z-50">
+         <header className="fixed top-0 z-30 w-full">
             <div className="bg-white px-4 pb-1 pt-7 md:pt-[44px] lg:pt-[60px] dark:bg-stone-900">
                {microdotblog && microdotblog.home_page_url ?
                   <Breadcrumb
@@ -70,7 +70,7 @@ export default async function Post({ params }: { params: { slug: string[] } }) {
             </div>
             <div className="bg-gradient-to-b from-white px-4 pb-4 dark:from-stone-900"></div>
          </header>
-         <main className="px-4">
+         <main className="mt-[4.75rem] px-4 md:mt-[6.75rem]">
             <MicroblogPost post={post} dynamic_time={true} />
             <ReplyArea post={post} microdotblog={microdotblog} />
          </main>

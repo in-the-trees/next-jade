@@ -18,7 +18,7 @@ export default function NotFound() {
             </aside>
             <div className="w-full md:w-2/3">
                <div>
-                  <header className="sticky top-0 z-50 px-4">
+                  <header className="fixed top-0 z-30 w-full px-4">
                      <div className="-mx-4 bg-white px-4 pb-1 pt-7 md:pt-[44px] lg:pt-[60px] dark:bg-stone-900">
                         <Breadcrumb
                            items={[
@@ -30,7 +30,7 @@ export default function NotFound() {
                      </div>
                      <div className="-mx-4 bg-gradient-to-b from-white px-4 pb-4 dark:from-stone-900"></div>
                   </header>
-                  <main className="px-4">
+                  <main className="mt-[4.75rem] px-4 md:mt-[6.75rem]">
                      <h1
                         className={`${lora.className} mb-3.5 text-[1.5em] font-normal-mid`}
                      >

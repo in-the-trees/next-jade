@@ -42,7 +42,7 @@ export default async function BlogPost({
 
    return (
       <div>
-         <header className="sticky top-0 z-50 px-4">
+         <header className="fixed top-0 z-30 w-full px-4">
             <div className="-mx-4 bg-white px-4 pb-1 pt-7 md:pt-[44px] lg:pt-[60px] dark:bg-stone-900">
                <Breadcrumb
                   items={[
@@ -56,7 +56,7 @@ export default async function BlogPost({
             </div>
             <div className="-mx-4 bg-gradient-to-b from-white px-4 pb-4 dark:from-stone-900"></div>
          </header>
-         <main className="px-4">
+         <main className="mt-[4.75rem] px-4 md:mt-[6.75rem]">
             <article>
                <header className="mb-4">
                   <div className="mb-3.5 flex items-center gap-2 text-gray-500 dark:text-stone-400">

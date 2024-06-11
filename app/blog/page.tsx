@@ -12,7 +12,7 @@ export default async function Blog() {
 
    return (
       <div>
-         <header className="sticky top-0 z-50 px-4">
+         <header className="fixed top-0 z-30 w-full px-4">
             <div className="-mx-4 bg-white px-4 pb-1 pt-7 md:pt-[44px] lg:pt-[60px] dark:bg-stone-900">
                <Breadcrumb
                   items={[
@@ -24,7 +24,7 @@ export default async function Blog() {
             </div>
             <div className="-mx-4 bg-gradient-to-b from-white px-4 pb-4 dark:from-stone-900"></div>
          </header>
-         <main id="blog" className="px-4">
+         <main id="blog" className="mt-[4.75rem] px-4 md:mt-[6.75rem]">
             <h1
                className={`${lora.className} mb-3.5 text-[1.5em] font-normal-mid`}
             >
