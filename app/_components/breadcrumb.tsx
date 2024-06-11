@@ -42,6 +42,13 @@ const Breadcrumb = ({ className, items }: BreadcrumbProps) => {
                            if (previousPath === item.href) {
                               router.back();
                            }
+
+                           if (
+                              previousPath === "/microblog/archive" &&
+                              item.href === "/microblog"
+                           ) {
+                              router.back();
+                           }
                         }}
                      >
                         {index === 0 && (
