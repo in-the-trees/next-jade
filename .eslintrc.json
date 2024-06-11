@@ -1,6 +1,6 @@
 {
    "extends": "next/core-web-vitals",
-   "plugins": ["eslint-plugin-react-compiler"],
+   "plugins": ["eslint-plugin-react-compiler", "eslint-plugin-next-on-pages"],
    "rules": {
       "react/no-unescaped-entities": "off",
       "react-compiler/react-compiler": "error"
