@@ -36,26 +36,30 @@ const PADropdown = ({ postUrl, homePageUrl }: PADropdownProps) => {
       <div ref={dropdownRef}>
          <button
             onClick={() => setIsOpen(!isOpen)}
-            className="rounded-full p-1 hover:bg-gray-100"
+            className="rounded-full p-1 hover:bg-gray-100 dark:hover:bg-stone-800/50"
          >
             <EllipsisHorizontalCircleIcon className="h-5 w-5 text-gray-500 dark:border-stone-800" />
          </button>
          {isOpen && (
-            <div className="absolute right-3 mt-2 w-[12rem] rounded-2xl border bg-white shadow-xl">
-               <div className={clsx("p-2", { "border-b": homePageUrl && id })}>
+            <div className="absolute right-3 mt-2 w-[12rem] rounded-2xl border bg-white text-black shadow-xl dark:border-stone-700 dark:bg-stone-950 dark:text-stone-200">
+               <div
+                  className={clsx("p-2", {
+                     "border-b dark:border-stone-700": homePageUrl && id,
+                  })}
+               >
                   {homePageUrl && (
                      <Link
                         href={homePageUrl}
                         prefetch={false}
                         target="_blank"
-                        className="mb-1 flex w-full items-center justify-between rounded-xl bg-blue-50 px-4 py-2 text-left text-sm font-normal-mid text-blue-500 transition-transform ease-out hover:scale-103 dark:bg-violet-500 dark:text-violet-400"
+                        className="mb-1 flex w-full items-center justify-between rounded-xl bg-blue-50 px-4 py-2 text-left text-sm font-normal-mid text-blue-500 transition-transform ease-out hover:scale-103 dark:bg-violet-500 dark:bg-opacity-20 dark:text-violet-400"
                      >
                         Micro.blog
                         <ArrowUturnRightIcon className="h-4 w-4 stroke-2" />
                      </Link>
                   )}
                   <button
-                     className="flex w-full items-center justify-between rounded-xl px-4 py-2 text-left text-sm font-normal-mid text-black hover:bg-gray-100"
+                     className="flex w-full items-center justify-between rounded-xl px-4 py-2 text-left text-sm font-normal-mid hover:bg-gray-100 dark:hover:bg-stone-800/50"
                      onClick={() => {
                         navigator.clipboard.writeText(
                            window.location.toString(),
@@ -74,7 +78,7 @@ const PADropdown = ({ postUrl, homePageUrl }: PADropdownProps) => {
                      <Link
                         href={`https://micro.blog/account/comments/${id}/mb?url=${postUrl}`}
                         prefetch={false}
-                        className="flex w-full items-center justify-between rounded-xl px-4 py-2 text-left text-sm font-normal-mid text-black hover:bg-gray-100"
+                        className="flex w-full items-center justify-between rounded-xl px-4 py-2 text-left text-sm font-normal-mid hover:bg-gray-100 dark:hover:bg-stone-800/50"
                      >
                         Micro.blog
                         <svg
@@ -89,7 +93,7 @@ const PADropdown = ({ postUrl, homePageUrl }: PADropdownProps) => {
                      <Link
                         href={`https://micro.blog/account/comments/${id}/bluesky?url=${postUrl}`}
                         prefetch={false}
-                        className="flex w-full items-center justify-between rounded-xl px-4 py-2 text-left text-sm font-normal-mid text-black hover:bg-gray-100"
+                        className="flex w-full items-center justify-between rounded-xl px-4 py-2 text-left text-sm font-normal-mid hover:bg-gray-100 dark:hover:bg-stone-800/50"
                      >
                         Bluesky
                         <svg
@@ -104,7 +108,7 @@ const PADropdown = ({ postUrl, homePageUrl }: PADropdownProps) => {
                      <Link
                         href={`https://micro.blog/account/comments/${id}/mastodon?url=${postUrl}`}
                         prefetch={false}
-                        className="flex w-full items-center justify-between rounded-xl px-4 py-2 text-left text-sm font-normal-mid text-black hover:bg-gray-100"
+                        className="flex w-full items-center justify-between rounded-xl px-4 py-2 text-left text-sm font-normal-mid hover:bg-gray-100 dark:hover:bg-stone-800/50"
                      >
                         Mastodon
                         <svg
