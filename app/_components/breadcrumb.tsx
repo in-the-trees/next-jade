@@ -28,7 +28,7 @@ const Breadcrumb = ({ className, items }: BreadcrumbProps) => {
    }, [previousPath]);
 
    return (
-      <div className={`${className} flex flex-wrap items-center gap-2`}>
+      <div className={`${className} flex flex-wrap items-center gap-2 py-1`}>
          {items.map((item, index) => {
             switch (item.type) {
                case "link":
