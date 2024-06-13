@@ -1,15 +1,20 @@
 "use client";
 
 import { useState } from "react";
+import { Microdotblog } from "@/app/_lib/microblog/definitions";
 import Link from "next/link";
 import { EllipsisHorizontalCircleIcon } from "@heroicons/react/24/outline";
 import { LinkIcon, ArrowUturnRightIcon } from "@heroicons/react/20/solid";
 
-const MBDropdown = () => {
-   const [isOpen, setIsOpen] = useState(false);
-   const postUrl = "test";
-   const id = "test";
+type PADropdownProps = {
+   postUrl: string;
+   homePageUrl?: string | null;
+};
 
+const PADropdown = ({ postUrl, homePageUrl }: PADropdownProps) => {
+   const [id] = homePageUrl ? homePageUrl.match(/(\d+)$/) || [] : [];
+
+   const [isOpen, setIsOpen] = useState(false);
    return (
       <div>
          <button
@@ -21,10 +26,17 @@ const MBDropdown = () => {
          {isOpen && (
             <div className="absolute right-3 mt-2 w-[12rem] rounded-2xl border bg-white shadow-xl">
                <div className="border-b p-2">
-                  <button className="mb-1 flex w-full items-center justify-between rounded-xl bg-blue-50 px-4 py-2 text-left text-sm font-normal-mid text-blue-500 transition-transform ease-out hover:scale-103 dark:bg-violet-500 dark:text-violet-400">
-                     Micro.blog
-                     <ArrowUturnRightIcon className="h-4 w-4 stroke-2" />
-                  </button>
+                  {homePageUrl && (
+                     <Link
+                        href={homePageUrl}
+                        prefetch={false}
+                        target="_blank"
+                        className="mb-1 flex w-full items-center justify-between rounded-xl bg-blue-50 px-4 py-2 text-left text-sm font-normal-mid text-blue-500 transition-transform ease-out hover:scale-103 dark:bg-violet-500 dark:text-violet-400"
+                     >
+                        Micro.blog
+                        <ArrowUturnRightIcon className="h-4 w-4 stroke-2" />
+                     </Link>
+                  )}
                   <button className="flex w-full items-center justify-between rounded-xl px-4 py-2 text-left text-sm font-normal-mid text-black hover:bg-gray-100">
                      Copy link
                      <LinkIcon className="h-4 w-4 stroke-2" />
@@ -36,6 +48,7 @@ const MBDropdown = () => {
                   </span>
                   <Link
                      href={`https://micro.blog/account/comments/${id}/mb?url=${postUrl}`}
+                     prefetch={false}
                      className="flex w-full items-center justify-between rounded-xl px-4 py-2 text-left text-sm font-normal-mid text-black hover:bg-gray-100"
                   >
                      Micro.blog
@@ -50,6 +63,7 @@ const MBDropdown = () => {
                   </Link>
                   <Link
                      href={`https://micro.blog/account/comments/${id}/bluesky?url=${postUrl}`}
+                     prefetch={false}
                      className="flex w-full items-center justify-between rounded-xl px-4 py-2 text-left text-sm font-normal-mid text-black hover:bg-gray-100"
                   >
                      Bluesky
@@ -64,6 +78,7 @@ const MBDropdown = () => {
                   </Link>
                   <Link
                      href={`https://micro.blog/account/comments/${id}/mastodon?url=${postUrl}`}
+                     prefetch={false}
                      className="flex w-full items-center justify-between rounded-xl px-4 py-2 text-left text-sm font-normal-mid text-black hover:bg-gray-100"
                   >
                      Mastodon
@@ -83,4 +98,4 @@ const MBDropdown = () => {
    );
 };
 
-export default MBDropdown;
+export default PADropdown;

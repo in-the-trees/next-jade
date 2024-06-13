@@ -50,7 +50,10 @@ export default async function Post({ params }: { params: { slug: string[] } }) {
                            { type: "text", text: "This post" },
                         ]}
                      />
-                     <PADropdown />
+                     <PADropdown
+                        postUrl={post.url}
+                        homePageUrl={microdotblog.home_page_url}
+                     />
                   </div>
                :  <Breadcrumb
                      items={[
