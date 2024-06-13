@@ -5,6 +5,7 @@ import getMicroblog from "@/app/_lib/microblog/getMicroblog";
 import getMicrodotblog from "@/app/_lib/microblog/getMicrodotblog";
 import MicroblogPost from "@/app/_components/microblog/post";
 import ReplyArea from "@/app/_components/microblog/replyArea";
+import Dropdown from "@/app/_components/microblog/misc/dropdown";
 
 type Props = {
    params: {
@@ -49,6 +50,7 @@ export default async function Post({ params }: { params: { slug: string[] } }) {
                            { type: "text", text: "This post" },
                         ]}
                      />
+                     <Dropdown />
                   </div>
                :  <Breadcrumb
                      items={[
