@@ -5,6 +5,7 @@ import getMicroblog from "@/app/_lib/microblog/getMicroblog";
 import getMicrodotblog from "@/app/_lib/microblog/getMicrodotblog";
 import MicroblogPost from "@/app/_components/microblog/post";
 import ReplyArea from "@/app/_components/microblog/replyArea";
+import PADropdown from "@/app/_components/microblog/misc/pa-dropdown";
 
 type Props = {
    params: {
@@ -32,27 +33,28 @@ export default async function Post({ params }: { params: { slug: string[] } }) {
 
    return (
       <div>
-         <header className="fixed top-0 z-30 w-full">
-            <div className="bg-white px-4 pb-1 pt-7 md:pt-[44px] lg:pt-[60px] dark:bg-stone-900">
+         <header className="sticky top-0 z-30">
+            <div className="bg-white px-4 pb-1 pt-[24px] md:pt-[40px] lg:pt-[56px] dark:bg-stone-900">
                {microdotblog && microdotblog.home_page_url ?
-                  <Breadcrumb
-                     items={[
-                        { type: "link", text: "Jade", href: "/" },
-                        { type: "separator" },
-                        {
-                           type: "link",
-                           text: "Microblog",
-                           href: "/microblog",
-                        },
-                        { type: "separator" },
-                        { type: "text", text: "This post" },
-                        {
-                           type: "external-link",
-                           text: "Micro.blog",
-                           href: microdotblog.home_page_url,
-                        },
-                     ]}
-                  />
+                  <div className="max-w flex flex-row items-center justify-between gap-2 py-[-.rem]">
+                     <Breadcrumb
+                        items={[
+                           { type: "link", text: "Jade", href: "/" },
+                           { type: "separator" },
+                           {
+                              type: "link",
+                              text: "Microblog",
+                              href: "/microblog",
+                           },
+                           { type: "separator" },
+                           { type: "text", text: "This post" },
+                        ]}
+                     />
+                     <PADropdown
+                        postUrl={post.url}
+                        homePageUrl={microdotblog.home_page_url}
+                     />
+                  </div>
                :  <Breadcrumb
                      items={[
                         { type: "link", text: "Jade", href: "/" },
@@ -70,7 +72,7 @@ export default async function Post({ params }: { params: { slug: string[] } }) {
             </div>
             <div className="bg-gradient-to-b from-white px-4 pb-4 dark:from-stone-900"></div>
          </header>
-         <main className="mt-[4.75rem] px-4 md:mt-[6.75rem]">
+         <main className="px-4">
             <MicroblogPost post={post} dynamic_time={true} />
             <ReplyArea post={post} microdotblog={microdotblog} />
          </main>
