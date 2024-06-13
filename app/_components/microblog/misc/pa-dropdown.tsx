@@ -37,7 +37,14 @@ const PADropdown = ({ postUrl, homePageUrl }: PADropdownProps) => {
                         <ArrowUturnRightIcon className="h-4 w-4 stroke-2" />
                      </Link>
                   )}
-                  <button className="flex w-full items-center justify-between rounded-xl px-4 py-2 text-left text-sm font-normal-mid text-black hover:bg-gray-100">
+                  <button
+                     className="flex w-full items-center justify-between rounded-xl px-4 py-2 text-left text-sm font-normal-mid text-black hover:bg-gray-100"
+                     onClick={() => {
+                        navigator.clipboard.writeText(
+                           window.location.toString(),
+                        );
+                     }}
+                  >
                      Copy link
                      <LinkIcon className="h-4 w-4 stroke-2" />
                   </button>
