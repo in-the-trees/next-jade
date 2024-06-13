@@ -14,7 +14,7 @@ export default async function Blog() {
    return (
       <div>
          <header className="fixed top-0 z-30 w-full px-4">
-            <div className="-mx-4 bg-white px-4 pb-1 pt-7 md:pt-[44px] lg:pt-[60px] dark:bg-stone-900">
+            <div className="-mx-4 bg-white px-4 pb-1 pt-[24px] md:pt-[40px] lg:pt-[56px] dark:bg-stone-900">
                <Breadcrumb
                   items={[
                      { type: "link", text: "Jade", href: "/" },
