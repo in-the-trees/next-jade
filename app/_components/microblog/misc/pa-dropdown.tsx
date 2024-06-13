@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { clsx } from "clsx";
 import { EllipsisHorizontalCircleIcon } from "@heroicons/react/24/outline";
@@ -15,8 +15,25 @@ const PADropdown = ({ postUrl, homePageUrl }: PADropdownProps) => {
    const [id] = homePageUrl ? homePageUrl.match(/(\d+)$/) || [] : [];
 
    const [isOpen, setIsOpen] = useState(false);
+   const dropdownRef = useRef<HTMLDivElement>(null);
+   useEffect(() => {
+      const handleClickOutside = (event: MouseEvent) => {
+         if (
+            dropdownRef.current &&
+            !dropdownRef.current.contains(event.target as Node)
+         ) {
+            setIsOpen(false);
+         }
+      };
+
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => {
+         document.removeEventListener("mousedown", handleClickOutside);
+      };
+   }, []);
+
    return (
-      <div>
+      <div ref={dropdownRef}>
          <button
             onClick={() => setIsOpen(!isOpen)}
             className="rounded-full p-1 hover:bg-gray-100"
