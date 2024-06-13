@@ -1,10 +1,11 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useSearchParams, useRouter, usePathname } from "next/navigation";
+import { clsx } from "clsx";
 import { Microblog, Microdotblog } from "@/app/_lib/microblog/definitions";
 import getMicrodotblog from "@/app/_lib/microblog/getMicrodotblog";
 import Conversation from "@/app/_components/microblog/conversation";
-import ReplyBox from "@/app/_components/microblog/replyBox";
 
 type ReplyAreaProps = {
    post: Microblog | null;
@@ -44,22 +45,88 @@ export default function ReplyArea({ post, microdotblog }: ReplyAreaProps) {
       }
    }, [refreshMdb, post, mdb]);
 
+   let tokenized = false;
+   const [token, setToken] = useState<string | null>(null);
+   const [username, setUsername] = useState<string | null>(null);
+
+   const [id] =
+      microdotblog ? microdotblog.home_page_url.match(/(\d+)$/) || [] : [];
+
+   const searchParams = useSearchParams();
+   useEffect(() => {
+      setToken(searchParams.get("token"));
+      setUsername(searchParams.get("username"));
+
+      return () => {
+         setToken(null);
+         setUsername(null);
+      };
+   }, [searchParams]);
+
+   if (token && username) {
+      tokenized = true;
+   }
+
+   const pathname = usePathname();
+   const router = useRouter();
+   useEffect(() => {
+      router.push(pathname, undefined);
+   }, [pathname, router]);
+
+   function postReply(formData: FormData) {
+      if (!token || !username) return;
+      if (!post) return;
+
+      const text = formData.get("text") as string;
+      if (!text) return;
+
+      const body = new URLSearchParams();
+      body.append("token", token);
+      body.append("username", username);
+      body.append("url", post.url);
+      body.append("text", text);
+
+      setToken(null);
+      setUsername(null);
+
+      fetch(`https://micro.blog/account/comments/${id}/post`, {
+         method: "POST",
+         mode: "no-cors",
+         headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+         },
+         body: body.toString(),
+      }).then(() => {
+         toggleRefreshMdb(true);
+      });
+   }
+
    return (
-      <>
-         {post && post.url && microdotblog && (
-            <ReplyBox
-               postUrl={post.url}
-               microdotblog={microdotblog}
-               className="mt-7 border-t-[.5px] dark:border-stone-700"
-               refresh={() => toggleRefreshMdb(!refreshMdb)}
-            />
+      <div
+         className={clsx(
+            "rounded-lg border-gray-100 bg-gray-100/50 dark:border-stone-800 dark:bg-stone-800/50",
+            {
+               border: tokenized || (mdb && mdb.items.length > 0),
+            },
+         )}
+      >
+         {tokenized && (
+            <form action={postReply} className="max-w-full px-4 pb-4">
+               <textarea
+                  name="text"
+                  placeholder="Reply..."
+                  cols={37}
+                  rows={3}
+                  className="mt-3.5 max-w-full resize rounded-lg-half border border-gray-200 bg-transparent p-1 placeholder:text-black/30 dark:border-stone-700 dark:placeholder:text-stone-200/30"
+               />
+               <button type="submit" className="btn-xs mt-1.5 block">
+                  Reply as @{username}
+               </button>
+            </form>
          )}
          {mdb && mdb.items.length > 0 && (
-            <Conversation
-               microdotblog={mdb}
-               className="mt-7 rounded-lg border border-gray-100 bg-gray-100/50 p-4 dark:border-stone-800 dark:bg-stone-800/50"
-            />
+            <Conversation microdotblog={mdb} className="p-4" />
          )}
-      </>
+      </div>
    );
 }
