@@ -6,6 +6,7 @@ import { clsx } from "clsx";
 import { Microblog, Microdotblog } from "@/app/_lib/microblog/definitions";
 import getMicrodotblog from "@/app/_lib/microblog/getMicrodotblog";
 import Conversation from "@/app/_components/microblog/conversation";
+import { PaperAirplaneIcon } from "@heroicons/react/24/outline";
 
 type ReplyAreaProps = {
    post: Microblog | null;
@@ -114,7 +115,7 @@ export default function ReplyArea({ post, microdotblog }: ReplyAreaProps) {
             <form
                action={postReply}
                className={clsx(
-                  "mt-3.5 max-w-full border-gray-200 px-4 pb-4 dark:border-stone-700",
+                  "mt-3.5 flex max-w-full flex-col gap-2 border-gray-100 px-4 pb-4 dark:bg-stone-800/50",
                   {
                      "border-b": mdb && mdb.items.length > 0,
                   },
@@ -127,14 +128,17 @@ export default function ReplyArea({ post, microdotblog }: ReplyAreaProps) {
                   rows={3}
                   className="w-full min-w-full max-w-full resize-y rounded-lg-half border border-gray-200 bg-white p-1 placeholder:text-black/30 dark:border-stone-700 dark:bg-stone-950 dark:placeholder:text-stone-200/30"
                />
-               <button
-                  type="submit"
-                  className="btn-xs ml-auto mt-1.5 block bg-white"
-               >
-                  <span>
-                     Reply as <em>@{username}</em>
+               <div className="flex items-start justify-between gap-2 px-0.5">
+                  <span className="text-[calc(1em-1px)] text-gray-500 dark:text-stone-400">
+                     Replying as <em>@{username}</em>
                   </span>
-               </button>
+                  <button
+                     type="submit"
+                     className="flex w-max items-center justify-between gap-2 rounded-full border bg-white p-[6px] text-[calc(1em-1px)] transition-transform ease-out hover:bg-gray-100 active:scale-[0.95] dark:border-stone-700 dark:bg-stone-950 dark:hover:bg-stone-800/50"
+                  >
+                     <PaperAirplaneIcon className="h-3.5 w-3.5 stroke-2" />
+                  </button>
+               </div>
             </form>
          )}
          {mdb && mdb.items.length > 0 && (

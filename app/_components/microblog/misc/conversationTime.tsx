@@ -7,11 +7,13 @@ import { commit_mono } from "@/app/_fonts/fonts";
 type ConversationTimeProps = {
    date_published: string;
    init_rel_date_published: string;
+   href: string;
 };
 
 export default function ConversationTime({
    date_published,
    init_rel_date_published,
+   href,
 }: ConversationTimeProps) {
    const [relativeTimePublished, setRelativeTimePublished] = useState(
       init_rel_date_published,
@@ -28,14 +30,19 @@ export default function ConversationTime({
    }, [date_published]);
 
    return (
-      <time
-         dateTime={date_published}
-         className={`${commit_mono.className} text-gray-500 dark:text-stone-400`}
-         title={new Date(date_published).toLocaleString(undefined, {
-            hour12: false,
-         })}
+      <a
+         href={href}
+         target="_blank"
+         className={`${commit_mono.className} text-gray-500 decoration-[0.5px] hover:underline dark:text-stone-400`}
       >
-         {relativeTimePublished}
-      </time>
+         <time
+            dateTime={date_published}
+            title={new Date(date_published).toLocaleString(undefined, {
+               hour12: false,
+            })}
+         >
+            {relativeTimePublished}
+         </time>
+      </a>
    );
 }
