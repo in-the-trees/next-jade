@@ -4,7 +4,10 @@ import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { clsx } from "clsx";
 import { EllipsisHorizontalCircleIcon } from "@heroicons/react/24/outline";
-import { LinkIcon, ArrowUturnRightIcon } from "@heroicons/react/20/solid";
+import {
+   LinkIcon,
+   ArrowRightStartOnRectangleIcon,
+} from "@heroicons/react/20/solid";
 
 type PADropdownProps = {
    postUrl: string;
@@ -55,7 +58,7 @@ const PADropdown = ({ postUrl, homePageUrl }: PADropdownProps) => {
                         className="mb-1 flex w-full items-center justify-between rounded-xl bg-blue-50 px-4 py-2 text-left text-sm font-normal-mid text-blue-500 transition-transform ease-out hover:scale-103 dark:bg-violet-500 dark:bg-opacity-20 dark:text-violet-400"
                      >
                         Micro.blog
-                        <ArrowUturnRightIcon className="h-4 w-4 stroke-2" />
+                        <ArrowRightStartOnRectangleIcon className="h-4 w-4 stroke-2" />
                      </Link>
                   )}
                   <button
