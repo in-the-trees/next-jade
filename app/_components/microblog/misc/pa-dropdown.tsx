@@ -36,7 +36,7 @@ const PADropdown = ({ postUrl, homePageUrl }: PADropdownProps) => {
       <div ref={dropdownRef}>
          <button
             onClick={() => setIsOpen(!isOpen)}
-            className="rounded-full p-1 hover:bg-gray-100 dark:hover:bg-stone-800"
+            className="rounded-full p-1 transition-transform ease-out hover:bg-gray-100 active:scale-[0.95] dark:hover:bg-stone-800"
          >
             <EllipsisHorizontalCircleIcon className="h-5 w-5 text-gray-500 dark:text-stone-500" />
          </button>
