@@ -6,6 +6,18 @@ html {
    font-size: 100%;
 }
 
+_::-webkit-full-page-media,
+_:future,
+:root .so_header {
+   @apply fixed;
+}
+
+_::-webkit-full-page-media,
+_:future,
+:root .so_main {
+   @apply mt-[4.75rem] px-4 md:mt-[6.75rem];
+}
+
 svg {
    @apply shrink-0;
 }
