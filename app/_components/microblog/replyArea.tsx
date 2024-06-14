@@ -115,7 +115,7 @@ export default function ReplyArea({ post, microdotblog }: ReplyAreaProps) {
             <form
                action={postReply}
                className={clsx(
-                  "mt-3.5 flex max-w-full flex-col gap-2 border-gray-100 px-4 pb-4 dark:bg-stone-800/50",
+                  "mt-3.5 flex max-w-full flex-col gap-2 border-gray-100 px-4 pb-4 dark:border-stone-800",
                   {
                      "border-b": mdb && mdb.items.length > 0,
                   },
