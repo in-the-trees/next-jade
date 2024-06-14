@@ -54,16 +54,10 @@ export default function Conversation({
                            )}
                         </div>
                         <div className="flex items-center gap-2 text-[calc(1em-1px)]">
-                           <a
-                              href={reply.url}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                           >
-                              <ArrowTopRightOnSquareIcon className="h-3 w-3 text-blue-500 hover:text-blue-400 dark:text-violet-400 dark:hover:text-violet-300" />
-                           </a>
                            <ConversationTime
                               date_published={reply.date_published}
                               init_rel_date_published={init_rel_date_published}
+                              href={reply.url}
                            />
                         </div>
                      </div>
