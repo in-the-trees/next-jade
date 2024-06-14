@@ -111,16 +111,29 @@ export default function ReplyArea({ post, microdotblog }: ReplyAreaProps) {
          )}
       >
          {tokenized && (
-            <form action={postReply} className="max-w-full px-4 pb-4">
+            <form
+               action={postReply}
+               className={clsx(
+                  "mt-3.5 max-w-full border-gray-200 px-4 pb-4 dark:border-stone-700",
+                  {
+                     "border-b": mdb && mdb.items.length > 0,
+                  },
+               )}
+            >
                <textarea
                   name="text"
-                  placeholder="Reply..."
+                  placeholder="Some nice words..."
                   cols={37}
                   rows={3}
-                  className="mt-3.5 max-w-full resize rounded-lg-half border border-gray-200 bg-transparent p-1 placeholder:text-black/30 dark:border-stone-700 dark:placeholder:text-stone-200/30"
+                  className="w-full min-w-full max-w-full resize-y rounded-lg-half border border-gray-200 bg-white p-1 placeholder:text-black/30 dark:border-stone-700 dark:bg-stone-950 dark:placeholder:text-stone-200/30"
                />
-               <button type="submit" className="btn-xs mt-1.5 block">
-                  Reply as @{username}
+               <button
+                  type="submit"
+                  className="btn-xs ml-auto mt-1.5 block bg-white"
+               >
+                  <span>
+                     Reply as <em>@{username}</em>
+                  </span>
                </button>
             </form>
          )}
