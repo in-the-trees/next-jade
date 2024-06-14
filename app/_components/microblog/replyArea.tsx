@@ -13,19 +13,44 @@ type ReplyAreaProps = {
 };
 
 export default function ReplyArea({ post, microdotblog }: ReplyAreaProps) {
-   const [mdb, setMdb] = useState<Microdotblog | null>(microdotblog); // mdb is microdotblog hooked with useState
-   const [refreshMdb, toggleRefreshMdb] = useState(false); // when set to true, mdb will be updated
+   const [token, setToken] = useState<string | null>(null);
+   const [username, setUsername] = useState<string | null>(null);
+   const [tokenized, setTokenized] = useState(false);
 
    useEffect(() => {
-      // Update conversation when a reply is submitted
+      if (token && username) {
+         setTokenized(true);
+      } else {
+         setTokenized(false);
+      }
+   }, [token, username]);
+
+   const searchParams = useSearchParams();
+   useEffect(() => {
+      setToken(searchParams.get("token"));
+      setUsername(searchParams.get("username"));
+
+      return () => {
+         setToken(null);
+         setUsername(null);
+      };
+   }, []);
+
+   const pathname = usePathname();
+   const router = useRouter();
+   useEffect(() => {
+      router.push(pathname, undefined);
+   }, [pathname, router]);
+
+   const [mdb, setMdb] = useState<Microdotblog | null>(microdotblog);
+   const [refreshMdb, toggleRefreshMdb] = useState(false);
+   useEffect(() => {
       if (refreshMdb && post && post.url) {
          const fetchMdb = async () => {
             let retries = 0;
             let newMdb: Microdotblog | null = null;
 
-            // Retry up to 5 times if the conversation is not updated or found
             do {
-               // Wait a bit before retrying
                if (retries !== 0) {
                   await new Promise((resolve) => setTimeout(resolve, 250));
                }
@@ -45,33 +70,8 @@ export default function ReplyArea({ post, microdotblog }: ReplyAreaProps) {
       }
    }, [refreshMdb, post, mdb]);
 
-   let tokenized = false;
-   const [token, setToken] = useState<string | null>(null);
-   const [username, setUsername] = useState<string | null>(null);
-
    const [id] =
       microdotblog ? microdotblog.home_page_url.match(/(\d+)$/) || [] : [];
-
-   const searchParams = useSearchParams();
-   useEffect(() => {
-      setToken(searchParams.get("token"));
-      setUsername(searchParams.get("username"));
-
-      return () => {
-         setToken(null);
-         setUsername(null);
-      };
-   }, [searchParams]);
-
-   if (token && username) {
-      tokenized = true;
-   }
-
-   const pathname = usePathname();
-   const router = useRouter();
-   useEffect(() => {
-      router.push(pathname, undefined);
-   }, [pathname, router]);
 
    function postReply(formData: FormData) {
       if (!token || !username) return;
