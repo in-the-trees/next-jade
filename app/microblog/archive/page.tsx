@@ -23,7 +23,6 @@ export default async function Blog() {
                      { type: "separator" },
                      { type: "text", text: "Archive" },
                   ]}
-                  className="-ml-2 w-fit rounded-xl px-2"
                />
             </div>
          </header>
