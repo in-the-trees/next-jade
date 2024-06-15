@@ -25,7 +25,14 @@ export default async function Blog() {
                   ]}
                />
             </div>
-            <div className="-mx-4 bg-gradient-to-b from-white px-4 pb-4 dark:from-stone-900"></div>
+            <div className="gradient-blur">
+               <div></div>
+               <div></div>
+               <div></div>
+               <div></div>
+               <div></div>
+               <div></div>
+            </div>
          </header>
          <main id="microblog" className="so_main px-4">
             <h1
