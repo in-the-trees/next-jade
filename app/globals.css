@@ -11,6 +11,7 @@ html {
    z-index: 10;
    inset: 0 0 auto 0;
    @apply h-[24px] md:h-[40px] lg:h-[56px];
+   @apply hidden md:block;
    pointer-events: none;
 }
 .gradient-blur > div,
