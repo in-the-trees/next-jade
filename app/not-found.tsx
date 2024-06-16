@@ -12,14 +12,11 @@ export const metadata: Metadata = {
 export default function NotFound() {
    return (
       <div className="flex w-full justify-center">
-         <div className="flex w-full max-w-[70rem] gap-2 md:h-full">
-            <aside className="sticky top-0 hidden w-1/3 self-start overflow-y-scroll md:block md:pt-[44px] lg:pt-[60px]">
-               <Jade className="max-h-screen overflow-auto px-4" />
-            </aside>
-            <div className="w-full md:w-2/3">
+         <div className="flex w-full max-w-[70rem] flex-row-reverse gap-2 md:h-full">
+            <div className="w-full px-4 pt-[24px] md:w-2/3 md:pt-[40px] lg:pt-[56px]">
                <div>
-                  <header className="so_header sticky top-0 z-30 w-full px-4">
-                     <div className="-mx-4 bg-white px-4 pb-1 pt-[24px] md:pt-[40px] lg:pt-[56px] dark:bg-stone-900">
+                  <header className="z-40">
+                     <div className="pb-4 dark:bg-stone-900">
                         <Breadcrumb
                            items={[
                               { type: "link", text: "Jade", href: "/" },
@@ -28,9 +25,16 @@ export default function NotFound() {
                            ]}
                         />
                      </div>
-                     <div className="-mx-4 bg-gradient-to-b from-white px-4 pb-4 dark:from-stone-900"></div>
                   </header>
-                  <main className="so_main px-4">
+                  <div className="gradient-blur">
+                     <div></div>
+                     <div></div>
+                     <div></div>
+                     <div></div>
+                     <div></div>
+                     <div></div>
+                  </div>
+                  <main>
                      <h1
                         className={`${lora.className} mb-3.5 text-[1.5em] font-normal-mid`}
                      >
@@ -42,6 +46,9 @@ export default function NotFound() {
                   </main>
                </div>
             </div>
+            <aside className="sticky top-0 hidden w-1/3 self-start overflow-y-scroll md:block md:pt-[44px] lg:pt-[60px]">
+               <Jade className="max-h-screen overflow-auto px-4" />
+            </aside>
          </div>
       </div>
    );
