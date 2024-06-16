@@ -44,7 +44,7 @@ const PADropdown = ({ postUrl, homePageUrl }: PADropdownProps) => {
             <EllipsisHorizontalCircleIcon className="h-5 w-5 text-gray-500 dark:text-stone-500" />
          </button>
          {isOpen && (
-            <div className="absolute right-0 mt-2 w-[12rem] rounded-2xl border bg-white text-black shadow-xl dark:border-stone-700 dark:bg-stone-950 dark:text-stone-200">
+            <div className="absolute right-0 z-10 mt-2 w-[12rem] rounded-2xl border bg-white text-black shadow-xl dark:border-stone-700 dark:bg-stone-950 dark:text-stone-200">
                <div
                   className={clsx("p-2", {
                      "border-b dark:border-stone-700": homePageUrl && id,
