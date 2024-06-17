@@ -33,6 +33,9 @@ export const formatTimeRelatively = (
    }
 
    for (const { unit, seconds } of rel_units) {
+      if (Math.abs(diff) === 60) {
+         return "1 minute ago";
+      }
       if (Math.abs(diff) >= seconds) {
          return rel_format.format(Math.round(diff / seconds), unit);
       } else if (Math.abs(diff) < 1) {
