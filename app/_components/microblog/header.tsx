@@ -4,11 +4,11 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import clsx from "clsx";
 import {
-   ArrowLongRightIcon,
-   ChatBubbleOvalLeftEllipsisIcon,
-   ChevronDoubleRightIcon,
-} from "@heroicons/react/24/outline";
-import { EllipsisMessageMedium14Icon } from "@/app/_components/icons";
+   EllipsisMessageMedium14Icon,
+   ArrowRightMedium12Icon,
+   ChevronDoubleRight10Icon,
+   ChevronDoubleRight12Icon,
+} from "@/app/_components/icons";
 import { formatTimeRelatively } from "@/app/_lib/relativeTime";
 import { commit_mono } from "@/app/_fonts/fonts";
 
@@ -78,11 +78,11 @@ export default function Header({
          {inFeed && year && month && day && post_id ?
             <Link
                href={`/microblog/${year}/${month}/${day}/${post_id}`}
-               className="u-url mr-1 rounded-full bg-forest-100 px-1.5 transition-all ease-out hover:scale-103 hover:bg-forest-200 dark:bg-forest-200 dark:hover:bg-forest-300"
+               className="u-url mr-1 rounded-full bg-forest-100 px-[10px] py-[2px] transition-all ease-out hover:scale-103 hover:bg-forest-200 dark:bg-forest-200 dark:hover:bg-forest-300"
                aria-label="Open post"
                prefetch={preload}
             >
-               <ArrowLongRightIcon className="h-3.5 w-3.5 text-forest-700 dark:text-forest-800" />
+               <ArrowRightMedium12Icon className="h-3 w-3 text-forest-700 dark:text-forest-800" />
             </Link>
          :  <EllipsisMessageMedium14Icon className="h-3.5 w-3.5 text-stone-500 dark:text-stone-300" />
          }
@@ -101,14 +101,10 @@ export default function Header({
          </time>
          {date_modified && show_updated ?
             <>
-               <ChevronDoubleRightIcon
-                  className={clsx(
-                     "h-3.5 w-3.5 text-stone-400/80 dark:text-stone-400",
-                     {
-                        "h-3 w-3": inFeed,
-                     },
-                  )}
-               />
+               {inFeed ?
+                  <ChevronDoubleRight10Icon className="h-[10px] w-[10px] text-stone-400/80 dark:text-stone-400" />
+               :  <ChevronDoubleRight12Icon className="h-3 w-3 text-stone-400/80 dark:text-stone-400" />
+               }
                <time
                   dateTime={date_modified}
                   className={clsx(
