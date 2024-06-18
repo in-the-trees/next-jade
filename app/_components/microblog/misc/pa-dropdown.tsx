@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { clsx } from "clsx";
 import {
-   EllipsisCircleMedium20Icon,
+   EllipsisCircleRegular20Icon,
    ArrowUpRightCircleMedium16Icon,
    LinkMedium16Icon,
 } from "@/app/_components/icons";
@@ -41,7 +41,7 @@ const PADropdown = ({ postUrl, homePageUrl }: PADropdownProps) => {
             onClick={() => setIsOpen(!isOpen)}
             className="rounded-full transition-transform ease-out hover:opacity-70 active:scale-[0.95]"
          >
-            <EllipsisCircleMedium20Icon className="h-5 w-5 text-stone-500 dark:text-stone-300/70" />
+            <EllipsisCircleRegular20Icon className="h-5 w-5 text-stone-500 dark:text-stone-300/70" />
          </button>
          {isOpen && (
             <div className="absolute right-0 z-10 mt-2 w-[12rem] rounded-2xl border border-stone-200 bg-stone-100 text-forest-950 shadow-xl shadow-stone-400/10 dark:border-stone-400/40 dark:bg-stone-500 dark:text-stone-50 dark:shadow-stone-700/10">

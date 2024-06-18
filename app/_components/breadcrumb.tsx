@@ -1,7 +1,7 @@
 "use client";
 
 import {
-   ArrowLeftMedium14Icon,
+   ArrowLeftRegular14Icon,
    ChevronRightMedium8Icon,
 } from "@/app/_components/icons";
 import Link from "next/link";
@@ -62,7 +62,7 @@ const Breadcrumb = ({ className, items }: BreadcrumbProps) => {
                         }}
                      >
                         {index === 0 && item.href === "/" && (
-                           <ArrowLeftMedium14Icon className="mr-1 h-3.5 w-3.5" />
+                           <ArrowLeftRegular14Icon className="mr-1 h-3.5 w-3.5" />
                         )}
                         <span>{item.text}</span>
                      </Link>
