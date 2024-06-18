@@ -2,10 +2,8 @@
 
 import { lora } from "@/app/_fonts/fonts";
 import Link from "next/link";
-import {
-   DocumentTextIcon,
-   ChatBubbleOvalLeftEllipsisIcon,
-} from "@heroicons/react/24/outline";
+import { DocumentTextIcon } from "@heroicons/react/24/outline";
+import { EllipsisMessageMedium16Icon } from "@/app/_components/icons";
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 
@@ -76,7 +74,7 @@ const Jade: React.FC<JadeProps> = ({ className, home }) => {
             <p className="my-3.5">Where I publish:</p>
             <div className="mb-5 mt-3.5 flex flex-wrap items-center gap-2">
                <Link href={`/microblog`} className="btn-sm" prefetch={true}>
-                  <ChatBubbleOvalLeftEllipsisIcon className="h-4 w-4" />
+                  <EllipsisMessageMedium16Icon className="h-4 w-4" />
                   My microblog
                </Link>
                <Link href={`/blog`} className="btn-sm" prefetch={true}>

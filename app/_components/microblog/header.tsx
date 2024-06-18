@@ -8,6 +8,7 @@ import {
    ChatBubbleOvalLeftEllipsisIcon,
    ChevronDoubleRightIcon,
 } from "@heroicons/react/24/outline";
+import { EllipsisMessageMedium14Icon } from "@/app/_components/icons";
 import { formatTimeRelatively } from "@/app/_lib/relativeTime";
 import { commit_mono } from "@/app/_fonts/fonts";
 
@@ -83,7 +84,7 @@ export default function Header({
             >
                <ArrowLongRightIcon className="h-3.5 w-3.5 text-forest-700 dark:text-forest-800" />
             </Link>
-         :  <ChatBubbleOvalLeftEllipsisIcon className="h-3.5 w-3.5 text-stone-500 dark:text-stone-300" />
+         :  <EllipsisMessageMedium14Icon className="h-3.5 w-3.5 text-stone-500 dark:text-stone-300" />
          }
 
          <time
