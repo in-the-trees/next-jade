@@ -81,3 +81,19 @@ export function ArrowLeftMedium14Icon(props: IconProps) {
       </svg>
    );
 }
+
+export function ChevronRightMedium8Icon(props: IconProps) {
+   return (
+      <svg
+         xmlns="http://www.w3.org/2000/svg"
+         viewBox="0 0 5 8"
+         className={`${props.className}`}
+      >
+         <path
+            fill="currentColor"
+            fill-rule="nonzero"
+            d="M4.489 4.18a.447.447 0 0 1-.039.186.547.547 0 0 1-.118.164L1.291 7.507a.44.44 0 0 1-.323.132.449.449 0 0 1-.395-.223.46.46 0 0 1 .077-.559L3.397 4.18.65 1.502A.456.456 0 1 1 1.29.85l3.041 2.98a.554.554 0 0 1 .117.163c.026.057.04.12.04.187Z"
+         />
+      </svg>
+   );
+}
