@@ -43,7 +43,7 @@ const Breadcrumb = ({ className, items }: BreadcrumbProps) => {
                         className={clsx(
                            "flex items-center gap-1 rounded-lg-half bg-stone-200 px-2 py-0.75 text-stone-900 transition-transform ease-out hover:scale-[1.02] dark:bg-stone-600 dark:text-stone-300",
                            {
-                              "hidden min-[380px]:flex":
+                              "hidden min-[410px]:flex":
                                  index === 0 && hideFirstItem,
                            },
                         )}
@@ -100,7 +100,7 @@ const Breadcrumb = ({ className, items }: BreadcrumbProps) => {
                      <ChevronRightMedium8Icon
                         key={index}
                         className={clsx("h-2 w-2 text-stone-400", {
-                           "hidden min-[380px]:flex":
+                           "hidden min-[410px]:flex":
                               index === 1 && hideFirstItem,
                         })}
                      />

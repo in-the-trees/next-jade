@@ -5,7 +5,8 @@ import getMicroblog from "@/app/_lib/microblog/getMicroblog";
 import getMicrodotblog from "@/app/_lib/microblog/getMicrodotblog";
 import MicroblogPost from "@/app/_components/microblog/post";
 import ReplyArea from "@/app/_components/microblog/replyArea";
-import PADropdown from "@/app/_components/microblog/misc/pa-dropdown";
+import { GeneralPA } from "@/app/_components/microblog/pa-buttons/general";
+import { ReplyPA } from "@/app/_components/microblog/pa-buttons/reply";
 
 type Props = {
    params: {
@@ -50,10 +51,13 @@ export default async function Post({ params }: { params: { slug: string[] } }) {
                            { type: "text", text: "This post" },
                         ]}
                      />
-                     <PADropdown
-                        postUrl={post.url}
-                        homePageUrl={microdotblog.home_page_url}
-                     />
+                     <div className="flex flex-row items-center gap-4">
+                        <ReplyPA
+                           homePageUrl={microdotblog.home_page_url}
+                           postUrl={post.url}
+                        />
+                        <GeneralPA homePageUrl={microdotblog.home_page_url} />
+                     </div>
                   </div>
                :  <Breadcrumb
                      items={[
