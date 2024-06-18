@@ -94,7 +94,7 @@ const Jade: React.FC<JadeProps> = ({ className, home }) => {
                      <dt className="mt-1.5">Signal</dt>
                      <dd>
                         <a
-                           className="text-forest-600 hover:underline dark:text-violet-400"
+                           className="text-forest-600 hover:underline"
                            href="https://signal.me/#eu/U23Og9rvFD3KcSEVVoiiJCS6MmxRamzQWyVaaleTYCPzH272GeJMo5eQ-gstLIK2"
                         >
                            inthetrees.07
@@ -107,7 +107,7 @@ const Jade: React.FC<JadeProps> = ({ className, home }) => {
                      <dt className="mt-1.5">Email</dt>
                      <dd>
                         <a
-                           className="text-forest-600 hover:underline dark:text-violet-400"
+                           className="text-forest-600 hover:underline"
                            href="mailto:jade@inthetrees.me"
                         >
                            jade@inthetrees.me
@@ -120,7 +120,7 @@ const Jade: React.FC<JadeProps> = ({ className, home }) => {
                      <dt className="mt-1.5">Matrix</dt>
                      <dd>
                         <a
-                           className="text-forest-600 hover:underline dark:text-violet-400"
+                           className="text-forest-600 hover:underline"
                            href="https://matrix.to/#/@inthetrees:matrix.org"
                         >
                            @inthetrees:matrix.org
@@ -136,7 +136,7 @@ const Jade: React.FC<JadeProps> = ({ className, home }) => {
             <ul className="mb-3.5 ml-4 mt-1.75 list-outside list-disc">
                <li className="ml-4">
                   <a
-                     className="text-forest-600 ml-1 hover:underline dark:text-violet-400"
+                     className="text-forest-600 ml-1 hover:underline"
                      href="https://github.com/in-the-trees"
                   >
                      github.com/in-the-trees
@@ -144,7 +144,7 @@ const Jade: React.FC<JadeProps> = ({ className, home }) => {
                </li>
                <li className="ml-4">
                   <a
-                     className="text-forest-600 ml-1 hover:underline dark:text-violet-400"
+                     className="text-forest-600 ml-1 hover:underline"
                      href="https://micro.blog/jade"
                      rel="me"
                   >
@@ -152,7 +152,7 @@ const Jade: React.FC<JadeProps> = ({ className, home }) => {
                   </a>
                </li>
                <li className="details-parent-li ml-1 list-none">
-                  <details className="inline-block text-stone-400 dark:text-stone-500">
+                  <details className="inline-block text-stone-400">
                      <summary
                         className="details-dropdown"
                         aria-label="Less important web presence links"
@@ -162,7 +162,7 @@ const Jade: React.FC<JadeProps> = ({ className, home }) => {
                      <ul className="ml-6 list-[circle]">
                         <li className="mt-1">
                            <a
-                              className="text-forest-600/70 ml-1 hover:underline dark:text-violet-400/70"
+                              className="text-forest-600/70 ml-1 hover:underline"
                               href="https://bsky.app/profile/inthetrees.me"
                            >
                               bsky.app/profile/inthetrees.me
@@ -170,7 +170,7 @@ const Jade: React.FC<JadeProps> = ({ className, home }) => {
                         </li>
                         <li className="mt-1">
                            <a
-                              className="text-forest-600/70 ml-1 hover:underline dark:text-violet-400/70"
+                              className="text-forest-600/70 ml-1 hover:underline"
                               href="https://www.threads.net/@inthetrees.me"
                            >
                               threads.net/@inthetrees.me
@@ -178,7 +178,7 @@ const Jade: React.FC<JadeProps> = ({ className, home }) => {
                         </li>
                         <li className="mt-1">
                            <a
-                              className="text-forest-600/70 ml-1 hover:underline dark:text-violet-400/70"
+                              className="text-forest-600/70 ml-1 hover:underline"
                               href="https://x.com/@inthetrees_7"
                            >
                               x.com/inthetrees_7
