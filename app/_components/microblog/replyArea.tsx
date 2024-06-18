@@ -104,7 +104,7 @@ export default function ReplyArea({ post, microdotblog }: ReplyAreaProps) {
 
    return (
       <div
-         className={clsx("mt-7 rounded-lg border-stone-50 bg-stone-500", {
+         className={clsx("mt-7 rounded-lg border-stone-50 bg-stone-50", {
             border: tokenized || (mdb && mdb.items.length > 0),
          })}
       >
