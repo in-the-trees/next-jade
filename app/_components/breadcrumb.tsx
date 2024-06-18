@@ -2,7 +2,7 @@
 
 import { ChevronRightIcon } from "@heroicons/react/24/solid";
 import { ArrowUpRightIcon } from "@heroicons/react/24/solid";
-import { ArrowLeftIcon } from "@heroicons/react/24/solid";
+import { ArrowLeftMedium14Icon } from "@/app/_components/icons";
 import Link from "next/link";
 import clsx from "clsx";
 import { useEffect, useState } from "react";
@@ -61,7 +61,7 @@ const Breadcrumb = ({ className, items }: BreadcrumbProps) => {
                         }}
                      >
                         {index === 0 && item.href === "/" && (
-                           <ArrowLeftIcon className="h-3.5 w-3.5" />
+                           <ArrowLeftMedium14Icon className="mr-1 h-3.5 w-3.5" />
                         )}
                         <span>{item.text}</span>
                      </Link>
