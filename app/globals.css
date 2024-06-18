@@ -238,6 +238,10 @@ code {
    @apply hover:bg-stone-300 dark:hover:bg-stone-700;
 }
 
+.btm-sm-alt-gap-1 {
+   gap: 0.25rem;
+}
+
 .btn-xs {
    @apply flex;
    @apply w-max;

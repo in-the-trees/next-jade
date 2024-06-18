@@ -1,9 +1,9 @@
 import { lora } from "@/app/_fonts/fonts";
 import {
-   ArchiveBoxIcon,
-   GlobeAltIcon,
-   RssIcon,
-} from "@heroicons/react/24/outline";
+   ArchiveboxMedium14Icon,
+   JSONfeedMedium20Icon,
+   RadiowavesLeftRightMedium16Icon,
+} from "@/app/_components/icons";
 import Breadcrumb from "@/app/_components/breadcrumb";
 import MicroblogFeed from "@/app/_components/microblog/feed";
 
@@ -45,16 +45,16 @@ export default function MicroblogPage() {
 
             <div className="my-4 flex flex-wrap items-center gap-2">
                <a href="/microblog/archive" className="btn-sm">
-                  <ArchiveBoxIcon className="h-4 w-4" />
+                  <ArchiveboxMedium14Icon className="h-3.5 w-3.5" />
                   Archive
                </a>
                <a
                   href={`https://${process.env.NEXT_PUBLIC_MICROBLOG_BASE_URL}/feed.json`}
-                  className="btn-sm-alt"
+                  className="btn-sm-alt btm-sm-alt-gap-1"
                   target="_blank"
                   rel="noopener noreferrer"
                >
-                  <RssIcon className="h-4 w-4" />
+                  <JSONfeedMedium20Icon className="h-5 w-5" />
                   JSON
                </a>
 
@@ -64,7 +64,7 @@ export default function MicroblogPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                >
-                  <GlobeAltIcon className="h-4 w-4" />
+                  <RadiowavesLeftRightMedium16Icon className="h-4 w-4" />
                   ActivityPub
                </a>
             </div>
