@@ -6,7 +6,7 @@ import { getPosts } from "@/app/_lib/blog/getPosts";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { lora, commit_mono } from "@/app/_fonts/fonts";
 import Breadcrumb from "@/app/_components/breadcrumb";
-import { DocumentTextIcon } from "@heroicons/react/24/outline";
+import { DocTextMedium14Icon } from "@/app/_components/icons";
 import { Metadata } from "next";
 
 type Props = {
@@ -60,7 +60,7 @@ export default async function BlogPost({
             <article>
                <header className="mb-4">
                   <div className="mb-3.5 flex items-center gap-2 text-stone-500">
-                     <DocumentTextIcon className="h-4 w-4" />
+                     <DocTextMedium14Icon className="h-4 w-4" />
                      <time
                         dateTime={
                            new Date(post.postMatter.date)

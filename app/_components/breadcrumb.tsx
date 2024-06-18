@@ -1,8 +1,9 @@
 "use client";
 
-import { ChevronRightIcon } from "@heroicons/react/24/solid";
-import { ArrowUpRightIcon } from "@heroicons/react/24/solid";
-import { ArrowLeftIcon } from "@heroicons/react/24/solid";
+import {
+   ArrowLeftRegular14Icon,
+   ChevronRightMedium8Icon,
+} from "@/app/_components/icons";
 import Link from "next/link";
 import clsx from "clsx";
 import { useEffect, useState } from "react";
@@ -61,7 +62,7 @@ const Breadcrumb = ({ className, items }: BreadcrumbProps) => {
                         }}
                      >
                         {index === 0 && item.href === "/" && (
-                           <ArrowLeftIcon className="h-3.5 w-3.5" />
+                           <ArrowLeftRegular14Icon className="mr-1 h-3.5 w-3.5" />
                         )}
                         <span>{item.text}</span>
                      </Link>
@@ -91,15 +92,14 @@ const Breadcrumb = ({ className, items }: BreadcrumbProps) => {
                            className="dark:text-forest-300ml-0 flex w-fit items-center gap-1 rounded-lg-half bg-blue-50 px-2 py-0.75 text-forest-600 transition-transform ease-out hover:scale-[1.02] md:ml-auto"
                         >
                            <span>{item.text}</span>
-                           <ArrowUpRightIcon className="h-3 w-3" />
                         </a>
                      </div>
                   );
                case "separator":
                   return (
-                     <ChevronRightIcon
+                     <ChevronRightMedium8Icon
                         key={index}
-                        className={clsx("h-3 w-3 text-stone-400", {
+                        className={clsx("h-2 w-2 text-stone-400", {
                            "hidden min-[380px]:flex":
                               index === 1 && hideFirstItem,
                         })}
