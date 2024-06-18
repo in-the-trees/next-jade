@@ -77,19 +77,19 @@ export default function Header({
          {inFeed && year && month && day && post_id ?
             <Link
                href={`/microblog/${year}/${month}/${day}/${post_id}`}
-               className="u-url mr-1 rounded-full bg-blue-50 px-1.5 transition-all ease-out hover:scale-105 hover:bg-blue-100 dark:bg-violet-500 dark:bg-opacity-20 dark:hover:bg-violet-500 dark:hover:bg-opacity-30"
+               className="u-url bg-forest-100 hover:bg-forest-200 mr-1 rounded-full px-1.5 transition-all ease-out hover:scale-103 dark:bg-violet-500 dark:bg-opacity-20 dark:hover:bg-violet-500 dark:hover:bg-opacity-30"
                aria-label="Open post"
                prefetch={preload}
             >
-               <ArrowLongRightIcon className="h-3.5 w-3.5 text-blue-500 dark:text-violet-400" />
+               <ArrowLongRightIcon className="text-forest-700 h-3.5 w-3.5 dark:text-violet-400" />
             </Link>
-         :  <ChatBubbleOvalLeftEllipsisIcon className="h-3.5 w-3.5 text-gray-500 dark:text-stone-400" />
+         :  <ChatBubbleOvalLeftEllipsisIcon className="h-3.5 w-3.5 text-stone-500 dark:text-stone-400" />
          }
 
          <time
             dateTime={date_published}
             className={clsx(
-               `${commit_mono.className} text-[calc(1em-1px)] text-gray-500 dark:text-stone-400`,
+               `${commit_mono.className} text-[calc(1em-1px)] text-stone-500 dark:text-stone-400`,
                {
                   "text-[calc(1em-2px)]": inFeed,
                },
@@ -102,7 +102,7 @@ export default function Header({
             <>
                <ChevronDoubleRightIcon
                   className={clsx(
-                     "h-3.5 w-3.5 text-gray-300 dark:text-stone-600",
+                     "h-3.5 w-3.5 text-stone-400/80 dark:text-stone-600",
                      {
                         "h-3 w-3": inFeed,
                      },
