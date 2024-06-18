@@ -104,15 +104,18 @@ export default function ReplyArea({ post, microdotblog }: ReplyAreaProps) {
 
    return (
       <div
-         className={clsx("mt-7 rounded-lg border-stone-50 bg-stone-50", {
-            border: tokenized || (mdb && mdb.items.length > 0),
-         })}
+         className={clsx(
+            "mt-7 rounded-lg border-transparent bg-stone-50 dark:bg-stone-600/30",
+            {
+               border: tokenized || (mdb && mdb.items.length > 0),
+            },
+         )}
       >
          {tokenized && (
             <form
                action={postReply}
                className={clsx(
-                  "mt-3.5 flex max-w-full flex-col gap-2 border-stone-100 px-4 pb-4",
+                  "mt-3.5 flex max-w-full flex-col gap-2 border-stone-100 px-4 pb-4 dark:border-stone-500/50",
                   {
                      "border-b": mdb && mdb.items.length > 0,
                   },
@@ -123,15 +126,15 @@ export default function ReplyArea({ post, microdotblog }: ReplyAreaProps) {
                   placeholder="Some nice words..."
                   cols={37}
                   rows={3}
-                  className="placeholder:text-forest-900/30 w-full min-w-full max-w-full resize-y rounded-lg-half border border-stone-200 bg-stone-100 p-2"
+                  className="w-full min-w-full max-w-full resize-y rounded-lg-half border border-stone-200 bg-stone-100 p-2 placeholder:text-forest-900/30 dark:border-stone-600/80 dark:bg-stone-600/60 dark:placeholder:text-stone-400/80"
                />
                <div className="flex items-start justify-between gap-2 px-0.5">
-                  <span className="text-[calc(1em-1px)] text-stone-500">
+                  <span className="text-[calc(1em-1px)] text-stone-500 dark:text-stone-300">
                      Replying as <em>@{username}</em>
                   </span>
                   <button
                      type="submit"
-                     className="hover:bg-forest-100 hover:border-forest-200 flex w-max items-center justify-between gap-2 rounded-full border border-stone-200 bg-stone-100 p-[6px] text-[calc(1em-1px)] transition-transform ease-out active:scale-[0.95]"
+                     className="flex w-max items-center justify-between gap-2 rounded-full border border-stone-200 bg-stone-100 p-[6px] text-[calc(1em-1px)] transition-transform ease-out hover:border-forest-200 hover:bg-forest-100 active:scale-[0.95] dark:border-stone-600/80 dark:bg-stone-600/60 dark:hover:border-forest-400 dark:hover:bg-forest-200 dark:hover:text-forest-800"
                   >
                      <PaperAirplaneIcon className="h-3.5 w-3.5 stroke-2" />
                   </button>

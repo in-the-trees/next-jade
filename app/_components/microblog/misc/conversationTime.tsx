@@ -33,7 +33,7 @@ export default function ConversationTime({
       <a
          href={href}
          target="_blank"
-         className={`${commit_mono.className} text-stone-500 decoration-[0.5px] hover:underline`}
+         className={`${commit_mono.className} text-stone-500 decoration-[0.5px] hover:underline dark:text-stone-300`}
       >
          <time
             dateTime={date_published}

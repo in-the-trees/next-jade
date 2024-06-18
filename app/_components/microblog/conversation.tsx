@@ -50,7 +50,7 @@ export default function Conversation({
                            </span>
                            {reply.author._microblog.username ===
                               myMicroblogUsername && (
-                              <CheckBadgeIcon className="text-forest-600 h-[1em] w-[1em]" />
+                              <CheckBadgeIcon className="h-[1em] w-[1em] text-forest-600 dark:text-forest-300" />
                            )}
                         </div>
                         <div className="flex items-center gap-2 text-[calc(1em-1px)]">
