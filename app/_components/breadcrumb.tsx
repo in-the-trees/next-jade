@@ -40,7 +40,7 @@ const Breadcrumb = ({ className, items }: BreadcrumbProps) => {
                         key={index}
                         href={item.href}
                         className={clsx(
-                           "flex items-center gap-1 rounded-lg-half bg-gray-100 px-2 py-0.75 text-gray-700 transition-transform ease-out hover:scale-103 dark:bg-stone-800 dark:text-stone-400",
+                           "flex items-center gap-1 rounded-lg-half bg-stone-200 px-2 py-0.75 text-stone-900 transition-transform ease-out hover:scale-[1.02]",
                            {
                               "hidden min-[380px]:flex":
                                  index === 0 && hideFirstItem,
@@ -70,7 +70,7 @@ const Breadcrumb = ({ className, items }: BreadcrumbProps) => {
                   return (
                      <span
                         key={index}
-                        className="rounded-lg-half border border-gray-200 px-2 py-0.75 text-gray-500 dark:border-stone-800 dark:text-stone-500"
+                        className="box-border rounded-lg-half border border-stone-200 px-2 py-0.75 text-stone-500"
                      >
                         {item.text}
                      </span>
@@ -88,7 +88,7 @@ const Breadcrumb = ({ className, items }: BreadcrumbProps) => {
                            href={item.href}
                            target="_blank"
                            rel="noopener noreferrer"
-                           className="ml-0 flex w-fit items-center gap-1 rounded-lg-half bg-blue-50 px-2 py-0.75 text-blue-500 transition-transform ease-out hover:scale-103 md:ml-auto dark:bg-violet-500 dark:bg-opacity-20 dark:text-violet-400"
+                           className="text-forest-600 ml-0 flex w-fit items-center gap-1 rounded-lg-half bg-blue-50 px-2 py-0.75 transition-transform ease-out hover:scale-[1.02] md:ml-auto"
                         >
                            <span>{item.text}</span>
                            <ArrowUpRightIcon className="h-3 w-3" />
@@ -99,13 +99,10 @@ const Breadcrumb = ({ className, items }: BreadcrumbProps) => {
                   return (
                      <ChevronRightIcon
                         key={index}
-                        className={clsx(
-                           "h-3 w-3 text-gray-400 dark:text-stone-600",
-                           {
-                              "hidden min-[380px]:flex":
-                                 index === 1 && hideFirstItem,
-                           },
-                        )}
+                        className={clsx("h-3 w-3 text-stone-400", {
+                           "hidden min-[380px]:flex":
+                              index === 1 && hideFirstItem,
+                        })}
                      />
                   );
                default:

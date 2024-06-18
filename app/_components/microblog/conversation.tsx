@@ -37,7 +37,7 @@ export default function Conversation({
                   <li
                      key={reply.id}
                      // className={clsx(``, {
-                     //    "ml-5 border-l pl-5 dark:border-stone-700": isNested,
+                     //    "ml-5 border-l pl-5": isNested,
                      // })}
                   >
                      <div>
@@ -50,7 +50,7 @@ export default function Conversation({
                            </span>
                            {reply.author._microblog.username ===
                               myMicroblogUsername && (
-                              <CheckBadgeIcon className="h-[1em] w-[1em] text-blue-400 dark:text-violet-300" />
+                              <CheckBadgeIcon className="text-forest-600 h-[1em] w-[1em]" />
                            )}
                         </div>
                         <div className="flex items-center gap-2 text-[calc(1em-1px)]">

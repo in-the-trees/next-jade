@@ -11,7 +11,7 @@ export default function MicroblogPage() {
    return (
       <div>
          <header className="z-40">
-            <div className="pb-4 dark:bg-stone-900">
+            <div className="pb-4">
                <Breadcrumb
                   items={[
                      { type: "link", text: "Jade", href: "/" },
@@ -50,7 +50,7 @@ export default function MicroblogPage() {
                </a>
                <a
                   href={`https://${process.env.NEXT_PUBLIC_MICROBLOG_BASE_URL}/feed.json`}
-                  className="btn-sm"
+                  className="btn-sm-alt"
                   target="_blank"
                   rel="noopener noreferrer"
                >
@@ -60,7 +60,7 @@ export default function MicroblogPage() {
 
                <a
                   href="https://micro.blog/jade?remote_follow=1"
-                  className="btn-sm"
+                  className="btn-sm-alt"
                   target="_blank"
                   rel="noopener noreferrer"
                >

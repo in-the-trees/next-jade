@@ -34,7 +34,7 @@ export default async function Post({ params }: { params: { slug: string[] } }) {
    return (
       <div>
          <header className="z-40">
-            <div className="pb-4 dark:bg-stone-900">
+            <div className="pb-4">
                {microdotblog && microdotblog.home_page_url ?
                   <div className="max-w flex flex-row items-center justify-between gap-2 py-[-.rem]">
                      <Breadcrumb

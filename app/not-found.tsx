@@ -16,7 +16,7 @@ export default function NotFound() {
             <div className="w-full px-4 pt-[24px] md:w-2/3 md:pt-[40px] lg:pt-[56px]">
                <div>
                   <header className="z-40">
-                     <div className="pb-4 dark:bg-stone-900">
+                     <div className="pb-4">
                         <Breadcrumb
                            items={[
                               { type: "link", text: "Jade", href: "/" },
@@ -40,9 +40,7 @@ export default function NotFound() {
                      >
                         404
                      </h1>
-                     <h2 className="text-gray-500 dark:text-stone-400">
-                        Page not found
-                     </h2>
+                     <h2 className="text-stone-500">Page not found</h2>
                   </main>
                </div>
             </div>

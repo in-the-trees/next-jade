@@ -43,7 +43,7 @@ export default async function BlogPost({
    return (
       <div>
          <header className="fixed top-0 z-30 w-full px-4">
-            <div className="-mx-4 bg-white px-4 pb-1 pt-[24px] md:pt-[40px] lg:pt-[56px] dark:bg-stone-900">
+            <div className="-mx-4 bg-stone-100 px-4 pb-1 pt-[24px] md:pt-[40px] lg:pt-[56px]">
                <Breadcrumb
                   items={[
                      { type: "link", text: "Jade", href: "/" },
@@ -54,12 +54,12 @@ export default async function BlogPost({
                   ]}
                />
             </div>
-            <div className="-mx-4 bg-gradient-to-b from-white px-4 pb-4 dark:from-stone-900"></div>
+            <div className="-mx-4 bg-gradient-to-b from-white px-4 pb-4"></div>
          </header>
          <main className="mt-[4.75rem] px-4 md:mt-[6.75rem]">
             <article>
                <header className="mb-4">
-                  <div className="mb-3.5 flex items-center gap-2 text-gray-500 dark:text-stone-400">
+                  <div className="mb-3.5 flex items-center gap-2 text-stone-500">
                      <DocumentTextIcon className="h-4 w-4" />
                      <time
                         dateTime={
@@ -67,7 +67,7 @@ export default async function BlogPost({
                               .toISOString()
                               .split("T")[0]
                         }
-                        className={`${commit_mono.className} text-[1em - 1px] block self-start text-nowrap text-[calc(1em-1px)] text-gray-500 dark:text-stone-400`}
+                        className={`${commit_mono.className} text-[1em - 1px] block self-start text-nowrap text-[calc(1em-1px)] text-stone-500`}
                      >
                         {new Date(
                            post.postMatter.date + "T00:00:00",
