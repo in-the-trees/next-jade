@@ -39,15 +39,16 @@ const PADropdown = ({ postUrl, homePageUrl }: PADropdownProps) => {
       <div ref={dropdownRef} className="relative">
          <button
             onClick={() => setIsOpen(!isOpen)}
-            className="rounded-full p-1 transition-transform ease-out hover:bg-stone-200 active:scale-[0.95]"
+            className="rounded-full p-1 transition-transform ease-out hover:bg-stone-200 active:scale-[0.95] dark:hover:bg-stone-600/30"
          >
-            <EllipsisHorizontalCircleIcon className="h-5 w-5 text-stone-500" />
+            <EllipsisHorizontalCircleIcon className="h-5 w-5 text-stone-500 dark:text-stone-300/70" />
          </button>
          {isOpen && (
-            <div className="text-forest-950 absolute right-0 z-10 mt-2 w-[12rem] rounded-2xl border border-stone-200 bg-stone-100 shadow-xl shadow-stone-400/10">
+            <div className="absolute right-0 z-10 mt-2 w-[12rem] rounded-2xl border border-stone-200 bg-stone-100 text-forest-950 shadow-xl shadow-stone-400/10 dark:border-stone-400/40 dark:bg-stone-500 dark:text-stone-50 dark:shadow-stone-700/10">
                <div
                   className={clsx("p-2", {
-                     "border-b border-stone-200": homePageUrl && id,
+                     "border-b border-stone-200 dark:border-stone-400/40":
+                        homePageUrl && id,
                   })}
                >
                   {homePageUrl && (
@@ -55,14 +56,14 @@ const PADropdown = ({ postUrl, homePageUrl }: PADropdownProps) => {
                         href={homePageUrl}
                         prefetch={false}
                         target="_blank"
-                        className="text-forest-700 bg-forest-100 hover:bg-forest-200 mb-1 flex w-full items-center justify-between rounded-xl px-4 py-2 text-left text-sm font-normal-mid transition-transform ease-out hover:scale-[1.01]"
+                        className="mb-1 flex w-full items-center justify-between rounded-xl bg-forest-100 px-4 py-2 text-left text-sm font-normal-mid text-forest-700 transition-transform ease-out hover:scale-[1.01] hover:bg-forest-200 dark:bg-forest-200 dark:text-forest-800 dark:hover:bg-forest-300"
                      >
                         Micro.blog
-                        <ArrowRightStartOnRectangleIcon className="fill-forest-950 h-4 w-4 stroke-2" />
+                        <ArrowRightStartOnRectangleIcon className="h-4 w-4 fill-forest-700 stroke-2 dark:fill-forest-800" />
                      </Link>
                   )}
                   <button
-                     className="flex w-full items-center justify-between rounded-xl px-4 py-2 text-left text-sm font-normal-mid hover:bg-stone-200"
+                     className="flex w-full items-center justify-between rounded-xl px-4 py-2 text-left text-sm font-normal-mid hover:bg-stone-200 dark:hover:bg-stone-600/30"
                      onClick={() => {
                         navigator.clipboard.writeText(
                            window.location.toString(),
@@ -70,22 +71,22 @@ const PADropdown = ({ postUrl, homePageUrl }: PADropdownProps) => {
                      }}
                   >
                      Copy link
-                     <LinkIcon className="fill-forest-950 h-4 w-4 stroke-2" />
+                     <LinkIcon className="h-4 w-4 fill-forest-950 stroke-2 dark:fill-stone-50" />
                   </button>
                </div>
                {homePageUrl && id && (
                   <div className="p-2">
-                     <span className="block p-2 font-light-mid italic text-stone-500">
+                     <span className="block p-2 font-light-mid italic text-stone-500 dark:text-stone-300">
                         Reply with
                      </span>
                      <Link
                         href={`https://micro.blog/account/comments/${id}/mb?url=${postUrl}`}
                         prefetch={false}
-                        className="flex w-full items-center justify-between rounded-xl px-4 py-2 text-left text-sm font-normal-mid hover:bg-stone-200"
+                        className="flex w-full items-center justify-between rounded-xl px-4 py-2 text-left text-sm font-normal-mid hover:bg-stone-200 dark:hover:bg-stone-600/30"
                      >
                         Micro.blog
                         <svg
-                           className="fill-forest-950 h-4 w-4"
+                           className="h-4 w-4 fill-forest-950 dark:fill-stone-50"
                            xmlns="http://www.w3.org/2000/svg"
                            viewBox="0 0 448 512"
                            aria-hidden="true"
@@ -96,11 +97,11 @@ const PADropdown = ({ postUrl, homePageUrl }: PADropdownProps) => {
                      <Link
                         href={`https://micro.blog/account/comments/${id}/bluesky?url=${postUrl}`}
                         prefetch={false}
-                        className="flex w-full items-center justify-between rounded-xl px-4 py-2 text-left text-sm font-normal-mid hover:bg-stone-200"
+                        className="flex w-full items-center justify-between rounded-xl px-4 py-2 text-left text-sm font-normal-mid hover:bg-stone-200 dark:hover:bg-stone-600/30"
                      >
                         Bluesky
                         <svg
-                           className="fill-forest-950 h-4 w-4"
+                           className="h-4 w-4 fill-forest-950 dark:fill-stone-50"
                            xmlns="http://www.w3.org/2000/svg"
                            viewBox="0 0 576 512"
                            aria-hidden="true"
@@ -111,11 +112,11 @@ const PADropdown = ({ postUrl, homePageUrl }: PADropdownProps) => {
                      <Link
                         href={`https://micro.blog/account/comments/${id}/mastodon?url=${postUrl}`}
                         prefetch={false}
-                        className="flex w-full items-center justify-between rounded-xl px-4 py-2 text-left text-sm font-normal-mid hover:bg-stone-200"
+                        className="flex w-full items-center justify-between rounded-xl px-4 py-2 text-left text-sm font-normal-mid hover:bg-stone-200 dark:hover:bg-stone-600/30"
                      >
                         Mastodon
                         <svg
-                           className="fill-forest-950 h-4 w-4"
+                           className="h-4 w-4 fill-forest-950 dark:fill-stone-50"
                            xmlns="http://www.w3.org/2000/svg"
                            viewBox="0 0 448 512"
                            aria-hidden="true"

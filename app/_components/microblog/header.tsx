@@ -77,19 +77,19 @@ export default function Header({
          {inFeed && year && month && day && post_id ?
             <Link
                href={`/microblog/${year}/${month}/${day}/${post_id}`}
-               className="u-url bg-forest-100 hover:bg-forest-200 mr-1 rounded-full px-1.5 transition-all ease-out hover:scale-103"
+               className="u-url mr-1 rounded-full bg-forest-100 px-1.5 transition-all ease-out hover:scale-103 hover:bg-forest-200 dark:bg-forest-200 dark:hover:bg-forest-300"
                aria-label="Open post"
                prefetch={preload}
             >
-               <ArrowLongRightIcon className="text-forest-700 h-3.5 w-3.5" />
+               <ArrowLongRightIcon className="h-3.5 w-3.5 text-forest-700 dark:text-forest-800" />
             </Link>
-         :  <ChatBubbleOvalLeftEllipsisIcon className="h-3.5 w-3.5 text-stone-500" />
+         :  <ChatBubbleOvalLeftEllipsisIcon className="h-3.5 w-3.5 text-stone-500 dark:text-stone-300" />
          }
 
          <time
             dateTime={date_published}
             className={clsx(
-               `${commit_mono.className} text-[calc(1em-1px)] text-stone-500`,
+               `${commit_mono.className} text-[calc(1em-1px)] text-stone-500 dark:text-stone-300`,
                {
                   "text-[calc(1em-2px)]": inFeed,
                },
@@ -101,14 +101,17 @@ export default function Header({
          {date_modified && show_updated ?
             <>
                <ChevronDoubleRightIcon
-                  className={clsx("h-3.5 w-3.5 text-stone-400/80", {
-                     "h-3 w-3": inFeed,
-                  })}
+                  className={clsx(
+                     "h-3.5 w-3.5 text-stone-400/80 dark:text-stone-400",
+                     {
+                        "h-3 w-3": inFeed,
+                     },
+                  )}
                />
                <time
                   dateTime={date_modified}
                   className={clsx(
-                     `${commit_mono.className} text-[calc(1em-1px)] text-stone-500`,
+                     `${commit_mono.className} text-[calc(1em-1px)] text-stone-500 dark:text-stone-300`,
                      {
                         "text-[calc(1em-2px)]": inFeed,
                      },
