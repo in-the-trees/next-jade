@@ -2,8 +2,10 @@
 
 import { lora } from "@/app/_fonts/fonts";
 import Link from "next/link";
-import { DocumentTextIcon } from "@heroicons/react/24/outline";
-import { EllipsisMessageMedium16Icon } from "@/app/_components/icons";
+import {
+   EllipsisMessageMedium16Icon,
+   DocTextMedium16Icon,
+} from "@/app/_components/icons";
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 
@@ -78,7 +80,7 @@ const Jade: React.FC<JadeProps> = ({ className, home }) => {
                   My microblog
                </Link>
                <Link href={`/blog`} className="btn-sm" prefetch={true}>
-                  <DocumentTextIcon className="h-4 w-4" />
+                  <DocTextMedium16Icon className="h-4 w-4" />
                   My blog
                </Link>
             </div>
