@@ -1,7 +1,7 @@
 import { lora } from "@/app/_fonts/fonts";
 import {
    ArchiveboxMedium14Icon,
-   JSONfeedMedium20Icon,
+   JSONfeedMedium18Icon,
    RadiowavesLeftRightMedium16Icon,
 } from "@/app/_components/icons";
 import Breadcrumb from "@/app/_components/breadcrumb";
@@ -54,7 +54,7 @@ export default function MicroblogPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                >
-                  <JSONfeedMedium20Icon className="h-5 w-5" />
+                  <JSONfeedMedium18Icon className="h-[18px] w-[18px]" />
                   JSON
                </a>
 

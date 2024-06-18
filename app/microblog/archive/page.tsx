@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import MicroblogFeed from "@/app/_components/microblog/feed";
 import { lora } from "@/app/_fonts/fonts";
-import { GlobeAltIcon, RssIcon } from "@heroicons/react/24/outline";
+import {
+   JSONfeedMedium18Icon,
+   RadiowavesLeftRightMedium16Icon,
+} from "@/app/_components/icons";
 import Breadcrumb from "@/app/_components/breadcrumb";
 
 export const metadata: Metadata = {
@@ -52,11 +55,11 @@ export default async function Blog() {
             <div className="my-4 flex flex-wrap items-center gap-2">
                <a
                   href={`https://${process.env.NEXT_PUBLIC_MICROBLOG_BASE_URL}/feed.json`}
-                  className="btn-sm"
+                  className="btn-sm btm-sm-alt-gap-1"
                   target="_blank"
                   rel="noopener noreferrer"
                >
-                  <RssIcon className="h-4 w-4" />
+                  <JSONfeedMedium18Icon className="h-[18px] w-[18px]" />
                   JSON
                </a>
 
@@ -66,7 +69,7 @@ export default async function Blog() {
                   target="_blank"
                   rel="noopener noreferrer"
                >
-                  <GlobeAltIcon className="h-4 w-4" />
+                  <RadiowavesLeftRightMedium16Icon className="h-4 w-4" />
                   ActivityPub
                </a>
             </div>
