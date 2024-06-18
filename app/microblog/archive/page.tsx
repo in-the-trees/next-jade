@@ -55,7 +55,7 @@ export default async function Blog() {
             <div className="my-4 flex flex-wrap items-center gap-2">
                <a
                   href={`https://${process.env.NEXT_PUBLIC_MICROBLOG_BASE_URL}/feed.json`}
-                  className="btn-sm btm-sm-alt-gap-1"
+                  className="btn-sm-alt btm-sm-alt-gap-1"
                   target="_blank"
                   rel="noopener noreferrer"
                >
@@ -65,7 +65,7 @@ export default async function Blog() {
 
                <a
                   href="https://micro.blog/jade?remote_follow=1"
-                  className="btn-sm"
+                  className="btn-sm-alt"
                   target="_blank"
                   rel="noopener noreferrer"
                >
