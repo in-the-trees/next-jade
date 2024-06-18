@@ -1,7 +1,5 @@
 import { Microdotblog } from "@/app/_lib/microblog/definitions";
-import clsx from "clsx";
-import { CheckBadgeIcon } from "@heroicons/react/20/solid";
-import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/solid";
+import { CheckmarkMessageFillMedium13Icon } from "@/app/_components/icons";
 import { formatTimeRelatively } from "@/app/_lib/relativeTime";
 import sanitizeHtml from "sanitize-html";
 import ConversationTime from "@/app/_components/microblog/misc/conversationTime";
@@ -50,7 +48,7 @@ export default function Conversation({
                            </span>
                            {reply.author._microblog.username ===
                               myMicroblogUsername && (
-                              <CheckBadgeIcon className="h-[1em] w-[1em] text-forest-600 dark:text-forest-300" />
+                              <CheckmarkMessageFillMedium13Icon className="h-[1em] w-[1em] text-forest-600 dark:text-forest-300" />
                            )}
                         </div>
                         <div className="flex items-center gap-2 text-[calc(1em-1px)]">
