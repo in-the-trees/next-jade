@@ -108,7 +108,7 @@ export default function Header({
                <time
                   dateTime={date_modified}
                   className={clsx(
-                     `${commit_mono.className} text-[calc(1em-1px)] text-gray-500`,
+                     `${commit_mono.className} text-[calc(1em-1px)] text-stone-500`,
                      {
                         "text-[calc(1em-2px)]": inFeed,
                      },

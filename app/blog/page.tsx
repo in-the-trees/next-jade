@@ -51,7 +51,7 @@ export default async function Blog() {
                            <div className="flex items-center gap-[0.25em] leading-none">
                               <time
                                  dateTime={post.date}
-                                 className={`${commit_mono.className} text-[1em - 1px] block self-start text-nowrap text-[calc(1em-1px)] text-gray-500`}
+                                 className={`${commit_mono.className} text-[1em - 1px] block self-start text-nowrap text-[calc(1em-1px)] text-stone-500`}
                               >
                                  {new Date(
                                     post.date + "T00:00:00",
@@ -60,7 +60,7 @@ export default async function Blog() {
                                     day: "numeric",
                                  })}
                               </time>
-                              <ChevronRightIcon className="block h-3 w-3 self-start text-nowrap text-gray-400" />
+                              <ChevronRightIcon className="block h-3 w-3 self-start text-nowrap text-stone-400" />
                               <Link
                                  href={`/blog/${post.slug}`}
                                  className="text-forest-600 block self-start hover:underline"
@@ -70,7 +70,7 @@ export default async function Blog() {
                            </div>
                         </li>
                      ))
-               :  <p className="text-gray-400">No posts yet.</p>}
+               :  <p className="text-stone-500">No posts yet.</p>}
             </ul>
          </main>
       </div>

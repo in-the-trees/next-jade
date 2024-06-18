@@ -59,7 +59,7 @@ export default async function BlogPost({
          <main className="mt-[4.75rem] px-4 md:mt-[6.75rem]">
             <article>
                <header className="mb-4">
-                  <div className="mb-3.5 flex items-center gap-2 text-gray-500">
+                  <div className="mb-3.5 flex items-center gap-2 text-stone-500">
                      <DocumentTextIcon className="h-4 w-4" />
                      <time
                         dateTime={
@@ -67,7 +67,7 @@ export default async function BlogPost({
                               .toISOString()
                               .split("T")[0]
                         }
-                        className={`${commit_mono.className} text-[1em - 1px] block self-start text-nowrap text-[calc(1em-1px)] text-gray-500`}
+                        className={`${commit_mono.className} text-[1em - 1px] block self-start text-nowrap text-[calc(1em-1px)] text-stone-500`}
                      >
                         {new Date(
                            post.postMatter.date + "T00:00:00",
