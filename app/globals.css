@@ -6,6 +6,24 @@ html {
    font-size: 100%;
 }
 
+*::selection {
+   background: #cae7af;
+}
+
+*::-moz-selection {
+   background: #cae7af;
+}
+
+@media (prefers-color-scheme: dark) {
+   *::selection {
+      background: #a8a29e;
+   }
+
+   *::-moz-selection {
+      background: #a8a29e;
+   }
+}
+
 .gradient-blur {
    position: fixed;
    z-index: 10;
