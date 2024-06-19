@@ -3,7 +3,7 @@ import { getPosts } from "@/app/_lib/blog/getPosts";
 import Link from "next/link";
 import { lora } from "@/app/_fonts/fonts";
 import { commit_mono } from "@/app/_fonts/fonts";
-import { ChevronRightIcon } from "@heroicons/react/24/outline";
+import { ChevronRightMedium8Icon } from "@/app/_components/icons";
 import Breadcrumb from "@/app/_components/breadcrumb";
 
 export default async function Blog() {
@@ -60,7 +60,7 @@ export default async function Blog() {
                                     day: "numeric",
                                  })}
                               </time>
-                              <ChevronRightIcon className="block h-3 w-3 self-start text-nowrap text-stone-400" />
+                              <ChevronRightMedium8Icon className="block h-3 w-3 self-start text-nowrap text-stone-400" />
                               <Link
                                  href={`/blog/${post.slug}`}
                                  className="dark:text-forest-300block self-start text-forest-600 hover:underline"
