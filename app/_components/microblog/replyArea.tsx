@@ -6,7 +6,6 @@ import { clsx } from "clsx";
 import { Microblog, Microdotblog } from "@/app/_lib/microblog/definitions";
 import getMicrodotblog from "@/app/_lib/microblog/getMicrodotblog";
 import Conversation from "@/app/_components/microblog/conversation";
-import { PaperAirplaneIcon } from "@heroicons/react/24/outline";
 
 type ReplyAreaProps = {
    post: Microblog | null;
@@ -134,9 +133,27 @@ export default function ReplyArea({ post, microdotblog }: ReplyAreaProps) {
                   </span>
                   <button
                      type="submit"
-                     className="flex w-max items-center justify-between gap-2 rounded-full border border-stone-200 bg-stone-100 p-[6px] text-[calc(1em-1px)] transition-transform ease-out hover:border-forest-200 hover:bg-forest-100 active:scale-[0.95] dark:border-stone-600/80 dark:bg-stone-600/60 dark:hover:border-forest-400 dark:hover:bg-forest-200 dark:hover:text-forest-800"
+                     id="submit-reply"
+                     className="transition-transform ease-out active:scale-[0.95]"
                   >
-                     <PaperAirplaneIcon className="h-3.5 w-3.5 stroke-2" />
+                     <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        className="mr-0.5 h-5 w-5"
+                     >
+                        <g fill="none" fill-rule="nonzero">
+                           <path
+                              id="submit-reply-bg"
+                              fill="inherit"
+                              d="M10 20a9.592 9.592 0 0 1-3.858-.784 10.222 10.222 0 0 1-3.191-2.167 10.222 10.222 0 0 1-2.167-3.191A9.592 9.592 0 0 1 0 10c0-1.366.261-2.652.784-3.858A10.264 10.264 0 0 1 6.132.784 9.592 9.592 0 0 1 9.99 0c1.366 0 2.654.261 3.863.784a10.206 10.206 0 0 1 3.196 2.167 10.222 10.222 0 0 1 2.167 3.191A9.592 9.592 0 0 1 20 10a9.592 9.592 0 0 1-.784 3.858 10.222 10.222 0 0 1-2.167 3.191 10.222 10.222 0 0 1-3.191 2.167A9.592 9.592 0 0 1 10 20Z"
+                           />
+                           <path
+                              id="submit-reply-fg"
+                              fill="inherit"
+                              d="M10.02 15.049c.222 0 .403-.07.544-.21.14-.141.21-.326.21-.555v-5.03l-.078-2.156 1.02 1.226 1.186 1.205c.137.15.317.226.54.226a.728.728 0 0 0 .744-.735.738.738 0 0 0-.206-.53l-3.372-3.353c-.19-.196-.386-.294-.588-.294-.203 0-.4.098-.589.294L6.06 8.49a.717.717 0 0 0-.206.53c0 .209.07.384.21.524.141.14.316.21.525.21.21 0 .39-.074.54-.225l1.196-1.205 1.01-1.216-.08 2.147v5.03a.74.74 0 0 0 .217.553c.143.14.326.211.549.211Z"
+                           />
+                        </g>
+                     </svg>
                   </button>
                </div>
             </form>

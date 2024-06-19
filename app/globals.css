@@ -259,6 +259,18 @@ code {
    @apply hover:scale-[1.015];
 }
 
+#submit-reply #submit-reply-bg {
+   @apply fill-forest-200;
+}
+
+#submit-reply:hover #submit-reply-bg {
+   @apply fill-forest-300;
+}
+
+#submit-reply #submit-reply-fg {
+   @apply fill-forest-800;
+}
+
 .details-dropdown {
    @apply cursor-pointer;
    @apply select-none;
