@@ -71,7 +71,7 @@ const Breadcrumb = ({ className, items }: BreadcrumbProps) => {
                   return (
                      <span
                         key={index}
-                        className="box-border rounded-lg-half border border-stone-200 px-2 py-0.75 text-stone-500 dark:border-stone-400/40 dark:text-stone-300/90"
+                        className="box-border rounded-lg-half border border-stone-200 px-2 py-0.75 text-stone-500 dark:border-stone-600 dark:text-stone-400"
                      >
                         {item.text}
                      </span>
@@ -99,10 +99,13 @@ const Breadcrumb = ({ className, items }: BreadcrumbProps) => {
                   return (
                      <ChevronRightMedium8Icon
                         key={index}
-                        className={clsx("h-2 w-2 text-stone-400", {
-                           "hidden min-[410px]:flex":
-                              index === 1 && hideFirstItem,
-                        })}
+                        className={clsx(
+                           "h-2 w-2 text-stone-400 dark:text-stone-500",
+                           {
+                              "hidden min-[410px]:flex":
+                                 index === 1 && hideFirstItem,
+                           },
+                        )}
                      />
                   );
                default:

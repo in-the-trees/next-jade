@@ -152,7 +152,7 @@ const Jade: React.FC<JadeProps> = ({ className, home }) => {
                   </a>
                </li>
                <li className="details-parent-li ml-1 list-none">
-                  <details className="inline-block text-stone-400">
+                  <details className="inline-block text-stone-400 dark:text-stone-500">
                      <summary
                         className="details-dropdown"
                         aria-label="Less important web presence links"

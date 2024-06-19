@@ -40,7 +40,7 @@ export default function NotFound() {
                      >
                         404
                      </h1>
-                     <h2 className="text-stone-500 dark:text-stone-300">
+                     <h2 className="text-stone-500 dark:text-stone-400">
                         Page not found
                      </h2>
                   </main>

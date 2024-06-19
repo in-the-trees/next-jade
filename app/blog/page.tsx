@@ -70,7 +70,7 @@ export default async function Blog() {
                            </div>
                         </li>
                      ))
-               :  <p className="text-stone-500 dark:text-stone-300">
+               :  <p className="text-stone-500 dark:text-stone-400">
                      No posts yet.
                   </p>
                }

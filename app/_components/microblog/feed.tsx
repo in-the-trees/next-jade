@@ -46,7 +46,7 @@ export default async function MicroblogFeed({
       if (!posts.length) {
          return (
             <FeedWrapper className={className}>
-               <p className="text-stone-500 dark:text-stone-300">
+               <p className="text-stone-500 dark:text-stone-400">
                   No posts within the last day — check back later.
                </p>
             </FeedWrapper>
@@ -69,7 +69,7 @@ export default async function MicroblogFeed({
          return (
             <FeedWrapper className={className}>
                {!posts.length && (
-                  <p className="text-stone-500 dark:text-stone-300">
+                  <p className="text-stone-500 dark:text-stone-400">
                      No posts within the last day — check back later.
                   </p>
                )}
