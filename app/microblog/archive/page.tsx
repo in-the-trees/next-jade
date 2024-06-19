@@ -6,6 +6,7 @@ import {
    RadiowavesLeftRightMedium16Icon,
 } from "@/app/_components/icons";
 import Breadcrumb from "@/app/_components/breadcrumb";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
    metadataBase: new URL("https://inthetrees.me"),
@@ -74,10 +75,12 @@ export default async function Blog() {
                </a>
             </div>
 
-            <MicroblogFeed
-               url={`https://${process.env.NEXT_PUBLIC_MICROBLOG_BASE_URL}/api/all.json`}
-               className="mt-9"
-            />
+            <Suspense fallback={<div>Loading...</div>}>
+               <MicroblogFeed
+                  url={`https://${process.env.NEXT_PUBLIC_MICROBLOG_BASE_URL}/api/all.json`}
+                  className="mt-9"
+               />
+            </Suspense>
          </main>
       </div>
    );
