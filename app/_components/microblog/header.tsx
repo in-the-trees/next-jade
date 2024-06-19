@@ -78,7 +78,7 @@ export default function Header({
          {inFeed && year && month && day && post_id ?
             <Link
                href={`/microblog/${year}/${month}/${day}/${post_id}`}
-               className="u-url mr-1 rounded-full bg-forest-100 px-[10px] py-[2px] transition-all ease-out hover:scale-103 hover:bg-forest-200 dark:bg-forest-200 dark:hover:bg-forest-300"
+               className="u-url mr-1 rounded-full bg-forest-100 px-[10px] py-[2px] transition-all ease-out hover:scale-103 hover:bg-forest-200 active:scale-[1.0] dark:bg-forest-200 dark:hover:bg-forest-300"
                aria-label="Open post"
                prefetch={preload}
             >

@@ -2,7 +2,6 @@
 
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import { clsx } from "clsx";
 import {
    EllipsisCircleRegular20Icon,
    ArrowUpRightCircleMedium16Icon,
@@ -15,12 +14,12 @@ type PADropdownProps = {
 
 export const GeneralPA = ({ homePageUrl }: PADropdownProps) => {
    const [isOpen, setIsOpen] = useState(false);
-   const dropdownRef = useRef<HTMLDivElement>(null);
+   const generalRef = useRef<HTMLDivElement>(null);
    useEffect(() => {
       const handleClickOutside = (event: MouseEvent) => {
          if (
-            dropdownRef.current &&
-            !dropdownRef.current.contains(event.target as Node)
+            generalRef.current &&
+            !generalRef.current.contains(event.target as Node)
          ) {
             setIsOpen(false);
          }
@@ -33,7 +32,7 @@ export const GeneralPA = ({ homePageUrl }: PADropdownProps) => {
    }, []);
 
    return (
-      <div ref={dropdownRef} className="relative">
+      <div ref={generalRef} className="relative">
          <button
             onClick={() => setIsOpen(!isOpen)}
             className="rounded-full transition-transform ease-out hover:opacity-70 active:scale-[0.95]"
@@ -48,14 +47,14 @@ export const GeneralPA = ({ homePageUrl }: PADropdownProps) => {
                         href={homePageUrl}
                         prefetch={false}
                         target="_blank"
-                        className="mb-1 flex w-full items-center justify-between rounded-xl bg-forest-100 px-4 py-2 text-left text-sm font-normal-mid text-forest-700 transition-transform ease-out hover:scale-[1.01] hover:bg-forest-200 dark:bg-forest-200 dark:text-forest-800 dark:hover:bg-forest-300"
+                        className="mb-1 flex w-full items-center justify-between rounded-xl bg-forest-100 px-4 py-2 text-left text-sm font-normal-mid text-forest-700 transition-transform ease-out hover:scale-[1.01] hover:bg-forest-200 active:scale-[1.0] dark:bg-forest-200 dark:text-forest-800 dark:hover:bg-forest-300"
                      >
                         Micro.blog
-                        <ArrowUpRightCircleMedium16Icon className="h-4 w-4 fill-forest-700 stroke-2 dark:fill-forest-800" />
+                        <ArrowUpRightCircleMedium16Icon className="h-4 w-4 fill-forest-700 dark:fill-forest-800" />
                      </Link>
                   )}
                   <button
-                     className="flex w-full items-center justify-between rounded-xl px-4 py-2 text-left text-sm font-normal-mid hover:bg-stone-200 dark:hover:bg-stone-600/30"
+                     className="flex w-full items-center justify-between rounded-xl px-4 py-2 text-left text-sm font-normal-mid transition-transform ease-out hover:bg-stone-200 active:scale-[0.99] dark:hover:bg-stone-600/30"
                      onClick={() => {
                         navigator.clipboard.writeText(
                            window.location.toString(),
@@ -63,7 +62,7 @@ export const GeneralPA = ({ homePageUrl }: PADropdownProps) => {
                      }}
                   >
                      Copy link
-                     <LinkMedium16Icon className="h-4 w-4 fill-forest-950 stroke-2 dark:fill-stone-50" />
+                     <LinkMedium16Icon className="h-4 w-4 fill-forest-950 dark:fill-stone-50" />
                   </button>
                </div>
             </div>

@@ -51,7 +51,7 @@ export const ReplyPA = ({ postUrl, homePageUrl }: PADropdownProps) => {
                   <Link
                      href={`https://micro.blog/account/comments/${id}/mb?url=${postUrl}`}
                      prefetch={false}
-                     className="flex w-full items-center justify-between rounded-xl px-4 py-2 text-left text-sm font-normal-mid hover:bg-stone-200 dark:hover:bg-stone-600/30"
+                     className="flex w-full items-center justify-between rounded-xl px-4 py-2 text-left text-sm font-normal-mid transition-transform ease-out hover:bg-stone-200 active:scale-[0.99] dark:hover:bg-stone-600/30"
                   >
                      Micro.blog
                      <svg
@@ -66,7 +66,7 @@ export const ReplyPA = ({ postUrl, homePageUrl }: PADropdownProps) => {
                   <Link
                      href={`https://micro.blog/account/comments/${id}/bluesky?url=${postUrl}`}
                      prefetch={false}
-                     className="flex w-full items-center justify-between rounded-xl px-4 py-2 text-left text-sm font-normal-mid hover:bg-stone-200 dark:hover:bg-stone-600/30"
+                     className="flex w-full items-center justify-between rounded-xl px-4 py-2 text-left text-sm font-normal-mid transition-transform ease-out hover:bg-stone-200 active:scale-[0.99] dark:hover:bg-stone-600/30"
                   >
                      Bluesky
                      <svg
@@ -81,7 +81,7 @@ export const ReplyPA = ({ postUrl, homePageUrl }: PADropdownProps) => {
                   <Link
                      href={`https://micro.blog/account/comments/${id}/mastodon?url=${postUrl}`}
                      prefetch={false}
-                     className="flex w-full items-center justify-between rounded-xl px-4 py-2 text-left text-sm font-normal-mid hover:bg-stone-200 dark:hover:bg-stone-600/30"
+                     className="flex w-full items-center justify-between rounded-xl px-4 py-2 text-left text-sm font-normal-mid transition-transform ease-out hover:bg-stone-200 active:scale-[0.99] dark:hover:bg-stone-600/30"
                   >
                      Mastodon
                      <svg

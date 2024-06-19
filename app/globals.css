@@ -214,7 +214,7 @@ code {
    @apply text-sm;
    @apply transition-transform;
    @apply ease-out;
-   @apply hover:scale-[1.01];
+   @apply hover:scale-[1.01] active:scale-[1.0];
    @apply bg-forest-100 dark:bg-forest-200;
    @apply text-forest-700 dark:text-forest-800;
    @apply hover:bg-forest-200 dark:hover:bg-forest-300;
@@ -232,7 +232,7 @@ code {
    @apply text-sm;
    @apply transition-transform;
    @apply ease-out;
-   @apply hover:scale-[1.01];
+   @apply hover:scale-[1.01] active:scale-[1.0];
    @apply bg-stone-200 dark:bg-stone-600;
    @apply text-stone-900 dark:text-stone-300;
    @apply hover:bg-stone-300 dark:hover:bg-stone-700;
@@ -240,23 +240,6 @@ code {
 
 .btm-sm-alt-gap-1 {
    gap: 0.25rem;
-}
-
-.btn-xs {
-   @apply flex;
-   @apply w-max;
-   @apply items-center;
-   @apply justify-between;
-   @apply gap-2;
-   @apply rounded-lg;
-   @apply border;
-   @apply px-1.5;
-   @apply py-0.5;
-   @apply text-[calc(1em-1px)];
-   @apply shadow-sm;
-   @apply transition-transform;
-   @apply ease-out;
-   @apply hover:scale-[1.015];
 }
 
 #submit-reply #submit-reply-bg {

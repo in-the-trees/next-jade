@@ -41,7 +41,7 @@ const Breadcrumb = ({ className, items }: BreadcrumbProps) => {
                         key={index}
                         href={item.href}
                         className={clsx(
-                           "flex items-center gap-1 rounded-lg-half bg-stone-200 px-2 py-0.75 text-stone-900 transition-transform ease-out hover:scale-[1.02] dark:bg-stone-600 dark:text-stone-300",
+                           "flex items-center gap-1 rounded-lg-half bg-stone-200 px-2 py-0.75 text-stone-900 transition-transform ease-out hover:scale-[1.02] active:scale-[1.0] dark:bg-stone-600 dark:text-stone-300",
                            {
                               "hidden min-[410px]:flex":
                                  index === 0 && hideFirstItem,
