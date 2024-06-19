@@ -162,7 +162,7 @@ const Jade: React.FC<JadeProps> = ({ className, home }) => {
                      <ul className="ml-6 list-[circle]">
                         <li className="mt-1">
                            <a
-                              className="ml-1 text-forest-600 hover:underline dark:text-forest-300/70"
+                              className="ml-1 text-forest-600/70 hover:underline dark:text-forest-300/70"
                               href="https://bsky.app/profile/inthetrees.me"
                            >
                               bsky.app/profile/inthetrees.me
@@ -170,7 +170,7 @@ const Jade: React.FC<JadeProps> = ({ className, home }) => {
                         </li>
                         <li className="mt-1">
                            <a
-                              className="ml-1 text-forest-600 hover:underline dark:text-forest-300/70"
+                              className="ml-1 text-forest-600/70 hover:underline dark:text-forest-300/70"
                               href="https://www.threads.net/@inthetrees.me"
                            >
                               threads.net/@inthetrees.me
@@ -178,7 +178,7 @@ const Jade: React.FC<JadeProps> = ({ className, home }) => {
                         </li>
                         <li className="mt-1">
                            <a
-                              className="ml-1 text-forest-600 hover:underline dark:text-forest-300/70"
+                              className="ml-1 text-forest-600/70 hover:underline dark:text-forest-300/70"
                               href="https://x.com/@inthetrees_7"
                            >
                               x.com/inthetrees_7
