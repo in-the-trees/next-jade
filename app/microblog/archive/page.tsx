@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import MicroblogFeed from "@/app/_components/microblog/feed";
+import FeedSkeleton from "@/app/_components/microblog/skeletons/feed";
 import { lora } from "@/app/_fonts/fonts";
 import {
    JSONfeedMedium18Icon,
    RadiowavesLeftRightMedium16Icon,
 } from "@/app/_components/icons";
 import Breadcrumb from "@/app/_components/breadcrumb";
-import { Suspense } from "react";
 
 export const metadata: Metadata = {
    metadataBase: new URL("https://inthetrees.me"),
@@ -75,7 +76,11 @@ export default async function Blog() {
                </a>
             </div>
 
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense
+               fallback={
+                  <FeedSkeleton postCount={27} className="mt-9 animate-pulse" />
+               }
+            >
                <MicroblogFeed
                   url={`https://${process.env.NEXT_PUBLIC_MICROBLOG_BASE_URL}/api/all.json`}
                   className="mt-9"
