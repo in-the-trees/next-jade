@@ -13,6 +13,7 @@
       "pages:cf": "npm run pages:build && npm run pages:deploy"
    },
    "dependencies": {
+      "@atproto/api": "^0.12.21",
       "@cloudflare/next-on-pages": "^1.11.3",
       "@cloudflare/workers-types": "^4.20240614.0",
       "@mdx-js/loader": "^3.0.1",
