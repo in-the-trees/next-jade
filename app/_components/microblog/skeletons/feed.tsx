@@ -63,7 +63,7 @@ export default function FeedSkeleton({
                   <div>
                      {lines >= 1 && (
                         <div
-                           className={`my-3.5 h-[12px] max-w-full rounded-full ${firstTextLineWidth} bg-stone-200/70 dark:bg-stone-800/30`}
+                           className={`my-3.5 h-[12px] ${firstTextLineWidth} max-w-full rounded-full bg-stone-200/70 dark:bg-stone-800/30`}
                         ></div>
                      )}
 

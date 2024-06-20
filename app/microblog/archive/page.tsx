@@ -15,7 +15,7 @@ export const metadata: Metadata = {
    description: "Archive of my microblog posts.",
 };
 
-export default async function Blog() {
+export default async function MBArchive() {
    return (
       <div>
          <header className="z-40">
