@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import MicroblogFeed from "@/app/_components/microblog/feed";
+import FeedSkeleton from "@/app/_components/microblog/skeletons/feed";
 import { lora } from "@/app/_fonts/fonts";
 import {
    JSONfeedMedium18Icon,
@@ -74,10 +76,16 @@ export default async function Blog() {
                </a>
             </div>
 
-            <MicroblogFeed
-               url={`https://${process.env.NEXT_PUBLIC_MICROBLOG_BASE_URL}/api/all.json`}
-               className="mt-9"
-            />
+            <Suspense
+               fallback={
+                  <FeedSkeleton postCount={27} className="mt-9 animate-pulse" />
+               }
+            >
+               <MicroblogFeed
+                  url={`https://${process.env.NEXT_PUBLIC_MICROBLOG_BASE_URL}/api/all.json`}
+                  className="mt-9"
+               />
+            </Suspense>
          </main>
       </div>
    );

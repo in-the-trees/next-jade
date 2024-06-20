@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { lora } from "@/app/_fonts/fonts";
 import {
    ArchiveboxMedium14Icon,
@@ -44,10 +45,14 @@ export default function MicroblogPage() {
             </h2>
 
             <div className="my-4 flex flex-wrap items-center gap-2">
-               <a href="/microblog/archive" className="btn-sm">
+               <Link
+                  href="/microblog/archive"
+                  className="btn-sm"
+                  prefetch={true}
+               >
                   <ArchiveboxMedium14Icon className="h-3.5 w-3.5" />
                   Archive
-               </a>
+               </Link>
                <a
                   href={`https://${process.env.NEXT_PUBLIC_MICROBLOG_BASE_URL}/feed.json`}
                   className="btn-sm-alt btm-sm-alt-gap-1"

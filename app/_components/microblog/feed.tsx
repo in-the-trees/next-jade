@@ -1,6 +1,7 @@
 import getPosts from "@/app/_lib/microblog/getPosts";
 import { Microblog as MicroblogType } from "@/app/_lib/microblog/definitions";
 import MicroblogPost from "@/app/_components/microblog/post";
+import Link from "next/link";
 
 const FeedWrapper = ({
    children,
@@ -46,9 +47,7 @@ export default async function MicroblogFeed({
       if (!posts.length) {
          return (
             <FeedWrapper className={className}>
-               <p className="text-stone-500 dark:text-stone-400">
-                  No posts within the last day — check back later.
-               </p>
+               <p className="text-stone-400">Something went wrong :-(</p>
             </FeedWrapper>
          );
       } else {
@@ -70,7 +69,17 @@ export default async function MicroblogFeed({
             <FeedWrapper className={className}>
                {!posts.length && (
                   <p className="text-stone-500 dark:text-stone-400">
-                     No posts within the last day — check back later.
+                     No posts within the last day — check back later or visit the{" "}
+                     {
+                        <Link
+                           href="/microblog/archive"
+                           prefetch={true}
+                           className="text-forest-600 hover:underline dark:text-forest-300"
+                        >
+                           archive
+                        </Link>
+                     }
+                     .
                   </p>
                )}
 
