@@ -1,5 +1,3 @@
-export const runtime = "edge";
-
 import Jade from "@/app/_components/Jade";
 import type { Metadata } from "next";
 
