@@ -1,25 +1,18 @@
 import { agent } from "@/app/_lib/microblog/api";
-import { AppBskyFeedDefs, AppBskyFeedPost } from "@atproto/api";
 import Breadcrumb from "@/app/_components/breadcrumb";
 import { lora } from "@/app/_fonts/fonts";
 
-const EXAMPLE_POST =
-   "at://did:plc:vwzwgnygau7ed7b7wt5ux7y2/app.bsky.feed.post/3karfx5vrvv23";
+const ACTOR = `${process.env.NEXT_PUBLIC_BSKY_HANDLE}`;
 
 export default async function BlueskyPage() {
-   const thread = await agent.app.bsky.feed.getPostThread({
-      uri: EXAMPLE_POST,
+   const profile = await agent.app.bsky.actor.getProfile({
+      actor: ACTOR,
    });
 
-   if (!AppBskyFeedDefs.isThreadViewPost(thread.data.thread)) {
-      throw new Error("Expected a thread view post");
-   }
-
-   const post = thread.data.thread.post;
-
-   if (!AppBskyFeedPost.isRecord(post.record)) {
-      throw new Error("Expected a post with a record");
-   }
+   const posts = await agent.app.bsky.feed.getAuthorFeed({
+      actor: ACTOR,
+      filter: "posts_and_author_threads",
+   });
 
    return (
       <div>
@@ -52,10 +45,10 @@ export default async function BlueskyPage() {
 
             <div className="my-4 flex flex-wrap items-center gap-2">
                <div className="mt-9">
-                  <p className="font-medium">
-                     {thread.data.thread.post.author.displayName}
-                  </p>
-                  <p>{post.record.text}</p>
+                  <h3 className="text-2xl font-medium-mid">Profile</h3>
+                  <pre>{JSON.stringify(profile.data, null, 2)}</pre>
+                  <h3 className="text-2xl font-medium-mid">Posts</h3>
+                  <pre>{JSON.stringify(posts.data, null, 2)}</pre>
                </div>
             </div>
          </main>
