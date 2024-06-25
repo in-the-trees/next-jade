@@ -20,7 +20,48 @@ type Post = {
             uri: string;
          };
       };
+      images?: [
+         {
+            alt?: string;
+            aspectRatio: {
+               height: number;
+               width: number;
+            };
+            image: {
+               ref: {
+                  $link: string;
+               };
+            };
+         },
+      ];
+      external?: {
+         description?: string;
+         thumb?: {
+            ref: {
+               $link: string;
+            };
+         };
+      };
       text: string;
+   };
+   embed?: {
+      images?: [
+         {
+            thumb: string;
+            fullsize: string;
+            alt?: string;
+            aspectRatio: {
+               height: number;
+               width: number;
+            };
+         },
+      ];
+      external?: {
+         uri: string;
+         title?: string;
+         description?: string;
+         thumb: string;
+      };
    };
    replyCount: number;
    repostCount: number;
@@ -42,9 +83,12 @@ export default async function BlueskyPage() {
    const flattenedPosts = bskyPosts.flatMap((item) => ({ ...item.post }));
 
    const organizedThreads = (() => {
-      const posts = bskyPosts.flatMap((item) => ({
-         ...item.post,
-      })) as unknown as Post[];
+      const posts = bskyPosts.flatMap(
+         (item) =>
+            ({
+               ...item.post,
+            }) as unknown,
+      ) as Post[];
 
       const threadMap = new Map();
 
@@ -98,10 +142,6 @@ export default async function BlueskyPage() {
                <div className="mt-9">
                   <h3 className="my-4 text-2xl font-medium-mid">Profile</h3>
                   <pre>{JSON.stringify(profile, null, 2)}</pre>
-                  <h3 className="my-4 text-2xl font-medium-mid">bskyPosts</h3>
-                  <div className="my-4">
-                     <pre>{JSON.stringify(bskyPosts, null, 2)}</pre>
-                  </div>
                   <h3 className="my-4 text-2xl font-medium-mid">
                      organizedThreads
                   </h3>
