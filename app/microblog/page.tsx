@@ -2,6 +2,7 @@ import { agent } from "@/app/_lib/microblog/api";
 import { Post } from "@/app/_lib/microblog/definitions";
 import Breadcrumb from "@/app/_components/breadcrumb";
 import { lora } from "@/app/_fonts/fonts";
+import Timeline from "@/app/_components/microblog/timeline";
 
 const ACTOR = `${process.env.NEXT_PUBLIC_BSKY_HANDLE}`;
 
@@ -77,12 +78,8 @@ export default async function BlueskyPage() {
                <div className="mt-9">
                   <h3 className="my-4 text-2xl font-medium-mid">Profile</h3>
                   <pre>{JSON.stringify(profile, null, 2)}</pre>
-                  <h3 className="my-4 text-2xl font-medium-mid">
-                     organizedThreads
-                  </h3>
-                  <div className="my-4">
-                     <pre>{JSON.stringify(organizedThreads, null, 2)}</pre>
-                  </div>
+                  <h3 className="my-4 text-2xl font-medium-mid">Feed</h3>
+                  <Timeline posts={organizedThreads} />
                </div>
             </div>
          </main>
