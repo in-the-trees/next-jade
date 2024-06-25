@@ -4,17 +4,66 @@ import { lora } from "@/app/_fonts/fonts";
 
 const ACTOR = `${process.env.NEXT_PUBLIC_BSKY_HANDLE}`;
 
+type Post = {
+   uri: string;
+   cid: string;
+   record: {
+      $type: string;
+      createdAt: string;
+      reply?: {
+         parent: {
+            cid: string;
+            uri: string;
+         };
+         root: {
+            cid: string;
+            uri: string;
+         };
+      };
+      text: string;
+   };
+   replyCount: number;
+   repostCount: number;
+   likeCount: number;
+};
+
 export default async function BlueskyPage() {
    const { data: profile } = await agent.app.bsky.actor.getProfile({
       actor: ACTOR,
    });
 
    const {
-      data: { feed: posts },
+      data: { feed: bskyPosts },
    } = await agent.app.bsky.feed.getAuthorFeed({
       actor: ACTOR,
       filter: "posts_and_author_threads",
    });
+
+   const flattenedPosts = bskyPosts.flatMap((item) => ({ ...item.post }));
+
+   const organizedThreads = (() => {
+      const posts = bskyPosts.flatMap((item) => ({
+         ...item.post,
+      })) as unknown as Post[];
+
+      const threadMap = new Map();
+
+      posts.forEach((post) => {
+         threadMap.set(post.cid, { ...post, replies: [] });
+      });
+
+      posts.forEach((post) => {
+         if (post.record.reply) {
+            const parentCid = post.record.reply.root.cid;
+            const parent = threadMap.get(parentCid);
+            if (parent) {
+               parent.replies.push(threadMap.get(post.cid));
+            }
+         }
+      });
+
+      return Array.from(threadMap.values()).filter((post) => !post.record.reply);
+   })();
 
    return (
       <div>
@@ -49,12 +98,21 @@ export default async function BlueskyPage() {
                <div className="mt-9">
                   <h3 className="my-4 text-2xl font-medium-mid">Profile</h3>
                   <pre>{JSON.stringify(profile, null, 2)}</pre>
-                  <h3 className="my-4 text-2xl font-medium-mid">Posts</h3>
-                  {posts.map(({ post }) => (
+                  <h3 className="my-4 text-2xl font-medium-mid">bskyPosts</h3>
+                  <div className="my-4">
+                     <pre>{JSON.stringify(bskyPosts, null, 2)}</pre>
+                  </div>
+                  <h3 className="my-4 text-2xl font-medium-mid">
+                     organizedThreads
+                  </h3>
+                  <div className="my-4">
+                     <pre>{JSON.stringify(organizedThreads, null, 2)}</pre>
+                  </div>
+                  {/* {bskyPosts.map(({ post }) => (
                      <div key={post.cid} className="my-4">
                         <pre>{JSON.stringify(post, null, 2)}</pre>
                      </div>
-                  ))}
+                  ))} */}
                </div>
             </div>
          </main>
