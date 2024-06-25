@@ -7,10 +7,6 @@ import Timeline from "@/app/_components/microblog/timeline";
 const ACTOR = `${process.env.NEXT_PUBLIC_BSKY_HANDLE}`;
 
 export default async function BlueskyPage() {
-   const { data: profile } = await agent.app.bsky.actor.getProfile({
-      actor: ACTOR,
-   });
-
    const {
       data: { feed: bskyPosts },
    } = await agent.app.bsky.feed.getAuthorFeed({
@@ -76,8 +72,6 @@ export default async function BlueskyPage() {
 
             <div className="my-4 flex flex-wrap items-center gap-2">
                <div className="mt-9">
-                  <h3 className="my-4 text-2xl font-medium-mid">Profile</h3>
-                  <pre>{JSON.stringify(profile, null, 2)}</pre>
                   <h3 className="my-4 text-2xl font-medium-mid">Feed</h3>
                   <Timeline posts={organizedThreads} />
                </div>
