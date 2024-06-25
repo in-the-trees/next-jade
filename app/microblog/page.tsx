@@ -80,8 +80,6 @@ export default async function BlueskyPage() {
       filter: "posts_and_author_threads",
    });
 
-   const flattenedPosts = bskyPosts.flatMap((item) => ({ ...item.post }));
-
    const organizedThreads = (() => {
       const posts = bskyPosts.flatMap(
          (item) =>
@@ -148,11 +146,6 @@ export default async function BlueskyPage() {
                   <div className="my-4">
                      <pre>{JSON.stringify(organizedThreads, null, 2)}</pre>
                   </div>
-                  {/* {bskyPosts.map(({ post }) => (
-                     <div key={post.cid} className="my-4">
-                        <pre>{JSON.stringify(post, null, 2)}</pre>
-                     </div>
-                  ))} */}
                </div>
             </div>
          </main>
