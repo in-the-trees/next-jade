@@ -71,10 +71,7 @@ export default async function BlueskyPage() {
             <h2 className="text-pretty">Experimenting with the Bluesky API.</h2>
 
             <div className="my-4 flex flex-wrap items-center gap-2">
-               <div className="mt-9">
-                  <h3 className="my-4 text-2xl font-medium-mid">Feed</h3>
-                  <Timeline posts={organizedThreads} />
-               </div>
+               <Timeline posts={organizedThreads} className="mt-9" />
             </div>
          </main>
       </div>
