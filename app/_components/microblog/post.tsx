@@ -19,21 +19,29 @@ export default function PostComponent({
    const initRelativeTime = formatTimeRelatively(post.record.createdAt, true);
 
    return (
-      <article className={`${className} h-entry proseStyling prose-sm`}>
-         <header className="flex items-center gap-2">
-            <EllipsisMessageMedium14Icon className="h-3.5 w-3.5 text-stone-500 dark:text-stone-400" />
-            <Timestamp
-               createdAt={post.record.createdAt}
-               initRelativeTime={initRelativeTime}
-               className={clsx(
-                  `${commit_mono.className} text-[calc(1em-1px)] text-stone-500 dark:text-stone-400`,
-                  {
-                     "text-[calc(1em-2px)]": timelined,
-                  },
-               )}
-            />
-         </header>
-         <div className="e-content break-words">{post.record.text}</div>
-      </article>
+      <>
+         <h1 className="text-lg font-medium-mid">{post.cid}</h1>
+         <pre className="text-[9px] leading-tight">
+            {JSON.stringify(post, null, 2)}
+         </pre>
+         <article className={`${className} h-entry proseStyling prose-sm`}>
+            <header className="flex items-center gap-2">
+               <EllipsisMessageMedium14Icon className="h-3.5 w-3.5 text-stone-500 dark:text-stone-400" />
+               <Timestamp
+                  createdAt={post.record.createdAt}
+                  initRelativeTime={initRelativeTime}
+                  className={clsx(
+                     `${commit_mono.className} text-[calc(1em-1px)] text-stone-500 dark:text-stone-400`,
+                     {
+                        "text-[calc(1em-2px)]": timelined,
+                     },
+                  )}
+               />
+            </header>
+            <div className="e-content my-3.5 whitespace-pre-wrap break-words">
+               {post.record.text}
+            </div>
+         </article>
+      </>
    );
 }
