@@ -7,7 +7,7 @@ export function middleware(request: NextRequest) {
          process.env.NODE_ENV === "production" ? "" : `'unsafe-eval'`
       };
       style-src 'self';
-      img-src 'self' blob: data: https://micro.blog https://jade.micro.blog;
+      img-src 'self' blob: data: https://micro.blog https://jade.micro.blog https://cdn.bsky.app;
       font-src 'self';
       object-src 'none';
       base-uri 'self';
