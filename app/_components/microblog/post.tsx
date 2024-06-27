@@ -1,9 +1,6 @@
 import { Post as PostType } from "@/app/_lib/microblog/definitions";
-import { formatTimeRelatively } from "@/app/_lib/relativeTime";
-import Timestamp from "@/app/_components/microblog/timestamp";
-import { EllipsisMessageMedium14Icon } from "@/app/_components/icons";
-import { commit_mono } from "@/app/_fonts/fonts";
-import clsx from "clsx";
+import PostHeader from "@/app/_components/microblog/post/header";
+import { bskyImg, getLinkFromUrl } from "@/app/_lib/microblog/bskyImg";
 
 type PostProps = {
    className?: string;
@@ -11,31 +8,43 @@ type PostProps = {
    timelined?: boolean;
 };
 
-function PostHeader({
-   createdAt,
-   timelined,
-   thread,
-}: {
-   createdAt: string;
-   timelined?: boolean;
-   thread?: boolean;
-}) {
-   const initRelativeTime = formatTimeRelatively(createdAt, true);
+function PostImages({ post }: { post: PostType }) {
+   if (!post.embed || !post.embed.images) return null;
 
    return (
-      <header className="flex items-center gap-2">
-         <EllipsisMessageMedium14Icon className="h-3.5 w-3.5 text-stone-500 dark:text-stone-400" />
-         <Timestamp
-            createdAt={createdAt}
-            initRelativeTime={initRelativeTime}
-            className={clsx(
-               `${commit_mono.className} text-[calc(1em-1px)] text-stone-500 dark:text-stone-400`,
-               {
-                  "text-[calc(1em-2px)]": timelined,
-               },
-            )}
-         />
-      </header>
+      <div>
+         {post.embed.images.map((i) => (
+            <picture key={i.thumb}>
+               <source
+                  srcSet={bskyImg(
+                     post.author.did,
+                     getLinkFromUrl(i.thumb),
+                     bskyImg.Format.AVIF,
+                     bskyImg.Size.THUMB,
+                  )}
+                  type="image/avif"
+               />
+               <source
+                  srcSet={bskyImg(
+                     post.author.did,
+                     getLinkFromUrl(i.thumb),
+                     bskyImg.Format.WEBP,
+                     bskyImg.Size.THUMB,
+                  )}
+                  type="image/webp"
+               />
+               <img
+                  src={bskyImg(
+                     post.author.did,
+                     getLinkFromUrl(i.thumb),
+                     bskyImg.Format.JPEG,
+                     bskyImg.Size.THUMB,
+                  )}
+                  alt={i.alt}
+               />
+            </picture>
+         ))}
+      </div>
    );
 }
 
@@ -48,10 +57,14 @@ function PostContent({
 }) {
    return (
       <>
+         <pre className="my-1 text-[9px] leading-tight">
+            {JSON.stringify(post, null, 2)}
+         </pre>
          <PostHeader createdAt={post.record.createdAt} timelined={timelined} />
          <div className="e-content proseStyling prose-sm my-3.5 whitespace-pre-wrap break-words">
             {post.record.text}
          </div>
+         <PostImages post={post} />
       </>
    );
 }
@@ -62,7 +75,7 @@ export default function PostComponent({
    timelined,
 }: PostProps) {
    return (
-      <article className={`${className} h-entry`}>
+      <article className={`${className} h-entry bg-stone-200`}>
          <PostContent post={post} timelined={timelined} />
          {post.threadReplies && post.threadReplies.length > 0 && (
             <ul>
