@@ -31,6 +31,10 @@ interface RecordEmbed {
    images?: {
       alt: string;
       image: ImageReference;
+      aspectRatio?: {
+         height: number;
+         width: number;
+      };
    }[];
    external?: {
       description?: string;
@@ -57,6 +61,10 @@ interface PostEmbed {
       thumb: string;
       fullsize: string;
       alt?: string;
+      aspectRatio?: {
+         height: number;
+         width: number;
+      };
    }[];
    external?: {
       $type: string;

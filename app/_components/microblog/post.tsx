@@ -41,6 +41,8 @@ function PostImages({ post }: { post: PostType }) {
                      bskyImg.Size.THUMB,
                   )}
                   alt={i.alt}
+                  height={i.aspectRatio ? i.aspectRatio.height : undefined}
+                  width={i.aspectRatio ? i.aspectRatio.width : undefined}
                />
             </picture>
          ))}
