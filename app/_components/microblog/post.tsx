@@ -43,6 +43,7 @@ function PostImages({ post }: { post: PostType }) {
                   alt={i.alt}
                   height={i.aspectRatio ? i.aspectRatio.height : undefined}
                   width={i.aspectRatio ? i.aspectRatio.width : undefined}
+                  className="my-3.5 max-w-96 rounded-xl bg-stone-200 transition-transform ease-out hover:scale-[1.01] dark:bg-stone-600"
                />
             </picture>
          ))}
@@ -59,9 +60,9 @@ function PostContent({
 }) {
    return (
       <>
-         <pre className="my-1 text-[9px] leading-tight">
+         {/* <pre className="my-1 text-[9px] leading-tight">
             {JSON.stringify(post, null, 2)}
-         </pre>
+         </pre> */}
          <PostHeader createdAt={post.record.createdAt} timelined={timelined} />
          <div className="e-content proseStyling prose-sm my-3.5 whitespace-pre-wrap break-words">
             {post.record.text}
@@ -77,7 +78,7 @@ export default function PostComponent({
    timelined,
 }: PostProps) {
    return (
-      <article className={`${className} h-entry bg-stone-200`}>
+      <article className={`${className} h-entry`}>
          <PostContent post={post} timelined={timelined} />
          {post.threadReplies && post.threadReplies.length > 0 && (
             <ul>
