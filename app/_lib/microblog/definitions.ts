@@ -1,67 +1,85 @@
-export type BskyPost = {
+interface Author {
+   did: string;
+   handle: string;
+   displayName: string;
+   avatar: string;
+   associated: {
+      chat: {
+         allowIncoming: string;
+      };
+   };
+   labels: any[];
+   createdAt: string;
+}
+
+interface ReplyReference {
+   cid: string;
+   uri: string;
+}
+
+interface ImageReference {
+   $type: string;
+   ref: {
+      $link: string;
+   };
+   mimeType: string;
+   size: number;
+}
+
+interface RecordEmbed {
+   $type: string;
+   images?: {
+      alt: string;
+      image: ImageReference;
+   }[];
+   external?: {
+      description?: string;
+      thumb?: ImageReference;
+      title: string;
+      uri: string;
+   };
+}
+
+interface Record {
+   $type: string;
+   createdAt: string;
+   reply?: {
+      parent: ReplyReference;
+      root: ReplyReference;
+   };
+   embed?: RecordEmbed;
+   text: string;
+}
+
+interface PostEmbed {
+   $type: string;
+   images?: {
+      thumb: string;
+      fullsize: string;
+      alt?: string;
+   }[];
+   external?: {
+      $type: string;
+      uri: string;
+      title: string;
+      description?: string;
+      thumb?: string;
+   };
+}
+
+export interface BskyPost {
    uri: string;
    cid: string;
-   record: {
-      $type: string;
-      createdAt: string;
-      reply?: {
-         parent: {
-            cid: string;
-            uri: string;
-         };
-         root: {
-            cid: string;
-            uri: string;
-         };
-      };
-      images?: [
-         {
-            alt?: string;
-            aspectRatio: {
-               height: number;
-               width: number;
-            };
-            image: {
-               ref: {
-                  $link: string;
-               };
-            };
-         },
-      ];
-      external?: {
-         description?: string;
-         thumb?: {
-            ref: {
-               $link: string;
-            };
-         };
-      };
-      text: string;
-   };
-   embed?: {
-      images?: [
-         {
-            thumb: string;
-            fullsize: string;
-            alt?: string;
-            aspectRatio: {
-               height: number;
-               width: number;
-            };
-         },
-      ];
-      external?: {
-         uri: string;
-         title?: string;
-         description?: string;
-         thumb: string;
-      };
-   };
+   author: Author;
+   record: Record;
+   embed?: PostEmbed;
    replyCount: number;
    repostCount: number;
    likeCount: number;
-};
+   indexedAt: string;
+   labels: any[];
+}
 
-export type Post = BskyPost & {
-   threadReplies?: Post[];
-};
+export interface Post extends BskyPost {
+   threadReplies?: BskyPost[];
+}
