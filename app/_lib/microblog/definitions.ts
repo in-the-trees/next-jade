@@ -1,4 +1,4 @@
-export type Post = {
+export type BskyPost = {
    uri: string;
    cid: string;
    record: {
@@ -60,4 +60,8 @@ export type Post = {
    replyCount: number;
    repostCount: number;
    likeCount: number;
+};
+
+export type Post = BskyPost & {
+   threadReplies?: Post[];
 };

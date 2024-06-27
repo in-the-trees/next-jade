@@ -1,5 +1,5 @@
 import { agent } from "@/app/_lib/microblog/api";
-import { Post } from "@/app/_lib/microblog/definitions";
+import { Post, BskyPost } from "@/app/_lib/microblog/definitions";
 import Breadcrumb from "@/app/_components/breadcrumb";
 import { lora } from "@/app/_fonts/fonts";
 import Timeline from "@/app/_components/microblog/timeline";
@@ -20,12 +20,12 @@ export default async function BlueskyPage() {
             ({
                ...item.post,
             }) as unknown,
-      ) as Post[];
+      ) as BskyPost[];
 
       const threadMap = new Map();
 
       posts.forEach((post) => {
-         threadMap.set(post.cid, { ...post, replies: [] });
+         threadMap.set(post.cid, { ...post, threadReplies: [] });
       });
 
       posts.forEach((post) => {
@@ -33,7 +33,7 @@ export default async function BlueskyPage() {
             const parentCid = post.record.reply.root.cid;
             const parent = threadMap.get(parentCid);
             if (parent) {
-               parent.replies.push(threadMap.get(post.cid));
+               parent.threadReplies.push(threadMap.get(post.cid));
             }
          }
       });
