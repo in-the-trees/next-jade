@@ -11,37 +11,66 @@ type PostProps = {
    timelined?: boolean;
 };
 
+function PostHeader({
+   createdAt,
+   timelined,
+}: {
+   createdAt: string;
+   timelined?: boolean;
+}) {
+   const initRelativeTime = formatTimeRelatively(createdAt, true);
+
+   return (
+      <header className="flex items-center gap-2">
+         <EllipsisMessageMedium14Icon className="h-3.5 w-3.5 text-stone-500 dark:text-stone-400" />
+         <Timestamp
+            createdAt={createdAt}
+            initRelativeTime={initRelativeTime}
+            className={clsx(
+               `${commit_mono.className} text-[calc(1em-1px)] text-stone-500 dark:text-stone-400`,
+               {
+                  "text-[calc(1em-2px)]": timelined,
+               },
+            )}
+         />
+      </header>
+   );
+}
+
+function PostContent({
+   post,
+   timelined,
+}: {
+   post: PostType;
+   timelined?: boolean;
+}) {
+   return (
+      <>
+         <PostHeader createdAt={post.record.createdAt} timelined={timelined} />
+         <div className="e-content proseStyling prose-sm my-3.5 whitespace-pre-wrap break-words">
+            {post.record.text}
+         </div>
+      </>
+   );
+}
+
 export default function PostComponent({
    className,
    post,
    timelined,
 }: PostProps) {
-   const initRelativeTime = formatTimeRelatively(post.record.createdAt, true);
-
    return (
-      <>
-         <h1 className="text-lg font-medium-mid">{post.cid}</h1>
-         <pre className="text-[9px] leading-tight">
-            {JSON.stringify(post, null, 2)}
-         </pre>
-         <article className={`${className} h-entry proseStyling prose-sm`}>
-            <header className="flex items-center gap-2">
-               <EllipsisMessageMedium14Icon className="h-3.5 w-3.5 text-stone-500 dark:text-stone-400" />
-               <Timestamp
-                  createdAt={post.record.createdAt}
-                  initRelativeTime={initRelativeTime}
-                  className={clsx(
-                     `${commit_mono.className} text-[calc(1em-1px)] text-stone-500 dark:text-stone-400`,
-                     {
-                        "text-[calc(1em-2px)]": timelined,
-                     },
-                  )}
-               />
-            </header>
-            <div className="e-content my-3.5 whitespace-pre-wrap break-words">
-               {post.record.text}
-            </div>
-         </article>
-      </>
+      <article className={`${className} h-entry`}>
+         <PostContent post={post} timelined={timelined} />
+         {post.threadReplies && post.threadReplies.length > 0 && (
+            <ul>
+               {post.threadReplies.map((reply) => (
+                  <li key={reply.cid} className="ml-3">
+                     <PostContent post={reply} />
+                  </li>
+               ))}
+            </ul>
+         )}
+      </article>
    );
 }
