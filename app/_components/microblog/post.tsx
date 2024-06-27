@@ -14,9 +14,11 @@ type PostProps = {
 function PostHeader({
    createdAt,
    timelined,
+   thread,
 }: {
    createdAt: string;
    timelined?: boolean;
+   thread?: boolean;
 }) {
    const initRelativeTime = formatTimeRelatively(createdAt, true);
 
