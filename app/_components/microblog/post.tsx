@@ -14,7 +14,7 @@ function PostImages({ post }: { post: PostType }) {
    return (
       <div>
          {post.embed.images.map((i) => (
-            <div key={i.thumb}>
+            <div key={i.thumb} className="my-3.5">
                <a
                   href={bskyImg(
                      post.author.did,
@@ -53,7 +53,7 @@ function PostImages({ post }: { post: PostType }) {
                         alt={i.alt}
                         height={i.aspectRatio ? i.aspectRatio.height : undefined}
                         width={i.aspectRatio ? i.aspectRatio.width : undefined}
-                        className="my-3.5 inline-block max-w-72 rounded-xl bg-stone-200 transition-transform ease-out hover:scale-[1.01] dark:bg-stone-600"
+                        className="inline-block max-w-72 rounded-xl bg-stone-200 transition-transform ease-out hover:scale-[1.01] dark:bg-stone-600"
                      />
                   </picture>
                </a>
