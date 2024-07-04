@@ -72,19 +72,23 @@ function PostOG({ post }: { post: PostType }) {
          <a href={post.embed.external.uri} target="_blank">
             <blockquote
                cite={post.embed.external.uri}
-               className="my-3.5 flex flex-col-reverse rounded-xl bg-stone-200 p-4 leading-5 text-stone-900 transition-transform ease-out hover:scale-[1.01] dark:bg-stone-600 dark:text-stone-100"
+               className="my-3.5 flex flex-col-reverse gap-3 rounded-xl bg-stone-200 p-4 leading-5 text-stone-900 transition-transform ease-out hover:scale-[1.01] dark:bg-stone-600 dark:text-stone-100"
             >
-               <div>
-                  <span>{post.embed.external.title}</span>
-                  <div className="flex w-full flex-row items-center gap-2">
+               <div className="flex flex-col gap-1">
+                  <span className="font-normal-mid">
+                     {post.embed.external.title}
+                  </span>
+                  <div className="flex w-full flex-row items-center gap-2 text-stone-700 dark:text-stone-300">
                      <LinkMedium14Icon className="h-3.5 w-3.5" />
-                     <cite className="not-italic">
+                     <cite className="truncate not-italic">
                         {post.embed.external.uri}
                      </cite>
                   </div>
                </div>
                {post.embed.external.description && (
-                  <p>{post.embed.external.description}</p>
+                  <p className="text-stone-500 dark:text-stone-400">
+                     {post.embed.external.description}
+                  </p>
                )}
             </blockquote>
          </a>
