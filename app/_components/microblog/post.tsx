@@ -1,6 +1,7 @@
 import { Post as PostType } from "@/app/_lib/microblog/definitions";
 import PostHeader from "@/app/_components/microblog/post/header";
 import { bskyImg, getLinkFromUrl } from "@/app/_lib/microblog/bskyImg";
+import { LinkMedium14Icon } from "@/app/_components/icons";
 
 type PostProps = {
    className?: string;
@@ -63,6 +64,34 @@ function PostImages({ post }: { post: PostType }) {
    );
 }
 
+function PostOG({ post }: { post: PostType }) {
+   if (!post.embed || !post.embed.external) return null;
+
+   return (
+      <div>
+         <a href={post.embed.external.uri} target="_blank">
+            <blockquote
+               cite={post.embed.external.uri}
+               className="my-3.5 flex flex-col-reverse rounded-xl bg-stone-200 p-4 leading-5 text-stone-900 transition-transform ease-out hover:scale-[1.01] dark:bg-stone-600 dark:text-stone-100"
+            >
+               <div>
+                  <span>{post.embed.external.title}</span>
+                  <div className="flex w-full flex-row items-center gap-2">
+                     <LinkMedium14Icon className="h-3.5 w-3.5" />
+                     <cite className="not-italic">
+                        {post.embed.external.uri}
+                     </cite>
+                  </div>
+               </div>
+               {post.embed.external.description && (
+                  <p>{post.embed.external.description}</p>
+               )}
+            </blockquote>
+         </a>
+      </div>
+   );
+}
+
 function PostContent({
    post,
    timelined,
@@ -80,6 +109,7 @@ function PostContent({
             {post.record.text}
          </div>
          <PostImages post={post} />
+         <PostOG post={post} />
       </>
    );
 }
