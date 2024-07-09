@@ -251,9 +251,9 @@ code {
    @apply transition-transform;
    @apply ease-out;
    @apply hover:scale-[1.01] active:scale-[1.0];
-   @apply bg-stone-200 dark:bg-stone-700;
+   @apply bg-stone-200 dark:bg-stone-700/70;
    @apply text-stone-900 dark:text-stone-300;
-   @apply hover:bg-stone-300 dark:hover:bg-stone-700/70;
+   @apply hover:bg-stone-300 dark:hover:bg-stone-700/50;
 }
 
 .btm-sm-alt-gap-1 {
