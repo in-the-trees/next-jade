@@ -48,7 +48,7 @@ export default function Conversation({
                            </span>
                            {reply.author._microblog.username ===
                               myMicroblogUsername && (
-                              <CheckmarkMessageFillMedium13Icon className="dark:text-betty-300 h-[1em] w-[1em] text-forest-600" />
+                              <CheckmarkMessageFillMedium13Icon className="h-[1em] w-[1em] text-forest-600 dark:text-betty-300" />
                            )}
                         </div>
                         <div className="flex items-center gap-2 text-[calc(1em-1px)]">
