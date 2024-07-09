@@ -28,7 +28,7 @@ export default function RootLayout({
    return (
       <html lang="en">
          <body
-            className={`${inter.className} mx-[calc(1.75rem-1rem)] mb-7 overflow-x-hidden overflow-y-visible bg-stone-100 text-sm text-forest-950 md:mx-7 md:mb-7 dark:bg-stone-700 dark:text-stone-50 dark:antialiased`}
+            className={`${inter.className} mx-[calc(1.75rem-1rem)] mb-7 overflow-x-hidden overflow-y-visible bg-stone-100 text-sm text-forest-950 md:mx-7 md:mb-7 dark:bg-black dark:text-white dark:antialiased`}
          >
             {children}
          </body>
