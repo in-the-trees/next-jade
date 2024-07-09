@@ -145,7 +145,7 @@ strong {
 }
 
 .proseStyling {
-   @apply prose-a:text-forest-600 hover:prose-a:underline prose-a:dark:text-forest-300;
+   @apply prose-a:text-forest-600 hover:prose-a:underline prose-a:dark:text-betty-300;
    @apply prose-img:max-w-full;
    @apply prose-img:rounded-xl prose-img:bg-stone-200 prose-img:transition-transform prose-img:ease-out hover:prose-img:scale-[1.01] prose-img:dark:bg-stone-600;
    @apply prose-ul:ml-4 prose-ul:list-inside prose-ul:list-disc prose-ul:p-0 prose-li:m-0 prose-li:p-0;

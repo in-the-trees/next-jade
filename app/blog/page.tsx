@@ -63,7 +63,7 @@ export default async function Blog() {
                               <ChevronRightMedium8Icon className="block h-3 w-3 self-start text-nowrap text-stone-400" />
                               <Link
                                  href={`/blog/${post.slug}`}
-                                 className="dark:text-forest-300block self-start text-forest-600 hover:underline"
+                                 className="dark:text-betty-300block self-start text-forest-600 hover:underline"
                               >
                                  {post.title}
                               </Link>

@@ -89,7 +89,7 @@ const Breadcrumb = ({ className, items }: BreadcrumbProps) => {
                            href={item.href}
                            target="_blank"
                            rel="noopener noreferrer"
-                           className="dark:text-forest-300ml-0 flex w-fit items-center gap-1 rounded-lg-half bg-blue-50 px-2 py-0.75 text-forest-600 transition-transform ease-out hover:scale-[1.02] md:ml-auto"
+                           className="dark:text-betty-300ml-0 flex w-fit items-center gap-1 rounded-lg-half bg-blue-50 px-2 py-0.75 text-forest-600 transition-transform ease-out hover:scale-[1.02] md:ml-auto"
                         >
                            <span>{item.text}</span>
                         </a>
