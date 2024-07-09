@@ -71,7 +71,7 @@ const Breadcrumb = ({ className, items }: BreadcrumbProps) => {
                   return (
                      <span
                         key={index}
-                        className="box-border rounded-lg-half border border-stone-200 px-2 py-0.75 text-stone-500 dark:border-stone-700 dark:text-stone-500"
+                        className="box-border rounded-lg-half border border-stone-200 px-2 py-0.75 text-stone-500 dark:border-stone-800 dark:text-stone-500"
                      >
                         {item.text}
                      </span>

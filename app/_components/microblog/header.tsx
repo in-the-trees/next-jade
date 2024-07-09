@@ -102,8 +102,8 @@ export default function Header({
          {date_modified && show_updated ?
             <>
                {inFeed ?
-                  <ChevronDoubleRight10Icon className="h-[10px] w-[10px] text-stone-400/80 dark:text-stone-500" />
-               :  <ChevronDoubleRight12Icon className="h-3 w-3 text-stone-400/80 dark:text-stone-500" />
+                  <ChevronDoubleRight10Icon className="h-[10px] w-[10px] text-stone-400/80 dark:text-stone-500/80" />
+               :  <ChevronDoubleRight12Icon className="h-3 w-3 text-stone-400/80 dark:text-stone-500/80" />
                }
                <time
                   dateTime={date_modified}
