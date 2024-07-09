@@ -233,9 +233,9 @@ code {
    @apply transition-transform;
    @apply ease-out;
    @apply hover:scale-[1.01] active:scale-[1.0];
-   @apply bg-forest-100 dark:bg-forest-300;
-   @apply text-forest-700 dark:text-forest-900;
-   @apply hover:bg-forest-200 dark:hover:bg-forest-400;
+   @apply bg-forest-100 dark:bg-betty-300;
+   @apply text-forest-700 dark:text-betty-900;
+   @apply hover:bg-forest-200 dark:hover:bg-betty-400;
 }
 
 .btn-sm-alt {
