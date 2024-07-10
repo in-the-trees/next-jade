@@ -16,11 +16,11 @@ html {
 
 @media (prefers-color-scheme: dark) {
    *::selection {
-      background: #a8a29e;
+      background: #C992B3;
    }
 
    *::-moz-selection {
-      background: #a8a29e;
+      background: #C992B3;
    }
 }
 
