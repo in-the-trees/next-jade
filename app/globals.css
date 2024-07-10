@@ -261,15 +261,15 @@ code {
 }
 
 #submit-reply #submit-reply-bg {
-   @apply fill-forest-200;
+   @apply fill-forest-200 dark:fill-betty-400;
 }
 
 #submit-reply:hover #submit-reply-bg {
-   @apply fill-forest-300;
+   @apply fill-forest-300 dark:fill-betty-500;
 }
 
 #submit-reply #submit-reply-fg {
-   @apply fill-forest-800;
+   @apply fill-forest-800 dark:fill-betty-950;
 }
 
 .details-dropdown {
