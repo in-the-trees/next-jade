@@ -74,7 +74,7 @@ export default async function MicroblogFeed({
                         <Link
                            href="/microblog/archive"
                            prefetch={true}
-                           className="text-forest-600 hover:underline dark:text-forest-300"
+                           className="text-forest-600 hover:underline dark:text-betty-300"
                         >
                            archive
                         </Link>

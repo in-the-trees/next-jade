@@ -40,21 +40,21 @@ export const GeneralPA = ({ homePageUrl }: PADropdownProps) => {
             <EllipsisCircleRegular20Icon className="h-5 w-5 text-stone-500 dark:text-stone-400" />
          </button>
          {isOpen && (
-            <div className="absolute right-0 z-10 mt-2 w-[12rem] rounded-2xl border border-stone-200 bg-stone-100 text-forest-950 shadow-xl shadow-stone-400/10 dark:border-stone-600 dark:bg-stone-700 dark:text-stone-50 dark:shadow-stone-900/10">
+            <div className="absolute right-0 z-10 mt-2 w-[12rem] rounded-2xl border border-stone-200 text-forest-950 shadow-xl shadow-stone-400/10 backdrop-blur-md dark:border-stone-700 dark:text-stone-50 dark:shadow-stone-900/10">
                <div className="p-2">
                   {homePageUrl && (
                      <Link
                         href={homePageUrl}
                         prefetch={false}
                         target="_blank"
-                        className="mb-1 flex w-full items-center justify-between rounded-xl bg-forest-100 px-4 py-2 text-left text-sm font-normal-mid text-forest-700 transition-transform ease-out hover:scale-[1.01] hover:bg-forest-200 active:scale-[1.0] dark:bg-forest-300 dark:text-forest-900 dark:hover:bg-forest-400"
+                        className="dark:border-betty-30 mb-1 flex w-full items-center justify-between rounded-xl border-forest-100 bg-forest-100 px-4 py-2 text-left text-sm font-normal-mid text-forest-700 transition-transform ease-out hover:scale-[1.01] hover:bg-forest-200 active:scale-[1.0] dark:bg-betty-300 dark:text-betty-900 dark:hover:bg-betty-400"
                      >
                         Micro.blog
                         <ArrowUpRightCircleMedium16Icon className="h-4 w-4 fill-forest-700 dark:fill-forest-900" />
                      </Link>
                   )}
                   <button
-                     className="flex w-full items-center justify-between rounded-xl px-4 py-2 text-left text-sm font-normal-mid transition-transform ease-out hover:bg-stone-200 active:scale-[0.99] dark:hover:bg-stone-600"
+                     className="flex w-full items-center justify-between rounded-xl border border-white/0 px-4 py-2 text-left text-sm font-normal-mid transition-transform ease-out hover:border hover:border-stone-200 hover:bg-forest-900/5 hover:backdrop-blur active:scale-[0.99] dark:hover:border-stone-700 dark:hover:bg-stone-100/5"
                      onClick={() => {
                         navigator.clipboard.writeText(
                            window.location.toString(),

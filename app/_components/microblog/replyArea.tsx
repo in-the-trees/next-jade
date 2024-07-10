@@ -104,7 +104,7 @@ export default function ReplyArea({ post, microdotblog }: ReplyAreaProps) {
    return (
       <div
          className={clsx(
-            "mt-7 rounded-lg border-transparent bg-stone-50 dark:bg-stone-600/50",
+            "mt-7 rounded-lg border-transparent bg-stone-50 dark:bg-stone-800/50",
             {
                border: tokenized || (mdb && mdb.items.length > 0),
             },
@@ -114,7 +114,7 @@ export default function ReplyArea({ post, microdotblog }: ReplyAreaProps) {
             <form
                action={postReply}
                className={clsx(
-                  "mt-3.5 flex max-w-full flex-col gap-2 border-stone-100 px-4 pb-4 dark:border-stone-600/50",
+                  "mt-3.5 flex max-w-full flex-col gap-2 border-stone-100 px-4 pb-4 dark:border-stone-900",
                   {
                      "border-b": mdb && mdb.items.length > 0,
                   },
@@ -125,7 +125,7 @@ export default function ReplyArea({ post, microdotblog }: ReplyAreaProps) {
                   placeholder="Some nice words..."
                   cols={37}
                   rows={3}
-                  className="w-full min-w-full max-w-full resize-y rounded-lg-half border border-stone-200 bg-stone-100 p-2 placeholder:text-forest-900/30 dark:border-stone-800/50 dark:bg-stone-700 dark:placeholder:text-stone-500"
+                  className="w-full min-w-full max-w-full resize-y rounded-lg-half border border-stone-200 bg-stone-100 p-2 placeholder:text-forest-900/30 dark:border-stone-800 dark:bg-stone-900 dark:placeholder:text-stone-700"
                />
                <div className="flex items-start justify-between gap-2 px-0.5">
                   <span className="text-[calc(1em-1px)] text-stone-500 dark:text-stone-400">

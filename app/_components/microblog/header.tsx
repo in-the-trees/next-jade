@@ -78,11 +78,11 @@ export default function Header({
          {inFeed && year && month && day && post_id ?
             <Link
                href={`/microblog/${year}/${month}/${day}/${post_id}`}
-               className="u-url mr-1 rounded-full bg-forest-100 px-[10px] py-[2px] transition-all ease-out hover:scale-103 hover:bg-forest-200 active:scale-[1.0] dark:bg-forest-300 dark:hover:bg-forest-400"
+               className="u-url mr-1 rounded-full bg-forest-100 px-[10px] py-[2px] transition-all ease-out hover:scale-103 hover:bg-forest-200 active:scale-[1.0] dark:bg-betty-300 dark:hover:bg-betty-400"
                aria-label="Open post"
                prefetch={preload}
             >
-               <ArrowRightMedium12Icon className="h-3 w-3 text-forest-700 dark:text-forest-900" />
+               <ArrowRightMedium12Icon className="h-3 w-3 text-forest-700 dark:text-betty-900" />
             </Link>
          :  <EllipsisMessageMedium14Icon className="h-3.5 w-3.5 text-stone-500 dark:text-stone-400" />
          }
@@ -102,8 +102,8 @@ export default function Header({
          {date_modified && show_updated ?
             <>
                {inFeed ?
-                  <ChevronDoubleRight10Icon className="h-[10px] w-[10px] text-stone-400/80 dark:text-stone-500" />
-               :  <ChevronDoubleRight12Icon className="h-3 w-3 text-stone-400/80 dark:text-stone-500" />
+                  <ChevronDoubleRight10Icon className="h-[10px] w-[10px] text-stone-400/80 dark:text-stone-500/80" />
+               :  <ChevronDoubleRight12Icon className="h-3 w-3 text-stone-400/80 dark:text-stone-500/80" />
                }
                <time
                   dateTime={date_modified}

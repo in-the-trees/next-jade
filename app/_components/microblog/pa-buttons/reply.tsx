@@ -42,7 +42,7 @@ export const ReplyPA = ({ postUrl, homePageUrl }: PADropdownProps) => {
             <ArrowshapeRightRegular20Icon className="h-5 w-5 text-stone-500 dark:text-stone-400" />
          </button>
          {isOpen && (
-            <div className="absolute right-0 z-10 mt-2 w-[12rem] rounded-2xl border border-stone-200 bg-stone-100 text-forest-950 shadow-xl shadow-stone-400/10 dark:border-stone-600 dark:bg-stone-700 dark:text-stone-50 dark:shadow-stone-900/10">
+            <div className="absolute right-0 z-10 mt-2 w-[12rem] rounded-2xl border border-stone-200 text-forest-950 shadow-xl shadow-stone-400/10 backdrop-blur-md dark:border-stone-700 dark:text-stone-50 dark:shadow-stone-900/10">
                <div className="p-2">
                   <span className="block p-2 font-light-mid italic text-stone-500 dark:text-stone-400">
                      Reply with
@@ -50,7 +50,7 @@ export const ReplyPA = ({ postUrl, homePageUrl }: PADropdownProps) => {
                   <Link
                      href={`https://micro.blog/account/comments/${id}/mb?url=${postUrl}`}
                      prefetch={false}
-                     className="flex w-full items-center justify-between rounded-xl px-4 py-2 text-left text-sm font-normal-mid transition-transform ease-out hover:bg-stone-200 active:scale-[0.99] dark:hover:bg-stone-600"
+                     className="flex w-full items-center justify-between rounded-xl border border-white/0 px-4 py-2 text-left text-sm font-normal-mid transition-transform ease-out hover:border hover:border-stone-200 hover:bg-forest-900/5 hover:backdrop-blur active:scale-[0.99] dark:hover:border-stone-700 dark:hover:bg-stone-100/5"
                   >
                      Micro.blog
                      <svg
@@ -65,7 +65,7 @@ export const ReplyPA = ({ postUrl, homePageUrl }: PADropdownProps) => {
                   <Link
                      href={`https://micro.blog/account/comments/${id}/bluesky?url=${postUrl}`}
                      prefetch={false}
-                     className="flex w-full items-center justify-between rounded-xl px-4 py-2 text-left text-sm font-normal-mid transition-transform ease-out hover:bg-stone-200 active:scale-[0.99] dark:hover:bg-stone-600"
+                     className="flex w-full items-center justify-between rounded-xl border border-white/0 px-4 py-2 text-left text-sm font-normal-mid transition-transform ease-out hover:border hover:border-stone-200 hover:bg-forest-900/5 hover:backdrop-blur active:scale-[0.99] dark:hover:border-stone-700 dark:hover:bg-stone-100/5"
                   >
                      Bluesky
                      <svg
@@ -80,7 +80,7 @@ export const ReplyPA = ({ postUrl, homePageUrl }: PADropdownProps) => {
                   <Link
                      href={`https://micro.blog/account/comments/${id}/mastodon?url=${postUrl}`}
                      prefetch={false}
-                     className="flex w-full items-center justify-between rounded-xl px-4 py-2 text-left text-sm font-normal-mid transition-transform ease-out hover:bg-stone-200 active:scale-[0.99] dark:hover:bg-stone-600"
+                     className="flex w-full items-center justify-between rounded-xl border border-white/0 px-4 py-2 text-left text-sm font-normal-mid transition-transform ease-out hover:border hover:border-stone-200 hover:bg-forest-900/5 hover:backdrop-blur active:scale-[0.99] dark:hover:border-stone-700 dark:hover:bg-stone-100/5"
                   >
                      Mastodon
                      <svg
