@@ -40,14 +40,24 @@ export default async function MicroblogFeed({
       console.error(error);
       return (
          <FeedWrapper className={className}>
-            <p className="text-stone-400">Something went wrong :-(</p>
+            <p className="text-stone-400">Something went wrong :(</p>
          </FeedWrapper>
       );
    } finally {
       if (!posts.length) {
          return (
             <FeedWrapper className={className}>
-               <p className="text-stone-400">Something went wrong :-(</p>
+               <p className="text-stone-400">
+                  Micro.blog may be unavailable;{" "}
+                  <a
+                     href="https://status.micro.blog"
+                     target="_blank"
+                     className="text-forest-600 hover:underline dark:text-betty-300"
+                  >
+                     check status
+                  </a>
+                  .
+               </p>
             </FeedWrapper>
          );
       } else {
@@ -69,7 +79,7 @@ export default async function MicroblogFeed({
             <FeedWrapper className={className}>
                {!posts.length && (
                   <p className="text-stone-500 dark:text-stone-400">
-                     No posts within the last day — check back later or visit the{" "}
+                     No posts within the last day; check back later or visit the{" "}
                      {
                         <Link
                            href="/microblog/archive"
