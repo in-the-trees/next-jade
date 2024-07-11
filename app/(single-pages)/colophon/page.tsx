@@ -6,6 +6,7 @@ import { lora } from "@/app/_fonts/fonts";
 
 import { promises as fs } from "fs";
 import path from "path";
+import { MDXRemote } from "next-mdx-remote/rsc";
 
 export const metadata: Metadata = {
    title: "inthetrees.me colophon",
@@ -54,7 +55,9 @@ export default async function ColophonPage() {
                Colophon
             </h1>
 
-            <section className="mt-9">{colophonContent}</section>
+            <section className="mt-9">
+               <MDXRemote source={colophonContent} />
+            </section>
          </main>
       </div>
    );
