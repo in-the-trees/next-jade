@@ -1,4 +1,10 @@
+export const dynamicParams = false;
+
 import Jade from "@/app/_components/Jade";
+
+export async function generateStaticParams() {
+   return [{ slug: "colophon" }];
+}
 
 export default function Home() {
    return (
