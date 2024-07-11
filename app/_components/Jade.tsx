@@ -132,60 +132,15 @@ const Jade: React.FC<JadeProps> = ({ className, home }) => {
          </section>
 
          <section>
-            <p className="mb-1.75 mt-3.5">Web presence:</p>
-            <ul className="mb-3.5 ml-4 mt-1.75 list-outside list-disc">
+            <p className="mb-1.75 mt-3.5">Pages:</p>
+            <ul className="mb-3.5 ml-3.5 mt-1.75 list-outside list-disc">
                <li className="ml-4">
-                  <a
+                  <Link
+                     href="/web-presence"
                      className="ml-1 text-forest-600 hover:underline dark:text-betty-300"
-                     href="https://github.com/in-the-trees"
                   >
-                     github.com/in-the-trees
-                  </a>
-               </li>
-               <li className="ml-4">
-                  <a
-                     className="ml-1 text-forest-600 hover:underline dark:text-betty-300"
-                     href="https://micro.blog/jade"
-                     rel="me"
-                  >
-                     micro.blog/jade
-                  </a>
-               </li>
-               <li className="details-parent-li ml-1 list-none">
-                  <details className="inline-block text-stone-400 dark:text-stone-600">
-                     <summary
-                        className="details-dropdown"
-                        aria-label="Less important web presence links"
-                     >
-                        ...
-                     </summary>
-                     <ul className="ml-6 list-[circle]">
-                        <li className="mt-1">
-                           <a
-                              className="ml-1 text-forest-600/70 hover:underline dark:text-betty-300/70"
-                              href="https://bsky.app/profile/inthetrees.me"
-                           >
-                              bsky.app/profile/inthetrees.me
-                           </a>
-                        </li>
-                        <li className="mt-1">
-                           <a
-                              className="ml-1 text-forest-600/70 hover:underline dark:text-betty-300/70"
-                              href="https://www.threads.net/@inthetrees.me"
-                           >
-                              threads.net/@inthetrees.me
-                           </a>
-                        </li>
-                        <li className="mt-1">
-                           <a
-                              className="ml-1 text-forest-600/70 hover:underline dark:text-betty-300/70"
-                              href="https://x.com/@inthetrees_7"
-                           >
-                              x.com/inthetrees_7
-                           </a>
-                        </li>
-                     </ul>
-                  </details>
+                     /web-presence
+                  </Link>
                </li>
             </ul>
          </section>
