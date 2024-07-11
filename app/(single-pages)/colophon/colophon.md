@@ -58,10 +58,11 @@ The way Micro.blog works is the service takes your posts from a MySQL database a
 
 I've strongly considered using Bluesky as the backend for my microblog, even creating an almost completely working partiy [branch](https://github.com/in-the-trees/next-jade/tree/bluesky) implementing it. Ultimately, I decided to stick with Micro.blog. While Bluesky's actual API was nice to work with, there are things about Micro.blog that I like, such as markdown and the indie-web vibe. And while my pseudo-API is the definition of hacky, it works!
 
-## Inspiration
+## Inspirations
 
 I've drawn inspiration for this site from a few sources:
 - [nat.org](https://nat.org) for the homepage layout
 - [sfcompute.com](https://sfcompute.com) for the [original styling](https://web.archive.org/web/20240602191402/https://inthetrees.me/)
+- [jimramsden.com](https://jimramsden.com) for the faded-until-hover effect for an aside
 
 This list is not exhaustive; I'll be adding to it as I recall more inspirations.
