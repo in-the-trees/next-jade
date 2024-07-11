@@ -4,7 +4,7 @@ I've built this site with [Next.js](https://nextjs.org), a React framework.
 
 I chose Next.js for a few reasons, but first: a brief history of what I was using before. Previously, my site was a static Hugo site using a [custom theme](https://github.com/in-the-trees/micro.blog-hugo) and hosted [on Micro.blog](https://help.micro.blog/t/custom-themes/59). Quickly I reached a point where I was stretching beyond what Hugo was designed for — I needed something more *reactive*. I also wanted more control over my hosting. Thus, I evaluated my options.
 
-As part of my evaluation, I went through the [Next.js Learn](https://nextjs.org/learn) mini-course and thought, "this rocks." The main aspect that stood out to me was server-side rendering — this was my first introduction to it. I thought it was really cool how, because the initial HTML is rendered on the server, even clients without JavaScript can still have a respectable experience. At the time, I was just learning React in school, so I jumped at the opportunity to learn something beyond create-react-app lol. As a result, I advanced significantly compared to my peers.
+As part of my evaluation, I went through the [Next.js Learn](https://nextjs.org/learn) mini-course and thought, "this rocks." The main aspect that stood out to me was server-side rendering — this was my first introduction to it. I thought it was really cool how, because the initial HTML is rendered on the server, even clients without JavaScript can still have a respectable experience. At the time, I was just learning React in school, so I jumped at the opportunity to learn something beyond create-react-app lol.
 
 ## Hosting
 
@@ -16,13 +16,13 @@ Hosting a Next.js site on Cloudflare does not come without it's set of challenge
 
 ### Analytics
 
-I do use analytics on this site, specifically [Cloudflare Web Analytics](https://www.cloudflare.com/web-analytics/). It's free, privacy-friendly, and gives me adequate insights. I don't really check my analytics often.
+I do use analytics on this site, specifically [Cloudflare Web Analytics](https://www.cloudflare.com/web-analytics/). It's free, privacy-friendly, and gives me adequate enough insights. I don't check my analytics all too often.
 
 ### Domain
 
 inthetrees.me is registered via [Cloudflare](https://www.cloudflare.com/products/registrar/).
 
-I've traditionally used Porkbun as my registrar, but I wanted to give Cloudflare's Registrar a try. I still prefer Porkbun.
+I've traditionally used Porkbun as my registrar, but I wanted to give Cloudflare's Registrar a try. I still prefer Porkbun. When my domain is due for renewal, I'll be conisidering transferring it to Porkbun.
 
 ## Development environment
 
@@ -46,14 +46,14 @@ Occasionally, I'll fire up a guest Chrome profile to test Chromium. Though usual
 
 I reluctantly use Visual Studio Code.
 
-I would very much like to use [Zed](https://zed.dev) — and I have in the past — but its support for [Supermaven](https://supermaven.com) is poor.
+I would very much like to use [Zed](https://zed.dev) — I used to daily drive it — but its support for [Supermaven](https://supermaven.com) is poor.
 
-Wait, Supermaven? It's an AI coding assistant that's *really* good. I was skeptical to try it because I felt like GitHub Copilot was fine, but that's really all it is — fine. Supermaven is practically zero-latency compared to GitHub Copilot.
+At this point, I'm reliant on Supermaven an AI coding assistant — it's *really* good. I was skeptical to initially try it because I felt like GitHub Copilot was fine, but that's really all it is — fine. Supermaven is practically zero-latency compared to GitHub Copilot.
 
 ## Microblog
 
-My microblog is the current staple of my site. It revolves around the service [Micro.blog](https://micro.blog), essentually leveraging it as a CMS.
+My microblog is the current staple of my site. It revolves around the service [Micro.blog](https://micro.blog), leveraging it as a backend.
 
-The way Micro.blog works is the service takes your posts from a MySQL database and serves them as a static Hugo blog. I've hacked together a custom "API" to fetch my posts in Next.js: I created a [custom theme](https://github.com/in-the-trees/micro.blog-api) that, instead of creating static HTML pages, creates static JSON files that I can fetch. I call it a pseudo-API.
+The way Micro.blog works is the service takes your posts from a MySQL database and serves them as a static Hugo blog. Users can't simply query the database, so I've had to hack together a custom "API" to fetch my posts within Next.js: I created a [custom Hugo theme](https://github.com/in-the-trees/micro.blog-api) that, instead of generating static HTML pages, generates static JSON that I can fetch. I call it a pseudo-API.
 
 I've strongly considered using Bluesky as the backend for my microblog, even creating an almost completely working partiy [branch](https://github.com/in-the-trees/next-jade/tree/bluesky) implementing it. Ultimately, I decided to stick with Micro.blog. While Bluesky's actual API was nice to work with, there are things about Micro.blog that I like, such as markdown and the indie-web vibe. And while my pseudo-API is the definition of hacky, it works!
