@@ -142,6 +142,14 @@ const Jade: React.FC<JadeProps> = ({ className, home }) => {
                      /web-presence
                   </Link>
                </li>
+               <li className="ml-4">
+                  <Link
+                     href="/colophon"
+                     className="ml-1 text-forest-600 hover:underline dark:text-betty-300"
+                  >
+                     /colophon
+                  </Link>
+               </li>
             </ul>
          </section>
       </div>
