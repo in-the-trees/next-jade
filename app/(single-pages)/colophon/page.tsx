@@ -10,7 +10,8 @@ import { lora, commit_mono } from "@/app/_fonts/fonts";
 
 export const metadata: Metadata = {
    title: "inthetrees.me colophon",
-   description: "Links to various platforms I have accounts on.",
+   description:
+      "Colophon for inthetrees.me describing how the site is made, with what tools, supporting what technologies, etc.",
 };
 
 async function getColophonContent() {
