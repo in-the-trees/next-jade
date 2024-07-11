@@ -7,36 +7,61 @@ export const metadata: Metadata = {
    description: "List of my web presence links.",
 };
 
-const presence: {
-   platform: string;
-   username: string;
-   url: string;
-   description?: string;
-}[] = [
+type PresenceGroup = {
+   group: string;
+   platforms: {
+      name: string;
+      username: string;
+      url: string;
+      description?: string;
+   }[];
+};
+
+const presence: PresenceGroup[] = [
    {
-      platform: "GitHub",
-      username: "in-the-trees",
-      url: "https://github.com/in-the-trees",
+      group: "Developer",
+      platforms: [
+         {
+            name: "GitHub",
+            username: "in-the-trees",
+            url: "https://github.com/in-the-trees",
+         },
+      ],
    },
    {
-      platform: "Micro.blog",
-      username: "jade",
-      url: "https://micro.blog/jade",
+      group: "Microblogging",
+      platforms: [
+         {
+            name: "Micro.blog",
+            username: "jade",
+            url: "https://micro.blog/jade",
+         },
+         {
+            name: "Bluesky",
+            username: "inthetrees.me",
+            url: "https://bsky.app/profile/inthetrees.me",
+         },
+         {
+            name: "Threads",
+            username: "inthetrees.me",
+            url: "https://www.threads.net/@inthetrees.me",
+         },
+         {
+            name: "X",
+            username: "@inthetrees_7",
+            url: "https://x.com/@inthetrees_7",
+         },
+      ],
    },
    {
-      platform: "Bluesky",
-      username: "inthetrees.me",
-      url: "https://bsky.app/profile/inthetrees.me",
-   },
-   {
-      platform: "Threads",
-      username: "inthetrees.me",
-      url: "https://www.threads.net/@inthetrees.me",
-   },
-   {
-      platform: "X",
-      username: "inthetrees_7",
-      url: "https://x.com/@inthetrees_7",
+      group: "Forums",
+      platforms: [
+         {
+            name: "Techlore Discussions",
+            username: "inthetrees",
+            url: "https://discuss.techlore.tech/u/inthetrees",
+         },
+      ],
    },
 ];
 
@@ -75,25 +100,29 @@ export default function WebPresence() {
             </h2>
 
             <section className="mt-9">
-               <dl>
-                  {presence.map((presence) => (
-                     <div key={presence.username}>
-                        <dt className="mt-1.5">{presence.platform}</dt>
-                        <dd className="ml-3.5">
-                           <a
-                              href={presence.url}
-                              target="_blank"
-                              className="text-forest-600 hover:underline dark:text-betty-300"
-                           >
-                              {presence.username}
-                           </a>
-                        </dd>
-                        {presence.description && (
-                           <dd className="ml-4">{presence.description}</dd>
-                        )}
-                     </div>
-                  ))}
-               </dl>
+               {presence.map((presenceGroup) => (
+                  <div key={presenceGroup.group} className="mt-3.5">
+                     <h3>{presenceGroup.group}:</h3>
+                     <dl className="mb-3.5 ml-4 mt-1.75">
+                        {presenceGroup.platforms.map((presence) => (
+                           <div key={presence.name} className="ml-3.5 list-item">
+                              <div className="ml-1">
+                                 <dt className="mt-1.5">{presence.name}</dt>
+                                 <dd>
+                                    <a
+                                       className="text-forest-600 hover:underline dark:text-betty-300"
+                                       href={presence.url}
+                                       target="_blank"
+                                    >
+                                       {presence.username}
+                                    </a>
+                                 </dd>
+                              </div>
+                           </div>
+                        ))}
+                     </dl>
+                  </div>
+               ))}
             </section>
          </main>
       </div>
