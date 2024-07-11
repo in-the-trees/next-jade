@@ -62,12 +62,10 @@ const Jade: React.FC<JadeProps> = ({ className, home }) => {
                   <span className="ml-1">Web developer, mainly front-end</span>
                </li>
                <li className="ml-4">
-                  <span className="ml-1">
-                     Digital privacy & security enthusiast
-                  </span>
+                  <span className="ml-1">Based in Madison, WI</span>
                </li>
                <li className="ml-4">
-                  <span className="ml-1">Based in Madison, WI</span>
+                  <span className="ml-1">In the trees</span>
                </li>
             </ul>
          </section>
