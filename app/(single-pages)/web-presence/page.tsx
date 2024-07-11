@@ -4,7 +4,7 @@ import { lora } from "@/app/_fonts/fonts";
 
 export const metadata: Metadata = {
    title: "Jade's web presence",
-   description: "List of my web presence links.",
+   description: "Links to various platforms I have accounts on.",
 };
 
 type PresenceGroup = {
@@ -95,11 +95,12 @@ export default function WebPresence() {
             </h1>
             <h2 className="text-pretty">
                <span className="sm:block">
-                  Where I link to my online presence.
+                  Links to various platforms I have accounts on.{" "}
                </span>
+               This is not a comprehensive list.
             </h2>
 
-            <section className="mt-9">
+            <section className="mt-5">
                {presence.map((presenceGroup) => (
                   <div key={presenceGroup.group} className="mt-3.5">
                      <h3>{presenceGroup.group}:</h3>
