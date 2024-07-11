@@ -1,12 +1,12 @@
 export const runtime = "nodejs";
 
-import type { Metadata } from "next";
-import Breadcrumb from "@/app/_components/breadcrumb";
-import { lora } from "@/app/_fonts/fonts";
-
 import { promises as fs } from "fs";
 import path from "path";
 import { MDXRemote } from "next-mdx-remote/rsc";
+
+import type { Metadata } from "next";
+import Breadcrumb from "@/app/_components/breadcrumb";
+import { lora, commit_mono } from "@/app/_fonts/fonts";
 
 export const metadata: Metadata = {
    title: "inthetrees.me colophon",
@@ -56,7 +56,11 @@ export default async function ColophonPage() {
             </h1>
 
             <section className="mt-9">
-               <MDXRemote source={colophonContent} />
+               <div
+                  className={`proseStyling prose-sm ${lora.variable} ${commit_mono.variable}`}
+               >
+                  <MDXRemote source={colophonContent} />
+               </div>
             </section>
          </main>
       </div>
