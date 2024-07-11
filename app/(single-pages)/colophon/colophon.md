@@ -57,3 +57,11 @@ My microblog is the current staple of my site. It revolves around the service [M
 The way Micro.blog works is the service takes your posts from a MySQL database and serves them as a static Hugo blog. Users can't simply query the database, so I've had to hack together a custom "API" to fetch my posts within Next.js: I created a [custom Hugo theme](https://github.com/in-the-trees/micro.blog-api) that, instead of generating static HTML pages, generates static JSON that I can fetch. I call it a pseudo-API.
 
 I've strongly considered using Bluesky as the backend for my microblog, even creating an almost completely working partiy [branch](https://github.com/in-the-trees/next-jade/tree/bluesky) implementing it. Ultimately, I decided to stick with Micro.blog. While Bluesky's actual API was nice to work with, there are things about Micro.blog that I like, such as markdown and the indie-web vibe. And while my pseudo-API is the definition of hacky, it works!
+
+## Inspiration
+
+I've drawn inspiration for this site from a few sources:
+- [nat.org](https://nat.org) for the homepage layout
+- [sfcompute.com](https://sfcompute.com) for the [original styling](https://web.archive.org/web/20240602191402/https://inthetrees.me/)
+
+This list is not exhaustive; I'll be adding to it as I recall more inspirations.
