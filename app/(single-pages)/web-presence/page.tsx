@@ -43,7 +43,7 @@ export default function WebPresence() {
                This is not a comprehensive list.
             </h2>
 
-            <section className="mt-5">
+            <section className="mt-9">
                {presence.map((presenceGroup) => (
                   <div key={presenceGroup.group} className="mt-3.5">
                      <h3>{presenceGroup.group}:</h3>
