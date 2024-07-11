@@ -8,7 +8,7 @@ export const metadata: Metadata = {
    description: "Links to various platforms I have accounts on.",
 };
 
-export default function WebPresence() {
+export default function WebPresencePage() {
    return (
       <div>
          <header className="z-40">
@@ -30,7 +30,7 @@ export default function WebPresence() {
             <div></div>
             <div></div>
          </div>
-         <main id="microblog">
+         <main>
             <h1
                className={`${lora.className} mb-3.5 text-[1.5em] font-normal-mid`}
             >
