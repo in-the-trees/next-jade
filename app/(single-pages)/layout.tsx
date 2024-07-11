@@ -8,7 +8,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                {children}
             </div>
             <aside className="sticky top-0 z-30 hidden w-1/3 self-start overflow-y-scroll md:block md:pt-[44px] lg:pt-[60px]">
-               <Jade className="max-h-screen overflow-auto px-4" />
+               <Jade className="max-h-screen overflow-auto px-4 opacity-70 transition ease-out hover:opacity-100" />
             </aside>
          </div>
       </div>
