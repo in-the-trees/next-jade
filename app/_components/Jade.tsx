@@ -88,10 +88,10 @@ const Jade: React.FC<JadeProps> = ({ className, home }) => {
 
          <section>
             <p className="mb-1.75 mt-3.5">Contact me:</p>
-            <dl className="mb-3.5 ml-4 mt-1.75">
+            <dl className="mb-3.5 ml-3.5 mt-1.75">
                <div className="ml-3.5 list-item">
                   <div className="ml-1">
-                     <dt className="mt-1.5">Signal</dt>
+                     <dt className="mt-1">Signal</dt>
                      <dd>
                         <a
                            className="text-forest-600 hover:underline dark:text-betty-300"
@@ -104,7 +104,7 @@ const Jade: React.FC<JadeProps> = ({ className, home }) => {
                </div>
                <div className="ml-3.5 list-item">
                   <div className="ml-1">
-                     <dt className="mt-1.5">Email</dt>
+                     <dt className="mt-1">Email</dt>
                      <dd>
                         <a
                            className="text-forest-600 hover:underline dark:text-betty-300"
@@ -117,7 +117,7 @@ const Jade: React.FC<JadeProps> = ({ className, home }) => {
                </div>
                <div className="ml-3.5 list-item">
                   <div className="ml-1">
-                     <dt className="mt-1.5">Matrix</dt>
+                     <dt className="mt-1">Matrix</dt>
                      <dd>
                         <a
                            className="text-forest-600 hover:underline dark:text-betty-300"
@@ -133,8 +133,8 @@ const Jade: React.FC<JadeProps> = ({ className, home }) => {
 
          <section>
             <p className="mb-1.75 mt-3.5">Pages:</p>
-            <ul className="mb-3.5 ml-3.5 mt-1.75 list-outside list-disc">
-               <li className="ml-4">
+            <ul className="mb-3.5 ml-3.5 mt-1.75 list-inside list-disc">
+               <li>
                   <Link
                      href="/web-presence"
                      className="ml-1 text-forest-600 hover:underline dark:text-betty-300"
@@ -142,7 +142,7 @@ const Jade: React.FC<JadeProps> = ({ className, home }) => {
                      /web-presence
                   </Link>
                </li>
-               <li className="ml-4">
+               <li>
                   <Link
                      href="/colophon"
                      className="ml-1 text-forest-600 hover:underline dark:text-betty-300"

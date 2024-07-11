@@ -47,7 +47,7 @@ export default function WebPresencePage() {
                {presence.map((presenceGroup) => (
                   <div key={presenceGroup.group} className="mt-3.5">
                      <h3>{presenceGroup.group}:</h3>
-                     <dl className="mb-3.5 ml-4 mt-1.75">
+                     <dl className="mb-3.5 ml-3.5 mt-1.75">
                         {presenceGroup.platforms.map((presence) => (
                            <div key={presence.name} className="ml-3.5 list-item">
                               <div className="ml-1">
