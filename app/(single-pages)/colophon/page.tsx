@@ -9,7 +9,7 @@ import Breadcrumb from "@/app/_components/breadcrumb";
 import { lora, commit_mono } from "@/app/_fonts/fonts";
 
 export const metadata: Metadata = {
-   title: "inthetrees.me colophon",
+   title: "Colophon",
    description:
       "Colophon for inthetrees.me describing how the site is made, with what tools, supporting what technologies, etc.",
 };
