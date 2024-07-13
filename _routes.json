@@ -4,7 +4,11 @@
       "/pwa-icns/192x192.png",
       "/pwa-icns/384x384.png",
       "/pwa-icns/512x512.png",
+
       "/ads.txt",
-      "/app-ads.txt"
+      "/app-ads.txt",
+
+      "/icon.png",
+      "/apple-icon.png"
    ]
 }
