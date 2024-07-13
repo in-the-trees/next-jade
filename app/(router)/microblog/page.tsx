@@ -7,7 +7,7 @@ import {
 } from "@/app/_components/icons";
 import Breadcrumb from "@/app/_components/breadcrumb";
 import MicroblogFeed from "@/app/_components/microblog/feed";
-import ProgressiveBlur from "../_components/ProgressiveBlur";
+import ProgressiveBlur from "@/app/_components/ProgressiveBlur";
 
 export default function MicroblogPage() {
    return (

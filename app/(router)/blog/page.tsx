@@ -5,7 +5,7 @@ import { lora } from "@/app/_fonts/fonts";
 import { commit_mono } from "@/app/_fonts/fonts";
 import { ChevronRightMedium8Icon } from "@/app/_components/icons";
 import Breadcrumb from "@/app/_components/breadcrumb";
-import ProgressiveBlur from "../_components/ProgressiveBlur";
+import ProgressiveBlur from "@/app/_components/ProgressiveBlur";
 
 export default async function Blog() {
    const posts = [] as PostMatter[];

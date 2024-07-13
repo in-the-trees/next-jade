@@ -1,7 +1,7 @@
 export const runtime = "edge";
 
 import type { Metadata, Viewport } from "next";
-import "./globals.css";
+import "@/app/_styles/globals.css";
 import { inter } from "@/app/_fonts/fonts";
 
 export const metadata: Metadata = {

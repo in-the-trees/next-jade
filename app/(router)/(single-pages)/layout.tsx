@@ -1,4 +1,4 @@
-import Jade from "../_components/Jade";
+import Jade from "@/app/_components/Jade";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
    return (

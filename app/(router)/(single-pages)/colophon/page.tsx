@@ -16,13 +16,7 @@ export const metadata: Metadata = {
 };
 
 async function getColophonContent() {
-   const filePath = path.join(
-      process.cwd(),
-      "app",
-      "(single-pages)",
-      "colophon",
-      "colophon.md",
-   );
+   const filePath = path.join(process.cwd(), "app", "_assets", "colophon.md");
    return fs.readFile(filePath, "utf8");
 }
 
