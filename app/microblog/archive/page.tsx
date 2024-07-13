@@ -8,6 +8,7 @@ import {
    RadiowavesLeftRightMedium16Icon,
 } from "@/app/_components/icons";
 import Breadcrumb from "@/app/_components/breadcrumb";
+import ProgressiveBlur from "@/app/_components/ProgressiveBlur";
 
 export const metadata: Metadata = {
    metadataBase: new URL("https://inthetrees.me"),
@@ -31,14 +32,7 @@ export default async function MBArchive() {
                />
             </div>
          </header>
-         <div className="gradient-blur">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-         </div>
+         <ProgressiveBlur />
          <main id="microblog">
             <h1
                className={`${lora.className} mb-3.5 text-[1.5em] font-normal-mid`}

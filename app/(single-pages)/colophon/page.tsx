@@ -7,6 +7,7 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import type { Metadata } from "next";
 import Breadcrumb from "@/app/_components/breadcrumb";
 import { lora, commit_mono } from "@/app/_fonts/fonts";
+import ProgressiveBlur from "@/app/_components/ProgressiveBlur";
 
 export const metadata: Metadata = {
    title: "Colophon",
@@ -41,14 +42,7 @@ export default async function ColophonPage() {
                />
             </div>
          </header>
-         <div className="gradient-blur">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-         </div>
+         <ProgressiveBlur />
          <main>
             <h1
                className={`${lora.className} mb-3.5 text-[1.5em] font-normal-mid`}

@@ -7,6 +7,7 @@ import {
 } from "@/app/_components/icons";
 import Breadcrumb from "@/app/_components/breadcrumb";
 import MicroblogFeed from "@/app/_components/microblog/feed";
+import ProgressiveBlur from "../_components/ProgressiveBlur";
 
 export default function MicroblogPage() {
    return (
@@ -22,14 +23,7 @@ export default function MicroblogPage() {
                />
             </div>
          </header>
-         <div className="gradient-blur">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-         </div>
+         <ProgressiveBlur />
          <main id="microblog">
             <h1
                className={`${lora.className} mb-3.5 text-[1.5em] font-normal-mid`}

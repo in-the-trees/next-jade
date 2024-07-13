@@ -3,6 +3,7 @@ import Jade from "@/app/_components/Jade";
 import Breadcrumb from "@/app/_components/breadcrumb";
 import { lora } from "@/app/_fonts/fonts";
 import { Metadata } from "next";
+import ProgressiveBlur from "./_components/ProgressiveBlur";
 
 export const metadata: Metadata = {
    title: "Page not found (404)",
@@ -26,14 +27,7 @@ export default function NotFound() {
                         />
                      </div>
                   </header>
-                  <div className="gradient-blur">
-                     <div></div>
-                     <div></div>
-                     <div></div>
-                     <div></div>
-                     <div></div>
-                     <div></div>
-                  </div>
+                  <ProgressiveBlur />
                   <main>
                      <h1
                         className={`${lora.className} mb-3.5 text-[1.5em] font-normal-mid`}

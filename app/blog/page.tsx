@@ -5,6 +5,7 @@ import { lora } from "@/app/_fonts/fonts";
 import { commit_mono } from "@/app/_fonts/fonts";
 import { ChevronRightMedium8Icon } from "@/app/_components/icons";
 import Breadcrumb from "@/app/_components/breadcrumb";
+import ProgressiveBlur from "../_components/ProgressiveBlur";
 
 export default async function Blog() {
    const posts = [] as PostMatter[];
@@ -23,14 +24,7 @@ export default async function Blog() {
                />
             </div>
          </header>
-         <div className="gradient-blur">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-         </div>
+         <ProgressiveBlur />
          <main id="blog">
             <h1
                className={`${lora.className} mb-3.5 text-[1.5em] font-normal-mid`}

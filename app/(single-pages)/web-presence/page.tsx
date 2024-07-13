@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Breadcrumb from "@/app/_components/breadcrumb";
 import { lora } from "@/app/_fonts/fonts";
 import { presence } from "./presence";
+import ProgressiveBlur from "@/app/_components/ProgressiveBlur";
 
 export const metadata: Metadata = {
    title: "Jade's web presence",
@@ -22,14 +23,7 @@ export default function WebPresencePage() {
                />
             </div>
          </header>
-         <div className="gradient-blur">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-         </div>
+         <ProgressiveBlur />
          <main>
             <h1
                className={`${lora.className} mb-3.5 text-[1.5em] font-normal-mid`}

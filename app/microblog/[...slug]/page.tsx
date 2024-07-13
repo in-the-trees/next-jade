@@ -7,6 +7,7 @@ import MicroblogPost from "@/app/_components/microblog/post";
 import ReplyArea from "@/app/_components/microblog/replyArea";
 import { GeneralPA } from "@/app/_components/microblog/pa-buttons/general";
 import { ReplyPA } from "@/app/_components/microblog/pa-buttons/reply";
+import ProgressiveBlur from "@/app/_components/ProgressiveBlur";
 
 type Props = {
    params: {
@@ -75,14 +76,7 @@ export default async function Post({ params }: { params: { slug: string[] } }) {
                }
             </div>
          </header>
-         <div className="gradient-blur">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-         </div>
+         <ProgressiveBlur />
          <main>
             <MicroblogPost post={post} dynamic_time={true} />
             <ReplyArea post={post} microdotblog={microdotblog} />
