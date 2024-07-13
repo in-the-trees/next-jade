@@ -131,7 +131,7 @@ const Jade: React.FC<JadeProps> = ({ className, home }) => {
 
          <section>
             <p className="mb-1.75 mt-3.5">Pages:</p>
-            <ul className="mb-3.5 ml-3.5 mt-1.75 list-inside list-disc">
+            <ul className="mb-3.5 mt-1.75">
                <li>
                   <Link
                      href="/web-presence"
