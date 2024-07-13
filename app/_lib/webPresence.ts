@@ -8,7 +8,7 @@ type PresenceGroup = {
    }[];
 };
 
-export const presence: PresenceGroup[] = [
+const presence: PresenceGroup[] = [
    {
       group: "Developer",
       platforms: [
@@ -55,3 +55,5 @@ export const presence: PresenceGroup[] = [
       ],
    },
 ];
+
+export default presence;

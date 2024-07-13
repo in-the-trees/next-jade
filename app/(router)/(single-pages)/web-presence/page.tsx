@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Breadcrumb from "@/app/_components/breadcrumb";
 import { lora } from "@/app/_fonts/fonts";
-import { presence } from "@/app/_lib/presence";
+import presence from "@/app/_lib/webPresence";
 import ProgressiveBlur from "@/app/_components/ProgressiveBlur";
 
 export const metadata: Metadata = {
