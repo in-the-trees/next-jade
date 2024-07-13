@@ -45,6 +45,26 @@ const presence: PresenceGroup[] = [
       ],
    },
    {
+      group: "Instant messaging",
+      platforms: [
+         {
+            name: "Signal",
+            username: "inthetrees.07",
+            url: "https://signal.me/#eu/U23Og9rvFD3KcSEVVoiiJCS6MmxRamzQWyVaaleTYCPzH272GeJMo5eQ-gstLIK2",
+         },
+         {
+            name: "Matrix",
+            username: "@inthetrees:matrix.org",
+            url: "https://matrix.to/#/@inthetrees:matrix.org",
+         },
+         {
+            name: "Discord",
+            username: "inthetrees.me",
+            url: "https://discord.com/users/1217558308798468106",
+         },
+      ],
+   },
+   {
       group: "Forums",
       platforms: [
          {
