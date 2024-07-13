@@ -87,8 +87,8 @@ const Jade: React.FC<JadeProps> = ({ className, home }) => {
          <section>
             <p className="mb-1.75 mt-3.5">Contact me:</p>
             <dl className="mb-3.5 ml-3.5 mt-1.75">
-               <div className="ml-3.5 list-item">
-                  <div className="ml-1">
+               <div className="ml-3.5 list-item list-outside">
+                  <div className="ml-0.5">
                      <dt className="mt-1">Signal</dt>
                      <dd>
                         <a
@@ -101,7 +101,7 @@ const Jade: React.FC<JadeProps> = ({ className, home }) => {
                   </div>
                </div>
                <div className="ml-3.5 list-item">
-                  <div className="ml-1">
+                  <div className="ml-0.5">
                      <dt className="mt-1">Email</dt>
                      <dd>
                         <a
@@ -114,7 +114,7 @@ const Jade: React.FC<JadeProps> = ({ className, home }) => {
                   </div>
                </div>
                <div className="ml-3.5 list-item">
-                  <div className="ml-1">
+                  <div className="ml-0.5">
                      <dt className="mt-1">Matrix</dt>
                      <dd>
                         <a
