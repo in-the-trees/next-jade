@@ -3,6 +3,7 @@ export const runtime = "edge";
 import type { Metadata, Viewport } from "next";
 import "@/app/_styles/globals.css";
 import { inter } from "@/app/_fonts/fonts";
+import PathTracker from "@/app/_components/PathTracker";
 
 export const metadata: Metadata = {
    metadataBase: new URL("https://inthetrees.me"),
@@ -30,7 +31,7 @@ export default function RootLayout({
          <body
             className={`${inter.className} mx-[calc(1.75rem-1rem)] mb-7 overflow-x-hidden overflow-y-visible bg-stone-100 text-sm text-forest-950 md:mx-7 md:mb-7 dark:bg-stone-900 dark:text-stone-50 dark:antialiased`}
          >
-            {children}
+            <PathTracker>{children}</PathTracker>
          </body>
       </html>
    );

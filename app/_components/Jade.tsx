@@ -1,13 +1,9 @@
-"use client";
-
 import { lora } from "@/app/_fonts/fonts";
 import Link from "next/link";
 import {
    EllipsisMessageMedium16Icon,
    DocTextMedium16Icon,
 } from "@/app/_components/icons";
-import { useEffect } from "react";
-import { usePathname } from "next/navigation";
 
 type JadeProps = {
    className?: string;
@@ -15,16 +11,6 @@ type JadeProps = {
 };
 
 const Jade: React.FC<JadeProps> = ({ className, home }) => {
-   const pathname = usePathname();
-   useEffect(() => {
-      const currentPath = sessionStorage.getItem("current-path");
-
-      if (currentPath && currentPath !== pathname) {
-         sessionStorage.setItem("previous-path", currentPath);
-      }
-      sessionStorage.setItem("current-path", pathname);
-   }, [pathname]);
-
    return (
       <div id="Jade" className={className}>
          {home ?
