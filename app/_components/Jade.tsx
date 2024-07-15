@@ -5,12 +5,7 @@ import {
    DocTextMedium16Icon,
 } from "@/app/_components/icons";
 
-type JadeProps = {
-   className?: string;
-   home?: boolean;
-};
-
-const Jade: React.FC<JadeProps> = ({ className, home }) => {
+const Jade = ({ className, home }: { className?: string; home?: boolean }) => {
    return (
       <div id="Jade" className={className}>
          {home ?
